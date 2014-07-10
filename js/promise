@@ -1,0 +1,6 @@
+Javascript use Promise to handle longtime operation asnychronously. You can start a long time operation, and then notify Promise at the end of the operation, whether it succeed or fail.
+
+To Java developer, promise is similar to Task in Eclipse or Future in Java. (http://wildermuth.com/2013/8/3/JavaScript_Promises)
+
+To register callback, you need  call then(successHandler, failureHandler)
+
