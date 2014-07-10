@@ -31,9 +31,6 @@ The project layout is forllowing a typical rails project structure:
 ├── log
 ├── public
 │   └── javascripts
-├── scmapi
-│   ├── src
-│   └── target
 ├── spec
 │   ├── atlas
 │   ├── controllers
@@ -57,3 +54,16 @@ The project layout is forllowing a typical rails project structure:
 ├── triggers
 └── vendor
     └── assets
+
+app: all javascripts. Controllers and views locate in different subfolers
+bin: scripts facilitate the development
+config: configuration for gems, in different mode: development, production and test. Also include locale file, en.yml
+db: database schema and migration scripts
+doc and doc_assets: internal documents
+lib: devise configuration
+log: loging files
+public: public assets. These are not under protection
+spec: all tests gg here, include both unit test and integration test. Rails tests (rspec) and javascript tests (jasmine), mockup test and e2e test
+triggers: server triggers, currently auth_trigger, lock_trigger, and submit_triggers
+vendor: 3rd party javascripts and css
+atlas: backend server.
