@@ -1,0 +1,59 @@
+The project layout is forllowing a typical rails project structure:
+
+├── app
+│   ├── assets
+│   ├── controllers
+│   ├── helpers
+│   ├── mailers
+│   ├── managers
+│   ├── models
+│   ├── presenters
+│   ├── services
+│   └── views
+├── atlas
+│   ├── api
+│   ├── bin
+│   ├── config
+│   ├── doc
+│   ├── modules
+│   └── script
+├── bin
+├── config
+│   ├── environments
+│   ├── initializers
+│   └── locales
+├── db
+│   └── migrate
+├── doc
+├── doc_assets
+├── lib
+│   └── assets
+├── log
+├── public
+│   └── javascripts
+├── scmapi
+│   ├── src
+│   └── target
+├── spec
+│   ├── atlas
+│   ├── controllers
+│   ├── factories
+│   ├── features
+│   ├── fixtures
+│   ├── javascripts
+│   ├── managers
+│   ├── models
+│   ├── multithread
+│   ├── presenters
+│   ├── services
+│   └── support
+├── tmp
+│   ├── cache
+│   ├── capybara
+│   ├── mail
+│   ├── pids
+│   ├── sessions
+│   └── sockets
+├── triggers
+└── vendor
+    └── assets
