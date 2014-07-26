@@ -1,7 +1,7 @@
 # Setup
 
 ## Local Host
-dnsmasq: or dnssimple, mainly to resolve url and route the requests to server. 
+**dnsmasq** or **dnssimple**, mainly to resolve url and route the requests to server. 
 For local use, you need to config /etc/host and the /usr/local/etc/dnsmasq.conf, so that all url to specific urls will route to the specific VM.
 For production use, you need register a domain, e.g, cloudything.net, so that all *.cloudything.net will route correctly.
 
