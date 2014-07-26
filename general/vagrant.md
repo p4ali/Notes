@@ -27,6 +27,7 @@ dig -t NS cloudything.net @ns2.dnsimple.com
 * create .vagrant.ci|development|production|staging folder if does not exist, and hard link to .vagrant
 * softlink config/environment.ci|development|production|staging.yml to config/environment.yml
 * `vagrant up`
+** a mysql db will start with _root_ no pass
 
 ### script/sanity-check
 * usage `script/sanity-check [ATLAS_HOST]  # default ip=192.168.33.10`
@@ -35,6 +36,48 @@ dig -t NS cloudything.net @ns2.dnsimple.com
 ** with user email from `$(git config --get user.email)`
 ** with user name of email account `${USEREMAIL%%@*}`
 ** with password `password`
+```
+$ mysql -uroot
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| atlas_development  |
+| atlas_test         |
+| mysql              |
+| performance_schema |
++--------------------+
+
+mysql> use atlas_development;
+mysql> show tables;
++-----------------------------+
+| Tables_in_atlas_development |
++-----------------------------+
+| depot_mappings              |
+| depots                      |
+| schema_migrations           |
+| triggers                    |
++-----------------------------+
+
+mysql> select * from depot_mappings
+| id | depot_id | mapping    | created_at       | updated_at          
+atlas-sanity:1666 local-atlas-sanity "rsh:p4d -iqr /var/lib/perforce/p4d/p4d-atlas-sanity" | 2014-07-26 15:47:54 | 2014-07-26 15:47:54
+
+mysql> select * from depots;
++----+--------------+--------------+---------------------+---------------------+
+| id | name         | organization | created_at          | updated_at          |
++----+--------------+--------------+---------------------+---------------------+
+|  1 | atlas-sanity | NULL         | 2014-07-26 15:47:54 | 2014-07-26 15:47:54 |
++----+--------------+--------------+---------------------+---------------------+
+
+mysql> select * from triggers;
+| id | depot_id | name     | command  | shell_script | created_at          | updated_at          |
+|  1 |        1 | sanity-auth-trigger.sh | Mytrigger change-commit //... "$SCRIPT$" | exit 0 | 2014-07-26 15:47:57 | 2014-07-26 15:47:57 |
+
+
+```
+
 * call POST to create a trigger
 * ** with auth trigger named `sanity-auth-trigger.sh`
 * call GET to show triggers
