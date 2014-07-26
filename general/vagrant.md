@@ -28,4 +28,16 @@ dig -t NS cloudything.net @ns2.dnsimple.com
 * softlink config/environment.ci|development|production|staging.yml to config/environment.yml
 * `vagrant up`
 
+### script/sanity-check
+* usage `script/sanity-check [ATLAS_HOST]  # default ip=192.168.33.10`
+* call POST endpoint to create a depot
+** with depot named `atlas-sanity`
+** with user email from `$(git config --get user.email)`
+** with user name of email account `${USEREMAIL%%@*}`
+** with password `password`
+* call POST to create a trigger
+* ** with auth trigger named `sanity-auth-trigger.sh`
+* call GET to show triggers
+* try to `resolveip depot`, and update the /etc/hosts if not setup correctly
+** ensure following entry in /etc/host: `192.168.33.10 atlas-sanity`
 
