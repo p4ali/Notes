@@ -42,9 +42,15 @@ dig -t NS cloudything.net @ns2.dnsimple.com
 ** ensure following entry in /etc/host: `192.168.33.10 atlas-sanity`
 * verify the above setup correctly by
 ``` bash
-p4 -Cutf8 -p"$DEPOT:1666" -u"$USERNAME" -P"$PASSWORD" info
-p4 -Cutf8 -p"$DEPOT:1666" -u"$USERNAME" -P"$PASSWORD" users
-p4 -Cutf8 -p"$DEPOT:1666" -u"$USERNAME" -P"$PASSWORD" protect -o
-p4 -Cutf8 -p"$DEPOT:1666" -u"$USERNAME" -P"$PASSWORD" triggers -o
+# p4 -Cutf8 -p"$DEPOT:1666" -u"$USERNAME" -P"$PASSWORD" info
+p4 -Cutf8 -patlas-sanity:1666 -uali -Ppassword info
+# p4 -Cutf8 -p"$DEPOT:1666" -u"$USERNAME" -P"$PASSWORD" users
+p4 -Cutf8 -patlas-sanity:1666 -uali -Ppassword users
+> ali <ali@atlas> (ali) accessed 2014/07/26
+> perforce <perforce@atlas> (perforce) accessed 2014/07/26
+# p4 -Cutf8 -p"$DEPOT:1666" -u"$USERNAME" -P"$PASSWORD" protect -o
+p4 -Cutf8 -patlas-sanity:1666 -uali -Ppassword protect -o
+# p4 -Cutf8 -p"$DEPOT:1666" -u"$USERNAME" -P"$PASSWORD" triggers -o
+p4 -Cutf8 -patlas-sanity:1666 -uali -Ppassword triggers -o
 ```
 
