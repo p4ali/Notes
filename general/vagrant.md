@@ -19,5 +19,13 @@ dig -t NS cloudything.net @ns2.dnsimple.com
 #### Terms
 * **TTL**: time to live within the cache of dns
 * **CNAME**: a Canonical name record, i.e., a record mapping alias to the canonical name
-* **A**: an A record mapping the left to an ip Address.
+* **A**: an A record mapping the left to an ip Address
+* **AAAA**: a record mapping the left to an ipv6 Address
+
+## Vagrant
+* verify the source are up-to-date to the git head with `git cherry @ origin/master | wc -l`
+* create .vagrant.ci|development|production|staging folder if does not exist, and hard link to .vagrant
+* softlink config/environment.ci|development|production|staging.yml to config/environment.yml
+* `vagrant up`
+
 
