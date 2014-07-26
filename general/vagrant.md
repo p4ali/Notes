@@ -40,4 +40,11 @@ dig -t NS cloudything.net @ns2.dnsimple.com
 * call GET to show triggers
 * try to `resolveip depot`, and update the /etc/hosts if not setup correctly
 ** ensure following entry in /etc/host: `192.168.33.10 atlas-sanity`
+* verify the above setup correctly by
+``` bash
+p4 -Cutf8 -p"$DEPOT:1666" -u"$USERNAME" -P"$PASSWORD" info
+p4 -Cutf8 -p"$DEPOT:1666" -u"$USERNAME" -P"$PASSWORD" users
+p4 -Cutf8 -p"$DEPOT:1666" -u"$USERNAME" -P"$PASSWORD" protect -o
+p4 -Cutf8 -p"$DEPOT:1666" -u"$USERNAME" -P"$PASSWORD" triggers -o
+```
 
