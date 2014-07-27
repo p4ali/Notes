@@ -102,3 +102,10 @@ p4 -Cutf8 -patlas-sanity:1666 -uali -Ppassword protect -o
 p4 -Cutf8 -patlas-sanity:1666 -uali -Ppassword triggers -o
 ```
 
+## API
+
+|http|url|description|
+|:--- |:------|:---|
+|POST|`/api/v1/depot`|Create a new depot |
+
+* 
