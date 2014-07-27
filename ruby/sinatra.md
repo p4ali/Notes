@@ -9,8 +9,10 @@ if static_language then
 else
   if java_script then
     nodejs
-  else
+  elsif ruby
     sinatra
+  else
+    ...
   end
 end
 ```
