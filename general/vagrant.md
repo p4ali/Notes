@@ -108,4 +108,14 @@ p4 -Cutf8 -patlas-sanity:1666 -uali -Ppassword triggers -o
 |:--- |:------|:---|
 |POST|`/api/v1/depot`|Create a new depot |
 
-* 
+### Create a new depot
+* create a depot and save
+* update hosts
+* update broker config file
+* sleep 1 seconds in order to allow broker reload it's config
+* create super user
+* update git-fusion virtual host with depot
+* config git-fusion
+* restart apache
+
+
