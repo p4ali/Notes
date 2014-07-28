@@ -40,7 +40,7 @@ The following are steps to create a depot:
 * create .vagrant.ci|development|production|staging folder if does not exist, and hard link to .vagrant
 * softlink config/environment.ci|development|production|staging.yml to config/environment.yml
 * `vagrant up`
-** a mysql db will start with _root_ no pass
+* a mysql db will start with _root_ no pass
 
 ### script/sanity-check
 * usage `script/sanity-check [ATLAS_HOST]  # default ip=192.168.33.10`
