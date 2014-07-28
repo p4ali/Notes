@@ -111,7 +111,7 @@ p4 -Cutf8 -patlas-sanity:1666 -uali -Ppassword triggers -o
 ### Create a new depot
 * create a depot and save depot mapping - save db
 * update hosts - run 'p4d -xi -r path_to_p4d -p depot.port'
-* update broker config file - i.e., depot:port local-depot "rsh:p4d -iqr "\rsh:p4d -iqr #{AppConfig.depot_path}/p4d-#{name}\"""
+* update broker config file - i.e., depot:port local-depot "rsh:p4d -iqr "\rsh:p4d -iqr #{AppConfig.depot_path}/p4d-#{name}\""
 * sleep 1 seconds in order to allow broker reload it's config
 * create super user
 * update git-fusion virtual host with depot
