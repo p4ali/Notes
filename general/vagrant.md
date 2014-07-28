@@ -31,8 +31,7 @@ running Perforce service. On the Perforce service VM (named pvm):
 altserver: local-atlas-sanity { target="rsh:p4d -iqr /var/lib/perforce/p4d/p4d-atlas-sanity"; } # atlas-sanity:1666
 ```
 * when customer issue a p4 command to pvm, say, `p4 -pmydepot.me.pvm:1666 commit`, the broker first call redirect, and 
-the redirector will based on the mydepot and me redirect the command to server of altserver of local-mydepot, which
-then invoke the `rsh:p4d -iqr /var/lib/perforce/p4d/p4d-mydepot` to run the `commit` command, and return the result
+the redirector will based on the **mydepot** and **me** redirect the command to server of altserver of **local-mydepot**, which then invoke the `rsh:p4d -iqr /var/lib/perforce/p4d/p4d-mydepot` to run the `commit` command, and return the result
 to customer.
 
 The following are steps to create a depot:
