@@ -22,7 +22,21 @@ dig -t NS cloudything.net @ns2.dnsimple.com
 * **A**: an A record mapping the left to an ip Address
 * **AAAA**: a record mapping the left to an ipv6 Address
 
-## Vagrant
+## Vagrant - remote host (or p4broker host)
+At production deployment, there will be one or more VMs running Raymond web service, and there will be one VM
+running Perforce service. On the Perforce service VM (named pvm):
+* there will be one p4broker running
+* the p4broker's config file will be updated each time a new depot is created by adding following entry
+```
+altserver: local-atlas-sanity { target="rsh:p4d -iqr /var/lib/perforce/p4d/p4d-atlas-sanity"; } # atlas-sanity:1666
+```
+* when customer issue a p4 command to pvm, say, `p4 -pmydepot.me.pvm:1666 commit`, the broker first call redirect, and 
+the redirector will based on the mydepot and me redirect the command to server of altserver of local-mydepot, which
+then invoke the `rsh:p4d -iqr /var/lib/perforce/p4d/p4d-mydepot` to run the `commit` command, and return the result
+to customer.
+
+The following are steps to create a depot:
+
 * verify the source are up-to-date to the git head with `git cherry @ origin/master | wc -l`
 * create .vagrant.ci|development|production|staging folder if does not exist, and hard link to .vagrant
 * softlink config/environment.ci|development|production|staging.yml to config/environment.yml
