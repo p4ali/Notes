@@ -95,6 +95,7 @@ mysql> select * from triggers;
 +----+----------+------------------------+------------------------------------------+--------------+---------------------+---------------------+
 
 # cat /etc/perforce/p4broker.conf
+# Each commands run 2 actions, action1: filter, action2: redirect. 
 target=localhost:6661;
 admin-email=admin@example.com;
 admin-phone=1234567890;
