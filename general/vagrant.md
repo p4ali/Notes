@@ -81,6 +81,30 @@ mysql> select * from triggers;
 |  1 |        1 | sanity-auth-trigger.sh | Mytrigger change-commit //... "$SCRIPT$" | exit 0       | 2014-07-26 15:47:57 | 2014-07-26 15:47:57 |
 +----+----------+------------------------+------------------------------------------+--------------+---------------------+---------------------+
 
+# cat /etc/perforce/p4broker.conf
+target=localhost:6661;
+admin-email=admin@example.com;
+admin-phone=1234567890;
+admin-name=admin;
+listen=1666;
+directory=/etc/perforce;
+logfile=/var/log/perforce/p4broker.log;
+
+# all commands go through the redirect
+# TODO: filter out some commands as *never* run, e.g. p4 depot, p4 obliterate, super commands
+
+command: *
+{
+  # What to do with matching commands (required)
+  action  = filter;
+
+  # How to go about it
+  execute = "/srv/atlas/bin/redirect";  # Required for action = filter
+}
+## BEGIN atlas config ##
+altserver: local-atlas-sanity { target="rsh:p4d -iqr /var/lib/perforce/p4d/p4d-atlas-sanity"; } # atlas-sanity:1666
+## END atlas config ##
+
 ```
 
 * call POST to create a trigger
