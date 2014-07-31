@@ -33,3 +33,9 @@ $ git status
 $ git add . # do this iff you want to change the submodule reference of the parent project
 $ git commit -m"Check in my change to project, and also update the reference to the most recent p4java"
 ```
+
+## Tig
+
+```
+$ tig staging/master # see the difference between master and stagging/master
+```
