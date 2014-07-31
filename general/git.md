@@ -1,4 +1,5 @@
 = Submodule
+
 Submodules allow foreign repositories to be embedded within a dedicated subdirectory of the source tree, 
 always pointed at a particular commit.
 It essentially allows you to attach an external repository inside another repository at a specific path.
