@@ -24,12 +24,12 @@ $ git submodule rm lib/p4java # remove submodule
 ### Do not forget to update submodule before you check in.
 
 ```
-$ git submodule update --init
+$ git submodule update --init # this will get the submodule commit by parent project.
 $ cd lib/p4java
-$ git pull
+$ git pull # this will pull the most recent submodule
 $ cd ../..
 ## Develop my code, and testing
 $ git status
-$ git add .
+$ git add . # do this iff you want to change the submodule reference of the parent project
 $ git commit -m"Check in my change to project, and also update the reference to the most recent p4java"
 ```
