@@ -17,7 +17,8 @@ angular.module('finance',[]).
 ```
 
 # $http
-The Promise interface contains *success* and *error* methods.
+The Promise interface contains *success* and *error* methods. The request type may also be 
+JSONP in addition to GET, HEAD, POST, DELETE, and PUT.
 
 ```javascript
 $http.get('api/user', {params: {id: '5'}})
@@ -27,4 +28,19 @@ $http.get('api/user', {params: {id: '5'}})
 .error(function(data, status, headers, config) {
 // Handle the error
 });
+
+$http({
+  method: string,
+  url: string,
+  params: object, # url parameters
+  data: string or object, # message data
+  headers: object,
+  transformRequest: function transform(data, headersGetter) or
+    an array of functions,
+  transformResponse: function transform(data, headersGetter) or
+    an array of functions,
+  cache: boolean or Cache object,
+  timout: number,
+  withCredentials: boolean
+})
 ```
