@@ -46,11 +46,11 @@ $http({
 ```
 
 # Directive
-Note, you must use camel-case to name the directive. And this way Angular will be able
-to handle different formats, e.g., directive-name, directive:name, data-directive-name,
-and x-directive-name.
+Note, you must use camel-case to name the directive, e.g, namespaceDirectiveName. And this 
+way Angular will be able to handle different formats, e.g., namespace-directive-name, 
+namespace-directive:name, data-namespace-directive-name, and x-namespace-directive-name.
 
-```
+```javascript
 var myModule = angular.module(...);
 myModule.directive('namespaceDirectiveName', function factory(injectables) {
   var directiveDefinitionObject = {
