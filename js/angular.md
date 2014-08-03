@@ -27,3 +27,29 @@ To use DI, there needs to be a place where all the things that should work toget
 In Angular, this is the purpse of the so called **'modules'**. When Angular starts, it will use
 the configuration of the module with the name defined by the **ng-app** directive, including the 
 configuration of all modules that this module depends on.
+
+Scope
+-----
+each $scope is an instance of the *Scope* class. THe *Scope* class has methos that control the scope's
+lifecycle, provide event-propagation facility, and support the template rendering process.
+
+Imperative and Declarative Approach
+------------------------------------
+* The imperative style of programming focuses on describing individual steps leading to a desired outcome.
+* The declarative approach focus on describing the desired result. The individual steps taken
+  to reach to the result are taken care of by a supporting framework. It's like saying "Dear
+  AngularJS, here is how I want my UI to look when the model ends up witn a certain state. Now
+  please go and figure out when and how to repaint the UI". 
+
+Declarative template view - the imperative controller logic
+------------------------------------------------------------
+Directives in AngularJS templates declaratively express the desired effect, so we are freed
+from providing step-by-step instructions on how to change individual properties of DOM elements.
+AngularJS heavily promotes declarative style pf programming for templates and imperative one
+for the JavaScript code (controllers and business logic).
+
+The recurring pattern: To manipulate UI,  we only need to touch a small part of a template
+and describe a desired outcome interms of the model's state. We don't need to keep any references
+to DOM elements in the JavaScript code and we are not obliged to manipulate the DOM elements
+explicitly. Instead we can simply focus on model mutations and let AngularJS dot he heavy lifting.
+All we need to do is to prvide some his in the form of directives.
