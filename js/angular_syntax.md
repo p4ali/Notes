@@ -78,3 +78,27 @@ myModule.directive('namespaceDirectiveName', function factory(injectables) {
   return directiveDefinitionObject;
 });
 ```
+**angular.element()** can be used to query DOM, it includes:
+* addClass()
+* bind()
+* find()
+* toggleClass()
+...
+
+some example of using angular.element():
+```javascript
+link: function(scope, element, attrs) {
+  var titleElement = angular.element(element.children().eq(0));
+  var bodyElement = angular.element(element.children().eq(1));
+  
+  titleElement.bind('click',toggle);
+  
+  function toggle() {
+    bodyElement.toggleClass('closed');
+  }
+}
+
+.closed {
+  display: none:
+}
+```
