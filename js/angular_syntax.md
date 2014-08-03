@@ -102,3 +102,20 @@ link: function(scope, element, attrs) {
   display: none:
 }
 ```
+
+## Controllers
+If you have nested directives that need to communicate with each other, then you 
+need a controller. You can declare a controller as part of a directive:
+
+```javascript
+controller: function controllerConstructor($scope, $element, $attrs, $transclude)
+```
+
+A *<menu>* item may need to know about the *<menu-item>* elements 
+inside it, so it can show and hide them appropriately. Or a *<tab-set>* knowing
+about its *<tab>* elements, or a *<grid-view>* knowing its *<grid-element>* elements.
+
+# $location
+The $location service is a wrapper around the *window.location* that is present
+in any browser.
+
