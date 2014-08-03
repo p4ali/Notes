@@ -33,6 +33,13 @@ Scope
 each $scope is an instance of the *Scope* class. THe *Scope* class has methos that control the scope's
 lifecycle, provide event-propagation facility, and support the template rendering process.
 
+AngularJS will create a new instanceof the *Scope* class whenever it encounters a scope-creating
+directive in the DOM tree. A newly-created scope will point to its parent scope using the **$parent**
+property.
+
+Scope form a parent-child, tree-like relationship rooted at teh **$rootScope** instance. As scopes'
+creationg is driven by the DOM tree, it is not surprising that scopes' tree will mimic the DOM structure.
+
 Imperative and Declarative Approach
 ------------------------------------
 * The imperative style of programming focuses on describing individual steps leading to a desired outcome.
