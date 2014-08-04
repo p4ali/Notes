@@ -17,6 +17,18 @@ Two distinct phases:
 
 ## Convenience Msthods
 
+| API method   | Description  |
+|--------------|:-------------|
+| config(configFn) | register work that needs to be done when the module is loading |
+| constant(name, object) | This happens first. You can declare all constants app-wide, and have them available at all configuration and instance methods |
+| controller(name, constructor) | setup a controller for use |
+| directive(name, directiveFactory) | to create a directive withing app|
+| filter(name, filterFactory) | to create AngularJS filters|
+| run(initializationFn) | To perform work that needs to happen once the injector is setup, right before your app is available to the user|
+| value(name, object) | allows values to be injected across the application|
+| service(name, serviceFactory) | Service incoke "new" on the constructor method passed to it and returns the result |
+| factory(name, factoryFn) | A factory is a function that is responsible for creating a certain value (or object) |
+| provider(name, providerFn) | tbd |
 
 
 # Controller #
