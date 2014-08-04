@@ -51,6 +51,18 @@ scheme for directives ), e.g, namespaceDirectiveName. And this way Angular will 
 to handle different formats, e.g., namespace-directive-name, namespace-directive:name, 
 data-namespace-directive-name, and x-namespace-directive-name.
 
+Angular's initilization process:
+* **Script loads** - Angular loads and looks for **ng-app** directive to find the 
+  application boundaries.
+* **Compile phase** - Angular walks the DOM to identify all the registered directives
+  in the template. For each directive, it then transforms the DOM based on the
+  directive's rules (template, replace, transclude, and so on), and calls the **compile**
+  function if it exists. The result is a compliled **template** function, which will
+  involve the **link** functions collected from all of the directives.
+* **Link phase** - To makd the view dynamic. Augular runs a **link** function for 
+  each directive. The **link** functions typlically creates listeners on hte DOM or
+  the model. These listeners keep the view and model in sync at all times.
+
 ```javascript
 var myModule = angular.module(...);
 myModule.directive('namespaceDirectiveName', function factory(injectables) {
