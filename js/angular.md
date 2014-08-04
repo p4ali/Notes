@@ -30,6 +30,7 @@ configuration of all modules that this module depends on.
 
 Scope
 -----
+Scopes are necessary to provide isolated namespaces and avoid variable name collision.
 each $scope is an instance of the *Scope* class. THe *Scope* class has methos that control the scope's
 lifecycle, provide event-propagation facility, and support the template rendering process.
 
@@ -39,6 +40,34 @@ property.
 
 Scope form a parent-child, tree-like relationship rooted at teh **$rootScope** instance. As scopes'
 creationg is driven by the DOM tree, it is not surprising that scopes' tree will mimic the DOM structure.
+
+### Scope lifecycle
+WHen one of the scopes is not longer needed, it can be destroyed. As a resutl, model and functionality
+exposed on this scope will be eligible for garbage collection. Related methods from **Scope** type:
+
+* **$new** - create a scope
+* **$destroy** - destroy a scope
+
+### Heriarchy of scopes and the eventing system
+Scope organized in a hierachy can be used as an event bus. An event can be dispatched starting
+from any scope and travel either upwards (**$emit**) or downwards (**$broadcast**)
+
+AngularJS core services and directives makd use of this event bus to signal important changes
+in the application's state. The **$scope.$on** method available on each scope instance
+can be invoked ot reigster a scope-event handler. e.g.
+
+```javascript
+$scope.$on('$locationChangeSuccess', function(event, newUrl, oldUrl){
+// react on the location change here
+// for example, update breadcrumbs based on the newUrl
+});
+
+```
+
+Similar to DOM events, we can call preventDefault() and stopPropagation() methods on event 
+object. The latter will prevent an event from bubbling up the scopes' hierarchy, and only
+availabel for events dispatched upwards in the hierarchy ($emit)
+
 
 Imperative and Declarative Approach
 ------------------------------------
