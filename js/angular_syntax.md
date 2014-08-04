@@ -1,3 +1,24 @@
+# Module
+Modules allow us to declaratively specify application's dependencies, and how the wiring
+and bootstrapping happends. Reason:
+* It's declarative - easier to write and understand
+* It's modular - it forces you to think about how to define your components and dependencies,
+  and make them explicit.
+* It allows easy testing.
+
+## Modules loading
+Two distinct phases:
+* The Config block - AngularJS hooks up and registers all the providers in this phase.
+  Only providers and constants can be injected intothe config blocks. Services that
+  may or may not have been initialized cannnot be injected.
+* The Run block - to kickstart your application, and start executing after the injector
+  is finished creating. Only instances and constants can be injected into the Run blocks.
+  The Run block is the closest you are going to find a main method in AngularJS.
+
+## Convenience Msthods
+
+
+
 # Controller #
 
 invoice.js defines a module invoice which has  a invoice controller, which depends on the 
