@@ -30,6 +30,16 @@ configuration of all modules that this module depends on.
 
 Scope
 -----
+Scope is a context that you use to make changes to your model observables. Or a container contains
+your model observables. Any changes made to your model observable will automatically propagate
+to all handlers (which will update the UI). You need manually call scope.$apply() to get your 
+bindings update when Angular does not know whether the code will make changes to model observables
+or not. For example, if you made changes to model observables inside of an key event handler etc.
+
+Javascript is turn based. Remember, Angular databinding is property-based, not method based. 
+So setter method will not trigger model update event. The model update event is only triggered at
+the end of current turn.
+
 Scopes are necessary to provide isolated namespaces and avoid variable name collision.
 each $scope is an instance of the *Scope* class. THe *Scope* class has methos that control the scope's
 lifecycle, provide event-propagation facility, and support the template rendering process.
