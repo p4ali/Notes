@@ -145,7 +145,7 @@ could be accessed as a property or computed as JavaScript function.
 $watch(watchFn, watchAction, deepWatch)
 
 
-// An alternative sitting in the mid-ground of deep watch and shallow watch.
+// An alternative, which is a sort-of mid-ground between deep watch and shallow watch.
 $watchCollection(watchFn, watchAction)
 
 //e.g. to deregister after finish
