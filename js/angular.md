@@ -38,7 +38,7 @@ AngularJS will create a new instanceof the *Scope* class whenever it encounters 
 directive in the DOM tree. A newly-created scope will point to its parent scope using the **$parent**
 property.
 
-Scope form a parent-child, tree-like relationship rooted at teh **$rootScope** instance. As scopes'
+Scope form a parent-child, tree-like relationship rooted at the **$rootScope** instance. As scopes'
 creationg is driven by the DOM tree, it is not surprising that scopes' tree will mimic the DOM structure.
 
 ### Scope lifecycle
@@ -68,6 +68,38 @@ Similar to DOM events, we can call preventDefault() and stopPropagation() method
 object. The latter will prevent an event from bubbling up the scopes' hierarchy, and only
 availabel for events dispatched upwards in the hierarchy ($emit)
 
+### Communicationg between Scopes with $on, $emit and $broadcast
+
+```javascript
+scope.$on('planetDestroyed', function(event, galaxy, planet){
+  // Custom event, so what planet was destroyed
+  scope.alertNearbyPlanets(galaxy, planet);
+});
+
+// communicate upwards
+scope.$emit('planetDestroyed', scope.myGalaxy, scope.myPlanet);
+
+// communicate downwards
+// parent scope
+scope.$broadcast('selfDestructSystem', targetSystem);
+
+// child scope
+scope.$on('selfDestructSyste', function(event, targetSystem){
+  if(scope.mySystem === targetSystem) {
+    scope.selfDestruct(); 
+  }
+});
+```
+
+### event object
+| Property of Event   | description |
+|---------------------|:-------------:|
+| event.targetScope | the scope which emited or broadcasted the event originally |
+| event.currentScope | the scope currently handling the event |
+| event.name | the name of the event |
+| event.stopPropagation() | A function which will prevent further event propagation (only available for $emitted event)|
+| event.preventDefault() | do nothing, but set defaultPrevented=true|
+| event.defaultPrevented | true if preventDefault() was called |
 
 Imperative and Declarative Approach
 ------------------------------------
