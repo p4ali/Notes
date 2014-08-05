@@ -133,6 +133,26 @@ Observing Model Changes with $watch
 You can watch individule object properties and computed results(functions), i.e., anything that
 could be accessed as a property or computed as JavaScript function.
 ```javascript
+// watchFn a string with Angular expression a a function that return the current value of 
+//         the model you want to watch. This expression must have no side effects.
+// watchAction the function or expression to be called when watchFn changes. And its 
+//        signature is function(newValue,oldValue,scope)
+// deepWatch if true, Angular will examine each property within the watched object for changes.
+//        You'd use this if you want ot watch individual elements in an array or properties
+//        in an object instead of just a simple value. It's optional. default false.
+// return a function that will de-register the listener when you no longer to receive change 
+//        notifications
+$watch(watchFn, watchAction, deepWatch)
+
+
+// An alternative sitting in the mid-ground of deep watch and shallow watch.
+$watchCollection(watchFn, watchAction)
+
+//e.g. to deregister after finish
+var dereg = $scope.$watch('comeModel.someProperty',callbackOnChange());
+...
+dereg();
+
 ```
 
 Imperative and Declarative Approach
