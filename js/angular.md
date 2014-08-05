@@ -128,6 +128,13 @@ scope.$on('selfDestructSyste', function(event, targetSystem){
 | event.preventDefault() | do nothing, but set defaultPrevented=true|
 | event.defaultPrevented | true if preventDefault() was called |
 
+Observing Model Changes with $watch
+------------------------------------
+You can watch individule object properties and computed results(functions), i.e., anything that
+could be accessed as a property or computed as JavaScript function.
+```javascript
+```
+
 Imperative and Declarative Approach
 ------------------------------------
 * The imperative style of programming focuses on describing individual steps leading to a desired outcome.
