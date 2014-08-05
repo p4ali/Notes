@@ -26,9 +26,9 @@ Two distinct phases:
 | filter(name, filterFactory) | to create AngularJS filters|
 | run(initializationFn) | To perform work that needs to happen once the injector is setup, right before your app is available to the user|
 | value(name, object) | allows values to be injected across the application|
-| service(name, serviceFactory) | Service incoke "new" on the constructor method passed to it and returns the result |
+| service(name, serviceFactory) | Service invoke "new" on the constructor method passed to it and returns the result |
 | factory(name, factoryFn) | A factory is a function that is responsible for creating a certain value (or object) |
-| provider(name, providerFn) | tbd |
+| provider(name, providerFn) | A combination of the Factory and the Service. Being able to configure before injection |
 
 
 # Controller #
