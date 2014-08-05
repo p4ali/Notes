@@ -15,7 +15,7 @@ Two distinct phases:
   is finished creating. Only instances and constants can be injected into the Run blocks.
   The Run block is the closest you are going to find a main method in AngularJS.
 
-## Convenience Msthods
+## Convenience Methods
 
 | API method   | Description  |
 |--------------|:-------------|
