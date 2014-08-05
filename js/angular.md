@@ -36,9 +36,21 @@ to all handlers (which will update the UI). You need manually call scope.$apply(
 bindings update when Angular does not know whether the code will make changes to model observables
 or not. For example, if you made changes to model observables inside of an key event handler etc.
 
-Javascript is turn based. Remember, Angular databinding is property-based, not method based. 
-So setter method will not trigger model update event. The model update event is only triggered at
-the end of current turn.
+### Javascript is turn based
+Remember, Angular databinding is property-based, not method based. So setter method will not 
+trigger model update event. The model update event is only triggered at the end of current turn.
+```javascript
+function Ctrl($scope) {
+  $scope.message = "Waiting 2000ms for update";
+    
+    setTimeout(function () {
+        $scope.$apply(function () {
+            //Following code must be called within apply(), since AngularJS unaware of the update to $scope.
+            $scope.message = "Timeout called!"; 
+        });
+    }, 2000);
+}
+```
 
 Scopes are necessary to provide isolated namespaces and avoid variable name collision.
 each $scope is an instance of the *Scope* class. THe *Scope* class has methos that control the scope's
