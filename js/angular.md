@@ -34,11 +34,16 @@ Scope is a context that you use to make changes to your model observables. Or a 
 your model observables. Any changes made to your model observable will automatically propagate
 to all handlers (which will update the UI). You need manually call scope.$apply() to get your 
 bindings update when Angular does not know whether the code will make changes to model observables
-or not. For example, if you made changes to model observables inside of an key event handler etc.
+or not. For example, if you made changes to model observables inside of an native key event 
+handler etc. Or any changes to scope from outside of AngularJS api.
+
+You may have other data in your application, but Angular only considers it part of the model when
+it can reach these properties through a scope.
 
 ### Javascript is turn based
 Remember, Angular databinding is property-based, not method based. So setter method will not 
-trigger model update event. The model update event is only triggered at the end of current turn.
+trigger model update event. The model update event is only triggered at the end of current turn
+invoked by AngularJS API. 
 ```javascript
 function Ctrl($scope) {
   $scope.message = "Waiting 2000ms for update";
