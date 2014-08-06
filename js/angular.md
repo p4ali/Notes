@@ -120,7 +120,7 @@ scope.$on('selfDestructSyste', function(event, targetSystem){
 
 ### event object
 | Property of Event   | description |
-|---------------------|:-------------:|
+|:---------------------|:-------------|
 | event.targetScope | the scope which emited or broadcasted the event originally |
 | event.currentScope | the scope currently handling the event |
 | event.name | the name of the event |
@@ -152,8 +152,8 @@ $watchCollection(watchFn, watchAction)
 var dereg = $scope.$watch('comeModel.someProperty',callbackOnChange());
 ...
 dereg();
-
 ```
+For detail about watch, see [scope $watch vs $watchColloection](http://www.bennadel.com/blog/2566-scope-watch-vs-watchcollection-in-angularjs.htm)
 
 Imperative and Declarative Approach
 ------------------------------------
