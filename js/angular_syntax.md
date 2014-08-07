@@ -161,6 +161,23 @@ link: function(scope, element, attrs) {
   display: none:
 }
 ```
+# **$route**
+
+- $routeProvider
+- service in module ngRoute
+
+$route is used for deep-linking URLs to controllers and views (HTML partials). It watches $location.url() and tries to map the path to an existing route definition.
+```javascript
+angular.module('ngRouteExample', ['ngRoute'])
+.config(function($routeProvider, $locationProvider) {
+  $routeProvider
+    .when('/Book/:bookId/ch/:chapterId', {
+      templateUrl: 'chapter.html',
+      controller: 'ChapterController'
+    });
+}
+```
+
 
 ## Controllers
 If you have nested directives that need to communicate with each other, then you 
