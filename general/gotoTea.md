@@ -9,7 +9,7 @@ You’ve got to balance attending these functions like Tea with everything else 
 
 I found this article on scordo.com-the italian life for everyone. I think it does a pretty good job at articulating why time together is time well spent, here’s a snippet:
 
-> Italians are generally viewed as a very social and outgoing.  Italian society puts great emphasis on communications and > personal relationships and its part of the reason why Italians have a reputation for conveying warmth and openness with > both native and non-natives alike. In turn, here are five advantages associated with having good social skills, gleamed > from our Italian American upbringing:
+> Italians are generally viewed as a very social and outgoing.  Italian society puts great emphasis on communications and personal relationships and its part of the reason why Italians have a reputation for conveying warmth and openness with both native and non-natives alike. In turn, here are five advantages associated with having good social skills, gleamed from our Italian American upbringing:
 
 ## More Relationships
 
