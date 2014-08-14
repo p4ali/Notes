@@ -48,7 +48,7 @@ $ tig staging/master # see the difference between master and stagging/master
 Rebase will replay local commits between upstreanm and branch to the newbase.
 
 The following steps will be executed during rebase:
-* switch to brand if specified
+* switch to branch if specified
   `git checkout <branch>`
 * all changes made by commits in the current branch but that are not in the upstream are 
   saved to a temporary area. This is the same sets of commits shown by
@@ -60,10 +60,5 @@ The following steps will be executed during rebase:
 
 ```
 git rebase [--onto <newbase>] [<upstream>] [<branch>]
-
-# when <branch> is specified, git rebase will perform an automatic switch 
-# to <branch> before doing anything else. Otherwise, it will remain on current branch
-git checkout <branch>
-
 
 ```
