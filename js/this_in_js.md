@@ -1,6 +1,6 @@
 ## **this**
 
-You can figure out what object *this* refers to by following a few simple rules:
+You can figure out what object **this** refers to by following a few simple rules:
 
 * By default, **this** refers to the global object.
 * When a function is called as a property on a parent object, **this** refers to the parent object inside that function.
