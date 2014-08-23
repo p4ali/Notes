@@ -32,3 +32,17 @@ div /* select elements div */
 [title$=bass] /* select elements with title attribute whose value end with bass */
 [title*=bass] /* select elements with title attribute whose value contains bass */
 ```
+#### ID and class selector
+```css
+p#conductor /* select the p element whose id equals conductor */
+#conductor /* select the element whose id equals to conductor, but since id is uinique amond all elements in a document, this is actually select the same p as above, iff there is a p with id conductor */
+.orchestra /* select elements whose class attribute equals to orchestra */
+
+#### Psuedo-classes
+Pseduo-classes are a way to target elements that have a particular characteristic, which may not necessarily the element's attribute and value pairs. YOu use a colon **(:)** to delimit the beginning of a pseudo-class selector.
+```css
+a:link {color:blue;} /* select any anchor elements who is hyperlinks and set color to blue */
+:link {color:blue;} /* select any link and set color to blue */
+:visited {color:gray;} /* select any hyperlinks that have been visited, and set color to gray */
+```
+
