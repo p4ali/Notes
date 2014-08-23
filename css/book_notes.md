@@ -14,7 +14,7 @@ div, .vcard /* A selector group with two selectors: select all divs and all elem
 ```
 
 ### Simple selectors
-* Type selector
-  ```css
-  div /* select elements div */
-  ```
+#### Type selector
+```css
+div /* select elements div */
+```
