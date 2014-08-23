@@ -95,3 +95,16 @@ p::after /* create a pseudo-element that is the last child of the selected eleme
 p::selection /* apply to the portion of a document that has been hilighted */
 ```
 
+### Combinator
+Simple selectors can be chained to create sequences that increase a selector's specificity and fildter the selector's subjects to a more precise set of elements. Combinators can be used to chain sequences of simple selectors together with a similar effect. Combinator combine sequences of selectors, and the subjects of the selectors on the righ-hand side of the combinator have a particular relationship to the subjects of the selectors on the left-hand side.
+
+#### Context
+Context is position and relationship within the DOM tree.
+
+#### Descendant combinator
+```css
+/* syntax */
+selector1 selector2 { style properties } /* selector2 selected elements must be descendants of selector1 */
+
+div span {background-color: DodgerBlue; } /* set background color of those spans who is descendant of div to DodgerBlue */
+```
