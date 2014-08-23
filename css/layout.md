@@ -8,6 +8,6 @@ The <p> elements create what are known as **block-level** boxes, whereas the str
 
 ## Rule for document flow
 How CSS boxes flow when they are rendered is by the following rule:
-> block-level boxes always flow one on tope of another, like bricks in a vertical stack. 
-> inline-level boxes flow one after the other horizontally, literally in the same horizontal line as any neighboring inline elements.
+> **block-level** boxes always flow one on tope of another, like bricks in a vertical stack. 
+> **inline-level** boxes flow one after the other horizontally, literally in the same horizontal line as any neighboring inline elements.
 > A user agent's build-in style sheet determines what elements create what kinds of CSS boxes.
