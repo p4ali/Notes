@@ -17,4 +17,5 @@ div, .vcard /* A selector group with two selectors: select all divs and all elem
 #### Type selector
 ```css
 div /* select elements div */
+* { border:1px solid #400080;} /* Universal type selector: (*)select any element and set border 1 pixel*/
 ```
