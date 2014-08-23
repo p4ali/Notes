@@ -16,9 +16,9 @@ Above will affect all Pusher::Client's constructor. It may not be ordered
 Above are executed in order
 
 ## Multiple Type TDD
-### BDD or feature test (e2e test, no mock)
-### UI TDD (Javascript with mock, mainly verify the UI behaves as designed, e.g., a modal dialog is popup, with right message when error happen)
-### NonUI TDD (Rspec with  mock, verify the right function is called at right time)
+* BDD or feature test (e2e test, no mock)
+* UI TDD (Javascript with mock, mainly verify the UI behaves as designed, e.g., a modal dialog is popup, with right message when error happen)
+* NonUI TDD (Rspec with  mock, verify the right function is called at right time)
 
 ## Design philosophy
 * Controller prepare the dependency
