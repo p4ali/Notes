@@ -89,8 +89,9 @@ Pseudo-elements select fictional elements that don't really exist in the markup.
 selector:pseudo-element { property: value; }
 
 p::first-letter {font-size: 1.5em; } /* emphasize set first letter include the number, and punctuation of the paragraph */
-p::first-line /* select the first line on the fly, when browser resize */
+q::first-line /* select the first line on the fly, when browser resize. Only meaningful in a block-container box */
 p::before /* create a pseudo-element that is the first child of the element matched. It is often used to add cosmetic content to an element by using the content property. This element is inline by default. */
 p::after /* create a pseudo-element that is the last child of the selected element */
+p::selection /* apply to the portion of a document that has been hilighted */
 ```
 
