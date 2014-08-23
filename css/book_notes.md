@@ -26,4 +26,9 @@ div /* select elements div */
 [foo=bar] /* select elements who has attribute named foo, and value equals bar */
 [foo~=bar] /* select elements who has attribute named foo, and value contains world bar, not abarrrrr */
 [foo|=bar] /* select elements whos foo attribute contains a hyphen-separated list of words and the first word is exactly bar, for example, bar-1, bar-2-3-4-5, this is used to match  lang="zh-cn", lang="zh-hk" */
+
+/* The following behaves just like regex */
+[title^=bass] /* select elements with title attribute whose value begins with bass */
+[title$=bass] /* select elements with title attribute whose value end with bass */
+[title*=bass] /* select elements with title attribute whose value contains bass */
 ```
