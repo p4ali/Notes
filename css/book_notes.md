@@ -47,6 +47,9 @@ Pseduo-classes are a way to target elements that have a particular characteristi
 
 ##### Hyperlinks
 ```css
+/* syntax */
+selector:pseudo-class { property: value; }
+
 a:link {color:blue;} /* select any anchor elements who is hyperlinks and set color to blue */
 :link {color:blue;} /* select any link and set color to blue */
 :visited {color:gray;} /* select any hyperlinks that have been visited, and set color to gray */
@@ -78,3 +81,16 @@ body > :last-child /* very last child of body element */
 :first-child /* match all elements that are 1st children of their parents */
 tr:last-child td:first-child /* match all the 1st table cell in the last roe of any tables */
 ```
+
+#### [Pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+Pseudo-elements select fictional elements that don't really exist in the markup. You can think of them as abstractions to target smaller parts of a larger element that would be impossible to syle in any other way.
+```css
+/* syntax */
+selector:pseudo-element { property: value; }
+
+p::first-letter {font-size: 1.5em; } /* emphasize set first letter include the number, and punctuation of the paragraph */
+p::first-line /* select the first line on the fly, when browser resize */
+p::before /* create a pseudo-element that is the first child of the element matched. It is often used to add cosmetic content to an element by using the content property. This element is inline by default. */
+p::after /* create a pseudo-element that is the last child of the selected element */
+```
+
