@@ -108,3 +108,14 @@ selector1 selector2 { style properties } /* selector2 selected elements must be 
 
 div span {background-color: DodgerBlue; } /* set background color of those spans who is descendant of div to DodgerBlue */
 ```
+#### Child combinator
+```css
+div > p {color: #777} /* select p who is the immediate child of the div, and set color to #777 */
+```
+
+#### Adjacent sibling combinator
+Selects the subject on its right if that element is the sibling immediately following the subject on its left.
+```css
+h1 + p /* select only the first paragraph */
+h1 ~ p /* select all of the paragraphs who are siblings of h1 */
+```
