@@ -22,6 +22,10 @@ The **display** property determines what kind of CSS box it will create.
 /* Here is the default CSS rules that web browse use to make <p> elements block-level and <strong> elements inline-level might look like: */
 p { display: block; }
 strong { display: inline; }
+li { display: list-item; }
+table { display: table; }
+row { display: table-row; }
+col { display: table-column; }
 ```
 
 ## Positioning schemes
