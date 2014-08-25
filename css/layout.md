@@ -6,6 +6,11 @@ that paragraph is displayed, or *flows into*. All of a paragraph's content, typi
 
 The <p> elements create what are known as **block-level** boxes, whereas the strings of text within them create **inline-level** boxes.
 
+### 3 Types of elements
+* Block-level elements start on a new line, e.g., <h1>, <p>, <ul>, <li>
+* Inline elements flow in between surrounding text, e.g., <img>, <b>, <i>
+* Containing elemnts is block-level elements those containing have children inside.
+
 ### Rule for document flow
 How CSS boxes flow when they are rendered is by the following rule:
 > **block-level** boxes always flow one on tope of another, like bricks in a vertical stack. 
@@ -22,7 +27,7 @@ The **display** property determines what kind of CSS box it will create.
 /* Syntax */
 {display: none;} /* turns off the display of an element. Which means document will not render the element and its desendants */
 
-{display: inline;} /* the element generate on or more inlie element boxes*/
+{display: inline;} /* the element generate one or more inlie element boxes*/
 {display: block;} /* the element generates a block element box */
 {display: list-item;} /* the element generates a block box for the content and a separate list-litem inline box. */
 {display: inline-block;} /* the element generate a block element box that will be flowed with surronding content as if it were a single inline box*/
@@ -56,10 +61,11 @@ col { display: table-column; }
 **position** and **float** also affect how CSS box is rendered.
 
 **position**:
-* static
-* relative
-* absolute
-* fixed
+* {position: static;} normal flow - every block-level element on a new line, sits on top of the next one
+* {position: relative;} relative positioning - position element by shifting it to rop, righ, botton or thers
+* {position: absolute;} absolute positioning - position element relate to container
+* fixed positioning - position the element relate to browser window
+* floating - floating elements allows you to take the element out of normal flow and position it to the far left or right of a containing box.
 
 **float**:
 * left
