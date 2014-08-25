@@ -8,9 +8,9 @@ The <p> elements create what are known as **block-level** boxes, whereas the str
 
 ### 3 Types of elements
 
-* Block-level elements start on a new line, e.g., h1, p, ul, li
-* Inline elements flow in between surrounding text, e.g., img, b, i
-* Containing elemnts is block-level elements those containing have children inside.
+* **block-level** elements start on a new line, e.g., h1, p, ul, li
+* **inline-level** elements flow in between surrounding text, e.g., img, b, i
+* **containing** elemnts is block-level elements those containing have children inside.
 
 ### Rule for document flow
 How CSS boxes flow when they are rendered is by the following rule:
