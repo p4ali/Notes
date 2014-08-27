@@ -26,7 +26,30 @@ by Gail L. Ginder
 
 **Giving effective feedback rquires the same attention to detail that you employ when soving a business or technical problem**
 
+### The Johari window
+Key idea:
+* Individuals can build trust with others by disclosing information about themselves
+* Individuals can learn about themselves with the help of feedback from others
+* Self-disclosure can enlarge the open area by reduce the unknow area by others
+* Feedback enlarge the open area by reduce teh unknown area by self
+
 ## Common mistakes
+* The feedback judges the individual, not the behavior (e.g., you are very abrasive in meetings)
+* The feed back is too vague. (e.g., lyou are a good leader)
+* The feedback is exaggerated with generalities. (e.g., you always show up late to my meetings)
+* The feedback analyzed motives. (e.g., you were inconsiderate by being late to our meeting.)
+* The feedback goes on too long. (e.g., blah, blah, blah...)
+* The feedback implies a threat. (e.g., Do you wanto succeed in this orgnization or not?)
+* The feedback is a question, not a statement. (e.g., do you think you could listen next time I give instruction?)
+* Bringing in your own experiences. (e.g., I used to have the same problem.)
+* Cushioning the feedback. (e.g., you are not going to like this...)
+* Delaying the feedback. (e.g., For years ago when we attended the trade slow in Las Vegas...)
+* The feedback is second hand. (e.g., John said he is unhappy with your work.)
+ * About second-hand feedback: 
+  * Is almost always edited and unclear
+  * Should be redirected to the person involved
+  * Encourages fear and distrust
+  * Allow people to avoid taking responsibility for direct communiation.
 
 ## How to give feedback
 ## Giving positive vx. "negative feedback"
