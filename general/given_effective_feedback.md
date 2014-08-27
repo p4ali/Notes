@@ -137,6 +137,7 @@ Key idea:
 * After you've given the feedback, reflect on how it went and if it did not go as planned, decide what you will do differently next time.
 * Recognize that you do not have to be "comfortable" to give feedback; it's your job.
 * Consider the impact of non-verbal behavior:
+
 | Percentage   | description |
 |:-------------|:------------:|
 | 7%  | Of the message is communicted by workds - the content |
