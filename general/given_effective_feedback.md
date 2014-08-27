@@ -8,15 +8,15 @@ by Gail L. Ginder
 
 ## Two kind of feedback
 1. Opinions, thoughts, suggestions about a work product
-** How you see the situation (You personal likes and dislikes)
-** A judgement formed about something, not necessarily based on fact or observation
-** Appropriate when developing a product or a new strategy
-** Given to enable product improvement
+ * How you see the situation (You personal likes and dislikes)
+ * A judgement formed about something, not necessarily based on fact or observation
+ * Appropriate when developing a product or a new strategy
+ * Given to enable product improvement
 2. Observations about behavior and the impact of the behavior
-** Focuses on behavior and impact of a specific behavior
-** Based on observations, not personal preferences
-** Is focused on improvement of an individual's behavior or performance
-** Given to enable another person's success
+ * Focuses on behavior and impact of a specific behavior
+ * Based on observations, not personal preferences
+ * Is focused on improvement of an individual's behavior or performance
+ * Given to enable another person's success
 
 ## What happens when effective feedback is given?
 * The other walks away unerstanding exactly what he or she did and the impact the behavior had on your or the organization
