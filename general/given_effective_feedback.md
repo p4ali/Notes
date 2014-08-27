@@ -77,7 +77,9 @@ Key idea:
 > Jan, I didn't understand your argument in hte meeting this morninig. You repeated one
 > point several times and were unable to answer my question. As a result, I am still skeptical
 > about moving forward with the project.
+
 -----------
+
 > Sam, I appreciate you keepingme up to date on a weekly basis about your project.
 > As a result, I've been able to pass on key information in a way that I haven't done before,
 > and we were able to read a key milestone ahead of schedule.
