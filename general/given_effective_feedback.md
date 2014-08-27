@@ -52,24 +52,25 @@ Key idea:
   * Allow people to avoid taking responsibility for direct communiation.
 
 ## How to give feedback (Situation-Bahavior-Impact SBI)
-1. Capture the situation: Where or when did the behavior occur?
+
+### Capture the situation: Where or when did the behavior occur?
  * Yesterday moring while we were inspecting the building...
  * Last week, during our regular staff meeting...
  * Today when you and I were talking in your office...
  * Last weekend at the staff party...
-2. Describe the behavior: What were the specific actions that were observed?
+### Describe the behavior: What were the specific actions that were observed?
  * What you can see
  * what you can hear
  * What the person did or did not do
  * Words and non-verbal behaviors
-3. Deliver the impact: what ere the consequence of the behavior?
+### Deliver the impact: what ere the consequence of the behavior?
    * Make a statement about the person's behavior
      * When you turned in the report two days early, I was abel to consider all of your recommendations. The result was a much better final report.
      * When you ended the conversation after only 5 minutes, I wondered if you were intereested in my opinion.
    * Or acknowledge the emotional effect the behavior had on you
      * When you asked my contribution to the meeting this morning, I felt appreciated
      * When you told me my concerns were overblown, I felt discounted.
-4. Examples
+### Examples
 
 > Jan, the logic of your argumentmin that meeting this morning was very persuasive. You 
 > have my complete attention and your presentaion moved me from skepticism to enthusiasm.
@@ -126,6 +127,22 @@ Key idea:
 > part of the culture here to join in and help after events. You missed the opportunity to 
 > show that you are a team player.
 
+### Your delivery technique
+* Remember your only reason for giving feedback is to help another person succeed.
+* Find a private setting and give you undivided attention.
+* Soften the opening. (e.g., "May I share an observation with your?")
+* When giving feedback to a direct report, be prepared ot offer suggestions and supprot for changing behavior
+* Recognize that prople process information differently
+* Your choice of words might be the least importand part of the feedback
+* After you've given the feedback, reflect on how it went and if it did not go as planned, decide what you will do differently next time.
+* Recognize that you do not have to be "comfortable" to give feedback; it's your job.
+* Consider the impact of non-verbal behavior:
+| Percentage   | description |
+|:-------------|:------------:|
+| 7%  | Of the message is communicted by workds - the content |
+| 38% | by voice tone |
+| 55% | by non-verbal's (posture, gestures, facial expressions, etc.)|
+| 93% | of the message is NOT content|
 
 ## Giving positive vx. "negative feedback"
 ## Demonstration and practice
