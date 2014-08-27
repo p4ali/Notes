@@ -139,7 +139,7 @@ Key idea:
 * Consider the impact of non-verbal behavior:
 
 | Percentage   | description |
-|:-------------|:------------:|
+|:-------------|:-------------|
 | 7%  | Of the message is communicted by workds - the content |
 | 38% | by voice tone |
 | 55% | by non-verbal's (posture, gestures, facial expressions, etc.)|
