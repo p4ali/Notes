@@ -52,7 +52,7 @@ Key idea:
   * Allow people to avoid taking responsibility for direct communiation.
 
 ## How to give feedback (Situation-Bahavior-Impact SBI)
-1. Capture the situation: Where or when did hte behavior occur?
+1. Capture the situation: Where or when did the behavior occur?
  * Yesterday moring while we were inspecting the building...
  * Last week, during our regular staff meeting...
  * Today when you and I were talking in your office...
@@ -69,6 +69,19 @@ Key idea:
    * Or acknowledge the emotional effect the behavior had on you
      * When you asked my contribution to the meeting this morning, I felt appreciated
      * When you told me my concerns were overblown, I felt discounted.
+4. Examples
+
+> Jan, the logic of your argumentmin that meeting this morning was very persuasive. You 
+> have my complete attention and your presentaion moved me from skepticism to enthusiasm.
+>
+> Jan, I didn't understand your argument in hte meeting this morninig. You repeated one
+> point several times and were unable to answer my question. As a result, I am still skeptical
+> about moving forward with the project.
+-----------
+> Sam, I appreciate you keepingme up to date on a weekly basis about your project.
+> As a result, I've been able to pass on key information in a way that I haven't done before,
+> and we were able to read a key milestone ahead of schedule.
+
 
 ## Giving positive vx. "negative feedback"
 ## Demonstration and practice
