@@ -83,6 +83,48 @@ Key idea:
 > Sam, I appreciate you keepingme up to date on a weekly basis about your project.
 > As a result, I've been able to pass on key information in a way that I haven't done before,
 > and we were able to read a key milestone ahead of schedule.
+>
+> Sam, you have't kept me informat about your progress on the project. As a result,
+> we missed a key milestone and I'm beginning to wonder about your ability to manage the project.
+
+----------
+
+> Tamara, I've noticed that you've made helpfult comments during the last three staff meetings.
+> You contributions, especially about what our competition is doing in the area, helped us 
+> reach better decisions and have also reflected well in our department.
+>
+> Tamara, I've noticed that you've been quiet during the last three staff meetings. We've
+> missted the benefit of your thinking and your ability to provide us with information about
+> what our competition is doing.
+
+----------
+
+> Rod, the plan you submitted this morning looks good. It's thorough and the contingency plans
+> your described will help the entire team fell comfortable moving forward with our approach.
+>
+> Rod, I've read the plan your submitted this morning. While it's thorough in many ways, it
+> does not contain the contigency planning we discussed. As a result, I am skeptical about 
+> moving forward.
+
+---------------
+
+> Erin, I appreciate your willingness to seek input from my team gefore developing the marketing 
+> plan. As a result, we are curious and involded early on. You've laid the goundwork for strong
+> successfule collaboration on this project.
+>
+> Erin, I noticed that you have begun work on the marketing plan without consulting my team. As
+> a result, we are feeling a bit out of the loop on this and it's unlikely we'll be able to 
+> contribute in a meaningful way later on.
+
+-----------------
+
+> Tom, I noticed you were one of only a few people to stay after the holiday party and clean up 
+> the mess. Your willingness to help is appreciated and is one more (small but important) way 
+> that shows your are a team player.
+>
+> Tome, I noticed you left the holiday event as soon as we started cleaing up the mess. It's
+> part of the culture here to join in and help after events. You missed the opportunity to 
+> show that you are a team player.
 
 
 ## Giving positive vx. "negative feedback"
