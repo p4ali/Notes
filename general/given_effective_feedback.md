@@ -51,7 +51,18 @@ Key idea:
   * Encourages fear and distrust
   * Allow people to avoid taking responsibility for direct communiation.
 
-## How to give feedback
+## How to give feedback (Situation-Bahavior-Impact SBI)
+1. Capture the situation: Where or when did hte behavior occur?
+ * Yesterday moring while we were inspecting the building...
+ * Last week, during our regular staff meeting...
+ * Today when you and I were talking in your office...
+ * Last weekend at the staff party...
+2. Describe the behavior: What were the specific actions that were observed?
+ * What you can see
+ * what you can hear
+ * What the person did or did not do
+ * Words and non-verbal behaviors
+
 ## Giving positive vx. "negative feedback"
 ## Demonstration and practice
 ## How to give feedback to your boss
