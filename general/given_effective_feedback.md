@@ -64,11 +64,11 @@ Key idea:
  * Words and non-verbal behaviors
 3. Deliver the impact: what ere the consequence of the behavior?
  * Make a statement about the person's behavior
-  * When you turned in the report two days early, I was abel to consider all of your recommendations. The result was a much better final report.
-  * When you ended the conversation after only 5 minutes, I wondered if you were intereested in my opinion.
+   * When you turned in the report two days early, I was abel to consider all of your recommendations. The result was a much better final report.
+   * When you ended the conversation after only 5 minutes, I wondered if you were intereested in my opinion.
  * Or acknowledge the emotional effect the behavior had on you
-  * When you asked my contribution to the meeting this morning, I felt appreciated
-  * When you told me my concerns were overblown, I felt discounted.
+   * When you asked my contribution to the meeting this morning, I felt appreciated
+   * When you told me my concerns were overblown, I felt discounted.
 
 ## Giving positive vx. "negative feedback"
 ## Demonstration and practice
