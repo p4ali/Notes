@@ -5,6 +5,11 @@ Working directory => staging/index area => git repo (local) => git repo (remote)
 When commit to git repo local, all contents are still local. 
 When push to remote, you make your commits public.
 
+| Command         |      desccription    |
+|-----------------|:--------------------:|
+| git add .       | Add current workdirectory to the Object store (repo) and create a index for that (git reset)  |
+| git reset --    | (the oposite of git add) reset the index entries for all path to their state at tree-ish.
+
 # Submodule
 
 Submodules allow foreign repositories to be embedded (or linked, see gitlink) within a dedicated subdirectory 
