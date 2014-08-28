@@ -146,7 +146,33 @@ Key idea:
 | 93% | of the message is NOT content|
 
 ## Giving positive vx. "negative feedback"
+* Catch people doing things right. Positive feedback is the most powerful tool you have in shaping behavior.
+* "You're doing a great job" feels good but means nothing. Be specific with your positive and constructive feedback.
+* Strike a balance between positive feedback (specific comments on a job well done) and feedback about problematic behavior that needs to be addressed. Ideally feedback is 4:1 positive to negative, over time.
+* Leverage strenghts. Give people credit for everything they do right. It is through her strengths that he or she will be able to address shortcomings.
+* Avoid the "praise sandwich." Offer positive and constructive feedback separately.
+* Consider the experience and competence level of the person receiving the feedback. Research has shown that when people are experts on a subject, they are more eager to hear negative feedback, while novices are more eager to seek encouragement or positive comments.
+* Remember the purpose of feedback. It's not to make others feel better - it's to help them do better. Often the best way to do that is to reinforce positive successful behaviors with specific examples.
+* 
 ## Demonstration and practice
 ## How to give feedback to your boss
+### What o consider
+* THe cost-benefit of giving feedback to your boss
+* THe difference between what you really need from your boss to perform well in your job and what would be "nice" to have
+* The timing and how sharing it will affect your manager
+
+### How to do it
+* privately!
+* Write it down
+* ask for permission
+* approach this as an opportunity to improve the situation. (This is not a free pas to unload on your boss)
+* Use SBI rigorously. Offer examples or details.
+* Address one issue at a time (no gunny-sacking)
+* speak only for yourself
+* Keep it between you and your boss. No one else needs to know
+* when your boss asks you for feedback, ge clear on exactly what he or she is asking. Schedule a time to talk. (just because your boss asked for it doesn't mean you should skimp on hte preparation.)
+* Keep it classy, professional, and kind.
+* remember that this takes careful propartion, thought, and empathy.
+
 ## How and when to ask for feedback
 ## Learing feedforward
