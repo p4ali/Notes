@@ -175,4 +175,65 @@ Key idea:
 * remember that this takes careful propartion, thought, and empathy.
 
 ## How and when to ask for feedback
+### Who to ask
+* A person you respect
+* Someone with credibility and integrity
+* Someone with a different work style
+* Someone you trust
+* Somone with whom you must itneract in order for you both to be successful
+* Someone who has had the opportunity to observe you in action
+
+### When to ask for it
+After you've identified a developemental goal (through reflection, other feedback, a 360 survey, and another assessment).
+
+### How to asd for it
+* Be specific about the behavior(s) on which you want feedback
+* State your goal and ask another person for his or her observations.
+* If appropriate, use the SBI model (e.g., "I am working on speaking up more frequently in staff meetings. Could you give me some feedback about the impact of my comments on the group?")
+
+### What to do with it
+* Be curious!
+* Consider accuracy (e.g. On what is the feeback based?)
+* Consider importance (Is it helpful? Relavant? Do you want ot know more?)
+* Decide what you will do with it (Anything. Not all feedback should be acted upon. Even if you don't like it, some feedback cannot be ignored.)
+* Do not make exeuses or try to explain. Simply listen.
+* Thanks the person for his or her feedback.
+
 ## Learing feedforward
+Try feedforward instead of feedback - by Marshall Goldsmith
+* Pick one behavior that you would like to change - something that will make a significant change in your situation, how you work, or how you feel
+* Descirbe this behavior to selected fellow participants. Thsi is done in one-on-one dialogues. It can be done quite simply, such as, "I want to be a better listener"
+* Ask for feedforward - for two suggestions for the future that might help you achive a positive change in your selected behavior. Participants are not allowed to give feedback about the past - only ideas for the future.
+* Listen attentively ot the suggestions and take notes. Do not comment on the suggestions even to make positive judgemental statements, such as, "That's a good idea."
+* Thank the other paticipants for their suggestions.
+* Ask the other person what he or she would like to change
+* Provide feedforward - tow suggestions aimed at helping the other person change
+* Sy, "You are welcome" when thanked for the suggestions. The entire process of both giving and receiving feedforward usually takes about two minutes.
+* Find another participant and keep repeating the proess until the activity is stopped.
+
+### Six reasons to try feedforward by marshall goldsmith
+1. We can change the future. We can't change the past.
+  * feed forward helps people envision and focus on a positive future, not a failed past. By giving people ideas on how they can be even more successful, we can increase their chances of achiveing this success in the future.
+2. It can be more productive to help people be "right" than prove they were "wrong"
+  * Even constructively delivered feedback is often seem as negative as it necessarily involves as discussion of mistakes, shorfalls, and problems. Feedforwad, on the other hand, is almost always seen as positive because it focuses on solutions - not problems.
+3. Feedforward is especially suited to successful people
+  * Successfule people like getting ideas that are aimed at helping them achive their goals. We all tend to accept feedback that is consistent with the way we see ourselves.
+4. Feedforwad can come from anyone who knows about the task. If does not require personal experience with the individual
+  * One very common positive reaction to feedforward is that participants are amazed by how much they can learn. For example, if you want to be a better listener, almost any fellow leader can give you ideas on how you can improve. Feedforward just requires having good ideas for achieveing the task.
+5. People do not take feedorward as personally as feedback
+  * If not delivered well, feedback can be taken personally. Succcessful people's sense of identity is highly connected with their work.
+  * Feedfoward acnnot involve a personal critique, since it is disucssing something that has not yet happened.
+6. Feedforward can cover almost all of the same "material" as feedback
+  * Imagine that you have just made a terribel presentation in front of the exceutive committee. Your manager is in the romm. Rather than make your "relive" this experience, your manager might help you prepare for future presentations by giving you suggestions for the future. These suggestions can be very specific and still develered in a positive helpful way.
+
+## Ten key points for giving effective feedback
+* The purpose of giving feedback is to enable success (for you, the other person, and the orginization)
+* Giving effective feedback requires the same amount of focus and energy that you use when solving any organizational, business, or technical problem.
+* 80% of feedback should be positive
+* The amoutn of feedback you get is reduced as you move to higher positions in the company
+* When giving feedback, be specific and focus onthe behavior (SBI: Situation, Behavior, Impact)
+* Most of your message is conveyed by voice tone and other non-verbal behaviors.
+* If you're not getting the feedback you want or need, ASK for it.
+* Impact trumps intent
+* Be proactive and use "feed-forward". It's always easier to change the future that the past.
+* Don't expect gratitude when you give feedback. Remember...it's your job.
