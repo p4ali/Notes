@@ -1,4 +1,4 @@
-by Gail L. Ginder
+by Gail L. Ginder from Claros Group
 
 ## Goal
 * give effective feedback to your boss, peers, and subordinates without blame or judgement
