@@ -237,3 +237,11 @@ Try feedforward instead of feedback - by Marshall Goldsmith
 * Impact trumps intent
 * Be proactive and use "feed-forward". It's always easier to change the future that the past.
 * Don't expect gratitude when you give feedback. Remember...it's your job.
+
+## Example of Feedback-forward
+### How to speak more effectively in a group meeting?
+* Prepare, rehearsal, treat it as same way as presentation rehearsal.
+* Give yourself a time frame, e.g., I must say something by 10:15
+* Do your homework regarding the meeting topic. And anticipate some questions and try to answer them prior to the meeting.
+* Speadk slower and louder, especially if you are note a native English speaker
+* Try to extend your vocabulary, learn and use new words.
