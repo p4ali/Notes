@@ -10,7 +10,7 @@ The &lt;p&gt; elements create what are known as **block-level** boxes, whereas t
 
 * **block-level** elements start on a new line, e.g., h1, p, ul, li
 * **inline-level** elements flow in between surrounding text, e.g., img, b, i
-* **containing** elemnts is block-level elements those containing have children inside.
+* **containing** elemnts are block-level elements those containing have children inside.
 
 ### Rule for document flow
 How CSS boxes flow when they are rendered is by the following rule:
