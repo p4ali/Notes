@@ -28,7 +28,7 @@ The **display** property determines what kind of CSS box it will create.
 /* Syntax */
 {display: none;} /* turns off the display of an element. Which means document will not render the element and its desendants */
 
-{display: inline;} /* the element generate one or more inlie element boxes*/
+{display: inline;} /* the element generate one or more inline element boxes*/
 {display: block;} /* the element generates a block element box */
 {display: list-item;} /* the element generates a block box for the content and a separate list-litem inline box. */
 {display: inline-block;} /* the element generate a block element box that will be flowed with surronding content as if it were a single inline box*/
