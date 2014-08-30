@@ -1,10 +1,10 @@
 ## CSS Box
 When any element is rendered, it occupies a rectangular region of visual space. The rectangular are referred to as **CSS boxes**.
 
-For instance, every visible <p> element on a page creates an individula rectangle on the screen inside which the content of 
+For instance, every visible &lt;p&gt; element on a page creates an individula rectangle on the screen inside which the content of 
 that paragraph is displayed, or *flows into*. All of a paragraph's content, typically text, also render as CSS boxes.
 
-The <p> elements create what are known as **block-level** boxes, whereas the strings of text within them create **inline-level** boxes.
+The &lt;p&gt; elements create what are known as **block-level** boxes, whereas the strings of text within them create **inline-level** boxes.
 
 ### 3 Types of elements
 
