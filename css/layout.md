@@ -10,7 +10,7 @@ The &lt;p&gt; elements create what are known as **block-level** boxes, whereas t
 
 * **block-level** elements start on a new line, e.g., h1, p, ul, li
 * **inline-level** elements flow in between surrounding text, e.g., img, b, i
-* **containing** elemnts are block-level elements those containing have children inside.
+* **containing or parent** elemnts are block-level elements who have block-level children inside.
 
 ### Rule for document flow
 How CSS boxes flow when they are rendered is by the following rule:
@@ -59,7 +59,16 @@ col { display: table-column; }
 ```
 
 ## Positioning schemes
-**position** and **float** also affect how CSS box is rendered.
+* **normal flow**: every block-level element appares on a new line.
+* **relative positioning**: moves an element to top, right, bottom, or left from hwere it have been placed
+* **absolute positioning**: position the element in relation to its containing element.
+* **float** element using *float* property
+* To indicate where a box should be positioned, use **box set** properties to tell browser hwo far from teh top or bottom and left or right it should be placed.
+  * **Fixed positioning**: a form of absolute positioning that positions the element relative to the browser window 
+  * **floating elements**: position the element to the left or fight of a containeing box. The floated element becomes a block-level element around which other content can flow.
+  * When you move any element from normal flow, boxed can overlap. Use **z-index** property to control which box appreas on top.
+
+box offset properties such as **position** and **float** also affect how CSS box is rendered.
 
 **position**:
 * {position: static;} normal flow - every block-level element on a new line, sits on top of the next one
