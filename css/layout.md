@@ -58,10 +58,10 @@ row { display: table-row; }
 col { display: table-column; }
 ```
 
-## [Positioning schemes](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
+## Positioning schemes
 * **normal flow (position:static)**: every block-level element appares on a new line.
 * **relative positioning (position:relative)**: moves an element to top, right, bottom, or left from where it has been placed with normal flow
-* **absolute positioning (position:absolute)**: position the element in relation to the nearest positioned containing element.
+* **absolute positioning (position:absolute)**: position the element in relation to the [nearest positioned containing element](https://developer.mozilla.org/en-US/docs/Web/CSS/position).
 * **float** element using *float* property
 * To indicate where a box should be positioned, use **box set** properties to tell browser hwo far from teh top or bottom and left or right it should be placed.
   * **Fixed positioning**: a form of absolute positioning that positions the element relative to the browser window 
