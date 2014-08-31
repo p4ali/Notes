@@ -59,24 +59,13 @@ col { display: table-column; }
 ```
 
 ## Positioning schemes
-* **normal flow (position:static)**: every block-level element appares on a new line.
-* **relative positioning (position:relative)**: moves an element to top, right, bottom, or left from where it has been placed with normal flow
-* **absolute positioning (position:absolute)**: position the element in relation to the [nearest relative positioned containing element](https://developer.mozilla.org/en-US/docs/Web/CSS/position). The box is taken out of normal flow and no longer affects the position of other elements on the page (the act like it is not there).
-* **float** element using *float* property
-* To indicate where a box should be positioned, use **box set** properties to tell browser hwo far from teh top or bottom and left or right it should be placed.
-  * **Fixed positioning**: a form of absolute positioning that positions the element relative to the browser window 
-  * **floating elements**: position the element to the left or fight of a containeing box. The floated element becomes a block-level element around which other content can flow.
-  * When you move any element from normal flow, boxed can overlap. Use **z-index** property to control which box appreas on top.
-
-box offset properties such as **position** and **float** also affect how CSS box is rendered.
-
-**position**:
-* {position: static;} normal flow - every block-level element on a new line, sits on top of the next one
-* {position: relative;} relative positioning - position element by shifting it to rop, righ, botton or thers
-* {position: absolute;} absolute positioning - position element relate to container
-* {position: fixed;} fixed positioning - a type of absolute positioning. It positions the element relate to browser window
-* {float: left|right;} floating - floating elements allows you to take the element in normal flow and place it to the far left or right of a containing box.
-* {clear: left|right|both|none;} clear - no element (within the containing element) should touch the left or right hand sides of a box.
+* **{position: static;} normal flow** - every block-level element on a new line, sits on top of the next one
+* **{position: relative;} relative positioning** - position element by shifting it to rop, righ, botton or thers
+* **{position: absolute;} absolute positioning** - position element relate to container
+* **{position: fixed;} fixed positioning** - a type of absolute positioning. It positions the element relate to browser window
+* **{float: left|right;} floating** - floating elements allows you to take the element in normal flow and place it to the far left or right of a containing box.
+* **{clear: left|right|both|none;} clear** - no element (within the containing element) should touch the left or right hand sides of a box.
+* **{z-index:10;} z-index** - When you move any element from normal flow, boxed can overlap. Use **z-index** property to control which box appreas on top.
 
 **float**:
 * left
