@@ -68,9 +68,31 @@ col { display: table-column; }
 * **{z-index:10;} z-index** - When you move any element from normal flow, boxed can overlap. Use **z-index** property to control which box appreas on top.
 * **{overflow: auto; width: 100%;}** - to make parents of floated elements auto-resize to contain the children.
 
-```css
+## Multiple style sheets
+### Goal
+* Mudular: separate stylesheets to control typography, layout, forms, tables, even different styles for each sub-section of a site.
+* Separate concerns: use different css to control layout and fonts, colors and so on
 
+### 2 ways to add mulitple style sheets to a page
+* Your HTML page can like to one css, and that css can use the **@import** rule to import other css.
+* In the HTML page, you use a separate &lt;link&gt; element for each css.
+
+```css
+@import url("tables.css");
+@import url("typography.css")
+
+body{
+  color: #666666;
+  ...
 ```
 
-
+```html
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/site.css" />
+    <link rel="stylesheet" type="text/css" href="css/table.css" />
+  </head>
+  ...
+</html>
+```
 [CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
