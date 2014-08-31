@@ -66,6 +66,7 @@ col { display: table-column; }
 * **{float: left|right;} floating** - floating elements allows you to take the element in normal flow and place it to the far left or right of a containing box.
 * **{clear: left|right|both|none;} clear** - no element (within the containing element) should touch the left or right hand sides of a box.
 * **{z-index:10;} z-index** - When you move any element from normal flow, boxed can overlap. Use **z-index** property to control which box appreas on top.
+* **{overflow: auto; width: 100%;}** - to make parents of floated elements auto-resize to contain the children.
 
 ```css
 
