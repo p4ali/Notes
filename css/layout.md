@@ -67,10 +67,6 @@ col { display: table-column; }
 * **{clear: left|right|both|none;} clear** - no element (within the containing element) should touch the left or right hand sides of a box.
 * **{z-index:10;} z-index** - When you move any element from normal flow, boxed can overlap. Use **z-index** property to control which box appreas on top.
 
-**float**:
-* left
-* right
-
 ```css
 
 ```
