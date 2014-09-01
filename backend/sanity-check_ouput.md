@@ -1,4 +1,4 @@
-<pre>
+```
 ±  |master ✗| → script/sanity-check 
 + '[' -z '' ']'
 + ATLAS_IP=192.168.33.10
@@ -181,4 +181,4 @@ Triggers:
 	GF-change-failed change-failed //... "/usr/bin/python /usr/local/git-fusion/bin/p4gf_submit_trigger.py change-failed             %changelist% %user% %client% %serverport% %command% %args%"
 	Atlas-Mytrigger change-commit //... %serverroot%/triggers/sanity-auth-trigger.sh
 
-</pre>
+```
