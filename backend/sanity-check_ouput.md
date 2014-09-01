@@ -1,3 +1,9 @@
+Local dnsmasq configuration:
+```
+address=/atlas.dev/192.168.33.10
+```
+
+Output:
 ```
 ±  |master ✗| → script/sanity-check 
 + '[' -z '' ']'
