@@ -3,6 +3,20 @@
 * A **broker** is running, each request to the **broker** is delegate to a **p4d** running within **docker**.
 
 * The setup is scripted as **vagrant** and **puppet** script to orchestrate a VM, the VM then start running a docker/p4d.
+```bash
+## running as daemon
+p4broker -c /etc/perforce/p4broker.conf -d
+/usr/bin/docker -d
+
+## only when access specific project, and gone after a while
+docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 49153 -container-ip 172.17.0.2 -container-port 1666
+
+## dns to map url to docker
+/usr/sbin/dnsmasq -x /var/run/dnsmasq/dnsmasq.pid -u dnsmasq -r /var/run/dnsmasq/resolv.conf -7 /etc/dnsmasq.d,.dp
+
+## mysqld root user root
+/usr/sbin/mysqld
+```
 
 
 # Basic Docker command
