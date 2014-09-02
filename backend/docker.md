@@ -52,8 +52,11 @@ docker start myproject >/dev/null 2>&1
 ```
 
 ## Run command
-
+Start a docker container named **myproject** and run the cloundspace/p3 quitely.
 ```bash
+# --name : assign a name to the container 
+# -v: Bind mount a volume, e.g., map from host /var/lib/perforce/myproject to container /srv
+# -p: bind a container's port 1666 to the host port
 docker run -d --dns 172.17.42.1 -v /var/lib/perforce/myproject:/srv -p 1666 --name myproject cloudspace/p4d:1.5.0 -qr /srv/p4d -p 1666 >/dev/null 2>&1
 ```
 
@@ -74,3 +77,4 @@ Arg0: //mahattan_12def234/main/*
 mv ~/VirtualBox\ VMs/boot2docker-vm/boot2docker-vm.vbox ~/VirtualBox\ VMs/boot2docker-vm/boot2docker-vm.vbox.bak
 # Reference
 * [Docker installation](http://docs.docker.com/installation/mac/)
+* [Docker Command Line](http://docs.docker.com/reference/commandline/cli/)
