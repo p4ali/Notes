@@ -27,6 +27,7 @@ To generate this message, Docker took the following steps:
 * A **broker** is running, each request to the **broker** is delegate to a **p4d** running within **docker** container.
 
 * The setup is scripted as **vagrant** and **puppet** script to orchestrate a VM, the VM then start running a docker/p4d.
+* 
 ```bash
 ## running as daemon
 p4broker -c /etc/perforce/p4broker.conf -d
@@ -52,7 +53,7 @@ docker start myproject >/dev/null 2>&1
 ```
 
 ## Run command
-Start a docker container named **myproject** and run the cloundspace/p3 quitely.
+Start a docker container named **myproject** and run the cloundspace/p4d quitely.
 ```bash
 # --name : assign a name to the container 
 # -v: Bind mount a volume, e.g., map from host /var/lib/perforce/myproject to container /srv
