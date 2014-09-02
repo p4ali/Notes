@@ -19,8 +19,9 @@ Output:
 + echo 'Creating a project'
 Creating a project
 + curl -s --data-urlencode name=atlas-sanity.atlas.dev --data-urlencode username=ali@perforce.com --data-urlencode password=password http://192.168.33.10/api/v1/depot
-{"depot_id":1,"name":"atlas-sanity.atlas.dev"}+ curl -s http://192.168.33.10/api/v1/depots
-{"depots":[{"id":1,"name":"atlas-sanity.atlas.dev"}]}++ curl -s http://192.168.33.10/api/v1/depots
+{"depot_id":1,"name":"atlas-sanity.atlas.dev"}
++ curl -s http://192.168.33.10/api/v1/depots {"depots":[{"id":1,"name":"atlas-sanity.atlas.dev"}]}
+++ curl -s http://192.168.33.10/api/v1/depots
 ++ sed 's/.*"id":\([0-9]*\).*/\1/'
 + ID=1
 + echo
