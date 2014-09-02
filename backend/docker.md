@@ -24,7 +24,7 @@ To generate this message, Docker took the following steps:
 
 # Overview
 
-* A **broker** is running, each request to the **broker** is delegate to a **p4d** running within **docker**.
+* A **broker** is running, each request to the **broker** is delegate to a **p4d** running within **docker** container.
 
 * The setup is scripted as **vagrant** and **puppet** script to orchestrate a VM, the VM then start running a docker/p4d.
 ```bash
