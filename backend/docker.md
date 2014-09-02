@@ -1,5 +1,5 @@
 # Docker
-
+> "Docker is a tool that can package an application and its dependencies in a virtual container that can run on any Linux server. This helps enable flexibility and portability on where the application can run, whether on premise [sic], public cloud, private cloud, bare metal, etc"
 > Docker is an open-source engine which automates the deployment of applicaitons as highly portable, self-sufficient containers which are independent of hardware, language, framework, jpackaging ssytem and hosting provider.
 > Containers are like extremely lightweight VMs - they allow code to run in isolation from other containers but safely share the machine's resources, all without the overhead of a hypervisor.
 
@@ -62,6 +62,12 @@ docker run -d --dns 172.17.42.1 -v /var/lib/perforce/myproject:/srv -p 1666 --na
 ```
 
 # A Usecase
+## User create a project
+```
+curl -s --data-urlencode name=atlas-sanity.atlas.dev --data-urlencode username=ali@perforce.com 
+     --data-urlencode password=password http://192.168.33.10/api/v1/depot
+     {"depot_id":1,"name":"atlas-sanity.atlas.dev"}
+```
 
 ## Step 1 User issue a connection
 The following parameters will send to broker:
