@@ -1,3 +1,27 @@
+# Docker
+
+> Docker is an open-source engine which automates the deployment of applicaitons as highly portable, self-sufficient containers which are independent of hardware, language, framework, jpackaging ssytem and hosting provider.
+> Containers are like extremely lightweight VMs - they allow code to run in isolation from other containers but safely share the machine's resources, all without the overhead of a hypervisor.
+
+## Docker on Macosx with boot2docker
+Becuase the Docker engine uses Linux-specific kernel features, you will need to use a lightweight virtual machine (VM) to run it on OSX. Then you use the OSX docker client to control the virtualized docker engine to build, run, and manage Docker containers.
+
+Start boot2docker client (double click from Application folder), then run:
+```
+$ docker run hello-world
+Hello from Docker.
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (Assuming it was not already locally available.)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+```
+
 # Overview
 
 * A **broker** is running, each request to the **broker** is delegate to a **p4d** running within **docker**.
@@ -46,3 +70,7 @@ cwd: /Users/x/workspace/y
 command: dirs
 Arg0: //mahattan_12def234/main/*
 ```
+
+mv ~/VirtualBox\ VMs/boot2docker-vm/boot2docker-vm.vbox ~/VirtualBox\ VMs/boot2docker-vm/boot2docker-vm.vbox.bak
+# Reference
+* [Docker installation](http://docs.docker.com/installation/mac/)
