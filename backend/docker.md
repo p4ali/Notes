@@ -49,6 +49,10 @@ docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 49153 -container-ip 172.17.0
 # Basic Docker command
 
 ## Start docker 
+```bash
+docker run
+docker inspect
+```
 
 ```bash
 docker start myproject >/dev/null 2>&1
