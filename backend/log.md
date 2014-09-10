@@ -166,4 +166,24 @@ Step 12 : ENTRYPOINT ["/usr/local/bin/run.sh"]
 Removing intermediate container f605b59515cc
 Successfully built b80900e44961
 
+############################# back to HOST
+○ → script/sanity-check 
+Destroying existing sanity depot
+Creating a project
+{"errors":{"Error configuring Git Fusion!":"Creating /var/lib/perforce/atlas-sanity.atlas.dev/p4gf_env.conf...\nConfiguring P4 user security...\nBroker connection error: failed to connect to 0.0.0.0:49164.\nTCP connect to 0.0.0.0:49164 failed.\nconnect: 0.0.0.0:49164: Connection refused\n"}}{"depots":[{"id":1,"name":"abc.atlas.dev"},{"id":3,"name":"atlas-sanity.atlas.dev"}]}
+Creating a trigger
+{"triggers":[{"id":3,"name":"sanity-auth-trigger.sh","command":"Mytrigger change-commit //... \"$SCRIPT$\""}]}
+Broker connection error: failed to connect to 0.0.0.0:49169.
+TCP connect to 0.0.0.0:49169 failed.
+connect: 0.0.0.0:49169: Connection refused
+Broker connection error: failed to connect to 0.0.0.0:49170.
+TCP connect to 0.0.0.0:49170 failed.
+connect: 0.0.0.0:49170: Connection refused
+Broker connection error: failed to connect to 0.0.0.0:49171.
+TCP connect to 0.0.0.0:49171 failed.
+connect: 0.0.0.0:49171: Connection refused
+Broker connection error: failed to connect to 0.0.0.0:49172.
+TCP connect to 0.0.0.0:49172 failed.
+connect: 0.0.0.0:49172: Connection refused
+
 ```
