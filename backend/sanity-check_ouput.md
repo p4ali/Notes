@@ -5,58 +5,32 @@ address=/atlas.dev/192.168.33.10
 
 Output:
 ```
-±  |master ✗| → script/sanity-check 
-+ '[' -z '' ']'
-+ ATLAS_IP=192.168.33.10
-+ ATLAS_HOST=192.168.33.10
-+ '[' -z '' ']'
-+ PROJECT=atlas-sanity.atlas.dev
-+ TRIGGER=sanity-auth-trigger.sh
-++ git config --get user.email
-+ USEREMAIL=ali@perforce.com
-+ USERNAME=ali
-+ PASSWORD=password
-+ echo 'Creating a project'
+○ → ./script/sanity-check 
+Destroying existing sanity depot
 Creating a project
-+ curl -s --data-urlencode name=atlas-sanity.atlas.dev --data-urlencode username=ali@perforce.com --data-urlencode password=password http://192.168.33.10/api/v1/depot
-{"depot_id":1,"name":"atlas-sanity.atlas.dev"}
-+ curl -s http://192.168.33.10/api/v1/depots {"depots":[{"id":1,"name":"atlas-sanity.atlas.dev"}]}
-++ curl -s http://192.168.33.10/api/v1/depots
-++ sed 's/.*"id":\([0-9]*\).*/\1/'
-+ ID=1
-+ echo
-
-+ echo 'Creating a trigger'
+{"depot_id":1,"name":"atlas-sanity.atlas.dev"}{"depots":[{"id":1,"name":"atlas-sanity.atlas.dev"}]}
 Creating a trigger
-+ curl -s --data-urlencode name=sanity-auth-trigger.sh --data-urlencode 'shell_script=exit 0' --data-urlencode 'command=Mytrigger change-commit //... "$SCRIPT$"' http://192.168.33.10/api/v1/depot/1/trigger
-+ curl -s http://192.168.33.10/api/v1/depot/1/triggers
-{"triggers":[{"id":1,"name":"sanity-auth-trigger.sh","command":"Mytrigger change-commit //... \"$SCRIPT$\""}]}+ echo
-
-++ resolveip -s atlas-sanity.atlas.dev
-+ '[' 192.168.33.10 '!=' 192.168.33.10 ']'
-+ p4 -Cutf8 -patlas-sanity.atlas.dev:1666 -uali -Ppassword info
+{"triggers":[{"id":1,"name":"sanity-auth-trigger.sh","command":"Mytrigger change-commit //... \"$SCRIPT$\""}]}
 User name: ali
 Client name: saas
 Client host: saas
 Client unknown.
-Current directory: /Users/ali/git/raymond/frontend/atlas
-Peer address: 172.17.42.1:50507
+Current directory: /Users/ali/workspace/raymond/atlas
+Peer address: 172.17.42.1:60594
 Client address: 192.168.33.1
-Server address: 511687205b18:1666
+Server address: bb27ef795c30:1666
 Server root: /srv/p4d
-Server date: 2014/09/01 04:08:28 +0000 UTC
-Server uptime: 00:00:13
+Server date: 2014/09/11 06:32:14 +0000 UTC
+Server uptime: 00:00:08
 Server version: P4D/LINUX26X86_64/2014.1/907894 (2014/08/20)
 Broker address: db.atlas.dev:1666
 Broker version: P4BROKER/LINUX26X86_64/2014.2.PREP-TEST_ONLY/889594
 Server license: none
 Case Handling: sensitive
-+ p4 -Cutf8 -patlas-sanity.atlas.dev:1666 -uali -Ppassword users
-ali <ali@atlas> (ali) accessed 2014/09/01
-git-fusion-user <git-fusion-user@atlas> (Git Fusion) accessed 2014/09/01
-perforce <perforce@atlas> (perforce) accessed 2014/09/01
-unknown_git <unknown_git@atlas> (unknown_git) accessed 2014/09/01
-+ p4 -Cutf8 -patlas-sanity.atlas.dev:1666 -uali -Ppassword protect -o
+ali <ali@atlas> (ali) accessed 2014/09/11
+git-fusion-user <git-fusion-user@atlas> (Git Fusion) accessed 2014/09/11
+perforce <perforce@atlas> (perforce) accessed 2014/09/11
+unknown_git <unknown_git@atlas> (unknown_git) accessed 2014/09/11
 # Perforce Protections Specification.
 #
 #  Each line contains a protection mode, a group/user indicator, the
@@ -116,7 +90,6 @@ Protections:
 	admin user git-fusion-user * //...
 	review user git-fusion-reviews-* * //...
 
-+ p4 -Cutf8 -patlas-sanity.atlas.dev:1666 -uali -Ppassword triggers -o
 # Perforce Submit and Form Validating Trigger Specifications.
 #
 #  Triggers:	a list of triggers; one per line. Each trigger line must be
