@@ -8,8 +8,21 @@
 ## Docker on Macosx with boot2docker
 Becuase the Docker engine uses Linux-specific kernel features, you will need to use a lightweight virtual machine (VM) to run it on OSX. Then you use the OSX docker client to control the virtualized docker engine to build, run, and manage Docker containers.
 
+Boot2Docker is a lightweight Linux distribution made specifically to run Docker containers. It runs completely from RAM, is a small ~24MB download and boots in ~5s (YMMV).
+
 Start boot2docker client (double click from Application folder), then run:
 ```
+## start boot2docker
+$ boot2docker init
+$ boot2docker up
+
+## download docker image
+$ docker pull ubuntu
+
+## run docker in interactive mode
+$ docker run -i -t ubuntu /bin/bash
+
+## run docker in non-interactive mode
 $ docker run hello-world
 Hello from Docker.
 This message shows that your installation appears to be working correctly.
