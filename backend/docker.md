@@ -79,6 +79,23 @@ Start a docker container named **myproject** and run the cloundspace/p4d quitely
 # -p: bind a container's port 1666 to the host port
 docker run -d --dns 172.17.42.1 -v /var/lib/perforce/myproject:/srv -p 1666 --name myproject cloudspace/p4d:1.5.0 -qr /srv/p4d -p 1666 >/dev/null 2>&1
 ```
+In a more traditional Linux boot the root filesystem is mounted read-only and then switched to read-write
+after boot and integrity check. In the docker world, however, the root filesystem stays in read-only mode
+and docker takes advantage of a union mount to add more read-only filesystems onto the root filesystem.
+Docker callls each of these filesystems **images**. Images can be layered on tope of one another. The
+image below is called the 'parent' image, until you reach the bottom of the image stack where the final
+image is called the base image. Finally, docker mount a read-write filesystem on top of any layers below.
+This is where whatever processes we want our docker container to run will execute.
+
+## Commands
+```bash
+docker images  ## image format of repository:tag, such as ubuntu:12.04
+docker run -i -t ubuntu:12.04 /bin/bash
+docker images ubuntu ## list at specific repository 'ubuntu'
+docker search puppet ## search docker dependency
+docker pull ubuntu
+
+```
 
 # A Usecase
 ## User create a project
