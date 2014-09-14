@@ -58,7 +58,6 @@ docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 49153 -container-ip 172.17.0
 /usr/sbin/mysqld
 ```
 
-
 # Basic Docker command
 
 ## Start docker 
@@ -89,11 +88,30 @@ This is where whatever processes we want our docker container to run will execut
 
 ## Commands
 ```bash
-docker images  ## image format of repository:tag, such as ubuntu:12.04
+docker images  ## image format of repository:tag, such as ubuntu:12.04.
 docker run -i -t ubuntu:12.04 /bin/bash
 docker images ubuntu ## list at specific repository 'ubuntu'
 docker search puppet ## search docker dependency
-docker pull ubuntu
+docker pull cloudspace/p4d
+# doker user repository takes the form of a username and repository name, e.g., cloudspace/p4d.
+docker search p4d ## returns following 
+  REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+  cloudspace/p4d      latest              f67a6b963191        3 days ago          266.5 MB
+  cloudspace/p4d      1.5.0               b13b6ee47b1f        4 weeks ago         262.4 MB
+
+# create a container from p4d master image
+docker run -i -t cloudspace/p4d /bin/bash
+
+# making changes to images, say install apache to containter
+docker ps -a
+
+  CONTAINER ID        IMAGE                   COMMAND                CREATED             STATUS                  PORTS               NAMES
+  bb27ef795c30        cloudspace/p4d:latest   "/usr/local/bin/run.   2 days ago          Exited (0) 2 days ago                       atlas-sanity.atlas.dev   
+
+docker commit bb27ef795c30 cloudspace/p4d # commits the diff between the image the container was created from and the current state of the container.
+
+
+
 
 ```
 
