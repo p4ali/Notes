@@ -10,3 +10,7 @@
  * substitution model
   * call-by-name and call-by-value
   * if CBV terminates, then CBN terminates, and same value. But the other direction is not true.
+  * by default, scala use CBV, and if you want to CBN, put an '=>' in front of the type
+  ```scala
+  def constOne(x: Int, y:=>Int) = 1
+  ```
