@@ -66,7 +66,30 @@ Folder apply computation to each element in a collection and get a single value 
 
 ```scala
 val strs = List("1","2","3","4","5")
-val numbs = strs.map(s => s.toInt)
+val nums = strs.map(s => s.toInt)
 
 nums == List(1,2,3,4,5) // true
+// OR using _ to represent any argument
+val nums2 = strs.map(_.toInt)
+```
+
+## Binding
+This operation named **flatMap** because the operation may be viewed as a combination of *map* and *flatten* methods. Like map, **flatMap** walks through every element in a collection, and applies a given function which return a same type of enclosing collection with an optional different type parameter. For example, see below signature and example
+
+```scala
+// signature
+class List[A]{
+  def flatMap[B](f:(A)=>List[B]): List[B]
+}
+
+// example
+val strs = List("1","two","3","four","five")
+val nums = strs.flatMap( s=>
+  try{
+    List(s.toInt)
+  } catch {
+    case _ => Nil // Nil is the empty List
+  }
+)
+nums == List(1,3) //true
 ```
