@@ -60,3 +60,13 @@ println(str1) //  str1  : String = ,Dan,Nick,Greg
 val str2 = names.reduceLeft[String]((acc,n) => acc+","+n)
 println(str2) // str2  : String = Dan,Nick,Greg
 ```
+
+## Mapping
+Folder apply computation to each element in a collection and get a single value result. Mapping will apply each element in a collection in-place (as it were), creating a new collection of the same type with the modified elements.
+
+```scala
+val strs = List("1","2","3","4","5")
+val numbs = strs.map(s => s.toInt)
+
+nums == List(1,2,3,4,5) // true
+```
