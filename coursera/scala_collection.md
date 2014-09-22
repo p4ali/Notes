@@ -93,3 +93,14 @@ val nums = strs.flatMap( s=>
 )
 nums == List(1,3) //true
 ```
+
+## Slice
+see [ArrayOps](http://www.scala-lang.org/api/current/index.html#scala.collection.mutable.ArrayOps), the signature and example
+```scala
+// signature
+def slice(from: Int, until: Int): Array[T] // where from <= indexOf(x) < until
+
+# example
+val sub=Array("1","2","3","4","5","6").slice(1,4)
+sub == Array("2","3","4")
+```
