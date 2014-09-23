@@ -1,4 +1,7 @@
 ## Curring
+
+> In computer science, currying, invented by Moses Schönfinkel and Gottlob Frege, is the technique of transforming a function that takes multiple arguments into a function that takes a single argument (the other arguments having been specified by the curry).
+
 Methods may define multiple parameter lists. When a method is called with a fewer number of parameter lists, 
 then this will yield a function taking the missing parameter lists as its arguments.
 Here is an example:
