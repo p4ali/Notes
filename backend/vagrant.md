@@ -156,4 +156,14 @@ p4 -Cutf8 -patlas-sanity:1666 -uali -Ppassword triggers -o
 * config git-fusion
 * restart apache
 
+## rsync ci
+```bash
+script/vagrant-env ci rsync  # to get the latest atlas/uploader for CI
+
+## add submodule
+cd ~/workspace/atlas-raymond-config; git pull --rebase
+cd ~/workspace/raymond/atlas; git pull
+cd ~/workspace/raymond; git add atlas
+git commit -m "update submodule"
+```
 
