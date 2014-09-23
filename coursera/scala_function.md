@@ -18,5 +18,5 @@ object CurryTest extends Application {
 }
 ```
 Note that method modN is partially applied in the two filter calls; i.e. only its first argument is actually applied. 
-The termmodN(2) yields a function of type Int => Boolean and is thus a possible candidate for the second argument 
+The term *modN(2)* yields a function of type Int => Boolean and is thus a possible candidate for the second argument 
 of function filter.
