@@ -167,3 +167,9 @@ cd ~/workspace/raymond; git add atlas
 git commit -m "update submodule"
 ```
 
+## Command with uploader
+```bash
+curl http://uploader.atlas.dev/test/thread_status
+curl http://uploader.atlas.dev/test/upload_form
+curl http://192.168.33.12/test/callback
+```
