@@ -18,6 +18,7 @@
 | Command   | Description |
 |-----------|:-------------|
 |```ciborg ssh```|ssh to ciborg build machine|
+|```ciborg open```|Open browser to build machine|
 
 ## Heroku
 | Command   | Description |
