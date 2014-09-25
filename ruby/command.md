@@ -37,3 +37,8 @@ Login to pusher with ali@perforce.com + team password. You can monitor the trigg
 
 Login to monitor the product performance.
 
+## Sidekiq
+
+Redis supported priority queue
+
+http://localhost:3000/sidekiq
