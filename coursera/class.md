@@ -1,9 +1,14 @@
 
 ```scala
+// Data abstraction
 
 // Type - class
 class Rational(x: Int, y: Int) {
+  require(y != 0, "denomitor must be nonzero")
 
+  // Multiple constructor
+  def this(x:Int) = this(x,1)
+  
   private def gcd(x:Int, y:Int): Int = if(y==0) x else gcd(y, x%y)
   private val g = gcd(x,y)
 
@@ -11,7 +16,7 @@ class Rational(x: Int, y: Int) {
   def denom = y/g
   
   def add(that: Rational, s: Rational): Rational =
-    new Rational(numer*that.denom + that.numer*denom, that.denom*denom)
+    new Rational(this.numer*that.denom + that.numer*this.denom, that.denom*this.denom)
   
   override def toString() = numer + "/' + denom
   
@@ -26,3 +31,10 @@ val y = new Rational(2,3)
 
 x.add(y)
 ```
+
+## **this** - self reference to the object on which the current method is executed
+
+## **require** - test performed when object is create
+
+## **assert** - check the code of the function itself
+
