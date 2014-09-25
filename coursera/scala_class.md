@@ -47,4 +47,6 @@ r add s // r.add(s)
 * Symbolic + Alphanumeric as identifiers
 ```scala
 x1 * +?%& vector_++ counter_=
+
+def unary_ : Rational = new Rational(-number, denom)
 ```
