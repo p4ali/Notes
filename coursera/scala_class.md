@@ -38,3 +38,13 @@ x.add(y)
 
 ## **assert** - check the code of the function itself
 
+## operator
+
+* Any method with one parameter can be used like an infix operator
+```scala
+r add s // r.add(s)
+```
+* Symbolic + Alphanumeric as identifiers
+```scala
+x1 * +?%& vector_++ counter_=
+```
