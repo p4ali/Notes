@@ -40,7 +40,7 @@ x.add(y)
 
 ## operator
 
-* Any method with one parameter can be used like an infix operator
+* Any method with one parameter can be used like an **infix** operator
 ```scala
 r add s // r.add(s)
 ```
