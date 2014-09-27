@@ -40,6 +40,7 @@ cd sprout-wrap
 # install xcode from appstore
 
 # NO root
+# install necessay gems
 gem install bundler
 bundle
 
