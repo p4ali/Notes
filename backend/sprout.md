@@ -25,3 +25,39 @@ tmp
 ```
 
 ### install system Ruby
+```bash
+brew install ruby ## Do NOT 'rbenv install 2.1.2' here, it only needed by sprout
+```
+
+### check out sprout-wrap
+```bash
+git clone git@pdnet.perforce.com:sprout-wrap . # make sure you have setup the key
+```
+### follow README.md
+```bash
+cd sprout-wrap
+
+# install xcode from appstore
+
+# NO root
+gem install bundler
+bundle
+
+# install recipe
+bundle exec soloist
+
+```
+
+## Roadmap
+
+See Pivotal Tracker: https://www.pivotaltracker.com/s/projects/884116
+
+## Discussion List
+
+  Join [sprout-users@googlegroups.com](https://groups.google.com/forum/#!forum/sprout-users) if you use Sprout.
+
+## References
+
+* Slides from @hiremaga's [lightning talk on Sprout](http://sprout-talk.cfapps.io/) at Pivotal Labs in June 2013
+* [Railscast on chef-solo](http://railscasts.com/episodes/339-chef-solo-basics) by Ryan Bates (PAID)
+~                                                                                                     
