@@ -9,7 +9,7 @@ $ tree -a -L 1 sprout-wrap
 ├── .README.md.swp
 ├── .git
 ├── .gitignore
-├── .ruby-version
+├── .ruby-version # specify which ruby version should be used
 ├── .travis.yml
 ├── Cheffile # cheffile if you run librarian-cheff install|update
 ├── Cheffile.lock # complete dependency build from Cheffile
