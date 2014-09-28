@@ -62,4 +62,5 @@ See Pivotal Tracker: https://www.pivotaltracker.com/s/projects/884116
 
 * Slides from @hiremaga's [lightning talk on Sprout](http://sprout-talk.cfapps.io/) at Pivotal Labs in June 2013
 * [Railscast on chef-solo](http://railscasts.com/episodes/339-chef-solo-basics) by Ryan Bates (PAID)
-~                                                                                                     
+* [Install ruby with homebrew and rbenv on mac os x](http://blog.zerosharp.com/installing-ruby-with-homebrew-and-rbenv-on-mac-os-x-mountain-lion/)
+                                                                                                    
