@@ -50,6 +50,21 @@ x1 * +?%& vector_++ counter_=
 
 def unary_ : Rational = new Rational(-number, denom)
 ```
+## Trait
+Both Java and Scala can only have one superclass.
+
+Trait can be used to multi-inherit. You can create a class by **with** multiple trait.
+
+Class, objects and traits can inherit from at most one class but arbitrary many traits.
+
+A **trait** is declared like an astract class, with trait instead of abstract.
+```scala
+class Square extends Shape with Planar with Movable ...
+```
+
+Traits resemble interfaces in Java, in addition, they can contain fields and concrete methods.
+
+On the other hand, traits cannot have (value) parameters, only classes can.
 
 ## Orgnization - package
 ```scala
@@ -60,5 +75,16 @@ improt week3.{Rational, Hello} // import both Rational and Hello
 // All members of package scala, java.lang, and scala.Predef are automatically imported
 
 // www.scala-lang.org/api/current
+```
+
+## Class hierarchy
+* Any - the base type of all types. Define methods: '==', '!='
+* AnyRef - the base type of all reference types
+* AnyVal - the base type of all premitive types
+* Nothing - subtype of very other type. There is no value of type Nothing. e.g., an element type of empty collection. set[nothing]. Or throw exception.
+* Null - type of null value of reference types.
+
+```scala
+if (true) 1 else false // AnyVal = 1
 ```
 
