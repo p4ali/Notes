@@ -89,6 +89,9 @@ if (true) 1 else false // AnyVal = 1
 ```
 
 ## Polymorphism
+* subtyping: instances of a subclass can be passed to a base class
+* generics: instance of a function or class are created by type parameterization
+
 val is only evaluated at construct time. def evaluated each time is called.
 ```scala
 // Generalize parameter definition using a Type parameter
