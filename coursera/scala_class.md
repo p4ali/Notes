@@ -50,3 +50,15 @@ x1 * +?%& vector_++ counter_=
 
 def unary_ : Rational = new Rational(-number, denom)
 ```
+
+## Orgnization - package
+```scala
+import week3.Rational // named imports - import only Rational
+import week3._ // wildcard imports - import everything from package week3
+improt week3.{Rational, Hello} // import both Rational and Hello
+
+// All members of package scala, java.lang, and scala.Predef are automatically imported
+
+// www.scala-lang.org/api/current
+```
+
