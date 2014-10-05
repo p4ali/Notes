@@ -18,3 +18,9 @@
 ```scala
 def and(x:Boolean, y: =>Boolean) = if (x) y else false
 ```
+
+* Persistent data structure 
+ * cornerstone of scaling functional prog up to collections. 
+ * Older version data structure unchanged
+* Dynamic dispatching - subtype
+* Type erasure - template
