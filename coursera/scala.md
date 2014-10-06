@@ -24,3 +24,4 @@ def and(x:Boolean, y: =>Boolean) = if (x) y else false
  * Older version data structure unchanged
 * Dynamic dispatching - subtype
 * Type erasure - template
+* eta-expansion - replace function type with function value.
