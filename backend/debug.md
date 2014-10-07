@@ -16,3 +16,9 @@ This is where most of the logs end up:
 /var/lib/perforce/your.project.atlas.dev/log/*.log
 /var/log/apache2/* (must be root)
 ```
+
+Run just the revert integration tests with
+```
+cd /srv/atlas/uploader; 
+sudo -uperforce jruby -S bundle exec rspec spec/integration/edit/revert_spec.rb
+```
