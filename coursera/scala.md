@@ -25,3 +25,7 @@ def and(x:Boolean, y: =>Boolean) = if (x) y else false
 * Dynamic dispatching - subtype
 * Type erasure - template
 * eta-expansion - replace function type with function value.
+* Liskov substituion principle
+```
+Let q(x) be a property provable about objects x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T.
+```
