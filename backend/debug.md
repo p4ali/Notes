@@ -31,3 +31,25 @@ sudo su - jenkins # or sudo -su jenkins
 cd /var/lib/jenkins/jobs/raymond-rails/workspace
 JENKINS_URL=https://54.186.9.9:443 ATLAS_HOST=atlas-ci.cloudything.net UPLOAD_SERVER_HOST=http://uploader.atlas-ci.cloudything.net TRIGGER_CATCHER_URL=http://54.186.9.9 bundle exec rspec spec/features/file_system_actions_spec.rb:93
 ```
+
+BETA manager
+
+```
+# unbounced for launching management
+http://signup.thehelixproject.com/
+
+# import
+http://localhost:3000/beta_applicants
+http://localhost:3000/beta_managers/sign_in
+user: beta
+password: ********
+
+# run beta
+$> BETA=true rails s
+
+```
+
+PWS
+```
+https://helix-production.cfapps.io/
+```
