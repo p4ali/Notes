@@ -17,6 +17,11 @@ This is where most of the logs end up:
 /var/log/apache2/* (must be root)
 ```
 
+Test atlas up
+```
+curl -v --data-urlencode "name=YOUR-PROJECT-NAME" --data-urlencode "username=super" --data-urlencode "password=password" --data-urlencode "skip_git=1" http://atlas.dev/api/v1/depot
+```
+
 Run just the revert integration tests with
 ```
 cd /srv/atlas/uploader; 
