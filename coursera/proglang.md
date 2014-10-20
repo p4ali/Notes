@@ -39,6 +39,19 @@ fun sorted x y z = z>y and also y>=x
 
 ```
 
+### Partial application vs val-binding
+```SML
+fun longest_string_helper (f:int*int->bool) (cs:string list) =
+(*fun longest_string_helper f cs = *)
+    List.foldl (fn (s,acc) => if f(String.size(s), String.size(acc)) then s else acc) "" cs
+
+(* val-binding *)
+val longest_string3 = fn cs => longest_string_helper (fn (x,y)=>x>y) cs
+
+(* partial application *)
+fun longest_string4 cs = longest_string_helper (fn (x,y)=>x>=y) cs
+```
+
 ## Closure
 A Function value has two pars, the *code* for the function and the *environment that was current when we created the 
 function*. These two parts do really form a "pair". When evalates the code part, you will using the environment part.
