@@ -1,3 +1,5 @@
+# SML
+
 ## Currying: (named after Haskell Curry who invent this)
 If a function ```fn x*y => z``, then curreing is to have a function take the first comceptual argument ```x``` and return
 another function that takes the second conceptual argument ```y``  and return ```z``` so on. The function with only partial conceptual arguments called *partial application*
@@ -66,4 +68,16 @@ then fn x=> 2*x
 else fn x=> 3*x
 ```
 
+## Mutation via ML References
+In ML, most things really cannot be mutated. But Mutation is ok in some settings. A key approach in functional 
+programming is to use it when "updating the state of something so all users of that state can see a change has
+occured" is the natual way to model your computation.
 
+One good way to think about a reference is as a record with one field where that field can be updated with the **:=**
+operator.
+```SML
+val x=ref 0
+val y = !x+1 (* y=1 *)
+val _ = x := (!x) +2 (* the content of the reference x refers to is now 3 *)
+val z = !x+1 (* z=4 *)
+```
