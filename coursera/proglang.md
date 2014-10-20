@@ -1,11 +1,18 @@
 ## Currying: (named after Haskell Curry who invent this)
 If a function ```fn x*y => z``, then curreing is to have a function take the first comceptual argument ```x``` and return
-another function that takes the second conceptual argument ```y``  and return ```z``` so on.
+another function that takes the second conceptual argument ```y``  and return ```z``` so on. The function with only partial conceptual arguments called *partial application*
 ```SML
 val sorted = fn x=> fn y=> fn z=> z>y andalso y>=x
 (((sort 4)5)6) = true
 (* parenthis is optional *)
 sort 4 5 6 = true
+
+(* the following is called partial application *)
+sort 4 
+sort 4 5
+
+(* alternative way to define currying, separating conceptual arguments by spaces rather than anonymous functions *)
+fun sorted x y z = z>y and also y>=x
 
 ```
 
