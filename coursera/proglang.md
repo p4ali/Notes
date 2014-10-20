@@ -25,9 +25,30 @@ are nto bound inside the code so they need to be bound by some outer environment
 environment that provides all these bindings. So the closure overall is "closed" -- it has everything it needs to 
 produce a function result given a function argument.
 
-## Lexical Scope
+```SML
+val x=1 
+fun f y = x+y
+val x=2
+val y=3
+(* val z = 6 *)
+val z=f(x+y) 
+```
+
+### Lexical Scope
 The body of a function is evaluated in the environment where the funciton is **defined**, not the environment where
 the function is called.
+
+### Combining functions
+```SML
+fun sqrt_of_abs i = Math.sqrt(Real.fromInt (abs i))
+
+(* composition with operator "o" is associate-to-right *)
+fun sqrt_of_abs i = (Math.sqrt o Real.fromInt o abs) i
+
+(* pipleline oeprator *)
+fun sqrt_of_abs i = i |> abs |> Real.fromInt |> Math.sqrt
+
+```
 
 ## Returning functions
 
@@ -36,6 +57,7 @@ the function is called.
 fun increment x = x+1
 val increment = fn x=>x+1
 
+(* following using an anonymous function y=>3*y *)
 fun triple_n_times(n,x) = ntimes((fn y=>3*y), n, x))
 
 fun double_or_triple f= 
@@ -43,4 +65,5 @@ if f7
 then fn x=> 2*x
 else fn x=> 3*x
 ```
+
 
