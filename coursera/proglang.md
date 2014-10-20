@@ -1,5 +1,26 @@
 # SML
 
+## Conceptual ways to build new Types
+3 ways to create a compound type:
+* "Each-of" : A compound type t describes values that contain each of value of type t1,t2,... and tn. e.g. Records, 
+        tuples.
+* "One-of": A compuond type t describes values that contain a value of one of the types t1,t2,... or tn. e.g. *int option* is a simple example: A value of this type either contains an int or it does not. Java enumerator.
+* "Self-reference": A compund type t may refer to itself in its definition in order to describe recusive data structure
+           like list and tree.
+
+### Datatype bindings
+The following defines a new type of one-fo type. It defines the constructors (TwoInts, Str, Pizza) and constructor arguments (int*int, string and NONE)
+```SML
+datatype mytype = TwoInts of int*int
+                | Str of string
+                | Pizza
+                
+(* above define 3 constructor functions *)
+TwoInts = fn int*int -> mytype
+Str = fn string -> mytype
+Pizza = val mytype
+```
+
 ## Currying: (named after Haskell Curry who invent this)
 If a function ```fn x*y => z``, then curreing is to have a function take the first comceptual argument ```x``` and return
 another function that takes the second conceptual argument ```y``  and return ```z``` so on. The function with only partial conceptual arguments called *partial application*
@@ -49,8 +70,17 @@ fun sqrt_of_abs i = (Math.sqrt o Real.fromInt o abs) i
 
 (* pipleline oeprator *)
 fun sqrt_of_abs i = i |> abs |> Real.fromInt |> Math.sqrt
-
 ```
+
+### Using closure for callbacks
+In UI libraries often there are listeners to different events, and the library has no idea about what the listener
+want to do. It just call the listener, and when called, each listener can response by using their local variables,
+which is perfect for closure.
+
+### Abstract data types
+
+
+
 
 ## Returning functions
 
