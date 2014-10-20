@@ -1,11 +1,9 @@
 ## Currying: (named after Haskell Curry who invent this)
-If a function ```fn x*y => z``, then curreing is to have a function take the first comceptual argument ```x``` and return 
+If a function ```fn x*y => z``, then curreing is to have a function take the first comceptual argument ```x``` and return
 another function that takes the second conceptual argument ```y``  and return ```z``` so on.
 ```SML
 val sorted = fn x=> fn y=> fn z=> z>y andalso y>=x
-
 (((sort 4)5)6) = true
-
 (* parenthis is optional *)
 sort 4 5 6 = true
 
