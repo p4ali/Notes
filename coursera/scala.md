@@ -29,3 +29,19 @@ def and(x:Boolean, y: =>Boolean) = if (x) y else false
 ```
 Let q(x) be a property provable about objects x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T.
 ```
+
+* Implicit Parameters
+```scala
+def msort[T](xs: List[T])(implicit ord: Ordering) = ...
+  def merge(xs: List[T], ys:List[T]) = 
+    ... if (ord.lt(x,y)) ...
+    ... merge(msort(fst),msort(snd))
+
+// The calls to msort can avoid the ordering parameters
+   msort(nums); msort(fruits)
+// The compiler will figure out the right implicity to pass based on the demanded type.
+```
+ * is marked **implicit**
+ * has a type compatible with T
+ * is visible at the point of the function call, or is defined in a companion object associated with T
+ * if there is a single(most specific) definition, it will be taken, otherwise error
