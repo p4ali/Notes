@@ -72,5 +72,10 @@ def describe(x:Any) = x match{
   case m:Map[_,_] => m.size // typed patterns
   case _=> "something else"
 }
-
+```
+* Vaiable binding
+```scala
+expr match{
+  case UnOp("abs",e@Unop("abs",_)) => e // e=Unop("abs",_)
+  case _=>
 ```
