@@ -58,4 +58,14 @@ case class Sum(e1:expr, e2:expr) extends Expr
 def eval(e:Expr):Int = e match{
   case Number(n) => n
   case Sum(e1,e2) => eval(e1)+eval(e2)
+}
+
+def describe(x:Any) = x match{
+  case 5 => "Five"
+  case true => "truth"
+  case "hello" => "Hi!"
+  case Nil => "The empty list"
+  case _=> "something else"
+}
+
 ```
