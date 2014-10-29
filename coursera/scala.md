@@ -40,8 +40,22 @@ def msort[T](xs: List[T])(implicit ord: Ordering) = ...
 // The calls to msort can avoid the ordering parameters
    msort(nums); msort(fruits)
 // The compiler will figure out the right implicity to pass based on the demanded type.
+// * is marked **implicit**
+// * has a type compatible with T
+// * is visible at the point of the function call, or is defined in a companion object associated with T
+// * if there is a single(most specific) definition, it will be taken, otherwise error
 ```
- * is marked **implicit**
- * has a type compatible with T
- * is visible at the point of the function call, or is defined in a companion object associated with T
- * if there is a single(most specific) definition, it will be taken, otherwise error
+* Pattern Matching from
+ * *constructor*, e.g, NUmber, Sum
+ * *variables*, e.g., n,e1,e2
+ * *wildcard pattern*, _,
+ * *constants*, e.g. 1, true
+```scala
+trait Expr
+case class Number(n:Int) extends Expr
+case class Sum(e1:expr, e2:expr) extends Expr
+
+def eval(e:Expr):Int = e match{
+  case Number(n) => n
+  case Sum(e1,e2) => eval(e1)+eval(e2)
+```
