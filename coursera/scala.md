@@ -61,10 +61,15 @@ def eval(e:Expr):Int = e match{
 }
 
 def describe(x:Any) = x match{
-  case 5 => "Five"
+  case 5 => "Five" // variable/constant patterns
   case true => "truth"
   case "hello" => "Hi!"
-  case Nil => "The empty list"
+  case Number(0) => "0" // Constructor patterns
+  case Nil => "The empty list" // constant patterns
+  case (a,b,c) => "Tuple" // tuple patterns
+  case List(0,_*) => "A sequence start with 0" // sequence patterns
+  case s:String => s.length // typed patterns
+  case m:Map[_,_] => m.size // typed patterns
   case _=> "something else"
 }
 
