@@ -1,3 +1,4 @@
+# Iterable
 ## Seq
 * List
 * Vector
@@ -24,3 +25,15 @@ xs.combinations.toList
 (List(1,2,3) zip List(10,20,30)).map(xy=>xy._1*xy._2).sum // 140
 (List(1,2,3) zip List(10,20,30)).map{case (x,y) => x*y}.sum //140
 ```
+## Set
+* unique elements
+* ```contains``` vs inde in Seq
+```scala
+val s = (1 to 6).toSet
+val fruit = Set("apple","Banana","Pear")
+s map (_+2)
+fruit.filter(_.startsWith == "app")
+s.nonEmpty
+```
+
+## Map
