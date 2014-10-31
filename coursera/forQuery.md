@@ -2,7 +2,20 @@
 The syntax of **for** is closely related to the higher-order functions **map,flatMap** and **filter**.
 ### define map, flatMap and filter with for
 ```scala
-def map[]
+def mapFun[T,U](xs:List[T],f:T=>U):List[U]= for(x<-xs) yield f(x)
+def flatMap[T,U](xs:List[T],f:T=>Iterable[U]):List[U]= for(x<-xs;y<-f(x)) yield y
+def filter[T](xs:List[T],p:T=>Boolean):List[T]= for(x<-xs if p(x)) yield x
+```
+### translate for with map, flatmap and filter
+```scala
+for(x<-e1) yield e2
+e1.map(x=>e2)
+
+for(x<-e1 if f;s) yield e2
+for(x<-e1.withFilter(x=>f);s) yield e2
+
+for(x<-e1;y<-e2;s) yields e3
+e1.flatMap(x=>for(y<-e2;s) yield e3)
 ```
 
 ```scala
