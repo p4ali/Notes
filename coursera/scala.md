@@ -35,7 +35,8 @@ Let q(x) be a property provable about objects x of type T. Then q(y) should be p
 * Structure induction
 * Referential transparency
 
-* Implicit Parameters
+## Some idioms
+### Implicit Parameters
 ```scala
 def msort[T](xs: List[T])(implicit ord: Ordering) = ...
   def merge(xs: List[T], ys:List[T]) = 
@@ -50,7 +51,7 @@ def msort[T](xs: List[T])(implicit ord: Ordering) = ...
 // * is visible at the point of the function call, or is defined in a companion object associated with T
 // * if there is a single(most specific) definition, it will be taken, otherwise error
 ```
-* Pattern Matching from
+### Pattern Matching from
  * *constructor*, e.g, NUmber, Sum
  * *variables*, e.g., n,e1,e2
  * *wildcard pattern*, _,
@@ -81,9 +82,17 @@ def describe(x:Any) = x match{
   case _=> "something else"
 }
 ```
-* Vaiable binding
+### Vaiable binding
 ```scala
 expr match{
   case UnOp("abs",e@Unop("abs",_)) => e // e=Unop("abs",_)
   case _=>
+```
+### Named parameters
+When calling methods and functions, you can use the name of the variables expliclty in the call, like map:
+```scala
+def printName(first:String,last:String)={
+  println(first+", "+last)
+}
+printName(first="ALex", last="Li") // eq. printName("Alex","Li")
 ```
