@@ -96,3 +96,21 @@ def printName(first:String,last:String)={
 }
 printName(first="ALex", last="Li") // eq. printName("Alex","Li")
 ```
+### Syntax sugar: _* for treating Seq as method parameters
+Generally the **:** notation is used for type ascription, forcing compiler to see a value as some particular
+type.
+```scala
+val b=1:Byte
+val f=1:Float
+```
+It can also ascribes the special varargs type. It can mirrors the asterisk notation used for declaring
+a varargs parameter and can be used on a vaiable of any type that subclasses **Seq[T]**:
+```scala
+def f(args: String*) = ... //varargs parameter, use as an Array[String]
+val list = List("a", "b", "c")
+f(list : _*)
+```
+It can also be used to explode an array. The following create a Map from a List:
+```scala
+Map(List(Pair(1, 2), Pair(3, 4)): _*) // Map(1 -> 2, 3 -> 4)
+```
