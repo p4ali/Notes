@@ -7,7 +7,7 @@
 ### Sequence Operations
 ```scala
 xs exists p
-xs forall p
+xs forall p // def isPrime(n:Int)=(2 until n) forall (d=>n%d!=0)
 xs zip ys  // List(1,2,3).zip("Hello") =: List((1,"H"),(2,"e"),(3,"l"))
 xs unzip
 xs.flatMap f //"Hello".flatMap(s=>List('.',s)) =: String = .H.e.l.l.o
