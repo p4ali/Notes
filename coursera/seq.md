@@ -16,4 +16,5 @@ xs.product
 xs.max
 xs.min
 xs.permutations.toList
+xs.combinations.toList
 ```
