@@ -117,3 +117,9 @@ It can also be used to explode an array. The following create a Map from a List:
 ```scala
 Map(List(Pair(1, 2), Pair(3, 4)): _*) // Map(1 -> 2, 3 -> 4)
 ```
+
+## References
+* [Twitters Scala School](https://twitter.github.io/scala_school/)
+* [Scala Tour](http://www.scala-lang.org/old/node/104)
+* [This week in scala blogs](http://www.cakesolutions.net/teamblogs)
+* [Typesafe blog and newsletter](https://typesafe.com/company/news)
