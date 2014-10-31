@@ -17,4 +17,7 @@ xs.max
 xs.min
 xs.permutations.toList
 xs.combinations.toList
+
+// Combinations
+(1 to 3) flatMap (x=>(1 to 2) map (y=>(x,y)))
 ```
