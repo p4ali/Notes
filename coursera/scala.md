@@ -55,7 +55,10 @@ def msort[T](xs: List[T])(implicit ord: Ordering) = ...
  * *variables*, e.g., n,e1,e2
  * *wildcard pattern*, _,
  * *constants*, e.g. 1, true
+ * Generally, teh function value {case p1=>e1 ... case pn=>pn} is equivalent to x=>x match {case p1=>e1...case pn=>en}
 ```scala
+(List(1,2,3) zip List(10,20,30)).map{case (x,y) => x*y}.sum
+
 trait Expr
 case class Number(n:Int) extends Expr
 case class Sum(e1:expr, e2:expr) extends Expr
