@@ -29,7 +29,11 @@ def and(x:Boolean, y: =>Boolean) = if (x) y else false
 ```
 Let q(x) be a property provable about objects x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T.
 ```
+* Natural Induction (to show a property P(n) for all the integers n>=b)
+ * show that we have P(b) (base case)
+ * for all integers n>=b show the induction step: *if one has P(n), then on also has P(n+1)*
 * Structure induction
+* Referential transparency
 
 * Implicit Parameters
 ```scala
