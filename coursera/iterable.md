@@ -19,6 +19,10 @@ xs.min
 xs.permutations.toList
 xs.combinations.toList
 
+val v=(4 to 0 by -1)
+val lines=for(i<- v.reverse) yield Vector.fill(v.length)("* ").updated(i,"X ").mkString
+"\n"+lines.mkString("\n")
+
 // Combinations
 (1 to 3) flatMap (x=>(1 to 2) map (y=>(x,y)))
 // scalar product
