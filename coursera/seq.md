@@ -20,4 +20,7 @@ xs.combinations.toList
 
 // Combinations
 (1 to 3) flatMap (x=>(1 to 2) map (y=>(x,y)))
+// scalar product
+(List(1,2,3) zip List(10,20,30)).map(xy=>xy._1*xy._2).sum // 140
+(List(1,2,3) zip List(10,20,30)).map{case (x,y) => x*y}.sum //140
 ```
