@@ -1,3 +1,10 @@
+## For-Expressions and Higher-Order Functions
+The syntax of **for** is closely related to the higher-order functions **map,flatMap** and **filter**.
+### define map, flatMap and filter with for
+```scala
+def map[]
+```
+
 ```scala
 val books=List(
   Book(title="Structure and Interpretation of COmputer Programs",
