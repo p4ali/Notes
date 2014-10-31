@@ -35,6 +35,8 @@ Let q(x) be a property provable about objects x of type T. Then q(y) should be p
 * Structure induction
 * Referential transparency
 
+## Monad
+(Monad is Elephant):http://james-iry.blogspot.com/2007/09/monads-are-elephants-part-1.html
 ## Some idioms
 ### Implicit Parameters
 ```scala
