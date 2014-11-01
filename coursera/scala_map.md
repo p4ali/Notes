@@ -10,4 +10,20 @@ capitalOfCountry("US') //"Washington"
 capitalOfCountry("Andorra") // NoSuchElementException
 capitalOfCountry get "US" // Some("Washinton")
 capitalOfCountry get "Andorra" // None
+
+val cap=capitalOfCountry withDefaultValue "unknow"
+cap "Andora" // unknown
+
+// Map as polynomial 
 ```
+### groupBy and orderBy
+```scala
+val fruit=List("apple","pear","orange","pineapple")
+fruit groupBy(_.head) // Map(p->List("pear","pineapple"), a->"apple", o->"orange")
+```
+
+### addition
+oversede, so need adjustment.
+
+
+### withDefaultValue
