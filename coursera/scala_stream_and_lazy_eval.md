@@ -20,3 +20,14 @@ object Stream{
   }
 }
 ```
+## Lazy Evaluation
+Scala use strict evaluation by default, but allows lazy evaluaiton of value definitions with the lazy val form.
+```Scala
+// lazy val
+lazy val y= {print "y";2}
+// calll by name parameter
+def lazyFun(p:=>Int) {
+  print p
+}
+```
+
