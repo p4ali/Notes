@@ -31,7 +31,7 @@ def lazyFun(p:=>Int) {
 }
 ```
 
-## COmputing with ininite sequences
+## Computing with ininite sequences
 Avoid filter which require the whole seq and then remove the undesired elements. Try to generate the desireable 
 elements from begining.
 ```scala
