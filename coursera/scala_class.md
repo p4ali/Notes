@@ -114,3 +114,10 @@ def singleton[T](elem: T) = new Cons[T](elem, new Nil[T])
 singleton[Int](1)
 singleton[Boolean](true)
 ```
+## Case class copy method
+When you create a case class in Scala, a **copy** method is generated for your case class. 
+It lets you make a copy of an object, where a **copy** is different than a clone, because with a copy you can change fields as desired during the copying process. The copy method is important in functional programming, where values (val) are immutable.
+```scala
+ val fred = Employee("Fred", "Anchorage", "Salesman")
+ val joe = fred.copy(name="Joe") // joe: Employee = Employee(Joe,Anchorage,Salesman)
+```
