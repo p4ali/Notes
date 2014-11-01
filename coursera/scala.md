@@ -109,7 +109,7 @@ val f=1:Float
 It can also ascribes the special varargs type. It can mirrors the asterisk notation used for declaring
 a varargs parameter and can be used on a vaiable of any type that subclasses **Seq[T]**:
 ```scala
-def f(args: String*) = ... //varargs parameter, use as an Array[String]
+def f(args: String*) = ... //varargs parameter, use as an Array[String], * called repeatent parameter
 val list = List("a", "b", "c")
 f(list : _*)
 ```
