@@ -62,7 +62,7 @@ println(str2) // str2  : String = Dan,Nick,Greg
 ```
 
 ## Mapping
-Folder apply computation to each element in a collection and get a single value result. Mapping will apply each element in a collection in-place (as it were), creating a new collection of the same type with the modified elements.
+Folder apply computation to each element in a collection and get a single value result. Mapping builds a new collection by applying a function to all elements of this collection.
 
 ```scala
 val strs = List("1","2","3","4","5")
@@ -71,6 +71,9 @@ val nums = strs.map(s => s.toInt)
 nums == List(1,2,3,4,5) // true
 // OR using _ to represent any argument
 val nums2 = strs.map(_.toInt)
+
+val m=Map('a'->1,'b'->2)
+m.map((kv) => kv._2)
 ```
 
 ## Binding
