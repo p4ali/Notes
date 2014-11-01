@@ -11,7 +11,7 @@ object Stream{
   def cons[T](hd: T, tl: => Stream[T]) = new Stream[T]{
     def isEmpty = false
     def head = hd
-    def tail = tl
+    lazy val tail = tl
   }
   val empty = new Stream[Nothing]{
     def isEMpty = true
