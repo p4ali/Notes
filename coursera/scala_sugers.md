@@ -1,7 +1,7 @@
 ## Multi-line string
 ```scala
 """|foo
-   |bar""".stripMargin
+   |bar""".stripMargin // stripMargin == stripMargin(|) by default
 foo
 bar
 
