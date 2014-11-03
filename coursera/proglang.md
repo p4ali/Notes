@@ -128,9 +128,6 @@ A call is a tail call if it is in tail position. Possible tail positions are:
 * If ```let b1 ... bn in e end``` is in tail position, then e is in tail position (but no expressions in the bindings are)
 * Function-call arguments are not in tail position.
 
-## Type Inference
-Type inference (Figure out types not written down) is a very cool feature of ML. You almost never have to write down type.
-
 ## Currying: (named after Haskell Curry who invent this)
 If a function ```fn x*y => z``, then curreing is to have a function take the first comceptual argument ```x``` and return
 another function that takes the second conceptual argument ```y``  and return ```z``` so on. The function with only partial conceptual arguments called *partial application*
@@ -200,11 +197,6 @@ In UI libraries often there are listeners to different events, and the library h
 want to do. It just call the listener, and when called, each listener can response by using their local variables,
 which is perfect for closure.
 
-### Abstract data types
-
-
-
-
 ## Returning functions
 ```SML
 
@@ -233,3 +225,14 @@ val y = !x+1 (* y=1 *)
 val _ = x := (!x) +2 (* the content of the reference x refers to is now 3 *)
 val z = !x+1 (* z=4 *)
 ```
+
+
+## Type Inference
+Type inference (Figure out types not written down) is a very cool feature of ML. You almost never have to write down type.
+### statically typed language vs dynamically typed language
+* *statically typed language* meaning every binding has a type that is determined "at compile-time", i.e., before any part of the program run. The type-checker is a compile-time procedure that either accepts or rejects a program. Such language like Java,C and ML.
+* *dynamically typed language* meaning the type of a binding is NOT determinedd ahead of time and computations like bindng 42 to x and then treating x as a string WILL result in runtime ERRORs, language like Racket, Ruby, and Python.
+* Unlike Java and C, ML is *implicitly typed*, meaning programmers rarely need to write down the type of binding. The type-checker mus to be more sophiscated to *infer* (i.e., figure out) what the *type annotations* "would have been" had programmers writen all of them.
+
+## Modules and Signature
+
