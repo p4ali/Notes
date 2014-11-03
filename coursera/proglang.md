@@ -17,6 +17,27 @@
 (* A function named x0, and body e, and arguments x1...xn, which typed t1...tn*)
 fun x0 (x1:t1,...,xn:tn) = e
 ```
+### Tail Recursion and Accumulators
+Using accumulatros you can make some functions tail recursive.
+Tail recurision has a good feature like *when f makes a recursive all to f, there is nothing more for the caller to do after the callee returns except return the callee's result*. This situation is called a **tail call**. And some
+programming languages like ML typically promise an essentail optimization: When a call is a a tail call, the caller's
+stack-frame is popped before the call - the callee's statck-frame just replace the caller's. This make sense: the caller was just going to return the callee's result anyway.
+By doing this optimization, resusion can sometimes(e.g., tail call) be as efficient as a while-loop, which also does not make the call-stack bigger.
+```SML
+fun sum1 xs=
+  case xs of
+    [] => 0
+    i::xs' => i + sum xs'
+(* using accumulator to make a tail recursive function *)
+fun sum2 xs = 
+  let fun f (acc,xs) =
+    case xs of
+      [] => acc
+      x::xs' => f(acc+i,xs')
+  in
+    f(0,xs)
+  end
+```
 
 ## Type Inference
 Type inference (Figure out types not written down) is a very cool feature of ML. You almost never have to write down type.
