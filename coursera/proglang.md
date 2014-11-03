@@ -31,6 +31,56 @@ datatype 'a option = NONE | SOME of 'a
 datatype ('a,'b) tree = Node of 'a * ('a,'b) tree * ('a,'b) tree
                       | Leaf of 'b
 ```
+### Conceptual ways to build new Types
+3 ways to create a compound type:
+* "Each-of" : A compound type t describes values that contain each of value of type t1,t2,... and tn. e.g. Records, 
+        tuples.
+* "One-of": A compuond type t describes values that contain a value of one of the types t1,t2,... or tn. e.g. *int option* is a simple example: A value of this type either contains an int or it does not. Java enumerator. (You can retrieve option value by **valOf**, though the better way is to use case expression)
+* "Self-reference": A compund type t may refer to itself in its definition in order to describe recusive data structure  like list and tree.
+
+## Exception binding and Handling
+```SML
+fun hd xs=
+  case xs of
+    [] => raise List.Empty (* List.Empty is a type of exception*)
+  | x::_ => x 
+```
+You can create your own exception binding:
+```SML
+(* MyException has type int*int->exn *)
+exception MyException of int*int (* You can call MyException(3,9) *)
+```
+The kinds exceptions are a lot like constructors of a datatype binding. Indeed, they are functions (if they carry values) or values (if they don't) that create values of type ```exn``` rather than the type of a datatype. So List.Empty, MyException(3,9) are all values of type ```exn```, whereas MyException has type of int***int->exn** 
+
+### Raise and handling exception
+```SML
+exception Baz; (* no arguments *)
+excpetion Foo of string; (* Foo("bar") *)
+raise Foo("bar");
+
+(* if raised exception is not handled, computation always stops *)
+exception OutOfRange of int*int*string;
+fun save_comb(n,m) =
+  if n<=0 then raise OutOfRange(n,m,"")
+  else if m<0 raise OutOfRange(n,m,"m must be greater than 0")
+  else if m>n then raise OutOfRange(n,m,"n must be greater than m")
+  else if m=0 orelse m=n then 1
+  else safe_comb(n-1,m)+safe_comb(n-1,m-1)
+fun comb(n,m) = safe_comb(n,m)
+  handle
+    OutOfRange(0,0,msg) => 1
+  | OutOfRange(n,m,msg) =>
+     ( print("Out of range: n="); print(n)
+       print(" m="); print(m);
+       print("\n"); print(msg); print("\n");
+       0
+     );
+     
+(* More examples *)
+fun inverse x=1.0/x
+  handle Div=>(print("divide by zero produces 'infinite' value: "); 
+               real(expo(10,10)))
+```
 
 ## Expression and variable bindings
 * An ML program is a sequence of bindings
@@ -80,20 +130,6 @@ A call is a tail call if it is in tail position. Possible tail positions are:
 
 ## Type Inference
 Type inference (Figure out types not written down) is a very cool feature of ML. You almost never have to write down type.
-
-## Conceptual ways to build new Types
-3 ways to create a compound type:
-* "Each-of" : A compound type t describes values that contain each of value of type t1,t2,... and tn. e.g. Records, 
-        tuples.
-* "One-of": A compuond type t describes values that contain a value of one of the types t1,t2,... or tn. e.g. *int option* is a simple example: A value of this type either contains an int or it does not. Java enumerator. (You can retrieve option value by **valOf**, though the better way is to use case expression)
-* "Self-reference": A compund type t may refer to itself in its definition in order to describe recusive data structure  like list and tree.
-
-## Exceptions and Handling
-```SML
-fun hd xs=
-  case xs of
-    []
-```
 
 ## Currying: (named after Haskell Curry who invent this)
 If a function ```fn x*y => z``, then curreing is to have a function take the first comceptual argument ```x``` and return
