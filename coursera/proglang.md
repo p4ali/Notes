@@ -38,6 +38,13 @@ fun sum2 xs =
     f(0,xs)
   end
 ```
+### A Precise Definition of Tail Position
+A call is a tail call if it is in tail position. Possible tail positions are:
+* In ```fun f(x)=e```, e is in tail position
+* If an expression is no tin tail position, the none of its subexpressions are in tail position
+* If ```if e1 the e2 else e3``` is in tail position, then e2 and e3 are in tail position (but not e1), Case expressions are similar
+* If ```let b1 ... bn in e end``` is in tail position, then e is in tail position (but no expressions in the bindings are)
+* Function-call arguments are not in tail position.
 
 ## Type Inference
 Type inference (Figure out types not written down) is a very cool feature of ML. You almost never have to write down type.
