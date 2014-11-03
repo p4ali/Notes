@@ -143,7 +143,6 @@ sort 4 5
 
 (* alternative way to define currying, separating conceptual arguments by spaces rather than anonymous functions *)
 fun sorted x y z = z>y and also y>=x
-
 ```
 
 ### Partial application vs val-binding
@@ -213,6 +212,8 @@ else fn x=> 3*x
 ```
 
 ## Mutation via ML References
+ML has no language constructs for creating mutable data. In order to mutate, you have to use **ref**.
+
 In ML, most things really cannot be mutated. But Mutation is ok in some settings. A key approach in functional 
 programming is to use it when "updating the state of something so all users of that state can see a change has
 occured" is the natual way to model your computation.
