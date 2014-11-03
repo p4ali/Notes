@@ -1,5 +1,27 @@
 # SML
 
+## Datatype Bindings
+The following defines a datatype:
+* A new type **mytype** that we can now use just like any other type
+* 3 different *constructors*: **TwoINts, Str,and Pizza**.
+```SML
+(* define a new type where values have an int*int or a string or nothing *)
+datatype mytype = TwoInts of ini*int
+                | Str of string
+                | Pizza
+```
+A *constructor* is two different things: 
+* either a function for creating values of the new type (*TwoInts* and *Str*)
+* or a value of type mytype (e.g., *Pizza*) 
+ML dos *NOT* provide access to datatype values, you can encouraged to access datatype values by using **Case Expressions**:
+```SML
+fun f x = (* f has type mytype -> int *)
+  case x of
+    Pizza => 3
+  | TwoInts(i1,i2)=>i1+i2
+  | Str s => String.size s
+```
+
 ## Expression and variable bindings
 * An ML program is a sequence of bindings
 * Each binding gets *type-checked* and then *evaluated*
@@ -53,7 +75,7 @@ Type inference (Figure out types not written down) is a very cool feature of ML.
 3 ways to create a compound type:
 * "Each-of" : A compound type t describes values that contain each of value of type t1,t2,... and tn. e.g. Records, 
         tuples.
-* "One-of": A compuond type t describes values that contain a value of one of the types t1,t2,... or tn. e.g. *int option* is a simple example: A value of this type either contains an int or it does not. Java enumerator.
+* "One-of": A compuond type t describes values that contain a value of one of the types t1,t2,... or tn. e.g. *int option* is a simple example: A value of this type either contains an int or it does not. Java enumerator. (You can retrieve option value by **valOf**, though the better way is to use case expression)
 * "Self-reference": A compund type t may refer to itself in its definition in order to describe recusive data structure  like list and tree.
 
 ### Datatype bindings
