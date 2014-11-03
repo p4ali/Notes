@@ -5,7 +5,7 @@ The following defines a datatype:
 * A new type **mytype** that we can now use just like any other type
 * 3 different *constructors*: **TwoINts, Str,and Pizza**.
 ```SML
-(* define a new type where values have an int*int or a string or nothing *)
+(* define a new type where values have an int*int or a string or nothing(NONE) *)
 datatype mytype = TwoInts of ini*int
                 | Str of string
                 | Pizza
@@ -77,19 +77,6 @@ Type inference (Figure out types not written down) is a very cool feature of ML.
         tuples.
 * "One-of": A compuond type t describes values that contain a value of one of the types t1,t2,... or tn. e.g. *int option* is a simple example: A value of this type either contains an int or it does not. Java enumerator. (You can retrieve option value by **valOf**, though the better way is to use case expression)
 * "Self-reference": A compund type t may refer to itself in its definition in order to describe recusive data structure  like list and tree.
-
-### Datatype bindings
-The following defines a new type of one-fo type. It defines the constructors (TwoInts, Str, Pizza) and constructor arguments (int*int, string and NONE)
-```SML
-datatype mytype = TwoInts of int*int
-                | Str of string
-                | Pizza
-                
-(* above define 3 constructor functions *)
-TwoInts = fn int*int -> mytype
-Str = fn string -> mytype
-Pizza = val mytype
-```
 
 ## Currying: (named after Haskell Curry who invent this)
 If a function ```fn x*y => z``, then curreing is to have a function take the first comceptual argument ```x``` and return
