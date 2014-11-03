@@ -1,12 +1,32 @@
 # SML
 
+## Expression and variable bindings
+* An ML program is a sequence of bindings
+* Each binding gets *type-checked* and then *evaluated*
+* Type binding depends on a *static environment*, which is roughly the **types** of the preceding bindings in the file.
+* How a binding is evalauated depends on a *dynamic environment*, which is roughly the **values** of the prededing binding s in the file.
+
+## Function Bindings
+* Function arguments are evaluated before being passed to functions
+* ML is statically scoped
+* Not all functions can be called recusively, only the call by names can
+* Functions are first-class expressions
+* A function type is **"argument types"->"result type"** where the argument types are separated by **'*'**
+* The type of body **e** must have type **t**, i.e., the result type of **x0**.
+```SML
+(* A function named x0, and body e, and arguments x1...xn, which typed t1...tn*)
+fun x0 (x1:t1,...,xn:tn) = e
+```
+
+## Type Inference
+Type inference (Figure out types not written down) is a very cool feature of ML. You almost never have to write down type.
+
 ## Conceptual ways to build new Types
 3 ways to create a compound type:
 * "Each-of" : A compound type t describes values that contain each of value of type t1,t2,... and tn. e.g. Records, 
         tuples.
 * "One-of": A compuond type t describes values that contain a value of one of the types t1,t2,... or tn. e.g. *int option* is a simple example: A value of this type either contains an int or it does not. Java enumerator.
-* "Self-reference": A compund type t may refer to itself in its definition in order to describe recusive data structure
-           like list and tree.
+* "Self-reference": A compund type t may refer to itself in its definition in order to describe recusive data structure  like list and tree.
 
 ### Datatype bindings
 The following defines a new type of one-fo type. It defines the constructors (TwoInts, Str, Pizza) and constructor arguments (int*int, string and NONE)
@@ -96,7 +116,6 @@ which is perfect for closure.
 
 
 ## Returning functions
-
 ```SML
 
 fun increment x = x+1
