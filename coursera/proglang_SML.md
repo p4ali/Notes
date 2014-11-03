@@ -237,3 +237,19 @@ Type inference (Figure out types not written down) is a very cool feature of ML.
 
 ## Modules and Signature
 
+## Sugars
+```SML
+(* #? to reference tuple *)
+fun sum_triple (triple : int * int * int) =
+#1 triple + #2 triple + #3 triple
+
+(* o or :> to compose function *)
+
+(* ^ for string concatenation *)
+fun partial_name {first=x, middle=y, last=z} = x ^ " " ^ z
+
+(* hd and tl to get head or tail of list *)
+
+(* valOf to get option value *)
+
+```
