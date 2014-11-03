@@ -21,6 +21,16 @@ fun f x = (* f has type mytype -> int *)
   | TwoInts(i1,i2)=>i1+i2
   | Str s => String.size s
 ```
+### Polymorphic Datatypes
+This is the way to definie *generic* data structures.
+```SML
+(* this binding does NOT introcude a type option. Rather, it make it so that if 't' is a type, then 't option' is a type *)
+datatype 'a option = NONE | SOME of 'a
+
+(* this define polymophic datatypes taking multiple types, e.g., a binary tree where internal nodes hold values of type 'a and leaves hold values of type 'b, we then have type like (int,int) tree (in which every node and leaf holds an int) and (String,bool) tree (in which every node holds a string and every leaf holds bool) *)
+datatype ('a,'b) tree = Node of 'a * ('a,'b) tree * ('a,'b) tree
+                      | Leaf of 'b
+```
 
 ## Expression and variable bindings
 * An ML program is a sequence of bindings
@@ -77,6 +87,13 @@ Type inference (Figure out types not written down) is a very cool feature of ML.
         tuples.
 * "One-of": A compuond type t describes values that contain a value of one of the types t1,t2,... or tn. e.g. *int option* is a simple example: A value of this type either contains an int or it does not. Java enumerator. (You can retrieve option value by **valOf**, though the better way is to use case expression)
 * "Self-reference": A compund type t may refer to itself in its definition in order to describe recusive data structure  like list and tree.
+
+## Exceptions and Handling
+```SML
+fun hd xs=
+  case xs of
+    []
+```
 
 ## Currying: (named after Haskell Curry who invent this)
 If a function ```fn x*y => z``, then curreing is to have a function take the first comceptual argument ```x``` and return
