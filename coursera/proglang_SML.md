@@ -226,8 +226,6 @@ val y = !x+1 (* y=1 *)
 val _ = x := (!x) +2 (* the content of the reference x refers to is now 3 *)
 val z = !x+1 (* z=4 *)
 ```
-
-
 ## Type Inference
 Type inference (Figure out types not written down) is a very cool feature of ML. You almost never have to write down type.
 ### statically typed language vs dynamically typed language
@@ -236,6 +234,46 @@ Type inference (Figure out types not written down) is a very cool feature of ML.
 * Unlike Java and C, ML is *implicitly typed*, meaning programmers rarely need to write down the type of binding. The type-checker mus to be more sophiscated to *infer* (i.e., figure out) what the *type annotations* "would have been" had programmers writen all of them.
 
 ## Modules and Signature
+### Modules
+Modules are used for namespace management for large program. It can be used to separate bindings into different *namespace*. 
+In ML, we can use **structure** to define modules that contains a collection of findings.
+```SML
+(* bindings is any list of bindings, and Name is the name of your structure *)
+structure Name = struct 
+  bindings 
+end
+```
+### Signature
+signature defines the public types for modules. It prvovide strict interfaces that code outside the module must obey.
+```SML
+signature MATHLIB = 
+sig
+  val fact : int -> int
+  val half_pi : real
+  val doubler : int -> int
+end
+
+structure MyMathLib :> MATHLIB = 
+struct
+  fun fact x = if x=0 then 1 else x*fact(x-1)
+  val half_pi = Math.pi/2.0
+  fun doubler y = dbl y
+  
+  (* Hidden types (also abstract type, meaning private to structure only) *)
+  fun dbl x=x*2
+end
+```
+ML will type check signature when compiling MyMathLib (because of the ```:> MATHLIB```)
+
+### Rules for signature matching
+The following rule defines whether a sturcture *match* a signature. If a structure does not match a signature assigned to it, then module does not type-check. A tructure *Name* matches a signature *BLAH* if:
+* for every val-binding in BLAH, Name must have a binding with that type or a more general type (e.g., the implementation can be polymorphic even if the signature says it is not). This binding could be provided via a val-binding, a fun-binding, or a datatype-binding.
+* for every non-abstract-binding in BLAH, Name must have the same type binding
+* for every abstract type-binding in BLAH, Name must have some binding that creates that type.
+### abstract types
+Inside structure, the definitions of type compoments may or may not be exported (defined in signature); type components whose definitions are hidden are *abstract types*.
+### functor
+A functor is a function from structures to structures; that is, a functor accepts one or more arguments, which are usually structures of a given signature, and produces a struacture as its result (which may a stucture of a same or different signature). 
 
 ## Sugars
 ```SML
@@ -243,13 +281,21 @@ Type inference (Figure out types not written down) is a very cool feature of ML.
 fun sum_triple (triple : int * int * int) =
 #1 triple + #2 triple + #3 triple
 
-(* o or :> to compose function *)
+(* o or |> to compose function *)
+val f= fn x=> x+1
+val g=fn x=>x*2
+val h= f o g (* f(g(x)) *)
+val i= g |> f (* f(g(x)) *)
 
 (* ^ for string concatenation *)
 fun partial_name {first=x, middle=y, last=z} = x ^ " " ^ z
 
 (* hd and tl to get head or tail of list *)
+hd [1,2,3] = 1
+tl [1,2,3] = [2,3]
 
 (* valOf to get option value *)
+int option = NONE | SOME of int
+valOf (SOME 10) (* 10 *)
 
 ```
