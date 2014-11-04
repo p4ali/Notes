@@ -274,6 +274,7 @@ The following rule defines whether a sturcture *match* a signature. If a structu
 Inside structure, the definitions of type compoments may or may not be exported (defined in signature); type components whose definitions are hidden are *abstract types*.
 ### functor
 A functor is a function from structures to structures; that is, a functor accepts one or more arguments, which are usually structures of a given signature, and produces a struacture as its result (which may a stucture of a same or different signature). 
+[Functor, Applicative, and Monad](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)
 
 ## Sugars
 ```SML
