@@ -274,7 +274,10 @@ The following rule defines whether a sturcture *match* a signature. If a structu
 Inside structure, the definitions of type compoments may or may not be exported (defined in signature); type components whose definitions are hidden are *abstract types*.
 
 ### functor
-A functor is a function from structures to structures; that is, a functor accepts one or more arguments, which are usually structures of a given signature, and produces a struacture (of the same signature) as its result. see also [Functor(函子), Applicative, and Monad](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html) and [category thoery(范畴论), morphism(态射), objects(物件)](http://zh.wikipedia.org/wiki/%E8%8C%83%E7%95%B4%E8%AE%BA)
+A functor is a function from structures to structures; that is, a functor accepts one or more arguments, which are usually structures of a given signature, and produces a struacture (of the same signature) as its result. see also [Functor(函子), Applicative, and Monad(单子, or 一价原子)](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html) and [category thoery(范畴论), morphism(态射), objects(物件)](http://zh.wikipedia.org/wiki/%E8%8C%83%E7%95%B4%E8%AE%BA)
+
+### Monad(单子)
+an abstract datay type in functional programming. It use to present computation not the data. It contains 2 opration **bind** (```>=``` in Haskell) and **return**, and a type constructor **M**. See also [Monads for functional programming](http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf)
 
 ## Sugars
 ```SML
