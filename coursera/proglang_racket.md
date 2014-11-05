@@ -1,3 +1,12 @@
+## Comments
+```racket
+; single line comment
+#; single block comment
+#| multiple blocks/lines comment
+bla
+bla
+|#
+```
 ## Definitions
 ```racket
 (define a 3)
@@ -36,4 +45,9 @@
 #f
 ````
 
+## Local bindings
+```racket
+
+(let ([x1 e1] [x2 e3]) e)
+```
 
