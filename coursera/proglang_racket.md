@@ -2,7 +2,8 @@
 ```racket
 ; single line comment
 #; single block comment
-#| multiple blocks/lines comment
+#|
+multiple blocks/lines comment
 bla
 bla
 |#
