@@ -48,7 +48,7 @@ bla
 
 ## Local bindings
 ```racket
-
-(let ([x1 e1] [x2 e3]) e)
+; e2 cannot use x1
+(let ([x1 e1] [x2 e2]) e)
 ```
 
