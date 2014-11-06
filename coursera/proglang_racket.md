@@ -15,6 +15,7 @@ bla
 ```
 
 ## function
+**lambda** is used to create an anonymous function. e.g., `(lambda (x) e)`
 ```racket
 (define add (lambda (x y) (+ x y)))
 (difine cube (lambda (x) (* x x x)))
