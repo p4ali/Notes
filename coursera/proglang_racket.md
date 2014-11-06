@@ -41,11 +41,16 @@ bla
 (define sisteen ((pow 2) 4))
 ```
 
-# boolean
+## boolean
 ```racket
 #t
 #f
-````
+```
+
+## sequence
+```racket
+(t1 t2 ... tn)
+```
 
 ## Local bindings
 ```racket
