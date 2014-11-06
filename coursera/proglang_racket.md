@@ -50,5 +50,17 @@ bla
 ```racket
 ; e2 cannot use x1
 (let ([x1 e1] [x2 e2]) e)
+
+; now y can reference x, but no recursion
+(let* ([x (+ x 3)]
+       [y (+ x 2)])
+    (+ x y -8))
+
+; allow recursion
+(define (triple x)
+  (letrec ([y (+ x 2)]
+           [f (lambda (z) (+ z y w x)]
+           [w (+ x 7)])
+    (f -9)))
 ```
 
