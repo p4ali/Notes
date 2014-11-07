@@ -115,3 +115,14 @@ By using function, we can delay the evaluation. When we use a zero arugument fun
 (define (my-if-bad x y z) (if x y z)) ; this will evaluate x, y, z before calling my-if-bad, which may cause recursive problem.
 (my-if e1 (lambda () e2) (lambda () e3)) ; this delay the evaluation to e2, e3
 ```
+
+## Lazy evaluation with Delay and Force
+Lazy evaluation or call-by-need, or promises. The idea is to use mutation to remember the result from the first time we use the thunk so that we do not need to use the thunk again.
+
+* call-by-need: If an argument is never used it is never evaluated, else it ie evaluated only once
+* call-by-value: aruguments are fully evluated before the call is made
+
+## Streams
+Streams is a infinite sequence of values. It can be implemented by writing two parts of code
+* One part knows how to produce the infinite sequence 
+* and other code that knows how to ask for however much of the squence it needs.
