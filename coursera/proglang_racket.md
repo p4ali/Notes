@@ -50,6 +50,10 @@ bla
 ## sequence
 ```racket
 (t1 t2 ... tn)
+(cons 1 (cons 2 (cons 3 null))) ; (1 2 3)
+(cons 1 (cons 2 (cons 3 4))) ; (1 2 3 . 4) where '.' means not a list, or imiproper list.
+pair? (cons 1 2); #t
+length (cons 1 2); throw runtime error
 ```
 
 ## Local bindings
@@ -88,4 +92,26 @@ bla
 (set! b 5)
 (define z (f 4)) ; z=9
 (define w c) ; w=7
+```
+
+## Cons Cell are immutable, but there is `mcons`
+* `mcons` makes a mutable pair `(define x (mcons 14 null)))`
+* `mcar` return the first component of mutable pair `(mcar x)`
+* `mcdr` return the second component of a mutable pari `(mcdr x)`
+* `mpair?` returns #t if givena mutable pair
+* `set_mcar!` take a mutable pair and and expression and change the second component to be result the expression `(set_mcar x e)`
+* `set_mcdr!` takes a mutable pair and an expression andn change the second component to be the result of the expression.
+
+## Delayed Evaluation and Thunks
+A key semantic issue for a language constructs is *When are its subexpression evaluated*.
+
+### Evaluated arguments in advance
+* given (e1 e2 ... en) we evaluate the function arguments e2,...,en once before the evaluate the function body 
+* given a function (lambda (...) ...) we do not evaluate the body until the function is called.
+
+### Thunks
+By using function, we can delay the evaluation. When we use a zero arugument function to delay evaluation, we call the function a **thunk**. e.g., "thunk the argument" means use `(lambda () e)` instead of `e`.
+```racket
+(define (my-if-bad x y z) (if x y z)) ; this will evaluate x, y, z before calling my-if-bad, which may cause recursive problem.
+(my-if e1 (lambda () e2) (lambda () e3)) ; this delay the evaluation to e2, e3
 ```
