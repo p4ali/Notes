@@ -68,5 +68,24 @@ bla
            [f (lambda (z) (+ z y w x)]
            [w (+ x 7)])
     (f -9)))
+
+; two multually recursive functions    
+(define (mod2 x)
+  (letrec
+    ([even? (lambda (x) (if (zero? x) #t (odd? (- x 1))))]
+     [odd? (lambda (x) (if (zero? x) #f (even? (- x 1))))]
+    )
+    (if (even? x) 0 1)
+  )
+)
 ```
 
+## Bindings are Mutable: `set!` Exists
+```racket
+(define b 3)
+(define f (lambda (x) (* 1 (+ x b))))
+(define c (+ b 4))
+(set! b 5)
+(define z (f 4)) ; z=9
+(define w c) ; w=7
+```
