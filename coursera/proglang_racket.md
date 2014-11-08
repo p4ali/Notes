@@ -55,6 +55,7 @@ bla
 ```
 
 ## sequence
+Like ML, **list** in racket is readonly.
 ```racket
 (t1 t2 ... tn)
 (cons 1 (cons 2 (cons 3 null))) ; (1 2 3)
