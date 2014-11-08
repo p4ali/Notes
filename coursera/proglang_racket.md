@@ -1,3 +1,6 @@
+## Important Skill
+* looking up library functions even in languages new to you is an important skill
+
 ## Dr Racket
 ``` racket
 #lang racket ; tell interpreter this is racket code
