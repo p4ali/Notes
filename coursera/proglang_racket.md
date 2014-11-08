@@ -1,3 +1,10 @@
+## Dr Racket
+``` racket
+#lang racket ; tell interpreter this is racket code
+(provide (all-defined-out)) ; make anything defined in this module/file public
+(define s "Hello")
+...
+
 ## Comments
 ```racket
 ; single line comment
@@ -126,3 +133,18 @@ Lazy evaluation or call-by-need, or promises. The idea is to use mutation to rem
 Streams is a infinite sequence of values. It can be implemented by writing two parts of code
 * One part knows how to produce the infinite sequence 
 * and other code that knows how to ask for however much of the squence it needs.
+```racket
+; natural integer sequence
+(define nats (letrec ([f (lambda (x) (cons x lambda() (f (+ x 1))))])
+              (lambda () (f 1))))
+; to access
+(car ((cdr (nats))))
+```
+
+## Memoization(缓存)
+An idiom related to lzay evaluation that does not actually use thunks is *memoization*. It based on following assumption:
+* given the same arguments a function will always return the same result and have no side-effects.
+We can lookup what the answer was the first time we called the function with the arguments. 
+
+To implement memoization, we use mutation. 
+ 
