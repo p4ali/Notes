@@ -61,7 +61,9 @@ bla
 ## sequence
 Like ML, **list** in racket is readonly.
 ```racket
-(t1 t2 ... tn)
+empty ; '()
+'(1 2 3)
+'(t1 t2 ... tn)
 (cons 1 (cons 2 (cons 3 null))) ; (1 2 3)
 (cons 1 (cons 2 (cons 3 4))) ; (1 2 3 . 4) where '.' means not a list, or imiproper list.
 pair? (cons 1 2); #t
