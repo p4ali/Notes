@@ -1,7 +1,8 @@
 ## Dr Racket
 ``` racket
 #lang racket ; tell interpreter this is racket code
-(provide (all-defined-out)) ; make anything defined in this module/file public
+
+(provide (all-defined-out)) ; make top-level definitions defined in this file (also module) externally visible.
 (define s "Hello")
 ...
 
