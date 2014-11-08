@@ -150,3 +150,5 @@ We can lookup what the answer was the first time we called the function with the
 
 To implement memoization, we use mutation. 
  
+## Reference
+* [Racket guide]:(http://docs.racket-lang.org/guide)
