@@ -339,7 +339,7 @@ Lazy evaluation or call-by-need, or promises. The idea is to use mutation to rem
       (begin (set-mcar! p #t)
              (set-mcdr! p ((mcdr p)))
              (mcdr p))))
-;; example call
+;; example call, make best of both world of mutation and thunk
 (define (my-mult x y-thunk)
   (cond [(= x 0) 0]
         [(= x 1) (y-thunk)]
@@ -352,12 +352,39 @@ Lazy evaluation or call-by-need, or promises. The idea is to use mutation to rem
 Streams is a infinite sequence of values. It can be implemented by writing two parts of code
 * One part knows how to produce the infinite sequence 
 * and other code that knows how to ask for however much of the squence it needs.
+key ieda to implement:
+* Let a stream be a thunk that when called returns a pair `'(next-answer . next-thunk)`
 ```racket
+; stream of ones
+(define ones 
+  (lambda ()
+    (cons 1 ones)))
+
 ; natural integer sequence
-(define nats (letrec ([f (lambda (x) (cons x lambda() (f (+ x 1))))])
+(define nats (letrec ([f (lambda (x) (cons x (lambda () (f (+ x 1)))))])
               (lambda () (f 1))))
+;; or
+(define (f n)
+  (cons n (lambda () (f (+ n 1)))))
+(define nats (lambda () (f 1)))
+
 ; to access
-(car ((cdr (nats))))
+(car ((cdr (nats)))); 2
+
+; power of 2s
+(define (powers-of-two)
+  (letrec ([f (lambda (x) 
+                (cons x (lambda () (f (* x 2)))))])
+    (f 1)))
+
+(define (number-until stream tester)
+  (letrec ([f (lambda (stream acc)
+                (let ([pr (stream)])
+                  (if (tester (car pr))
+                      acc
+                      (f (cdr pr) (+ acc 1)))))])
+    (f stream 1)))
+(number-until powers-of-two (lambda (x) (= x 16))); 5
 ```
 
 ## Memoization(缓存)
