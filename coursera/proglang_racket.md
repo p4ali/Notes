@@ -8,6 +8,7 @@
 (provide (all-defined-out)) ; make top-level definitions defined in this file (also module) externally visible.
 (define s "Hello")
 ...
+```
 
 ## Parentheses
 [http://xkcd.com/297](http://xkcd.com/297)
