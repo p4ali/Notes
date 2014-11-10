@@ -160,7 +160,12 @@ length (cons 1 2); throw runtime error
            [w (+ x 7)]) ; w = x+7
     (f -9))) ; f (-9) = -9+y+w+x = -9 + x+2 + x + 7+x =3x
 
-; two multually recursive functions    
+; local defines are preferred racket style
+(define (mod2 x)
+  (define (even? x) (if (zero? x) #t (odd? (- x 1))))
+  (define (odd? x) (if (zero? x) #f (even? (- x 1))))
+  (if (even? x) 0 1))
+; compare with the letrec impl
 (define (mod2 x)
   (letrec
     ([even? (lambda (x) (if (zero? x) #t (odd? (- x 1))))]
@@ -170,12 +175,12 @@ length (cons 1 2); throw runtime error
   )
 )
 
+; compare with/out local for max
 (define (max xs)
   (cond [(null? xs) (error "given empty list")]
          [(null? (cdr xs)) (car xs)]
          [#t (if (> (car xs) (max (cdr xs))) (car xs) (max (cdr xs)))]
          ))
-
 (define (max2 xs)
   (cond [(null? xs) error "given empty list"]
         [(null? (cdr xs)) (car xs)]
@@ -183,6 +188,15 @@ length (cons 1 2); throw runtime error
                   [t (max2 (cdr xs))])
                   (if (> h t) h t))]))
 ```
+
+## Toplvel bindings
+The bindings in a file work like local defines, i.e., `letrec`
+* like ML, you can refer the earlier bindings
+* unlike ML, you can also refer to later bindings, but refer to later bindings ONLY in function bodies
+ * because bindings are evaluated in order
+ * an error to use an undefined variable
+* unlike ML, cannot define the same variable twice in module
+Each file is imiplicityly a module. An moduel can shadow bidings from other modules it uses, so we could redefine `+` or any other funciton, but poor style and only shadoes in our module.
 
 ## Dynamic typing
 With dynamic typing
