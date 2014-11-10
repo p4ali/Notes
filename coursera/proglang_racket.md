@@ -227,8 +227,12 @@ Example:
         [#t (sum2 (cdr xs))]))
 ```
 
-## Bindings are Mutable: `set!` Exists
+## Mutation with `set
+Unlike ML, racket does has assignment statement, but use *only-when-really-appropriate*.
 ```racket
+;; syntax
+(set! x e)
+
 (define b 3)
 (define f (lambda (x) (* 1 (+ x b))))
 (define c (+ b 4))
