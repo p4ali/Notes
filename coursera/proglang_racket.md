@@ -325,10 +325,28 @@ By using function, we can delay the evaluation.
 ```
 
 ## Lazy evaluation with Delay and Force
-Lazy evaluation or call-by-need, or promises. The idea is to use mutation to remember the result from the first time we use the thunk so that we do not need to use the thunk again.
-
+Lazy evaluation or call-by-need, or promises. The idea is to use mutation to remember the result from the first time we use the thunk so that we do not need to use the thunk again. i.e., thunks + multable pairs
 * call-by-need: If an argument is never used it is never evaluated, else it ie evaluated only once
 * call-by-value: aruguments are fully evluated before the call is made
+```racket
+;; create a pair holding the evaluated value
+(define (my-delay th)
+  (mcons #f th))
+;; evalulate the value or return the evaluated value
+(define (my-force p)
+  (if (mcar p)
+      (mcdr p)
+      (begin (set-mcar! p #t)
+             (set-mcdr! p ((mcdr p)))
+             (mcdr p))))
+;; example call
+(define (my-mult x y-thunk)
+  (cond [(= x 0) 0]
+        [(= x 1) (y-thunk)]
+        [#t (+ (y-thunk) (my-mult (- x 1) y-thunk))]))
+(my-mult 3 (let ([p (my-delay (lambda () 777))])
+               (lambda () (my-force p))))             
+```
 
 ## Streams
 Streams is a infinite sequence of values. It can be implemented by writing two parts of code
