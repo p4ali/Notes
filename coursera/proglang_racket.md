@@ -298,16 +298,25 @@ lenth mpr; does NOT work
 
 ## Delayed Evaluation and Thunks
 A key semantic issue for a language constructs is *When are its subexpression evaluated*.
-
+* function arguments are eager (call-by-value)
+* conditional branches are not eager (`if e bt bf`)
 ### Evaluated arguments in advance
 * given (e1 e2 ... en) we evaluate the function arguments e2,...,en once before the evaluate the function body 
 * given a function (lambda (...) ...) we do not evaluate the body until the function is called.
 
 ### Thunks
-By using function, we can delay the evaluation. When we use a zero arugument function to delay evaluation, we call the function a **thunk**. e.g., "thunk the argument" means use `(lambda () e)` instead of `e`.
+By using function, we can delay the evaluation. 
+* A zero arugument function used to delay evaluation is called a **thunk**. e.g., "thunk the argument" means use `(lambda () e)` instead of `e`.
 ```racket
 (define (my-if-bad x y z) (if x y z)) ; this will evaluate x, y, z before calling my-if-bad, which may cause recursive problem.
-(my-if e1 (lambda () e2) (lambda () e3)) ; this delay the evaluation to e2, e3
+; a better imple of my-if, which delay the evaluation of y z by using thunk
+(define (my-if x y z) 
+  (if x (y) (z)))
+(define (fact n)
+  (my-if (= n 0)
+      (lambda() 1)
+      (lambda() (* n (fact (- n 1))))))
+(fact 3); 6
 ```
 
 ## Lazy evaluation with Delay and Force
