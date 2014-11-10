@@ -147,14 +147,18 @@ Example:
 * A list that can contain numbers or nested list of numbers
 * Assuming *list or numbers "all the way down"*, sum all the numbers ...
 ```racket
-(define xs (list 3 4 5))
+(define xs (list 3 4 5 (list "hi" 1)))
 (define ys (list (list 4 (list 5 0)) 6 7 (list 8) 9 2 3 (list 0 1)))
 (define (sum1 xs) 
   (if (null? xs) 
       0 
       (if (number? (car xs)) 
           (+ (car xs) (sum1 (cdr xs))) 
-          (+ (sum1 (car xs)) (sum1 (cdr xs))))))
+          (if (list? (car xs))
+              (+ (sum1 (car xs)) (sum1 (cdr xs)))
+              (sum1 (cdr xs))))))
+(sum1 xs);13
+(sum1 ys);45 
 ```
 
 ## Bindings are Mutable: `set!` Exists
