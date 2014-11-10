@@ -43,9 +43,35 @@ bla
 (define b (+ a 2))
 ```
 
+## boolean
+Anything other than *#f* is *#t*.
+```racket
+#t
+#f
+(if null 14 15); 14
+(if #f 14 15); 15
+```
+
 ## if block
 ```racket
 if e1 e2 e3 ; check e1, if #t e2, if #f e3, not else then needed
+```
+
+## cond
+`cond` can be used to avoid nested if-expressions, it's one of SUGAR for other
+Think it as a *switch* in Java
+```racket
+(cond [e1a e1b]
+      [e2a e2b]
+      ...
+      [eNa eNb]) ; eNa should be #t for Good style
+
+;; example
+(define (sum2 xs)
+  (cond [(null? xs) 0]
+        [(number? (car xs)) (+ (car xs) (sum2 (cdr xs)))]
+        [(list? (car xs)) (+ (sum2 (car xs)) (sum2 (cdr xs)))]
+        [#t (sum2 (cdr xs))]))
 ```
 
 ## function
@@ -80,12 +106,6 @@ if e1 e2 e3 ; check e1, if #t e2, if #f e3, not else then needed
 (define three-to-the (pow 3))
 (define eightyone (three-to-the 4))
 (define sisteen ((pow 2) 4))
-```
-
-## boolean
-```racket
-#t
-#f
 ```
 
 ## List
@@ -146,6 +166,7 @@ With dynamic typing
 Example:
 * A list that can contain numbers or nested list of numbers
 * Assuming *list or numbers "all the way down"*, sum all the numbers ...
+* You need to check the type by yourself in the code, but it's hard to document the arguments :-(
 ```racket
 (define xs (list 3 4 5 (list "hi" 1)))
 (define ys (list (list 4 (list 5 0)) 6 7 (list 8) 9 2 3 (list 0 1)))
@@ -159,6 +180,12 @@ Example:
               (sum1 (cdr xs))))))
 (sum1 xs);13
 (sum1 ys);45 
+
+(define (sum2 xs)
+  (cond [(null? xs) 0]
+        [(number? (car xs)) (+ (car xs) (sum2 (cdr xs)))]
+        [(list? (car xs)) (+ (sum2 (car xs)) (sum2 (cdr xs)))]
+        [#t (sum2 (cdr xs))]))
 ```
 
 ## Bindings are Mutable: `set!` Exists
