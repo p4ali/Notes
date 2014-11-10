@@ -10,10 +10,22 @@
 ...
 ```
 
+## Racket syntax
+Racket has amazing simple syntax
+* A **term** (anything in the language) is either
+ * An **atom**, e.g., #t,#f,34 "hi", null, 4.0 x,...
+ * A **special form**, e.g., *define*, *lambda*, *if*
+  * Macros will let us define our own
+ * A **sequence* of **terms** in parens: `(t1 t2 ... tn)`
+  * if `t1` a *special form*, sematics of sequence is special
+  * Else a *function call*
+
 ## Parentheses
 Parentheses `(` and `[` are equal in Racket, and they make parsing the program text to semantics tree extremely easy.
 Don's complain about parentheses, they behave like exactly as the tags in html.
 See also [http://xkcd.com/297](http://xkcd.com/297)
+* in most places `(e)` means call `e` with zero arguments
+* so `((e))` means call `e` with zero arguemtns and call the result with zero arguments
 
 ## Comments
 ```racket
@@ -125,6 +137,24 @@ length (cons 1 2); throw runtime error
     (if (even? x) 0 1)
   )
 )
+```
+
+## Dynamic typing
+With dynamic typing
+* Frustrating not to catch "little errors" like `(n * x)` until you test your function -- this make testing more important
+* But can use very flexible data structures and code without convincing a type checker that it make sense
+Example:
+* A list that can contain numbers or nested list of numbers
+* Assuming *list or numbers "all the way down"*, sum all the numbers ...
+```racket
+(define xs (list 3 4 5))
+(define ys (list (list 4 (list 5 0)) 6 7 (list 8) 9 2 3 (list 0 1)))
+(define (sum1 xs) 
+  (if (null? xs) 
+      0 
+      (if (number? (car xs)) 
+          (+ (car xs) (sum1 (cdr xs))) 
+          (+ (sum1 (car xs)) (sum1 (cdr xs))))))
 ```
 
 ## Bindings are Mutable: `set!` Exists
