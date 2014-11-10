@@ -261,14 +261,28 @@ If something you need not to change might change, make a local copy of it. e.g.
 ```
 Do not allow mutation, mutable top-level bindings a highly dubious idea.
 
-
 ## Cons Cell are immutable, but there is `mcons`
+`cons` just makes a pair.
+* often called a *cons cell*
+* by convention and standar library, lists are nested pairs that eventually end with null
 * `mcons` makes a mutable pair `(define x (mcons 14 null)))`
 * `mcar` return the first component of mutable pair `(mcar x)`
 * `mcdr` return the second component of a mutable pari `(mcdr x)`
 * `mpair?` returns #t if givena mutable pair
 * `set_mcar!` take a mutable pair and and expression and change the second component to be result the expression `(set_mcar x e)`
 * `set_mcdr!` takes a mutable pair and an expression andn change the second component to be the result of the expression.
+```racket
+(define pr (cons 1 (cons #t "hi"))); '(1 #t . "hi")
+(define lst (cons 1 (cons #t null))); '(1 #t)
+car ; == ML #1
+cdr ; == ML #2
+(define lst (cons 1 (cons #t (cons "hi" null)))); '(1 #t "hi")
+(caddr lst); "hi"
+(list? pr); #f
+(list? lst); #t
+(pair? pr); #t
+(pair? lst); #t YES true
+```
 
 ## Delayed Evaluation and Thunks
 A key semantic issue for a language constructs is *When are its subexpression evaluated*.
