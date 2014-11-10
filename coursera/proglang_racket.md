@@ -61,6 +61,7 @@ if e1 e2 e3 ; check e1, if #t e2, if #f e3, not else then needed
 `cond` can be used to avoid nested if-expressions, it's one of SUGAR for other
 Think it as a *switch* in Java
 ```racket
+;syntax
 (cond [e1a e1b]
       [e2a e2b]
       ...
@@ -133,20 +134,31 @@ length (cons 1 2); throw runtime error
 
 ## Local bindings
 ```racket
+; syntax, additional ([]) comparing with cond
+;; form 1: all expressions are evaluated in the environment from before the let-expression, diff from ML
+(let ([x1 e1]
+      [x2 e2]
+      ...
+      [xn en])
+     body)
 ; e2 cannot use x1
-(let ([x1 e1] [x2 e2]) e)
+(define (double1 x)
+  (let ([x (+ x 3)] ; x = x + 3
+        [y (+ x 2)]) ; y = x + 2
+    (+ x y -5))) ; x + 3 + x + 2 - 5 = 2x
 
-; now y can reference x, but no recursion
-(let* ([x (+ x 3)]
-       [y (+ x 2)])
-    (+ x y -8))
+; form 2: all expressions are evaluated in the environment produced from the previous bindings, same as ML
+(define (double3 x)
+  (let* ([x (+ x 3)] ; x = x+3
+         [y (+ x 2)]); y = (x+3)+2 = x+5
+    (+ x y -8))) ; x+3 + x+5 -8 = 2x
 
-; allow recursion
+; form 3: all expression are evaluated in the environment that includes all the bindings, allow recursion
 (define (triple x)
-  (letrec ([y (+ x 2)]
-           [f (lambda (z) (+ z y w x)]
-           [w (+ x 7)])
-    (f -9)))
+  (letrec ([y (+ x 2)] ; y = x+2
+           [f (lambda (z) (+ z y w x)] ; f (z) = z+y+w+x
+           [w (+ x 7)]) ; w = x+7
+    (f -9))) ; f (-9) = -9+y+w+x = -9 + x+2 + x + 7+x =3x
 
 ; two multually recursive functions    
 (define (mod2 x)
@@ -157,6 +169,19 @@ length (cons 1 2); throw runtime error
     (if (even? x) 0 1)
   )
 )
+
+(define (max xs)
+  (cond [(null? xs) (error "given empty list")]
+         [(null? (cdr xs)) (car xs)]
+         [#t (if (> (car xs) (max (cdr xs))) (car xs) (max (cdr xs)))]
+         ))
+
+(define (max2 xs)
+  (cond [(null? xs) error "given empty list"]
+        [(null? (cdr xs)) (car xs)]
+        [#t (let ([h (car xs)]
+                  [t (max2 (cdr xs))])
+                  (if (> h t) h t))]))
 ```
 
 ## Dynamic typing
