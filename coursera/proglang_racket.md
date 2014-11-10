@@ -11,9 +11,9 @@
 ```
 
 ## Parentheses
-[http://xkcd.com/297](http://xkcd.com/297)
 Parentheses `(` and `[` are equal in Racket, and they make parsing the program text to semantics tree extremely easy.
 Don's complain about parentheses, they behave like exactly as the tags in html.
+See also [http://xkcd.com/297](http://xkcd.com/297)
 
 ## Comments
 ```racket
