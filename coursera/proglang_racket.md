@@ -231,7 +231,13 @@ Example:
 Unlike ML, racket does has assignment statement, but use *only-when-really-appropriate*.
 ```racket
 ;; syntax
-(set! x e)
+(set! x e); like x=e in Java
+;; sequence
+(begin e1 e2 ... en); return value of en
+(define x (begin
+            (+ 5 3)
+            (* 3 8)
+            (- 3 2))); x=1
 
 (define b 3)
 (define f (lambda (x) (* 1 (+ x b))))
