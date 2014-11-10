@@ -227,7 +227,7 @@ Example:
         [#t (sum2 (cdr xs))]))
 ```
 
-## Mutation with `set
+## Mutation with `set!` (pronounce *set bang*)
 Unlike ML, racket does has assignment statement, but use *only-when-really-appropriate*.
 * environment for closure is determined when funciton is defined, but body is evaluated when function is called.
 * once an expression produces a value, it is irrelavant how the value was produced
@@ -248,6 +248,19 @@ Unlike ML, racket does has assignment statement, but use *only-when-really-appro
 (define z (f 4)) ; z=9
 (define w c) ; w=7
 ```
+If something you need not to change might change, make a local copy of it. e.g.
+```racket
+(define b 3)
+(define f 
+  (let ([b b] ; define local inner b as a copy of outer b, which won't change with out b
+        [* *]
+        [+ +])
+    (lambda (x) (* 1 (+ x b)))))
+(set! b 10); 
+(f 2); 5
+```
+Do not allow mutation, mutable top-level bindings a highly dubious idea.
+
 
 ## Cons Cell are immutable, but there is `mcons`
 * `mcons` makes a mutable pair `(define x (mcons 14 null)))`
