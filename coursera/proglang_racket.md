@@ -9,6 +9,10 @@
 (define s "Hello")
 ...
 
+## Parentheses
+Parentheses `(` and `[` are equal in Racket, and they make parsing the program text to semantics tree extremely easy.
+Don's complain about parentheses, they behave like exactly as the tags in html.
+
 ## Comments
 ```racket
 ; single line comment
@@ -25,8 +29,13 @@ bla
 (define b (+ a 2))
 ```
 
+## if block
+```racket
+if e1 e2 e3 ; check e1, if #t e2, if #f e3, not else then needed
+```
+
 ## function
-**lambda** is used to create an anonymous function. e.g., `(lambda (x) e)`
+**lambda** (like fun in scala, or fn in ML) is used to create an function. e.g., `(lambda (x) e)`
 ```racket
 (define add (lambda (x y) (+ x y)))
 (difine cube (lambda (x) (* x x x)))
@@ -35,6 +44,13 @@ bla
   (if (= y 0)
       1
       (* x (pow x (-y 1)))))
+
+;; + is a function also
+(+ 1 2)
+(* 1 2 3 4 5)
+
+;; you can also define function withouth lambda
+(define (add x y) (+ x y))
 ```
 ### currying
 ```racket
@@ -56,6 +72,17 @@ bla
 ```racket
 #t
 #f
+```
+
+## List
+```racket
+null; empty list. 
+'();  empty list
+cons; constructor
+(list e1 ... en); constructo a list
+car; access head of list
+cdr; access tail of list
+null?; check for empty
 ```
 
 ## sequence
