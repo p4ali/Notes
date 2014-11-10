@@ -308,6 +308,11 @@ A key semantic issue for a language constructs is *When are its subexpression ev
 By using function, we can delay the evaluation. 
 * A zero arugument function used to delay evaluation is called a **thunk**. e.g., "thunk the argument" means use `(lambda () e)` instead of `e`.
 ```racket
+;; syntax
+(lambda () e) ; define a thunked e
+(e) ; evaluate e to some thunk and then call the thunk
+
+; bad impl of if, which will force all of x y z to be evaluated before call my-if-bad
 (define (my-if-bad x y z) (if x y z)) ; this will evaluate x, y, z before calling my-if-bad, which may cause recursive problem.
 ; a better imple of my-if, which delay the evaluation of y z by using thunk
 (define (my-if x y z) 
