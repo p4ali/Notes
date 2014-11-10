@@ -231,6 +231,7 @@ Example:
 Unlike ML, racket does has assignment statement, but use *only-when-really-appropriate*.
 * environment for closure is determined when funciton is defined, but body is evaluated when function is called.
 * once an expression produces a value, it is irrelavant how the value was produced
+* `set!` only change identifier (e.g. variables), not function like (car x)
 ```racket
 ;; syntax
 (set! x e); like x=e in Java
@@ -265,12 +266,6 @@ Do not allow mutation, mutable top-level bindings a highly dubious idea.
 `cons` just makes a pair.
 * often called a *cons cell*
 * by convention and standar library, lists are nested pairs that eventually end with null
-* `mcons` makes a mutable pair `(define x (mcons 14 null)))`
-* `mcar` return the first component of mutable pair `(mcar x)`
-* `mcdr` return the second component of a mutable pari `(mcdr x)`
-* `mpair?` returns #t if givena mutable pair
-* `set_mcar!` take a mutable pair and and expression and change the second component to be result the expression `(set_mcar x e)`
-* `set_mcdr!` takes a mutable pair and an expression andn change the second component to be the result of the expression.
 ```racket
 (define pr (cons 1 (cons #t "hi"))); '(1 #t . "hi")
 (define lst (cons 1 (cons #t null))); '(1 #t)
@@ -282,6 +277,23 @@ cdr ; == ML #2
 (list? lst); #t
 (pair? pr); #t
 (pair? lst); #t YES true
+(and (pair? lst) (list? lst)); #t
+```
+
+## mulatable pairs
+*cons cell* are immutable. set! cannot mutate *cons cell*.
+* `mcons` makes a mutable pair `(define x (mcons 14 null)))`
+* `mcar` return the first component of mutable pair `(mcar x)`
+* `mcdr` return the second component of a mutable pari `(mcdr x)`
+* `mpair?` returns #t if givena mutable pair
+* `set_mcar!` take a mutable pair and and expression and change the second component to be result the expression `(set_mcar x e)`
+* `set_mcdr!` takes a mutable pair and an expression andn change the second component to be the result of the expression.
+```racket
+(set-car! x 45); only available for scheme
+(define mpr (mcons 1 (mcons 2 3))); mpr=(mcons 1 (mcons 2 3))
+(set-mcdr! mpr 47); mpr=(mcons 1 47)
+
+lenth mpr; does NOT work
 ```
 
 ## Delayed Evaluation and Thunks
