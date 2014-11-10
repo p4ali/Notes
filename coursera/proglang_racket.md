@@ -229,6 +229,8 @@ Example:
 
 ## Mutation with `set
 Unlike ML, racket does has assignment statement, but use *only-when-really-appropriate*.
+* environment for closure is determined when funciton is defined, but body is evaluated when function is called.
+* once an expression produces a value, it is irrelavant how the value was produced
 ```racket
 ;; syntax
 (set! x e); like x=e in Java
@@ -239,10 +241,10 @@ Unlike ML, racket does has assignment statement, but use *only-when-really-appro
             (* 3 8)
             (- 3 2))); x=1
 
-(define b 3)
-(define f (lambda (x) (* 1 (+ x b))))
-(define c (+ b 4))
-(set! b 5)
+(define b 3); b=3
+(define f (lambda (x) (* 1 (+ x b)))); if in ML, b always =3, but in racket, still cloure, but refer to b.
+(define c (+ b 4)); c=7
+(set! b 5); b=5
 (define z (f 4)) ; z=9
 (define w c) ; w=7
 ```
