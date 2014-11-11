@@ -349,11 +349,10 @@ Lazy evaluation or call-by-need, or promises. The idea is to use mutation to rem
 ```
 
 ## Streams
-Streams is a infinite sequence of values. It can be implemented by writing two parts of code
+A stream is a thunk that when called returns a pair `'(next-answer . next-thunk)`. Streams represent a infinite sequence of values. It can be implemented by writing two parts of codes:
 * One part knows how to produce the infinite sequence 
 * and other code that knows how to ask for however much of the squence it needs.
 key ieda to implement:
-* Let a stream be a thunk that when called returns a pair `'(next-answer . next-thunk)`
 ```racket
 ; stream of ones
 (define ones 
@@ -392,7 +391,22 @@ An idiom related to lzay evaluation that does not actually use thunks is *memoiz
 * given the same arguments a function will always return the same result and have no side-effects.
 We can lookup what the answer was the first time we called the function with the arguments. 
 
-To implement memoization, we use mutation. 
+To implement memoization, we use mutation. Notice the below `assoc` and `memo` as cache, and `set!` for updating cache.
+```racket
+(define fibonacci 
+  (letrec ([memo null] ; cache, i.e., list of pairs (x, fibonacci(x))
+           [ f (lambda (x) ; local function
+                 (let ([ans (assoc x memo)]) ; cache lookup
+                   (if ans
+                       (cdr ans)
+                       (let ([new-ans (if (or (= x 1) (= x 2))
+                                          1
+                                          (+ (f (- x 1)) (f (- x 2))))])
+                         (begin
+                           (set! memo (cons (cons x new-ans) memo)) ; update the cache
+                           new-ans)))))])
+    f))
+```
  
 ## Reference
 * [Racket guide](http://docs.racket-lang.org/guide)
