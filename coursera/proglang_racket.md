@@ -443,5 +443,14 @@ A struct defines as this:
         [#t (error "eval-exp expected an exp")]))
 ```
 
+# Implementing a Programming Language in general
+We can describe a typical workflow for a language A implementation as follows:
+* Input: a string holding the *concrete syntax* of a program in the language. Typically, this string would be the contents of one or more files.
+* The *parser* take the input and produce a *tree* (*abstract-syntax-tree* or AST in short) that represents the program if the input is sysntactically well-formed. Otherwise, the *parser* gives error.
+* For language including *type-checking* rules, the *type-checker* will use this AST to either report error or not.
+* The AST then passed to the rest of the implementation:
+ * either an interpreter
+ * or a compiler
+
 ## Reference
 * [Racket guide](http://docs.racket-lang.org/guide)
