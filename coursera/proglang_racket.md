@@ -425,10 +425,22 @@ A struct defines as this:
  * *foo*-**field** are functions that takes a foo and returns the contents of the *field*, raising an error if passed anything other thatn a foo. e.g. foo-bar, foo-baz, and foo-quux
  * *set-foo*-**field** are funtions that mutate the *field* to some special value. The *set-* functions are only available if *#:mutable* is appear
  * the *#:transparent* meks the fileds and accesor function s visible even outside the module that defines the struct.
-
 ```racket
+(struct const (int) #:transparent)
+(struct negate (e) #:transparent)
+(struct add (e1 e2) #:transparent)
+(struct multiply (e1 e2) #:transparent)
 
-
+(define (eval-exp e)
+  (cond [(const? e) e]
+        [(negate? e) (const (- (const-int (eval-exp (negate-e e)))))]
+        [(add? e) (let ([v1 (const-int (eval-exp(add-e1 e)))]
+                        [v2 (const-int (eval-exp(add-e2 e)))])
+                    (const (+ v1 v2)))]
+        [(multiply? e) (let ([v1 (const-int (eval-exp (multiply-e1 e)))]
+                             [v2 (const-int (eval-exp (multiply-e2 e)))])
+                         (const (* v1 v2)))]
+        [#t (error "eval-exp expected an exp")]))
 ```
 
 ## Reference
