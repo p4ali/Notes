@@ -42,7 +42,14 @@ bla
 (define a 3)
 (define b (+ a 2))
 ```
-
+## Symbol
+A *symbol* is an atomic value that prints like an identifier proceded with `'`. Symbol `eq?` is much faster than string comparision.
+```racket
+'a ; a is a symbol
+(eq? 'a 'a) ;#t
+(eq? 'a (string->symbol "a"); #t
+(string-> "one two"); '|one |
+```
 ## boolean
 Anything other than *#f* is *#t*.
 ```racket
@@ -407,6 +414,22 @@ To implement memoization, we use mutation. Notice the below `assoc` and `memo` a
                            new-ans)))))])
     f))
 ```
- 
+
+## Recursive datatypes via Racket's `struct`
+A struct defines as this:
+`(struct foo (bar baz quux) #:transparent #:mutable)`
+* defines a new *struct* called *foo* that is like an ML constructor
+* It adds the environment functions like:
+ * *foo* is a function that takes three arguments and return a value that is a foo field holding the first argument, bar field hoding the second argument, and quux filed holding the third argument
+ * *foo?* is a function that return #t for values created bt calling *foo* and #f for everything else
+ * *foo*-**field** are functions that takes a foo and returns the contents of the *field*, raising an error if passed anything other thatn a foo. e.g. foo-bar, foo-baz, and foo-quux
+ * *set-foo*-**field** are funtions that mutate the *field* to some special value. The *set-* functions are only available if *#:mutable* is appear
+ * the *#:transparent* meks the fileds and accesor function s visible even outside the module that defines the struct.
+
+```racket
+
+
+```
+
 ## Reference
 * [Racket guide](http://docs.racket-lang.org/guide)
