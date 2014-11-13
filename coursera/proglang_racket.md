@@ -498,6 +498,21 @@ In mordern languages, type system are sound(reject what they claim to), but not 
 
 Type systems are *not compete* because for almost anything you might like to check statically, it is *impossible* to implement a static checker that given any program in your languate
 * (a) always terminates
+* (b) is sound
+* (c) is complete
+Since we have to give up one, (c) seems like the best option (programmers do not like compilers that may not terminate)
+
+The impssibility result is exactly the idea of *undecidability* at the heart of the study of the theory of computation.
+
+## Weakly typed vs strongly typed
+It is programmer's fault if some error happens and the language definition doe not have to tyoe check.
+
+*weakly typed* - if a language has program where a legal implementaion is allowed to set the computer on fire, we call the languate *weekly typed*. such as C/C++. 
+ * People favor of weakly typing is by saying "Strong types for weak minds". The idea is that any storngly typed language either rejecting program statically or performing unnecessary tests dynamically, so a human should be able to "overrule" the check in places where he knows they are unnecessary.
+
+*strongly typed* - language where the behavior of buggy programs is more limited are called *strongly typed*. such as Java/ML/Scala. 
+ * The implementation of strongly type check not only cost-perfoming, also because it has to keep around extra data (like tags on values) to do the check. 
+ * Howevever, in reality, humans are extreamly error-prone and favor strongly typed lanugage, and moreever, type system have gotten more expressive over time, and lanugage implmenations are gotten bettern at optimizing away unnecessary checkes.
 
 ## Reference
 * [Racket guide](http://docs.racket-lang.org/guide)
