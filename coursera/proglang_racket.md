@@ -550,5 +550,25 @@ It is programmer's fault if some error happens and the language definition doe n
  ```
  * on the other hand, static type-checking is very useful when evolving code to catch bugs that evolution introduced. When we change the type of a function, all callers no longer type-check, which means the type-chekcer gives us an invaluable "to-do" list of all the call-sites that need to change. however, it may also be frustrating that the program will not run until all items on the "to-do" list are addressed.
 
+## **eval** and **quote**
+The **eval** premitive take a piece of Raket code, and at run-time, evaluate it. **quote** will treat everything under it as symbols, numbers, lists, etc, not as functions to be called. **eval** and **quote** are inverse.
+```racket
+(define (make-some-code y)
+  (if y 
+     (quote (begin (print "hi") (+ 4 2)))
+     (quote (+ 5 3))))
+
+;; quasiquote == interpolation   
+(quasiquote (1 2 (unquote (+ 1 2)) (unquote (- 5 1)))) ; '(1 2 3 4)
+
+```
+
+### Interpolation
+The ability to embed expression evaluation inside a string (which one might or might not then call **eval** on, just as one might or might not use a Racket quote expression to build something for **eval**). This feature is called **interpolation** in scripting language, but is it jsut *quasiquoting* in Racket.
+```ruby
+puts "#{1+2+3}"
+```
+ 
+
 ## Reference
 * [Racket guide](http://docs.racket-lang.org/guide)
