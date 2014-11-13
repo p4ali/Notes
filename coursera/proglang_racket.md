@@ -514,5 +514,41 @@ It is programmer's fault if some error happens and the language definition doe n
  * The implementation of strongly type check not only cost-perfoming, also because it has to keep around extra data (like tags on values) to do the check. 
  * Howevever, in reality, humans are extreamly error-prone and favor strongly typed lanugage, and moreever, type system have gotten more expressive over time, and lanugage implmenations are gotten bettern at optimizing away unnecessary checkes.
 
+## Advantage and disadvantage of static checking
+* Is static or dynamic typing more Convenient
+ * dynamic is more convenient since it callow to mix-and-match different knid s of data such as numbers, strings, and pairs without having to declare new type definitions or "clutter" code with pattern-matching. 
+ ```racket
+ ; in racket, a function can return different types
+ (define (f y) (if (> y 0) (+ y y) "hei"))
+ (let ([ans (f x)] (if (number? ans) (number->string ans) ans))
+ ```
+ * static typing is more convient becuase it assume data has a certain type, and less error-prone.
+* Does static typing prevent useful programs?
+ * dynamic typing does not reject programs that make perfect sense
+ * static typing become more expressive on the other hand
+* Is static typing's early bug-detection important?
+ * bugs are easier to fix if discoverd sooner.
+ * static typing catch bug by type-check
+ * dynamic typing catch bug with testing, since you need to test your program, the additional value of catching some bugs before you run the test is reduced. So, for dynamic typing, you need a more complete testing than static typing.
+* Does static or Dynamic typing lead to better performance?
+ * static typing can lead to faster code since it does not need to perforce type tests at run time.
+ * dynamic typing can optimize the check, and static typing sometime has to work around type-system limitation which erode the supposed performance advantages.
+* Does static or dynamic typing make code resuse easier?
+ * Dynamic typing arguably make it easier to reuse library fucntions. e.g., if you build lots kinds of data out of cons cells, you can just keep using car, cdr, cadr, etc. to get the pieces out rather than defining lots of different getter functions for each data structure. On the other hand, this can mask bugs.
+ * This is really and interesting design issue more general than just static vs dynamic typing.
+* Is static or dynamic typing better for prototyping?
+ * early in a software project, you are develop prototype, often at the same time you are changing your views on what the software will do and how the impl will approach doing it. 
+ * Dynamic typing is often considered better for prototyping since you do not need to expend energy definign the types of variables, functions, and data structures when those decidions are in flux. 
+ * Static typing argue that it is never too early to document the types in your software design even it they are unclear and changing. Moreover, commeing our code or adding stubs like patter-match branches of form `_=>raise Unimplemented` is often easy and documents what parts of the program are known not to work.
+* Is Static or dynamic typing better for code evolution?
+ * Dynamic typing is sometimes more convenient for code evolution becuase we can change code to be more permissive (accept arguments of more types) without have to change any of the pre-exsiting clients of the code.
+ ```racket
+ ;; old
+ (define (f x) (* x 2))
+ ;; new, it will keep old callers work, and also new caller pass in strings. However, this also means old caller will not type-check.
+ (define (f x) (if (number? x) (* x 2) (string-append x x )))
+ ```
+ * on the other hand, static type-checking is very useful when evolving code to catch bugs that evolution introduced. When we change the type of a function, all callers no longer type-check, which means the type-chekcer gives us an invaluable "to-do" list of all the call-sites that need to change. however, it may also be frustrating that the program will not run until all items on the "to-do" list are addressed.
+
 ## Reference
 * [Racket guide](http://docs.racket-lang.org/guide)
