@@ -443,14 +443,61 @@ A struct defines as this:
         [#t (error "eval-exp expected an exp")]))
 ```
 
-# Implementing a Programming Language in general
-We can describe a typical workflow for a language A implementation as follows:
+## Implementing a Programming Language in general
+We can describe a typical workflow for a language **A** implementation as follows:
 * Input: a string holding the *concrete syntax* of a program in the language. Typically, this string would be the contents of one or more files.
 * The *parser* take the input and produce a *tree* (*abstract-syntax-tree* or AST in short) that represents the program if the input is sysntactically well-formed. Otherwise, the *parser* gives error.
 * For language including *type-checking* rules, the *type-checker* will use this AST to either report error or not.
 * The AST then passed to the rest of the implementation:
- * either an interpreter
- * or a compiler
+ * either an interpreter(writen in another language **B**) which take programs in **A** and produces answers. Also named *evaluater* or *excutor* for **A**
+ * or a compiler(writen in another lanugage **B**) which take program in **A** and produces equivalent programs in some other language **C** and then uses some pre-existing implmenetation for **C**. Also named *translator*. Language **A** called *source language* and **C** the *target language*.
+For either the interpreter and the compiler approach, we call **B** the language which we are writing the implementation of **A**, the *metalanguage*.
+
+*Interpreter versus compiler is a feature of a particular programming-language implementation, not a feature of the programming language*. You can write an interpreter for *C* although it was so called (incorrectly) as "compiled language".
+
+### INterpreters for languages with Varialbes need evironments
+Ideally a hash map, also called *symbol table*. In Racket, a simple association list holding pairs of strings and values can suffice.
+
+### Implementing closures
+To implement a language with function closures and lexical scope, the interpreter needs to "remember" the environment that "was current" when the function was defined, so that it can use this environment *instead of* the caller's environment when the function is called. To do that:
+* Create a small data structure called a *closure* that includes the environment along with (+) the function itself.
+* Using above pair (closure=env+code) to interpre a function. In other word, a function is not a value, *a closure is*.
+So the evaluation of a function produces a closure that "remember" the environment from when we evaluated(or defined) the function.
+
+Only the *free variables* (variables used in the function body whose definition are outside the function body) should be stored in the einvironment of closure.
+
+### ML vs. Racket
+Think ML is a subset of Racket, which 
+* reject bug-likely programs, by type-checking. 
+* On the othersid, reject Raket-like programs that are not bugs as well.
+```Racket
+; good reject case
+(define (f y) (+ y (car y)))
+
+; bad reject case
+(define (f x) (if (> x 0) #t (list 1 2)))
+(define xs (list 1 #t "hi"))
+(define y (f (car xs)))
+```
+Raket accepts a superset of programs, some of which are erors and some of which of no. Racket is just ML where *every experession is part of one big datatype*. 
+
+## Static checking vs dynamic checking
+**static checking** is anything done to reject a program *after* it (successfully) parses but *before* it runs. This is different from "syntax error" or "parsing error" which fails the parsing. *static checking* typically means a "type error", which include:
+* undefined variables
+* using a number instead of a pair
+*static checking* is "compile-time checking" which was done without any input to the program identified. It is irrelevant whether the language implementation using a comipler or interfperter after static checking succeeds.
+
+*Dynamic cheching* (i.e., runt-time checking) can be done by taging each value and then do a similar static checking.
+
+## Correctness: Soundness, Completeness, Undecidability
+Given X
+*soundness* if it never accept a program that when run with some input, does X (prevent *false negative*, also if)
+*completeness* if it never reject a program that run with any input, does not do X (prevent *false positive*, also only if)
+Similar to iff.
+In mordern languages, type system are sound(reject what they claim to), but not complete (reject program which need NOT reject)
+
+Type systems are *not compete* because for almost anything you might like to check statically, it is *impossible* to implement a static checker that given any program in your languate
+* (a) always terminates
 
 ## Reference
 * [Racket guide](http://docs.racket-lang.org/guide)
