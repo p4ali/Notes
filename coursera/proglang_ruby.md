@@ -36,10 +36,31 @@ ClassName.new
 # method call
 e.m
 ```
-### Variables
+### Object state (attribute/field)
+* all state are private
+* only accessible from object's methods
+* consistes of *instance variables*
+ * using one not in state is not an error - will produce **nil** object
+* **attr_accessor** or **attr_getter**
+* starts with an **@**, e.g. *@foo*
+```ruby
+class A
+  def m1
+    @foo = 0 # create an instance variable foo
+    self
+  end
+  def foo
+    @foo
+  end
+end
+
+puts A.new.m1.foo # 0
+```
+
+## Variables
 * lcoal variable, not declartion needed, mutable.
 
-### self
+## self
 * refer to "the current object", i.e., the object whose method is executing
 * can call method on "same obejct" with `self.m(..)`
 * can also pass/return/store "the whole object" with just **self**. good for chaininig method call.
