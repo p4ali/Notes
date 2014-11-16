@@ -25,7 +25,9 @@
 |object-oriented (OOP)| Ruby |Java,etc|
 
 ## Class and Objects
-* all values are reference to objects
+* all values are reference to objects, even *nil*
+* Evaluationg an expression in Ruby is an object
+* all code is methods. Top-level methods are added to Object class, so will be available to any sub class.
 * Object communicate each other via *method calls*, also know as *messages*
 * each object has class
 * evey object is an instance of class
@@ -98,6 +100,7 @@ puts A.new(3).foo # 3
 * class constances e.g. Foo. Visible outside class C::Foo
  
 ## Methods
+* Ruby interpreter call **missing_method** when method is missing, and the default impl will print undefined message.
 * Calss methods (Java/C# static methods)
 ```
 class C
@@ -145,8 +148,28 @@ end
 c=C.new
 c.m1.m2 # "hi bye"
 ```
+## Reflection
+```ruby
+#run irb
+3.methods
+(3.class).class
+3.methods - nil.methods
+```
 
 ## Style
 * indentation does not affect semantics
 * newline matter
 * semicolon is encourage if more in same line
+
+## Sugars
+### expression interpolation (Racket's quasiquote or eval_exp)
+```ruby
+"#{@num}#{if @den==1 then "" else "/"+@den.to_s end}"
+```
+### *nil* and *false* are false
+```ruby
+y=if 4> 3 then nil else 32 end
+if y thne puts "A" else puts "B" end # B
+```
+
+
