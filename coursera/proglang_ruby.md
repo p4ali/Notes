@@ -24,3 +24,42 @@
 | functional | Racket | SML|
 |object-oriented (OOP)| Ruby |Java,etc|
 
+## Class and Objects
+* all values are reference to objects
+* Object communicate each other via *method calls*, also know as *messages*
+* each object has class
+* evey object is an instance of class
+* an object's class determine the object behavior
+```ruby
+# create object
+ClassName.new
+# method call
+e.m
+```
+### Variables
+* lcoal variable, not declartion needed, mutable.
+
+### self
+* refer to "the current object", i.e., the object whose method is executing
+* can call method on "same obejct" with `self.m(..)`
+* can also pass/return/store "the whole object" with just **self**. good for chaininig method call.
+```ruby
+class C
+  def m1
+    prinf "hi"
+    self
+  end
+  
+  def m2
+    print "bye"
+    self
+  end
+end
+c=C.new
+c.m1.m2 # "hi bye"
+```
+
+## Style
+* indentation does not affect semantics
+* newline matter
+* semicolon is encourage if more in same line
