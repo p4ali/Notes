@@ -49,12 +49,30 @@ class A
     @foo = 0 # create an instance variable foo
     self
   end
+  def m2 x
+    @foo+=x
+  end
   def foo
     @foo
   end
 end
 
-puts A.new.m1.foo # 0
+puts A.new.m1.m2(3).foo # 3
+```
+
+### *initialize* method
+The **initialize** method will be called after **ClassName.new** and before the object is returned.
+```ruby
+class A
+  def initialize(f=0)
+    @foo=f
+  end
+  def foo
+    @foo
+  end
+end
+
+puts A.new(3).foo # 3
 ```
 
 ## Variables
