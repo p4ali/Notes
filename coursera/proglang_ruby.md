@@ -20,6 +20,7 @@
 * many ways to do same thing
 
 |        | dynamically typed | statically typed|
+|:-------|:-------------------|:-----------------|
 | functional | Racket | SML|
 |object-oriented (OOP)| Ruby |Java,etc|
 
