@@ -284,6 +284,53 @@ c[2].call 17 # false
 c[2].call 7 # true
 ```
 
+## Hashes
+Like a record, where field name can be anything (string and symbols in common), and value can be anything.
+```ruby
+h1 = {}
+h1["a"] = "A"
+h1[false] = "B" # h1 {"a"=>"A", false=>"B"}
+
+h2={"a"=>1,"b"=>2,"c"=>3}
+h2.size # 3
+h2.each {|k,v| print k; print v}
+
+h2.keys
+h2.values
+```
+
+## Ranges
+coniguous number, more efficient than array
+```ruby
+1..1000000
+(1..100).inject(0) {|acc,t|acc+e}
+
+# duck typing
+# Separate "how to iterate" from "what to do"
+def foo a
+  a.count {|x| x*x<50}
+end
+foo [3,5,7,9] # 3
+foo (3..9) # 5
+```
+
+## subclassing
+The superclass affect the class definition:
+* class *inherit* all meothod definition from superclass, but NOT any inheriting fields
+* class can override method frinitions as desired
+```ruby
+class ColorPoint < Point
+  def initialize (x,y,c="clear")
+  super(x,y)
+  @color = c
+end
+cp=ColorPoint.new(0,0,"red")
+cp.class.superclass# Point
+cp.is_a? Point #true
+cp.instance_of? Point #false
+cp.instance_of? ColorPoint # true
+```
+
 ## Style
 * indentation does not affect semantics
 * newline matter
