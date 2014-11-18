@@ -4,7 +4,7 @@
 * Programming Ruby 1.9 The progmatic Programmers' Guide
 
 ## Ruby
-* Puer object-oriented: all values are objects (even numbers)
+* Puer object-oriented: everything is an object (even numbers)
 * Class-based: every object has a class that determines behavior 
  * like java, unlike javascript
  * Mixins
@@ -33,11 +33,26 @@
 * evey object is an instance of class
 * an object's class determine the object behavior
 * Unlike OOP language that make "what fields an object has" a fixed part of the class definition, in Ruby, different instances of same class can have different instance variables.
+ * In Ruby, class definition are dynamic, i.e., Ruby programs can add/change/replace methods while a program is running 
 ```ruby
 # create object
 ClassName.new
 # method call
 e.m
+
+# change class definition dynamically
+class FixNum
+def double
+ self+self
+end
+end
+3.couble # 6
+
+# add m method to Object class
+def m
+42
+end
+3.m # 42
 ```
 ### Object state (attribute/field)
 * all state are private
@@ -154,6 +169,45 @@ c.m1.m2 # "hi bye"
 3.methods
 (3.class).class
 3.methods - nil.methods
+```
+
+## duck typing
+"If it walks like a duck and quacks like a duck, it's a duck".
+* pros: resuse code
+* cons: almost nothing is equivalent
+
+## Array
+```ruby
+a=[1,2,3,4]
+a[1] # 2
+a[1]=1
+a[4] #nil
+a.size # 4
+a[-1] # 4
+a[-4] # 1
+a[6] = 14 # [1,2,3,4,nil,6]
+a[5]="hi" # [1,2,3,4,"hi",6]
+b=a+[tru,false] # [1,2,3,4,"hi",6,true,false]
+c=[3,2,3] | [1,2] # [1,2,3]
+tuple=[false,"hi", 1 2]
+
+x=2
+y = Array.new(x) # [nil,nil]
+z = Array.new(x) {0} # [0,0]
+w = Array.new(x+1){|i| -i} # [0,-1,-2]
+
+# Array can be a stack or queue
+a.push 7 # append to right-most
+a.pop # remove the right-most
+a.shift # remove the left-most
+a.unshift 9 # prepend 
+
+# slice
+f=[2,3,4,5,6,7]
+f[2,4] # get 4 element start from offset 2: [4,5,6,7]
+f[2,4] = [1j,1] # replace element 2,3,4,5 with [1,1] => [2,3,1,1]
+
+[1,2,3,4].each {|i| puts (i*i)} # 1,4,9,16
 ```
 
 ## Style
