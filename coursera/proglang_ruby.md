@@ -210,6 +210,12 @@ f[2,4] = [1j,1] # replace element 2,3,4,5 with [1,1] => [2,3,1,1]
 [1,2,3,4].each {|i| puts (i*i)} # 1,4,9,16
 ```
 ## Blocks
+Block are "second-class". All a method can do with a block is `yield` to it.
+- cannot return it, store it in an object
+- but can also turn block into real closures
+- closures a re instanceo of class Proc
+ - called with method `call`
+- Procs are "first-class expressions"
 ```ruby
 3.times {puts "hi"}
 [1,2,3].each {|i| puts i}
@@ -231,6 +237,7 @@ a.inject(0) {|acc,elt| acc+elt} # == reduce acc=0
 a.inject {|acc,elt| acc+elt} # == reduce acc=first element
 a.select {|x| x>7 } # 
 
+# this demos no loop needed with ...
 def t i
   (0..i).each do |j|
     print "  "*j
@@ -239,6 +246,44 @@ def t i
   end
 end
 ```
+
+### define own block
+```ruby
+def silly a
+  if block_given?
+   (yield a) +(yield 42)
+  end
+end
+x.silly(5) {|b| b*2} # 5*2 + 42*2 = 94
+```
+
+### recursive block
+```ruby
+def count base
+  if base > @max
+    rais "reached max"
+  elsif yield base
+    1
+  else
+    1+(count(base+1) {|i| yield i}) # the {|i| yield i} create a block which when called, call the block passed from caller.
+  end
+end
+```
+
+### Procs
+a named block. To create a block
+* use method `lambda` of `Object` take a block and returns the corresponding `Proc`, which then has a method `call` to call the closure.
+```ruby
+a=[3,5,7,9]
+b = a.map{|x| x+1} # [4,6,8,10]
+b.count {|x| x>=6} # 3
+c = a .map {|x| (lambda {|y| x>=y})})
+c.size $4
+c[2] # (lambda)
+c[2].call 17 # false
+c[2].call 7 # true
+```
+
 ## Style
 * indentation does not affect semantics
 * newline matter
