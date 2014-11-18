@@ -209,7 +209,36 @@ f[2,4] = [1j,1] # replace element 2,3,4,5 with [1,1] => [2,3,1,1]
 
 [1,2,3,4].each {|i| puts (i*i)} # 1,4,9,16
 ```
+## Blocks
+```ruby
+3.times {puts "hi"}
+[1,2,3].each {|i| puts i}
+[1,2,3].each do |i|
+  puts i
+end
 
+# blocks everywhere (no loop needed)
+a = Array.new(5) {|i| 4*(i+1)}
+a.each {puts "hi"}
+a.each {|x| puts (x*2)}
+a.each_with_index {|val, index| puts "#{val} => #{index}" } # value with index
+for index in 0 ... a.size
+  puts "a[#{index}] = #{a[index].inspect}"
+a.map {|x| x*2} # collect
+a.any? {|x| x>7 } # true
+a.all? {|x| x>7}
+a.inject(0) {|acc,elt| acc+elt} # == reduce acc=0
+a.inject {|acc,elt| acc+elt} # == reduce acc=first element
+a.select {|x| x>7 } # 
+
+def t i
+  (0..i).each do |j|
+    print "  "*j
+    (j..i).each {|k| print k; print " "}
+    print "\n"
+  end
+end
+```
 ## Style
 * indentation does not affect semantics
 * newline matter
