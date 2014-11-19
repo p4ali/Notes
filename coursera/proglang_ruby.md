@@ -331,6 +331,18 @@ cp.instance_of? Point #false
 cp.instance_of? ColorPoint # true
 ```
 
+## Overriding and Dynamic Dispatch
+Overriding can make a method define in the superclass call a method in the subclass.
+Dynamic dispatch and closure are fundmentally different.
+
+## Method lookup
+* evaluate argument to object
+* let C be the class
+* if `m` defined in `C`, pick that method else recur with the superclass of C unless C is already object
+ * if no `m` is found, call `method_missing` method instead
+  * Definition of `method_missing` in Object raises an error
+* Evluate body of method picked
+
 ## Style
 * indentation does not affect semantics
 * newline matter
