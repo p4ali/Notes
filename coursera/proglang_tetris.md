@@ -17,6 +17,17 @@
  ```
 * Board
  * TetrisCavas
+ ```ruby
+ def run
+   ran = @current_block.drop_by_one
+   if !ran
+     store_current
+     next_piece
+   end
+   @game.update_score
+   draw
+ end
+ ```
 * TetrisButton
 * TetrisLabel
 
