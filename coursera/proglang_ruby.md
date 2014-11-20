@@ -302,6 +302,8 @@ h2.values
 ## Ranges
 coniguous number, more efficient than array
 ```ruby
+1..3 # (1,2,3)
+1...3 # (1,2)
 1..1000000
 (1..100).inject(0) {|acc,t|acc+e}
 
