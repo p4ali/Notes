@@ -50,6 +50,7 @@
 A *mixin* is a collection of methods
 * A class can include number of mixins
 * include a mixin makes its methods part of the class
+* we use mixin to define certain methods in terms of other methods already dfined in the class
 ```ruby
 module Doubler # mixin
   def double
@@ -83,9 +84,27 @@ When looking for receiver `obj`'s method `m`
 * look superclass's mixin, etc...
 * methods is ordered in mixin and class, later will shadow earler.
 * mix method can access instance variable, but bad style.
-* BUT mixin should not be the full replacement of inheritance, i.e., in some cases, it does not make sense to define a mixin semancically.
+* BUT mixin should not be the full replacement of inheritance, i.e., in some cases, it does not make sense to define a mixin semancically. However we have no way to guarantee those methods were actually defined in the class.
 
 #### Two most popular/useful mixins in Ruby
 * Comparable Defines `<,>,==,!=,>=,<=` in terms of `<=>`
 * Enumerable: Defines many iterators(e.g., `map, find`) interms of each
 
+## Interfaces
+* Interface is *statically-typed oop*. Make sure the methods exists and type-checks. 
+* interface is type
+ * only method signature, not body
+ * interfaces have little use in a dynamically typed language
+### subtype
+* if c is a subclass of D, then c is subtype of D
+* if c implement interface I, then c is subtype of I
+
+## Abstract/virtual methods
+Help a statically typed OOP language to suport "required overriding'?
+* Ruby: by adding comment, which is *error-causing implementation*
+* C++/Java: Use static checking to check by using abstract method in abstract class
+ * abstract methods similar to caller passed high-order function as call argument
+* any langugage have multiple inheritance and abstract methods, do not need interfaces
+* Only expect interfaces if in statically typed OOP without multiple inheritance
+ * Not Ruby (dynamically typed)
+ * Not C++ ( support mutiple inheritance already)
