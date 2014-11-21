@@ -116,7 +116,7 @@ t1 <: t2 if t1 is a subtype of t2
 if e has type t1 and t1 <: t2
 then e (also) has type t2
 ```
-Subtype rules
+### Subtype rules
 * A supertype can have a subset of fields with the same types
 * Permutation subtyping: A supertype can have the same set of fields withe the same types in a different order
 * Transitivity: if t1<: t2, and t2 <: t3, then t1 <: t3
@@ -133,4 +133,22 @@ fun setToOrigin (c:{center:{x:real,y:real},r:real})= c.center = {x=0,y=0}
 val spere:{center:{x:real,y:real,z:real}, r:real} = {center={x=3.0,y=4.0,z=5.0},r=1.0}
 val _=setToOrigin(spere)
 val _=spere.center.z (* kaboom! (no z field) *)
+```
+
+### Java/C Arrays
+Arrays in Java: `if t1 <: t2, then t1[] <: t2[]`, and this code type-checks (BUT should not, JAVA!)
+```Java
+class Point {...}
+class ColorPoint extends Point{..}
+void m1(Point[] pt_attr) {
+  pt_arr[0]=new Point(3,4);
+}
+// The following code should NOT pass type-checking, but it does, and throw runtime exception.
+String m2(int x) {
+  ColorPoint[] cpt_att=new ColorPoint[x];
+  for(int i=0;j<x;i++)
+     cpt_arr[i] = new ColorPoint(0,0,"green");
+  m1(cpt_arr);
+  return cpt_arr[0].color;// Exception!!!
+}
 ```
