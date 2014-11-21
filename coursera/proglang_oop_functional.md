@@ -108,3 +108,29 @@ Help a statically typed OOP language to suport "required overriding'?
 * Only expect interfaces if in statically typed OOP without multiple inheritance
  * Not Ruby (dynamically typed)
  * Not C++ ( support mutiple inheritance already)
+
+## Subtyping
+Make a record the subtype of a partial record. This can be done by adding following type check rules:
+```
+t1 <: t2 if t1 is a subtype of t2
+if e has type t1 and t1 <: t2
+then e (also) has type t2
+```
+Subtype rules
+* A supertype can have a subset of fields with the same types
+* Permutation subtyping: A supertype can have the same set of fields withe the same types in a different order
+* Transitivity: if t1<: t2, and t2 <: t3, then t1 <: t3
+* Reflexivity: every types is a subtype of itself
+* depth subtyping - replace field with subtype will not change the type (Won't work! break the soundness). This is similar to Java tmplate.
+ * Subtyping cannot change the type of fields.
+ * if fields are immutable, the depth subtyping is sound!
+ * choose two of three: setters, depth subtyping, soundness
+```
+if ta <: tb, then {f1:t1, ..., f:ta, ... } <:
+                  {f1:t1, ..., f:tb, ... }
+# example
+fun setToOrigin (c:{center:{x:real,y:real},r:real})= c.center = {x=0,y=0}
+val spere:{center:{x:real,y:real,z:real}, r:real} = {center={x=3.0,y=4.0,z=5.0},r=1.0}
+val _=setToOrigin(spere)
+val _=spere.center.z (* kaboom! (no z field) *)
+```
