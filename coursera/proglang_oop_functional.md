@@ -155,3 +155,12 @@ String m2(int x) { // logically erro
 ### null
 null should be super type of everything, hwoever it is subtype of anything. And static type-check does not check null, and you have check it at runtime.
 Someone tries separate nonnull type and nulltype. Like ML Option.
+
+## Function Subtyping
+When function is a subtype of another function. i.e.
+* if a function expects an argument of type t1->t2, can you pass t3->t4 instead?
+* think method as a object type lot like a record type where "method positions" are immutable and have function types.
+```
+## a function can return "more than it needs to"
+Covariant: if ta <: tb, then t->ta <: t->tb 
+```
