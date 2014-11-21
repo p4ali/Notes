@@ -41,3 +41,51 @@
 * Allow multiple methods with same name
 * Indicate which ones take instances of which classes
 * Use dynamic dispatch on arguments in addtion to reciever to pick which method is called
+* Java does not support dynamic mutimethod, it support static overloading only:
+
+## Multiple Inheritance
+* tree, diag, diamond inherit patterns
+
+## Mixin / Trait
+A *mixin* is a collection of methods
+* A class can include number of mixins
+* include a mixin makes its methods part of the class
+```ruby
+module Doubler # mixin
+  def double
+    self+self
+  end
+end
+class Pt
+  include Doubler
+  def + other
+    and = Pt.new
+    ans.x = self.x + other.x
+    ans.y = self.y + other.y
+    ans
+  end
+end
+class String
+  include Doubler
+end
+
+p = Pt.new(2,3)
+p.double # @x=4,@y=6
+
+'hi'.double # hihi
+```
+
+### lookup rules
+When looking for receiver `obj`'s method `m`
+* look in `obj`'s class
+* look mixin that class include
+* look `obj`'s superclass
+* look superclass's mixin, etc...
+* methods is ordered in mixin and class, later will shadow earler.
+* mix method can access instance variable, but bad style.
+* BUT mixin should not be the full replacement of inheritance, i.e., in some cases, it does not make sense to define a mixin semancically.
+
+#### Two most popular/useful mixins in Ruby
+* Comparable Defines `<,>,==,!=,>=,<=` in terms of `<=>`
+* Enumerable: Defines many iterators(e.g., `map, find`) interms of each
+
