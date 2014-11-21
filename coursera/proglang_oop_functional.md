@@ -1,4 +1,4 @@
-## OOP versus Fuctional Decomposition
+## OOP versus Fuctional Decomposition (punchline)
 * FP(Functional Programming) approach
  * break programs down into functions that perform some operation
  * define each function to handle each case of data
@@ -31,4 +31,9 @@
  * Objects an support new operations
   * Visitor pattern uses the double-dispatch pattern to allow new operations "on the side"
 
+## Binary methods 
+* with functional decomposition
+ * Situation is more complicated if an operation is defined over muliple arguments that can have different variants
+* with object oriented decomposition
+ * double dispatch (NOT the hybrid approach using is_a? instanceof, etc..), better with visitor pattern
 
