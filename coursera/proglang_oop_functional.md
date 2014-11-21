@@ -37,3 +37,7 @@
 * with object oriented decomposition
  * double dispatch (NOT the hybrid approach using is_a? instanceof, etc..), better with visitor pattern
 
+## MultiMethods
+* Allow multiple methods with same name
+* Indicate which ones take instances of which classes
+* Use dynamic dispatch on arguments in addtion to reciever to pick which method is called
