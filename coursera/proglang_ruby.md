@@ -117,6 +117,7 @@ puts A.new(3).foo # 3
 ## Methods
 * Ruby interpreter call **missing_method** when method is missing, and the default impl will print undefined message.
 * Calss methods (Java/C# static methods)
+* Ruby never allows methods iwth the same name
 ```
 class C
   def self.method_name (args) # self. define a class method
