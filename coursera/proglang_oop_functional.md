@@ -140,15 +140,18 @@ Arrays in Java: `if t1 <: t2, then t1[] <: t2[]`, and this code type-checks (BUT
 ```Java
 class Point {...}
 class ColorPoint extends Point{..}
-void m1(Point[] pt_attr) {
-  pt_arr[0]=new Point(3,4);
+void m1(Point[] pt_attr) { // runtime error
+  pt_arr[0]=new Point(3,4); // throw ArrayStoreException at runtime, does not allow store super type.
 }
 // The following code should NOT pass type-checking, but it does, and throw runtime exception.
-String m2(int x) {
+String m2(int x) { // logically erro
   ColorPoint[] cpt_att=new ColorPoint[x];
   for(int i=0;j<x;i++)
      cpt_arr[i] = new ColorPoint(0,0,"green");
-  m1(cpt_arr);
-  return cpt_arr[0].color;// Exception!!!
+  m1(cpt_arr); // Exception, see m1 for why
+  return cpt_arr[0].color;
 }
 ```
+### null
+null should be super type of everything, hwoever it is subtype of anything. And static type-check does not check null, and you have check it at runtime.
+Someone tries separate nonnull type and nulltype. Like ML Option.
