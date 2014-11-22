@@ -302,4 +302,10 @@ tl [1,2,3] = [2,3]
 int option = NONE | SOME of int
 valOf (SOME 10) (* 10 *)
 
+(* record *)
+(* foo has filed x and y *)
+val foo = {x=3, y=true}
+(* access x of foo =3*)
+#x(foo);
+
 ```
