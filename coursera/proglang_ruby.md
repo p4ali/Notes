@@ -1,3 +1,8 @@
+## Testing
+Be sure to test each line of your Ruby code. Dynamically typed languages require testing things that
+other languages catch for you statically. Ruby will not even tell you statically if you misspell a method
+name or instance variable.
+
 ## Ruby logistics
 * http://www.ruby-lang.org
 * http://ruby-doc.org
