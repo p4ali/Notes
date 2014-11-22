@@ -116,6 +116,10 @@ t1 <: t2 if t1 is a subtype of t2
 if e has type t1 and t1 <: t2
 then e (also) has type t2
 ```
+Subtyping should not be confused with the notion of (class or object) inheritance from object-oriented languages; subtyping is a relation between types (interfaces in object-oriented parlance) whereas inheritance is a relation between implementations stemming from a language feature that allows new objects to be created from existing ones. 
+
+In a number of object-oriented languages, subtyping is called *interface inheritance*, with inheritance referred  to as *implementation inheritance*.
+
 ### Subtype rules
 * A supertype can have a subset of fields with the same types
 * Permutation subtyping: A supertype can have the same set of fields withe the same types in a different order
