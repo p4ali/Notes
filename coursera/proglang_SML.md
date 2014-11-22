@@ -1,5 +1,26 @@
 # SML
 
+## Build-in compound data types
+* Records: fixed-size, heterogeneous collections indexed by name
+* Tuples: fixed-length, heterogeneous sequences indexed by position
+* Lists(singly linked): variable-length, homogeneous sequences with O(1) time to prepend a value and O(n) time to access a value in the list
+* Vectors: variable-length, homogeneous sequences with O(1) access time for elements(like arrays)
+```SML
+(* records *)
+val foo={x=3,y=true}
+#x(foo)
+
+(* Tuples, i.e. a special form records where key=index *)
+val x = (43, "hello")
+val firxtX=#1(x)
+
+(* list *)
+val y=1::2::3::nil
+val z=[1 2 3]
+y==z
+hd y = hd z
+```
+
 ## Datatype Bindings
 The following defines a datatype:
 * A new type **mytype** that we can now use just like any other type
