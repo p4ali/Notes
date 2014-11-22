@@ -158,9 +158,35 @@ Someone tries separate nonnull type and nulltype. Like ML Option.
 
 ## Function Subtyping
 When function is a subtype of another function. i.e.
-* if a function expects an argument of type t1->t2, can you pass t3->t4 instead?
+* if a function expects an argument of type `t1->t2`, can you pass `t3->t4` instead?
 * think method as a object type lot like a record type where "method positions" are immutable and have function types.
 ```
 ## a function can return "more than it needs to"
-Covariant: if ta <: tb, then t->ta <: t->tb 
+For function `a->b`:
+* **Return types** are Covariant: `if ta <: tb, then t->ta <: t->tb` 
+* **Argument types** are controvariant: ta <: tb does NOT allow ta->t <: tb->t
+ * But this works for argument type: `if tb <: ta, then ta->t <: tb->t`
+* `if t3 <: t1 and t2 <: t4, then t1->t2 <: t3->t4`
 ```
+*Function subtyping contravariant in arguments and convariant in results.*
+
+## Subtyping for OOP
+* class names are also types
+* subclass are  also subtyped.
+* substituaiton principle: Instance of subclass should usable in place of instance of superclass.
+* An Object is
+ * records holding fields and methods
+  * fileds are multable
+  * methods are immutable functions that also have access to self
+* So *could* design a type system using types very much like record types
+ * subtypes could have extra fileds and methods
+ * overriding methods could have contravariant arguments and coveriant results compared to method overridden
+  * sound only because method slots are immutable
+
+## Class vs. Types
+* class and types are different, though Java/c++ try to consuse by requiring subclasses to be subtypes
+ * class are define object behavior: subclassing inherits behavior and changes it via extension and overriding
+ * type define an object's methods argument/result type
+* self/this is special, they are covariant
+
+## Generics vs subtyping
