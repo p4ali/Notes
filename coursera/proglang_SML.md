@@ -1,5 +1,7 @@
 # SML
 
+ML does NOT have subtype polymorphism.
+
 ## Build-in compound data types
 * Records: fixed-size, heterogeneous collections indexed by name
 * Tuples: fixed-length, heterogeneous sequences indexed by position
@@ -249,6 +251,21 @@ val z = !x+1 (* z=4 *)
 ```
 ## Type Inference
 Type inference (Figure out types not written down) is a very cool feature of ML. You almost never have to write down type.
+In Java:
+```Java
+int a=5
+float b=1.0
+String d="hello"
+```
+In ML:
+```
+a=5
+
+(* alternatively, you can ascribe the type to the value like this *)
+val a:int = 5;
+val a = 5:int;
+```
+
 ### statically typed language vs dynamically typed language
 * *statically typed language* meaning every binding has a type that is determined "at compile-time", i.e., before any part of the program run. The type-checker is a compile-time procedure that either accepts or rejects a program. Such language like Java,C and ML.
 * *dynamically typed language* meaning the type of a binding is NOT determinedd ahead of time and computations like bindng 42 to x and then treating x as a string WILL result in runtime ERRORs, language like Racket, Ruby, and Python.
