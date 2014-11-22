@@ -116,9 +116,13 @@ t1 <: t2 if t1 is a subtype of t2
 if e has type t1 and t1 <: t2
 then e (also) has type t2
 ```
-Subtyping should not be confused with the notion of (class or object) inheritance from object-oriented languages; subtyping is a relation between types (interfaces in object-oriented parlance) whereas inheritance is a relation between implementations stemming from a language feature that allows new objects to be created from existing ones. 
-
-In a number of object-oriented languages, subtyping is called *interface inheritance*, with inheritance referred  to as *implementation inheritance*.
+Subtyping is a feature of language and supported by compiler or runtime. For example, sinne ML does not have subtyping, so this simply does not type-check:
+```ML
+(* {x:real, y:real} -> real *)
+fun distToOrigin ({x=x,y=y}) = 
+  Math.sqrt(x*x + y*y)
+val five = distToOrigin {x=3.0, y=4.0, color="red"}
+```
 
 ### Subtype rules
 * A supertype can have a subset of fields with the same types
@@ -193,4 +197,16 @@ For function `a->b`:
  * type define an object's methods argument/result type
 * self/this is special, they are covariant
 
+Subtyping should NOT be confused with the notion of (class or object) inheritance from object-oriented languages; subtyping is a relation between types (interfaces in object-oriented parlance) whereas inheritance is a relation between implementations stemming from a language feature that allows new objects to be created from existing ones. 
+
+In a number of object-oriented languages, subtyping is called *interface inheritance*, with inheritance referred  to as *implementation inheritance*.
+
 ## Generics vs subtyping
+*Generics* also name parametic polymorphism. While subtyping is normally named *polymorphism* in OOP parlance.
+* Generics is good for
+ * Types for functions that combine other functions (compose pattern)
+ * Tyhpes for functions that operate over generic collections
+ * Gernally: When types can *be anything* but multiple things need to be *the same type*, e.g. `val map : ('a -> 'b) -> 'a list -> 'b list`, here `a` and `b` can be anything, but the input has to be a `a list` and output be `b list`.
+* subtype good for
+ * subtype is not good for container (like generics does) 
+ * good for code that *needs a Foo* but fine to have *more than a foo*
