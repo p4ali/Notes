@@ -210,3 +210,12 @@ In a number of object-oriented languages, subtyping is called *interface inherit
 * subtype good for
  * subtype is not good for container (like generics does) 
  * good for code that *needs a Foo* but fine to have *more than a foo*
+
+## Bounded Polymorphism
+Combine generics and subtyping together, so that to do things naturally canot dow with either saparately.
+Using subtyping to constraint generics to make sure the element is subtype of something, like in Java 
+```Java
+class G<T extends SomeClass> extends SomeGeneric<T>{}
+class Example<I extends Object & Comparable<Object>>{}
+<T extends Pt> List<T> inCircle(List<T> pt, Pt center, doubel r){}
+```
