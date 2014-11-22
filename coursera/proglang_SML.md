@@ -2,6 +2,12 @@
 
 ML does NOT have subtype polymorphism.
 
+## Basic syntax
+### let
+```SML
+let b1 b2 ... bn in e end
+```
+
 ## Build-in compound data types
 * Records: fixed-size, heterogeneous collections indexed by name
 * Tuples: fixed-length, heterogeneous sequences indexed by position
