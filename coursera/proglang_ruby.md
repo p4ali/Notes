@@ -290,6 +290,33 @@ c[2].call 17 # false
 c[2].call 7 # true
 ```
 
+## Mixin
+Mixin is a bounch of methods.
+
+```ruby
+module Doubler
+  def double
+   self+self
+  end
+end
+class Pt
+ attr_accessor :x, :y
+ include Doubler
+ def +other
+  ans = Pt.new
+  ans.x=self.x+other.x
+  ans.y=self.y+other.y
+  ans
+ end
+end
+class String
+ include Doubler
+end
+
+Pt.new(1,2).double # (2,4)
+"hi".double # "hihi"
+```
+
 ## Hashes
 Like a record, where field name can be anything (string and symbols in common), and value can be anything.
 ```ruby
@@ -342,6 +369,7 @@ cp.instance_of? ColorPoint # true
 ## Overriding and Dynamic Dispatch
 Overriding can make a method define in the superclass call a method in the subclass.
 Dynamic dispatch and closure are fundmentally different.
+Double-dispatching is so called Visitor pattern.
 
 ## Method lookup
 * evaluate argument to object
