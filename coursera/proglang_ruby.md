@@ -291,7 +291,12 @@ c[2].call 7 # true
 ```
 
 ## Mixin
-Mixin is a bounch of methods.
+Mixin is just a collection of methods.
+* less than a class: no instance of it
+* Languages with mixins (e.g., Ruby modules) typically let a class have one superclass but include number of mixins.
+* Semantics: including a mixin makes its method part of the class
+ * Extending or overfiding in the order mixins are included in the class definition
+ * More powerful that helper methods because mixin methods can access methods (and instance variables) on `self` no defined in the mixin.
 
 ```ruby
 module Doubler
@@ -316,6 +321,10 @@ end
 Pt.new(1,2).double # (2,4)
 "hi".double # "hihi"
 ```
+
+### Lookup rules
+* When looking for receiver `obj`'s method `m`, look in `obj`'s class, then mixins that class include(later includes shadow), then `obj`'s superclass, the superclass's mixins, etc
+* As for instance variables, the mixin method are included in the same object. So usually bad style for mixin methods to use indance variable since a name clash would be like `CowboyArtist` pocket problem
 
 ## Hashes
 Like a record, where field name can be anything (string and symbols in common), and value can be anything.
