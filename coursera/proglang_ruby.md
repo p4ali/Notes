@@ -330,7 +330,7 @@ Pt.new(1,2).double # (2,4)
 ```
 
 ## Inheritance
-Usually it is a terse way to create class emthods within a class definition block. Another way is to use `<<`
+Usually it is a terse way to create class emthods within a class definition block. Another way is to use `<<`. See http://stackoverflow.com/questions/1630815/why-isnt-the-eigenclass-equivalent-to-self-class-when-it-looks-so-similar
 ```ruby
 ## best
 class Thing
@@ -339,7 +339,7 @@ class Thing
 end
 ## alternative
 class Thing
-  class << self
+  class << self ## The self refer to Thing's eigenclass. 
     def foo
     end
   end
