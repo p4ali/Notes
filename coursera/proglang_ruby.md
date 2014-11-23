@@ -150,7 +150,7 @@ private
 end
 ```
 
-## self
+## Self (see also Inheritance below)
 The keyword `self` in Ruby gives you access to the current object – the object that is receiving the current message. To explain: a method call in Ruby is actually the sending of a message to a receiver. When you write obj.meth, you're sending the meth message to the object obj. obj will respond to meth if there is a method body defined for it. And inside that method body, `self` refers to obj. Inside the class definition, `self` refers to the class itself, so you can define a class method with `self.m`.
 
 * refer to "the current object", i.e., the object whose method is executing
