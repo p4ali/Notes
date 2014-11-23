@@ -151,23 +151,30 @@ end
 ```
 
 ## self
+The keyword `self` in Ruby gives you access to the current object – the object that is receiving the current message. To explain: a method call in Ruby is actually the sending of a message to a receiver. When you write obj.meth, you're sending the meth message to the object obj. obj will respond to meth if there is a method body defined for it. And inside that method body, `self` refers to obj. Inside the class definition, `self` refers to the class itself, so you can define a class method with `self.m`.
+
 * refer to "the current object", i.e., the object whose method is executing
 * can call method on "same obejct" with `self.m(..)`
 * can also pass/return/store "the whole object" with just **self**. good for chaininig method call.
 ```ruby
 class C
+  def self.m0
+    printf "hi from class"
+  end
+  
   def m1
-    prinf "hi"
+    prinf "hi from instance"
     self
   end
   
   def m2
-    print "bye"
+    print "bye from instance"
     self
   end
 end
 c=C.new
-c.m1.m2 # "hi bye"
+c.m1.m2 # "hi from instance bye from instance"
+C.m0 # "hi from class"
 ```
 ## Reflection
 ```ruby
@@ -320,6 +327,31 @@ end
 
 Pt.new(1,2).double # (2,4)
 "hi".double # "hihi"
+```
+
+## Inheritance
+Usually it is a terse way to create class emthods within a class definition block. Another way is to use `<<`
+```ruby
+## best
+class Thing
+  def self.foo
+  end
+end
+## alternative
+class Thing
+  class << self
+    def foo
+    end
+  end
+end
+```
+```ruby
+class Pt 
+end
+class ColorPt < Pt
+  class << self # define a singlton ColorPt class
+  end
+end
 ```
 
 ### Lookup rules
