@@ -219,3 +219,8 @@ class G<T extends SomeClass> extends SomeGeneric<T>{}
 class Example<I extends Object & Comparable<Object>>{}
 <T extends Pt> List<T> inCircle(List<T> pt, Pt center, doubel r){}
 ```
+
+## static typing vs dynamic typing
+* static typing catches some simple bugs without having to test your code
+* static typing can produce faster code because the language implementation does not need to perform type tests at run time.
+* static typing is NOT necessary to avoid the security and reliability problems of week typing.
