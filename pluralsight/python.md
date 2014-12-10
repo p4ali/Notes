@@ -53,6 +53,9 @@ from math import factorial as fac
 fac(n)/fac(k)
 
 fac(n)//fac(n-1)
+
+n=100
+len(str(fac(n)))
 ```
 
 
