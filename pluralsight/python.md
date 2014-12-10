@@ -38,6 +38,22 @@ line comments
 """
 ```
 
+## Using standard library
+```python
+import math
+math.sqrt(81)
+
+help(math)
+help(math.factorial)
+
+from math import factorial
+factorial(5)/factoria(3)
+
+from math import factorial as fac
+fac(n)/fac(k)
+
+fac(n)//fac(n-1)
+```
 
 
 
