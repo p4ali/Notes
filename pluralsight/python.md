@@ -11,9 +11,13 @@
 
 ## Dynamic strong typed language
 * ductyping
-* Use white space as syntax
 * Batteries included : no need 3rd libraries
-* 
+* Significant white space rules
+ * prefer 4 spaces
+ * Never mix spaces and tabs
+ * Be consistent on consecutive lines
+ * Only deviate to improve readability
+
 ## Zen of Python
 * Beautiful is better than ugly
 * Explicity is better than implicit
@@ -25,6 +29,17 @@
 * Errors should never pass silently
 * If the implementation is hard to explain, it's a bad idea.
 * Namespaces are one honking great idea
+
+## Comments
+```python
+# this is a oneline comment
+""" this is multiple 
+line comments
+"""
+```
+
+
+
 
 
 
