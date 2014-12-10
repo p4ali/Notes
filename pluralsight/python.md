@@ -58,6 +58,72 @@ n=100
 len(str(fac(n)))
 ```
 
+## Fundamentals 
+### Scalar types and Values
+```python
+# int - unlimited precision signed integer
+0b10 # 2
+0o10 # 8
+0x10 : 16
+int(3.5)
+int(-3.5)
+int("456") # 456
+int("10000",3) # 81 3-based
+
+# folat - double precision (64-bit), 53 bits of binary precision, 15 to 16 bits of decimal precision
+3.125
+3e8 # 300000000.0
+1.616e-35
+float(7)
+float("1.345")
+float("nan")
+float("inf")
+float)"-inf")
+
+# None - the sole value of NoneType, represent the absence of a value. Not displayed by REPL.
+a = None
+a is None # True
+
+# bool - True or False, yes capitialized
+True
+False
+bool(0) # False
+bool(0.0) # False
+bool(-1) # True
+bool([]) # False
+bool("") # False
+bool("False") # True
+```
+
+### Relational Operators
+```python
+==
+!=
+<
+>
+<=
+>=
+```
+
+### COnditional Statements
+```python
+if expr:  # equal to bool(expr)
+    print("expr is True")
+elif: 
+else:
+    print("expr is False")
+```
+
+### Python while loop
+```python
+while expr:
+    print("loop while expr is True")
+    break
+c=5
+while c != 0
+    print(c)
+    c -= 1
+```
 
 
 
