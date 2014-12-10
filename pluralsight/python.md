@@ -56,6 +56,9 @@ fac(n)//fac(n-1)
 
 n=100
 len(str(fac(n)))
+
+5//2 # 2
+5/2 # 2.5
 ```
 
 ## Fundamentals 
@@ -123,6 +126,7 @@ c=5
 while c != 0
     print(c)
     c -= 1
+    if(c==0) break
 ```
 
 
