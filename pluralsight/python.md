@@ -64,11 +64,11 @@ def buildConnectionString(params):
 ```python
 """This is python code for fibinacci"""
 def fib(n):
-    print 'n=', n
+    print('n=', n)
     if n>1:
         return n*fib(n-1)
     else:
-        print 'end of the line'
+        print('end of the line')
         return 1
 ```
 ```Java
@@ -82,30 +82,6 @@ int fib(int n){
         return 1;
     }
 }
-```
-
-
-## Using standard library
-```python
-import math
-math.sqrt(81)
-
-help(math)
-help(math.factorial)
-
-from math import factorial
-factorial(5)/factoria(3)
-
-from math import factorial as fac
-fac(n)/fac(k)
-
-fac(n)//fac(n-1)
-
-n=100
-len(str(fac(n)))
-
-5//2 # 2
-5/2 # 2.5
 ```
 
 ## Fundamentals 
@@ -159,7 +135,7 @@ bool("False") # True
 ```python
 if expr:  # equal to bool(expr)
     print("expr is True")
-elif: 
+elif: # flat better than nested else if
 else:
     print("expr is False")
 ```
@@ -176,6 +152,28 @@ while c != 0
     if(c==0) break
 ```
 
+## Using standard library
+```python
+import math
+math.sqrt(81)
+
+help(math)
+help(math.factorial)
+
+from math import factorial
+factorial(5)/factoria(3)
+
+from math import factorial as fac
+fac(n)/fac(k)
+
+fac(n)//fac(n-1)
+
+n=100
+len(str(fac(n)))
+
+5//2 # 2
+5/2 # 2.5
+```
 
 ## Reference
 * [Dive into Python](http://www.diveintopython.net/toc/index.html)
