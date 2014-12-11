@@ -37,6 +37,18 @@ Everything in Python is an object, and almost everything has attributes and meth
 * If the implementation is hard to explain, it's a bad idea.
 * Namespaces are one honking great idea
 
+## Python Excution Model
+* When are function s defined?
+* What happens when a module is imported?
+
+### setting up a `main()` function with a `commandline argument`
+
+
+### python module, script and program
+* python module: convenient import with API
+* python script: convenient exceution from command line
+* python program: perhaps composed of many modules
+
 ## Comments and `__doc__`
 ```python
 # this is a oneline comment
@@ -160,6 +172,13 @@ while c != 0
     if(c==0) break
 ```
 
+### functions
+```python
+def square(x):
+    return x*x
+square(5) # 25
+```
+
 ## Using standard library
 ```python
 import math
@@ -192,7 +211,7 @@ len(str(fac(n)))
 * access single char in str by `[]`, e.g., `s="hello",s[1]==e`
 * No separate Char type.
 * `help(str)`
-* ecoded by UTF-8. e.g. `'Vi er s\u00e5'`, `\xe5`, `\345` (== å
+* ecoded by UTF-8. e.g. `'Vi er s\u00e5'`, `\xe5`, `\345` (== å). 
 * adjacent string literal concatenation. e.g. `c="a" "b" # c=="ab"`
 
 ```python
@@ -208,6 +227,7 @@ str
 ## Bytes
 * Immutable sequences of bytes.
 * Converting between strings and byte: call `mystring.encode('gb2312')` to convert a string to bytes, and call `mybytes.decode('gb2312')` to convert bytes to a string.
+* Think convertion between string and bytes in case of networking. before sending string, you need encode it, and after recieved, decode to string.
 ```python
 b'data'
 b"data"
@@ -276,7 +296,26 @@ with urlopen('http://sixty-north.com/c/t.txt') as story: # binds response to var
 
 ```
 
-## Module
+## Modularity
+* mudule can **use** other modules as far as no cycle dependencies.
+* To user module, use `import mymodule`, where `mymodule` is the basename of the file `mymodule.py`.
+* module code only be executed once on the first import.
+```python
+# mymodule.py
+def square(x):
+    return x*x
+print(__name__)
+if(__name__ == '__main__'): # True when run in REPL, false when import into script file.
+    square(5)
+    
+# on REPL or another .py file
+import mymodule
+
+mymodule.square(5) # 25
+```
+
+### special attributes in Python
+* delimited by **double underscores**, e.g., `__name___`
 
 ## Finding and browsing with `help()`
 
