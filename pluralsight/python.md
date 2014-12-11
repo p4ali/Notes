@@ -121,6 +121,14 @@ bool("") # False
 bool("False") # True
 ```
 
+### Augmented assignment operators
+```ppytho
+n=1
+n+=2 # n=3
+```
+
+### Requesting test from user with `input()`
+
 ### Relational Operators
 ```python
 ==
@@ -174,6 +182,8 @@ len(str(fac(n)))
 5//2 # 2
 5/2 # 2.5
 ```
+
+## Finding and browsing with `help()`
 
 ## Reference
 * [Dive into Python](http://www.diveintopython.net/toc/index.html)
