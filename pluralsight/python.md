@@ -37,13 +37,53 @@ Everything in Python is an object, and almost everything has attributes and meth
 * If the implementation is hard to explain, it's a bad idea.
 * Namespaces are one honking great idea
 
-## Comments
+## Comments and `__doc__`
 ```python
 # this is a oneline comment
 """ this is multiple 
 line comments
 """
 ```
+A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition. Such a docstring becomes the `__doc__` special attribute of that object.
+
+## Indenting Code
+Python functions have no explicit `begin` or `end`, and no curly braces to mark where the function code starts and stops. The only delimiter is a colon (`:`) and the indentation of the code block itself.
+```python
+def buildConnectionString(params):
+    """Build a connnection string from a dictionary of parameters.
+    returns string."""
+    return ";".join(["%s=%s" % (k,v) for k,v in params.items()])
+```
+**Code blocks are defined by their indentation.** Here the "code blodk", means *functions*, `if` statements, `for` loops, `while` loops, and so forth. Indenting starts a block and unindenting ends it. There is no explicit braces, brackets, or keyworkds. This means **whitespace is significant, and must be consistent**. 
+
+### Compare with Java
+* Python use `:` and indentation to separate code blocks.
+* Java use `{` and `}` and semicolons to separate code blocks.
+* Python `:` plus indentation equal to Java `{}`
+* Python carriage return equal to Java `;`
+```python
+"""This is python code for fibinacci"""
+def fib(n):
+    print 'n=', n
+    if n>1:
+        return n*fib(n-1)
+    else:
+        print 'end of the line'
+        return 1
+```
+```Java
+// This is Java code for fibinacci
+int fib(int n){
+    System.out.println("n="+n);
+    if(n>1){
+        return n*fib(n-1);
+    }else{
+        System.out.println("end of the line");
+        return 1;
+    }
+}
+```
+
 
 ## Using standard library
 ```python
@@ -135,6 +175,7 @@ while c != 0
     c -= 1
     if(c==0) break
 ```
+
 
 ## Reference
 * [Dive into Python](http://www.diveintopython.net/toc/index.html)
