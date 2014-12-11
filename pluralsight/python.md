@@ -41,6 +41,26 @@ Everything in Python is an object, and almost everything has attributes and meth
 * When are function s defined?
 * What happens when a module is imported?
 
+### Static Lexical Scope
+The body of a function is evaluated in the environment where the funciton is defined, not the environment where the function is called.
+```python
+def foo():
+   x=4
+   def bar():print(x)
+   bar()
+   x=5
+   bar()
+   def bar2():
+      x=1
+      bar() # get x from the scope where it is defined, i.e. body of foo, not where it was called - bar2
+   bar2()
+
+foo()
+# output
+4
+5
+5
+```
 ### setting up a `main()` function with a `commandline argument`
 
 
