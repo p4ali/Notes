@@ -305,6 +305,12 @@ for color in colors:
 ```
 
 ## with-statement
+`with expression [as variable]  BLOCK` statement is supposed to replace `try ... catch ...`, the `expression` should result in an Context Manager object, which has `__enter__()` and `__exit()__` methods, the following will be executed in order:
+* evaluate `expression`, get contextManager
+* variable=contextManager.__enter__(), similar to Java `try`
+* execute BLOCK
+* contextManager.__exit__(), similar to Java `catch ... finally ...`
+
 ```python
 from urllib.request import urlopen
 with urlopen('http://sixty-north.com/c/t.txt') as story: # binds response to variable story
@@ -330,6 +336,8 @@ if(__name__ == '__main__'): # True when run in REPL, false when import into scri
     
 # on REPL or another .py file
 import mymodule
+# or 
+from words import *
 
 mymodule.square(5) # 25
 ```
