@@ -9,7 +9,14 @@
 * Files and resource management
 * Shipping working and maintainable code
 
-## Dynamic strong typed language
+## Comparing with other programming languages
+Everything in Python is an object, and almost everything has attributes and methods. e.g., all functions have a build-in attribute `__doc__`, which return the doc string defined in the function's source code. The `sys` module is an object which ahs an attribute called `path`.
+* Statically typed language - A language in which types are fixed at compile time, e.g. Java and C
+* Dynamically typed languate - A language in which types are discovered at execution time. Javascript, VBScript and Pythong/Ruby/Racket are dynamically typed, because they figure out what type a variable is when you first assign it a value.
+* Strongly typed language - A language in which types are always enforced. Java and Python are strongly typed. If you have an integer, you can't treat it like a string whithout explicityly converting it.
+* Weaky typed language - A language in which types may be ignored. Javascrip, VBScript are weakly typed. In VBScript, you can concatenate the string '12' and integer 3 to get the string '123. Then treat that as the integer 123, all without any explicity conversion.
+
+### Python is both Dynamically typed and strongly typed language (because once a variable has datatype, it matters)
 * ductyping
 * Batteries included : no need 3rd libraries
 * Significant white space rules
@@ -108,7 +115,7 @@ bool("False") # True
 >=
 ```
 
-### COnditional Statements
+### Conditional Statements
 ```python
 if expr:  # equal to bool(expr)
     print("expr is True")
