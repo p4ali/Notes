@@ -183,7 +183,103 @@ len(str(fac(n)))
 5/2 # 2.5
 ```
 
+## String
+* `str` is immutable squences of Unicode codepoints. Single or double quote.
+* Python3 has universal newline `\n`. Apply to windows, linux and osx.
+* escape string by `\`
+* raw string with `r`. e.g. `r'c:\Users\ali\MS Office\docs`, what you type is what you get.
+* use `str` constructor to create string. e.g., `str(46)`, `str(1e10)`
+* access single char in str by `[]`, e.g., `s="hello",s[1]==e`
+* No separate Char type.
+* `help(str)`
+* ecoded by UTF-8. e.g. `'Vi er s\u00e5'`, `\xe5`, `\345` (== å
+* adjacent string literal concatenation. e.g. `c="a" "b" # c=="ab"`
+
+```python
+str
+"It's a good thing"
+'hello'
+
+# multi-line string by """ or ''' or embeded \n inside the line or use print
+
+# escape string by \
+"This is a \" in a string"
+```
+## Bytes
+* Immutable sequences of bytes.
+* Converting between strings and byte: call `mystring.encode('gb2312')` to convert a string to bytes, and call `mybytes.decode('gb2312')` to convert bytes to a string.
+```python
+b'data'
+b"data"
+
+d=b'some bytes'
+d.split() # [b'some', b'bytes']
+
+mystring="hello world"
+b = mystring.encode('utf-8)
+type(b) # ensure bytes are type of bytes
+b.decode('utf-8')
+
+```
+
+## List
+* mutable sequences of objects (can be different types)
+* `[1,2] a[1]==2, a[1]=100`
+* `append` to the end of list
+* use `list` constructor to create a new list. e.g.,`list("hi") # ['h','i']`
+```python
+# lists
+b=[1,2,3]
+b.append('hello') # b=[1,2,3,'hello']
+
+# can be spread in multiple lines. neat
+c = ['bear',
+     'giraffe',
+     'elephant',
+     'catepillar',]
+```
+
+## dictionary
+* mutable mappings of keys to values `{k1:v1,k2:v2}`
+* constructor `dict`
+
+```python
+
+d={'a':1,'b':2}
+d['a']==1
+d['a']=100 # {'a':100,'b':2}
+e={}
+e['a']=222
+```
+
+## loop
+```python
+'''for item in iterable:
+    body'''
+colors={'red':0xff0000,'green':0x00ff00,'blue':0x0000ff}
+for color in colors:
+   print(color,colors[color])
+    
+"""while True:
+    body # may contain 'break'"""
+```
+
+## with-statement
+```python
+from urllib.request import urlopen
+with urlopen('http://sixty-north.com/c/t.txt') as story: # binds response to variable story
+    story_words = []
+    for line in story:
+        line_words = line.decode('utf-8').split()
+        for word in line_words:
+            story_words.append(word)
+
+```
+
+## Module
+
 ## Finding and browsing with `help()`
+
 
 ## Reference
 * [Dive into Python](http://www.diveintopython.net/toc/index.html)
