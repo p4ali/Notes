@@ -31,7 +31,7 @@ Everything in Python is an object, and almost everything has attributes and meth
 * Simple is better than coplex
 * Complex is better than complicated
 * Flat is better than nested
-* Sparse is better than dense
+* Sparse is better than dense: two empty lines between top level functions
 * Readability counts
 * Errors should never pass silently
 * If the implementation is hard to explain, it's a bad idea.
@@ -77,6 +77,67 @@ line comments
 """
 ```
 A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition. Such a docstring becomes the `__doc__` special attribute of that object.
+
+### Documenting code using `docstrings`
+```python
+"""Retrieve and print words from a URL.
+
+Usage:
+
+    python3 words.py <URL>
+
+"""
+import sys
+from urllib.request import urlopen
+
+
+def fetch_words(url):
+    """Fetch a list of words from a URL.
+
+    Args:
+        url: The URL of a UTF-8 text document.
+
+    Returns:
+        A list of strings containg the words from the document.
+    """
+    with urlopen(url) as story:
+        story_words = []
+        for line in story:
+            line_words = line.decode('utf-8').split()
+            for word in line_words:
+                story_words.append(word)
+    return story_words
+
+
+def print_items(items):
+    """Print items one per line.
+
+    :param items: An iterable series of printable items
+    :return: None
+    """
+    for item in items:
+        print(item)
+
+
+def main():
+    """Print each word from a text document from a URL
+
+    :return: None
+    """
+    url = 'http://sixty-north.com/c/t.txt'
+    print('len=%d' % len(sys.argv))
+    if len(sys.argv) > 1:
+        url = sys.argv[1]
+
+    words = fetch_words(url)
+    print_items(words)
+
+
+if __name__ == '__main__':
+    main()
+
+```
+
 
 ## Indenting Code
 Python functions have no explicit `begin` or `end`, and no curly braces to mark where the function code starts and stops. The only delimiter is a colon (`:`) and the indentation of the code block itself.
