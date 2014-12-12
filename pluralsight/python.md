@@ -80,6 +80,8 @@ A docstring is a string literal that occurs as the first statement in a module, 
 
 ### Documenting code using `docstrings`
 ```python
+#!/usr/bin/env python3
+# the '#!' pronounced as "shebang". It tells env to run command python3 with this file. The command line will be './workds.py <url>', you need to change 755 surely.
 """Retrieve and print words from a URL.
 
 Usage:
@@ -127,7 +129,7 @@ def main():
     url = 'http://sixty-north.com/c/t.txt'
     print('len=%d' % len(sys.argv))
     if len(sys.argv) > 1:
-        url = sys.argv[1]
+        url = sys.argv[1] # agrv[0] is the file name of py file.
 
     words = fetch_words(url)
     print_items(words)
@@ -384,9 +386,16 @@ with urlopen('http://sixty-north.com/c/t.txt') as story: # binds response to var
 ```
 
 ## Modularity
+* Python code is placed in `*.py` files called **module**s.
+* Modules can be executed directly with `python3 module_name.py`
+* You can bring module into the REPL or other modules with `import module_name`
+* Named functions defined with `def` keyword `def function_name(arg1,argn):`
+* Use `__name__` to determine how the module is being used
+ * if `__name__=="__main__"` the module is being executed directly as a program
 * mudule can **use** other modules as far as no cycle dependencies.
 * To user module, use `import mymodule`, where `mymodule` is the basename of the file `mymodule.py`.
 * module code only be executed once on the first import.
+* Command line arguments are accessible through `sys.argv`, the script file name is in `sys.argv[0]`
 ```python
 # mymodule.py
 def square(x):
