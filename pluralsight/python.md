@@ -10,7 +10,7 @@
 * Shipping working and maintainable code
 
 ## Comparing with other programming languages
-Everything in Python is an object, and almost everything has attributes and methods. e.g., all functions have a build-in attribute `__doc__`, which return the doc string defined in the function's source code. The `sys` module is an object which ahs an attribute called `path`.
+Everything in Python is an object, and almost everything has attributes and methods. e.g., all functions have a build-in attribute `__doc__`, which return the doc string defined in the function's source code. The `sys` module is an object which has an attribute called `path`.
 * Statically typed language - A language in which types are fixed at compile time, e.g. Java and C
 * Dynamically typed languate - A language in which types are discovered at execution time. Javascript, VBScript and Pythong/Ruby/Racket are dynamically typed, because they figure out what type a variable is when you first assign it a value.
 * Strongly typed language - A language in which types are always enforced. Java and Python are strongly typed. If you have an integer, you can't treat it like a string whithout explicityly converting it.
@@ -254,6 +254,10 @@ while c != 0
     if(c==0) break
 ```
 
+### print()
+similar to printf but with `%` instead of `,` to pass value.
+`print('========%s' % word)`
+
 ### functions
 A function is a block of organized, reusable code that is used to perform a single, related action. Functions provide better modularity for your application and a high degree of code reusing.
 * Function blocks begin with the keyword def followed by the function name and parentheses ( ( ) ).
@@ -435,6 +439,16 @@ from words import *
 mymodule.square(5) # 25
 ```
 
+### Introspect (Reflection)
+```python
+import words
+
+type(words) # <class 'module'>
+dir(words) # show attributes of modules, for retrospection.
+type(words.fetch_words)
+dir(words.fetch_words)
+```
+
 ### special attributes in Python
 * delimited by **double underscores**, e.g., `__name___`
 
@@ -453,11 +467,121 @@ mymodule.square(5) # 25
 ```
 * function call by object reference
 
+### Dynamic Strong typed
+
 |            |Static            |Dynamic         |
 |:---------- |:-----------------|:---------------|
 |**Strong**  |Haskell, C++, Java|Python, Ruby    |
 |**Weak**    |                  |Javascript, Perl|
 
+* Dynamic Type System: Object types are only resolved at runtime, not compile time
+```python
+def add(a,b):
+   return a+b
+add(5,7) # 12
+add("hi","yo") # hiyo
+add([1,2],[3,4]) #[1,2,3,4]
+```
+* Strong Type System: not implicit type conversion, except convert to bool in `if` statement
+```python
+add("hi",42) # TypeError: Can't convert 'int' object to str implicitly
+```
+* Object references have no type.( a='hi' then reassign a=12 is ok)
+* **LEGB** rules: `Scopes` are `contexts` in which named `references can be looked up`. 
+ * Local - inside the current function
+ * Enclosing - any and all enclosing functions
+ * Global - top-level of module
+  * main, __name__, sys, urlopen, fetch_words (function names)
+ * Build-in - provided by `buildints` module
+ * Python name scopes do not correspond to source code blocks demarked by indentation. `for` loop and `with` does not introduce nested scopes. ( see below for `word` variable, it actually live in scope of function scope. The `for` does not introduce new scope)
+ ```
+def fetch_words(url):
+    with urlopen(url) as story:
+        story_words = []
+        for line in story:
+            line_words = line.decode('utf-8').split()
+            for word in line_words:
+                story_words.append(word)
+    print('========%s' % word)
+    return story_words
+ ```
+ * rebind with `global` keyword
+ ```python
+ count = 0
+ def show_count():
+     print("count =  ",count)
+ def set_count(c):
+     global count # rebind local count to global count. Whitout this, the next line create a local variable count. which shadows the global count.
+     count = c
+ ```
+
+### Objects - summary
+* Think of named references to objects rather than varibles
+* The garbage collector reclaims unreachable objects
+* `id()` returns a unique and constant identifier
+* The `is` operato determins equality of identity
+* test for equivalence using `==`
+* Funciton arguments are passed by object-reference
+* Reference is lost if a formal function argument is rebound
+* `return` also pass by object-reference
+* Function arguments can be specified with defaults
+* Default argument expression evaluated once, when `def` is executed.
+* Python use dynamic typing (do not need specify type in advance)
+* Python use strong typing (type cannot be coerced)
+* Names are lookup in four nested scopes LEGB
+* Global refernce can be read from a local scope, and can be bind to local scope by using `global` key word
+* Everything in Python is an object, includes modules and functions.
+* `import` and `def` result in binding to named references
+* `type` can be used to determine the type of an object
+* `dir()` can be used to introspect an object and get its attributes
+* The name of a function or module object can be accessed through its `__name__` attribute.
+* The docstring for a function or module object can be accessed through its `__doc__` attribute
+* use `len()` to measure the length of a string
+* multiply a string by an integer (called "repetition" operation)
+
+## Advanced python data types
+* str - homogeneous immutable sequence of unicode codepoints (characters)
+ * `len(s)` length
+ * concantenation with `+, +=`, similar to Java, can degrate the performance
+ * use `join` on the `separator` string on a list. `colors=';'.join(["r","g","b"])`
+ * use `split` to divide a string into list. `colors.split(';')`. default divides by whitespace
+ * use `partition` to divide string into three part tuple around a separator. `"unforgetable".partition("forget") # ('un','forget','able')`
+* list - mutable sequence of objects
+* dict - mutable mapping from immutable key(string,number,tuples) to mutable object
+* tu(ju:)ple - heterogeneous immutable sequence of objects
+ * packing/unpacking vs pattern matching 
+ * `a,b=b,a` is the idiomatic Python swap
+ * tuple constructor allow converting from list to tuple `tuple([1,2]), tuple("Hi")`
+ * membership testing: `1 in (1,2)` or `3 not in (1,2)`.
+
+```python
+t=("hi",3.1415926,100)
+t[0] # hi
+len(t)
+for item in t:
+   print(item)
+t+(333)
+a=((1,2),(3,))
+len(a) # 2
+
+h=(1,) # This is an single element tuple 
+h=(1) # this is an integer
+
+t=() # empty tuple
+
+# tuple packing/unpacking
+def minmax(items):
+   return min(items), max(items) # return tuple - auto-packing
+lower, upper = minmax([2,1,4,3]) # lower=1,upper=4 - auto unpacking, delimiting parentheses are optional for one or more elements
+
+# (similar to pattern matching) tuple unpacking works with arbitrary nested tuples
+(a,(b,(c,d))) = (4,(3,(2,1))) # a=4,b=3...
+
+a,b = b,a # a=3,b=4
+```
+* range - arithmetic pregression of integers
+* set - mutable collection of unique immutable objects
+* protocols (interface)
 
 ## Reference
 * [Dive into Python](http://www.diveintopython.net/toc/index.html)
