@@ -417,6 +417,16 @@ mymodule.square(5) # 25
 
 ## Finding and browsing with `help()`
 
+## Object Model
+* Variable is named referrence to object (integer is immutable?)
+* Variable assignment actually assign object reference
+* `id()` identifier of object. `is` test identity. e.g., `a is b`
+```python
+   p=[1,2]
+   q=[1,2]
+   p==q # True
+   p is q # False
+```
 
 ## Reference
 * [Dive into Python](http://www.diveintopython.net/toc/index.html)
