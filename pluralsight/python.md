@@ -455,8 +455,8 @@ mymodule.square(5) # 25
 
 |            |Static            |Dynamic         |
 |:---------- |:-----------------|:---------------|
-|Strong      |Haskell, C++, Java|Python, Ruby    |
-|Weak        |                  |Javascript, Perl|
+|**Strong**  |Haskell, C++, Java|Python, Ruby    |
+|**Weak**    |                  |Javascript, Perl|
 
 
 ## Reference
