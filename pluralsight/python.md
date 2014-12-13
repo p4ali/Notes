@@ -452,9 +452,8 @@ mymodule.square(5) # 25
    p is q # False for identity equality
 ```
 * function call by object reference
-
-|:---------- |:-----------------|:..............-|
 |            |Static            |Dynamic         |
+|:---------- |:-----------------|:---------------|
 |Strong      |Haskell, C++, Java|Python, Ruby    |
 |Weak        |                  |Javascript, Perl|
 
