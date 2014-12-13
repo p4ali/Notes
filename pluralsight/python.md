@@ -63,7 +63,6 @@ foo()
 ```
 ### setting up a `main()` function with a `commandline argument`
 
-
 ### python module, script and program
 * python module: convenient import with API
 * python script: convenient exceution from command line
@@ -256,10 +255,34 @@ while c != 0
 ```
 
 ### functions
+A function is a block of organized, reusable code that is used to perform a single, related action. Functions provide better modularity for your application and a high degree of code reusing.
+* Function blocks begin with the keyword def followed by the function name and parentheses ( ( ) ).
+* Any input parameters or arguments should be placed within these parentheses. You can also define parameters inside these parentheses.
+* The first statement of a function can be an optional statement - the documentation string of the function or docstring.
+* The code block within every function starts with a colon (:) and is indented.
+* The statement return [expression] exits a function, optionally passing back an expression to the caller. A return statement with no arguments is the same as return `None`.
+* keyword argument is also used. If keywork arguement is used, then the order of argument does not matter
+* **default argument values are evaluated when def is evaluated, and only evaluated once**.
 ```python
-def square(x):
+def functionname( parameters ): # paramenters can be value in order, or key-value in any order
+   "function_docstring"
+   function_suite
+   return [expression]
+def banner(message, border='-'):
+    line = border*len(message)
+    print(line)
+    print(message)
+    print(line)
+banner('hello')
+banner(border="*", message="hi")
+banner('hi', border="+")
+
+# example   
+def square(x=10): # 10 is the default value of x. 
+    "compute the square of a number"
     return x*x
 square(5) # 25
+square() # 100
 ```
 
 ## Using standard library
@@ -421,12 +444,20 @@ mymodule.square(5) # 25
 * Variable is named referrence to object (integer is immutable?)
 * Variable assignment actually assign object reference
 * `id()` identifier of object. `is` test identity. e.g., `a is b`
+* Value equality vs. identity
 ```python
    p=[1,2]
    q=[1,2]
-   p==q # True
-   p is q # False
+   p==q # True for value equlity
+   p is q # False for identity equality
 ```
+* function call by object reference
+
+|:---------- |:-----------------|:..............-|
+|            |Static            |Dynamic         |
+|Strong      |Haskell, C++, Java|Python, Ruby    |
+|Weak        |                  |Javascript, Perl|
+
 
 ## Reference
 * [Dive into Python](http://www.diveintopython.net/toc/index.html)
