@@ -246,7 +246,7 @@ else:
 ```python
 while expr:
     print("loop while expr is True")
-    break
+    break # or continue
 c=5
 while c != 0
     print(c)
@@ -814,9 +814,64 @@ next(iterator) # StopIteration exception
 ### Generators
 * specify iterable sequences - all generators are iterators
 * are lazily evaluated - the next value in the sequence is computed on demand, like Scala stream, or thunks
+* Can model infinite sequences - scala/racket streams
+* Generators resume execution
+* Can maintain state in local variables
+* syntax `(expr(item) for item in iterable) cond`, notice the `(` and `)`.
+```python
+def gen123():
+    yield 1
+    yield 2
+    yield 3
+    return
+g=gen123() # <generator object>
+next(g) # 1
+next(g) # 2
+next(g) # 3
+next(g) # StopIteration ex
 
+for v in g:
+  print(v)
+  
+def take(count, iterable):
+  "take first count elements"
+  counter = 0
+  for item in iterable:
+    if counter==count:
+       return
+    counter +=1
+    yield item
+    
+def run_take():
+  items = [1,2,3]
+  for item in take(2,items):
+     print(item)
 
+run_take() # 1,2
 
+## syntax
+a= (x*x for x in range(1,100000000)) # a is generator object
+list(a) # force to generate list
+list(a) # empty, you can create b, and list(b)
+```
+
+### iteratools
+```python
+from itertools import islice, count, chain
+
+# count is an infinite iterators
+# get first 1000 primes
+thousand_primes=islice((x for x in count() if is_prime(x)),1000)
+list(thousand_primes)
+
+# zip multiple lists create iterator of tuples
+x=['a','b']
+y=[1,2]
+list(zip(x,y)) # [('a',1),('b',2)]
+
+# chain
+list(chain(x,y)) # ['a,'b',1,2]
+```
 
 ## Reference
 * [Dive into Python](http://www.diveintopython.net/toc/index.html)
