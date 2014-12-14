@@ -873,6 +873,40 @@ list(zip(x,y)) # [('a',1),('b',2)]
 list(chain(x,y)) # ['a,'b',1,2]
 ```
 
+## OOP
+* class define the **structure** and **behavior** of objects
+* An object's **class** controls its **initialization**
+* CamelCase - Pascal case
+* `self` - the first argument to all instance methods. Similar to `this` in Java.
+* `__init__()` - instance mehtod for initializing new objects. It is NOT a constructor, but an initializer.
+* `_name` - convention: instance variable or method of implementation detail (not intended for public, also you can inspect) starts with `_`
+* everything is public, including instance variable. Quite oppsite to Ruby.
+* Law of demeter: Least knowledge, only talk to your friends. Never call methods from recieved object from other calls. Don't do `getB().getC().call()`, rather `getC().call()`
+* Even within an object, method calls must be preceded with `self`
+
+### Duck typing
+* An objects fitness for purpose is determined at the time of use - i.e. determined at run time. Quite different from inherit, nor interface, which are determined at compile time.
+* Polymorphism in Python is achieved through duck typing.
+* Polymorphism in Python does not use shared classes or interfaces.
+
+### Inheritance
+* In Python, inheritance is most usefule for sharing implementation.
+* A sub-class can derive from a base-class, inheriting its behavior and making behavior specific to the sub-class.
+```python
+class Aircraft:
+    def num_seats(self):
+        rows,rows_seats = self.seating_plan()
+        return len(rows)* len(rows_seats)
+
+
+class Airbus(Aircraft): # subclass.
+    pass
+```
+
+## files
+
+
+
 ## Reference
 * [Dive into Python](http://www.diveintopython.net/toc/index.html)
 
