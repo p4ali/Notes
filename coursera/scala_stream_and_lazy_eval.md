@@ -26,7 +26,7 @@ Scala use strict evaluation by default, but allows lazy evaluaiton of value defi
 // lazy val
 lazy val y= {print "y";2}
 // calll by name parameter
-def lazyFun(p:=>Int) {
+def lazyFun(p:=>Int) { // => indicate call-by-name, argument is not evaluated at the point of function application, but instead is evaluated at each use within the function.
   print p
 }
 ```
