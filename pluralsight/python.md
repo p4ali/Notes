@@ -264,6 +264,7 @@ while c != 0
  pp(m) # {'a': 1, 'b': 2}
  
  ```
+* redirect output with optional `file` argument. `print("I will be in file", file=sys.stderr)`
 
 ### functions
 A function is a block of organized, reusable code that is used to perform a single, related action. Functions provide better modularity for your application and a high degree of code reusing.
@@ -725,6 +726,80 @@ a,b = b,a # a=3,b=4
 * **protocols** (interface)
  * to implement a protocol, objects must support certain oeprations
  * `iterable`,`sequence` and `container`
+
+## Exception handling
+A mechanishm for stopping "normal" program flow and continue at some surrounding context or code block.
+* Raise an exception to interrupte the program flow
+* Handle an exception to resume control
+* Unhandled exceptions will terminate the program
+* Exception objects contains information about the exceptional event
+* Exceptions for **programmer errors**, should nonormally being catch
+ * IndentationError, SyntaxError, NameErrors
+* Exception can be stringified by `str(e)`.
+* Multiple exceptions can be catched together `except(ValueError,TypeError) as e:`
+* exception can be raised by `raise exObj`
+* Callers need to know that exceptions to expect and when
+* Standard exceptions are often the best choice, use common or existing exception types when possible.
+ * IndexError, ValueError, KeyError
+ * Avoid catch TypeError
+* Python perfer **It's Easier to Ask Forgiveness than Permission** to *Permission to Look Befor You Leap*. i.e., do it and handle exception, rather than test everything befor action
+* Platform-specific modules are implemented with try catch ImportError (EAFP)
+```python
+# Syntax
+try:
+except(ErrorType1,ErrorType2..) as e:
+finally:
+
+# exceptional.py
+"""A module for demonstrating exceptions."""
+
+def convert(s):
+    """"convert to an integer"""
+    try:
+        return int(s)
+    except (ValueError, TypeError) as e:
+        print("Conversion error: {}".format(str(e)), file=sys.stderr)
+        raise
+    except ZeroDivisionError as e:
+        print(e, file=sys.stderr)
+        raise ValueError("failed")
+    finally:
+        print("call end")
+
+from exceptional import convert
+convert("33")
+convert('hi') # -1
+
+import os
+def make_at(path,dir_name):
+  original_path=os.getcwd()
+  try:
+    os.chdir(path)
+    os.mkdir(dir_name)
+  finally:
+    os.chdir(original_path)
+```
+
+## Comprehensions, Iterarbles and Generators
+### Comprehensions
+* list comprehensions
+ * format: `[expr(item) for item in iterable]`, e.g. `[len(word) for word in words]`, evaluate expr for each element.
+ ```python
+words = "hello world!".split()
+
+f=[len(word) for word in words] 
+type(f) # <class 'list'>
+# same as 
+lengths=[]
+for word in words:
+   lengths.append(len(word))
+ ```
+* set comprehensions
+ * format: `{expr(item) for item in iterable }
+* dictionary comprehensions
+ 
+
+
 
 ## Reference
 * [Dive into Python](http://www.diveintopython.net/toc/index.html)
