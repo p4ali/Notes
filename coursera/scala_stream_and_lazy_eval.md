@@ -1,5 +1,5 @@
 ## Stream
-Stream is very similar to List, except it uses call-by-name for tail. So if you want to avoid computing the tail of a 
+Stream is very similar to List, except it uses call-by-name for tail. i.e., A Scala Stream is the head of the stream and a function that can construct the rest of the Stream. So if you want to avoid computing the tail of a 
 sequence until it is needed or the evaluation result (which might be never)
 The tail is evaluated only on demand.
 ```scala
@@ -19,6 +19,9 @@ object Stream{
     def taili = throw new NoSuchElementException("Empty tail")
   }
 }
+
+// and infinite random stream
+def make : Stream[Int] = Stream.cons(util.Random.nextInt(10), make)
 ```
 ## Lazy Evaluation
 Scala use strict evaluation by default, but allows lazy evaluaiton of value definitions with the lazy val form.
