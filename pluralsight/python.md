@@ -783,11 +783,11 @@ def make_at(path,dir_name):
 ## Comprehensions, Iterarbles and Generators
 ### Comprehensions
 * list comprehensions
- * format: `[expr(item) for item in iterable]`, e.g. `[len(word) for word in words]`, evaluate expr for each element.
+ * format: `[expr(item) for item in iterable cond]`, e.g. `[len(word) for word in words]`, evaluate expr for each element and generate a list.
  ```python
 words = "hello world!".split()
 
-f=[len(word) for word in words] 
+f=[len(word) for word in words] #[5,6] 
 type(f) # <class 'list'>
 # same as 
 lengths=[]
@@ -795,9 +795,26 @@ for word in words:
    lengths.append(len(word))
  ```
 * set comprehensions
- * format: `{expr(item) for item in iterable }
+ * format: `{expr(item) for item in iterable }`, e.g. `{len(word) for word in words} #{5,6}`, which evaluate expr and generate a set.
 * dictionary comprehensions
- 
+ * format: `{key_expr:value_expr for item in iterable}`, e.g. `{word:len(word) for word in wors} # {'world!': 6, 'hello': 5}`, which will evaluate both key and value expr and generate a dict. If there are duplicative key, later value will override ealier.
+
+### Iteration
+* Iterable protocol - Itrable objects can be passed to build-in `iter()` function to get an iterator `iterator = iter(iterable)`
+* Iterator protocol - Iterator objects can be passed to the build-in `next()` function to fetch the next item. `item = next(iterator)`
+```python
+iterable = ['spring','summer','autumn','winter']
+iterator = iter(iterable)
+next(iterator) # spring
+next(iterator) # summer
+next(iterator), next(iterator)
+next(iterator) # StopIteration exception
+```
+
+### Generators
+* specify iterable sequences - all generators are iterators
+* are lazily evaluated - the next value in the sequence is computed on demand, like Scala stream, or thunks
+
 
 
 
