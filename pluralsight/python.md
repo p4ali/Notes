@@ -255,8 +255,15 @@ while c != 0
 ```
 
 ### print()
-similar to printf but with `%` instead of `,` to pass value.
+* similar to printf but with `%` instead of `,` to pass value.
 `print('========%s' % word)`
+* using pretty print
+ ```python
+ from pprint import pprint as pp
+ m={'a':1,'b':2}
+ pp(m) # {'a': 1, 'b': 2}
+ 
+ ```
 
 ### functions
 A function is a block of organized, reusable code that is used to perform a single, related action. Functions provide better modularity for your application and a high degree of code reusing.
@@ -540,15 +547,135 @@ def fetch_words(url):
 * multiply a string by an integer (called "repetition" operation)
 
 ## Advanced python data types
-* str - homogeneous immutable sequence of unicode codepoints (characters)
+* **str** - homogeneous immutable sequence of unicode codepoints (characters)
  * `len(s)` length
  * concantenation with `+, +=`, similar to Java, can degrate the performance
  * use `join` on the `separator` string on a list. `colors=';'.join(["r","g","b"])`
  * use `split` to divide a string into list. `colors.split(';')`. default divides by whitespace
- * use `partition` to divide string into three part tuple around a separator. `"unforgetable".partition("forget") # ('un','forget','able')`
-* list - mutable sequence of objects
-* dict - mutable mapping from immutable key(string,number,tuples) to mutable object
-* tu(ju:)ple - heterogeneous immutable sequence of objects
+ * use `partition` to divide string into three part tuple around a separator. 
+ ```python
+ "unforgetable".partition("forget") # ('un','forget','able')
+ origin,_,_destination = "seattle-boston".partition('-') # use underscore as dummy name ofr the separator
+ ```
+ * use `format` to insert values into strings. 
+ ```python
+ # Integer field names matched with positional arguments.
+"hello to {0} from {1}".format('Alex','grace') 
+
+ # And filed names can be omitted if used in sequence. 
+ "hello to {} from {}".format('Alex','Grace')
+ # Access values through keywords
+ "hello to {to} from {from}".format(from="Grace", to="Alex")
+ # Access values through indexes
+ colors=("r",'g','b')
+ "Colors are {c[0]} {c[1]} {c[2]}".format(c=colors)
+ # Access attributes using dot
+ import math
+ "Math constants: pi={m.pi}, e={m.e}".format(m=math)
+ # Fomatting and alignment support
+ "Math constants: pi={m.pi:.3f}".format(m.math)
+```
+* **range** - arithmetic progression of integers
+ * `range(5)` with stop value 5, start from 0. i.e. range(0,5)
+ * `range(startInclusive=0,stopExclusive, step=1)` - half open. i.e., include start but exclude stop, and progress by step.
+```python
+for i in range(5):
+   print(i)
+```
+ * `enumerate` yield tuples of (index,value), use it to iterate through list with pair.
+ ```python
+ t=[10,9,8]
+ for p in enumerate(t):
+   print(p)
+ # (0,10)
+ # (1,9)
+ # (2,8)
+ 
+ # or use tuple unpacking
+ for i,v in enumerate(t):
+   print("i={}, v={}".format(i,v))
+ ```
+ * list(range(5,10)) - create a list.
+* **list** - herterogeneous mutable sequence of objects
+ * 0-based indexing
+ * positive index from front
+ * negative index from end, the last element is at index -1, avoid `seq[len(seq)-1]`
+ * `append` to add new element to the end of list
+ * `*` to repat lists. e.g., to initialize alist with constants
+ * **repetition is shallow** because it generate multiple references to one instance in the produced list
+ * `index(item)` to find elements 
+ * `in` `not in` to test membership
+ * `del list[index]` to delete element at index. `del` is a global function
+ * `list.remove(val)` to remove item whose value is val
+ * `list.insert(index, val)` to add value at position of index
+ * `join(list)` to concatenate elements
+ * `+` to concatenate 2 lists
+ * `+=` or `extend()` to modify the assignee in-place.
+ * `reverse()` and `sort(keyfun, reverse=True)`
+ * `sorted()` build-in funciton sorts any interable series and returns a list
+ * `reversed()` build-in function reverses any iterable series and return a reverse iterator
+ ```python
+ # slicing
+ s[1:4]
+ s[1:-1] # no first nor last
+ s[3:] # from 3rd to end
+ s[:3] # 0,1,2
+ s[:x]+s[x:]=s
+ 
+ # shallow copy
+ full_slice=s[:] # copy all s, important idiom for copying lists.
+ s.copy()
+ v=list(s)
+ 
+ # repetation
+ c=[1,2]
+ d=c*2 # d=[1,2,1,2]
+ 
+ # initalization
+ e=[0]*2 # [0,0], which is a multiple references to one instance of the constant 0 in the produced list
+ 
+ # finding
+ w="the quick brwon fox jumps over the lazy dog".split()
+ i=w.index('fox') # 3
+ i=w.index('lion') # Value Error: 'lion' is not in list
+ w.count('the') #2
+ "tiger" in w # False
+ 
+ # concatenate
+ m=[1,2]
+ n=[3,4]
+ m+n # [1,2,3,4]
+ m+=n # m=[1,2,3,4]
+ m.extend([5,6]) # m=[1,2,3,4,5,6]
+ ```
+ 
+* **dict** - unordered mapping from unique, immutable keys (string,number,tuples) to mutable values (object)
+ * `dict(names_and_values)` where names_and_values maybe:
+  * an iterable series of key-value 2-tuples.
+  * keyword arguments - requires keys are valid Python identifiers
+  *  ampping, such as another dict
+ * `copy()` to copy dictionary
+ * `dict(anotherDict)` to copy 
+ * `update(anotherDict)` to extend (or merge) with another dictionary in-place. The old value will be replace with new value.
+ * iterate with `keys()` for loop, or `values()` for value.
+ * `in` and `not in` for membership testing for keys.
+ * `del d[key]` to delete item by key
+ * `m[newKey]=newValue` to add new key-value pair
+ ```python
+ names_and_ages=[('Alice',12), ('bob',3)]
+ d=dict(names_and_ages) # {'Alice':12, 'bob':3}
+ dict(Alice=12,bob=3) # {'Alice':12, 'bob':3}
+ dict(anotherDict)
+ 
+ for key,value in d.items():
+   print("{key}=>{value}".format(key=key,value=value))
+ for key in d.keys():
+   print("{key}=>{value}".format(key=key,value=d[key]))
+ for value in d.values():
+   print(value)
+ ```
+ 
+* **tu(ju:)ple** - heterogeneous immutable sequence of objects
  * packing/unpacking vs pattern matching 
  * `a,b=b,a` is the idiomatic Python swap
  * tuple constructor allow converting from list to tuple `tuple([1,2]), tuple("Hi")`
@@ -579,9 +706,25 @@ lower, upper = minmax([2,1,4,3]) # lower=1,upper=4 - auto unpacking, delimiting 
 
 a,b = b,a # a=3,b=4
 ```
-* range - arithmetic pregression of integers
-* set - mutable collection of unique immutable objects
-* protocols (interface)
+* **set** - unordered collection of unique, immutable objects
+ * `{1,2}` delimited by `{` and `}`, use `set()` for empty. since `{}` is for dict.
+ * can be constructed from a list with duplicates discarded.
+ * iterate witn `for x in {1,2}`
+ * `in` and `not in` for membership testing
+ * `add(item)` to add new item, duplicate will be ignored silently
+ * `update(iterable)` to update multiple elements
+ * `remove(elemnt)` to remove element with error if no element
+ * `discard(element)` to remove without throw error
+ * `copy()` shallow
+ * set algebra: `union(s)`,`intersection(s)`, `difference(s)`, `symmetric_difference(t)`, `issubset(s)`, `issuperset(t)`, `isdisjoint(t)`
+ ```python
+ s=set()
+ s=set([1,2,1]) # {1,2}
+ ```
+ 
+* **protocols** (interface)
+ * to implement a protocol, objects must support certain oeprations
+ * `iterable`,`sequence` and `container`
 
 ## Reference
 * [Dive into Python](http://www.diveintopython.net/toc/index.html)
