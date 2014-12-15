@@ -904,8 +904,186 @@ class Airbus(Aircraft): # subclass.
 ```
 
 ## files
+* `open(file,mode,encoding)` - open a file. e.g. 
+```python
+improt sys
+
+f=open('a.txt',mode='wt',encoding='utf-8')
+help(f)
+f.write("hi\n")
+f.write("world!")
+f.close()
+
+g=open('a.txt', mode='rt',encoding='utf-8')
+g.read(2)
+g.read()
+g.seek(0) # rewind to begining
+
+g.readline() # hi
+g.seek(0)
+
+g.readlines() # read all lines if you have enough memory
+g.seek(0)
+
+for line in g: # for loop
+  sys.stdout.write(line)
+g.close()
+
+h=open('a.txt',mode='at',encoding='utg-8')
+h.writelines(['a','b'])
+h.close()
+```
+* file-like object
+```python
+from urllib.request import urlopen
+with urlopen('htt:/sity-north.com/c/t.txt') as web_file:
+   wpl = words_per_line(web_file)
+type(web_file) # <class 'http>client.HTTPResponse'>
+```
+
+## Context Manager
+* `with-block` to Resource cleanup with context-managers.
+```python
+from contextlib import closing
+
+class Refrig:
+   def open(self):
+      pass
+   def take(self,food):
+      raise RuntimeError('cannot take')
+   def close(self)
+      pass
+      
+def raid(food):
+   with closing(Refrig()) as r: # closing will call r.close(), so no more r.close here.
+      r.open()
+      r.take(food)
+
+```
+
+## Unittest
+* unit test
+* integration tests
+* acceptance tests
+* TestCase - groups together related test functions
+* fixtures - code run before and/or after each test function
+* assertions - spcific tests for conditions and behaviors, if an assertion fails, then a test fails.
+* Test-driven development
+```python
+import unittest
+import os
 
 
+def analyze_text(filename):
+    with open(filename,'r') as f:
+        lines=0
+        chars=0
+        for line in f:
+            lines+=1
+            chars+=len(line)
+        return lines, chars
+
+
+class TextAnalysisTests(unittest.TestCase):
+    def setUp(self):
+        self.filename = 'text-analysis_test_file.txt'
+        with open(self.filename,'w') as f:
+            f.write('Now we are engaged in a great civil war.\n'
+                    'testing whether that nation,\n'
+                    'or any nation so conceived and so didicated,\n'
+                    'can long endure.')
+
+    def tearDown(self):
+        try:
+            os.remove(self.filename)
+        except:
+            pass
+
+    def test_function_runs(self):
+        analyze_text(self.filename)
+
+    def test_line_count(self):
+        self.assertEqual(analyze_text(self.filename)[0], 4)
+
+    def test_charcter_count(self):
+        self.assertEqual(analyze_text(self.filename)[1],131)
+
+    def test_no_such_file(self):
+        with self.assertRaises(IOError):
+            analyze_text('foobr')
+
+    def test_no_deletion(self):
+        analyze_text(self.filename)
+        self.assertTrue(os.path.exists(self.filename))
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+## PDB - The Python DeBugger
+
+```python
+import pdb
+pdb.set_trace() # stop program execution and enter the debugger.
+
+```
+* Start python with pdb:
+```
+python3 -m pdb word_fetch.py
+
+# similar interface like gdb
+help
+help continue
+
+next
+^C
+list
+return
+where
+print varname
+quit
+```
+
+## python virtual environment
+`pyvenv dirname`
+
+## packaging
+* `disutils` module
+* pyvenv venv
+* python setup.py sdist --format zip
+* python setup.py install
+* use `modulename.__file__` to show where the file from
+
+### Virtual environment
+* light-weight, self-contained Python installations that any user can create.
+* `pyvenv` is the standard tool for creating virtual environments
+* `pyvenv` accepts both a source-installation argument as well as a directory name into which to create the new environment.
+* run `activate` script before using a virtual environment
+* `(envname)` will become prompt after you activate a virutal environment
+
+### Install 3rd party package
+* disutils - using setup.py `python setup.py install`
+* easy_install - search central repo and install it
+* 3rd party python is generally installed into your installation's `site-packages` directory.
+```bash
+source venv/bin/activate
+wget http://python-distribute.org/distribute_setup.py
+python distribute_setup.py
+
+easy_install <packate_name>
+easy_install eagertools
+python
+import eagertools
+
+easy_install pip
+
+pip install nose
+nosetests palindrome.py
+
+python
+import nose
+```
+* pip
 
 ## Reference
 * [Dive into Python](http://www.diveintopython.net/toc/index.html)
