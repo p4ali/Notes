@@ -28,4 +28,4 @@ Practice of generating content and making it searchable to a defined audience ou
 * relevance ranking - order the information in useful ways by relavance
 
 ## Architecture
-
+[This picture](https://github.com/p4ali/Notes/blob/master/pluralsight/solr_arch.jpg) describe the components.
