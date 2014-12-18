@@ -29,3 +29,16 @@ Practice of generating content and making it searchable to a defined audience ou
 
 ## Architecture
 [This picture](https://github.com/p4ali/Notes/blob/master/pluralsight/solr_arch.jpg) describe the components.
+* Solr is sererization of Lucene, an open-source search platform
+* Lucene is open-source **search** and **indexing** engine. Works with any docuemnt which has fields that can be extracted and indexed.
+
+## Related Apache projects
+* Hadoop: platform to create distributed systems
+* Mahout: machine learning library
+* Nutch: Web crawler
+* OpenNLP: machine learning library for peocessing natural language
+* Tika: parser to detect and extract meta data.
+
+## Search Applicaiton
+* It is to make user's life easier. Simplicity is the ultimate sophistication.
+* Addtional aids include "did you mean", synonyms,autosuggest, spell check, phonetic search, lemmatize and more
