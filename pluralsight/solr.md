@@ -115,3 +115,63 @@ response
     ...
     docn
 ```
+## Content: Schemas, Documents and Indexing
+* Document - Basic unit of information, set of data that describes something and made up of fields.
+```json
+{
+"courseid": "scrum-development-jira-agile",
+"coursetitle": "Scrum Developement with Jira & JIRA Agile from Xavier",
+"Everything":{
+  "Scrum development",
+  "Having a great idea to start"
+},
+"durationinseconds":5834,
+"releasedate":"2014-11-12T00:00:00Z",
+"description": "Having a great idea is just the start, impl and exec are key, improve your chances of"
+}
+```
+* Fields - Fields contain different types of data, and tell solr how to interpret it with field type. e.g., courseid, cousetitle, and so on. 
+ * copy field - data may be interpreted in more than one way, such as query time and index time. Copy data into different fields and field type
+ * Dynamic field - fields that are not defined until indexing
+ * Each field can have many different attributes.
+```xml
+<!-- field attributes -->
+<field name="description" type="text_general" indexed="true" stored="true"/>
+
+name: field name
+type: field type
+indexed: true if indexed (searchable|sortable)
+stored: true if retrievable
+compressed: [fasle] stored using gzip compression
+multivalued: true if multiple values per document
+required: instruct solr to reject if missing
+DocValues: if true, the value will be put in a column-oriented DocValues structure
+OmitNorms: true omits the norms associated with this field
+TermVectors: [false] true to store the term vector for a given field
+TermPositions: store position info with the term vector
+TermOffsets: store offset information with the term vector
+Default: value if none providing on adding document
+```
+* Schema.xml - contains details about document fields and how to treat when documents added to or queried from the index. It is not viable to change the schema after document added to the index. It declare
+ * fields, field types & attributes
+ * primary key (unique) field
+ * which field are required
+ * how to index and search
+ * Schemaless mode allow index data without manually modifying schema
+ ```xml
+ <schema>
+   <types>
+   <fields>
+   <uniqueKey>
+   <defaultSearchField>
+   <solrQueryParser defaultOperator>
+   <copyField>
+ </schema>
+ ```
+* Solrconfig - 
+* 
+
+## TERM
+* Term vector - a document’s term vector is simply of listing for each term in the entire corpus with how frequent the term occurs in this document. e.g. In document "Hello world", the vector is [1,1], whose element is the frequency of ["Hello", "world"]. 
+* Inverted index - Solr is able to achieve fast search responses because, instead of searching the text directly, it searches an index instead. This is like retrieving pages in a book related to a keyword by scanning the index at the back of a book, as opposed to searching every word of every page of the book. This type of index is called an **inverted index**, because it inverts a page-centric data structure (page->words) to a keyword-centric data structure (word->pages).
+ * An index consists of one or more Documents, and a Document consists of one or more Fields.
