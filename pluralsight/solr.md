@@ -168,10 +168,19 @@ Default: value if none providing on adding document
    <copyField>
  </schema>
  ```
-* Solrconfig - 
-* 
+* SolrConfig.xml - contains most of the parameters to configure the solr core.
+ * index configuration
+ * query
+ * caching
+ * event listeners
+ * request handler
+ * request dispatcher
+ * highlighter plugin configuration
+ * admin GUI section
 
 ## TERM
 * Term vector - a document’s term vector is simply of listing for each term in the entire corpus with how frequent the term occurs in this document. e.g. In document "Hello world", the vector is [1,1], whose element is the frequency of ["Hello", "world"]. 
 * Inverted index - Solr is able to achieve fast search responses because, instead of searching the text directly, it searches an index instead. This is like retrieving pages in a book related to a keyword by scanning the index at the back of a book, as opposed to searching every word of every page of the book. This type of index is called an **inverted index**, because it inverts a page-centric data structure (page->words) to a keyword-centric data structure (word->pages).
  * An index consists of one or more Documents, and a Document consists of one or more Fields.
+* Copy field - command copy one field to another at the time a document is added to the index. It's used either to index the same field differently, or to add multiple fields to the same filed for easier/faster searching.
+* faceting is the arrangement of search results into categories based on indexed terms. Searchers are presented with the indexed terms, along with numerical counts of how many matching documents were found for each term. Faceting makes it easy for users to explore search results, narrowing in on exactly the results they are looking for.
