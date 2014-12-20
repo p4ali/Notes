@@ -184,3 +184,4 @@ Default: value if none providing on adding document
  * An index consists of one or more Documents, and a Document consists of one or more Fields.
 * Copy field - command copy one field to another at the time a document is added to the index. It's used either to index the same field differently, or to add multiple fields to the same filed for easier/faster searching.
 * faceting is the arrangement of search results into categories based on indexed terms. Searchers are presented with the indexed terms, along with numerical counts of how many matching documents were found for each term. Faceting makes it easy for users to explore search results, narrowing in on exactly the results they are looking for.
+* Indexing is to add content to a solr index. If necessary, modifying it and make it searchable.
