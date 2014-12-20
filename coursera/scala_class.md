@@ -1,4 +1,5 @@
 
+## `new` to create a instance of class (case class does not need `new`)
 ```scala
 // Data abstraction
 
