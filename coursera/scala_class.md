@@ -115,6 +115,19 @@ def singleton[T](elem: T) = new Cons[T](elem, new Nil[T])
 singleton[Int](1)
 singleton[Boolean](true)
 ```
+## Diff case class and class
+Case classes can be seen as plain and immutable data-holding objects that should exclusively depend on their constructor arguments.
+
+This functional concept allows us to
+
+* use a compact initialisation syntax (Node(1, Leaf(2), None)))
+* decompose them using pattern matching
+* have equality comparisons implicitly defined
+
+In combination with inheritance, case classes are used to mimic algebraic datatypes.
+
+If an object performs stateful computations on the inside or exhibits other kinds of complex behaviour, it should be an ordinary class.
+
 ## Case class *copy* method
 When you create a case class in Scala, a **copy** method is generated for your case class. 
 It lets you make a copy of an object, where a **copy** is different than a clone, because with a copy you can change fields as desired during the copying process. The copy method is important in functional programming, where values (val) are immutable.
@@ -122,3 +135,5 @@ It lets you make a copy of an object, where a **copy** is different than a clone
  val fred = Employee("Fred", "Anchorage", "Salesman")
  val joe = fred.copy(name="Joe") // joe: Employee = Employee(Joe,Anchorage,Salesman)
 ```
+
+## Case class *apply* method
