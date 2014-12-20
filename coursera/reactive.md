@@ -1,3 +1,13 @@
+## Contents of the course
+* reveiw functioning programming
+* monads
+* FP in a stateful world
+* events - future
+* event stream - observable
+* Message passing architecture - actors
+* Handling failure - supervisors
+* scalling out - distributed actors
+
 ## Rective Programming
 Reactive means *readily respoinsive to stimulus*
 * Event-driven
@@ -25,6 +35,9 @@ Need:
 
 ### Responsive
 To provide rich, real-time interaction with its user even under load and in the presense of failure.
+
+### Callbacks leads to "call-back hell", since it needs shared states
+* *composable* event abstraction
 
 ## JSON in Scala
 ```scala
