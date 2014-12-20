@@ -55,7 +55,10 @@ To provide rich, real-time interaction with its user even under load and in the 
   ]
 }
 
-// define following classes
+object json {
+  println("Welcome to the Scala worksheet")       //> Welcome to the Scala worksheet
+  
+  // define following classes
 abstract class JSON
 case class JSeq (elements: List[JSON]) extends JSON
 case class JObj (bindings: Map[String,JSON]) extends JSON
@@ -70,12 +73,13 @@ val data = JObj (Map(
   "lastName" -> JStr("Smith"),
   "address" -> JObj(Map(
     "streetAddress" -> JStr("21 2nd street"),
-    "state" -> JSt("NY"),
+    "state" -> JStr("NY"),
     "postalCode" -> JNum(10021)
   )),
   "phoneNumbers" -> JSeq(List(
     JObj(Map(
-      "type" -> JStr("home), "number" -> JStr("212 555-1234")
+      "type" -> JStr("home"),
+      "number" -> JStr("212 555-1234")
     )),
     JObj(Map(
       "type" -> JStr("fax"), "number" -> JStr("646 555-4567")
@@ -83,12 +87,13 @@ val data = JObj (Map(
   ))
 ))
 
+//type JBinding = (String, JSON)
 def show (json: JSON): String = json match {
   case JSeq(elems) =>
-    "[" elems map show mkString ",")+"]"
+    "["+ (elems map show mkString ",")+"]"
   case JObj(bindings) =>
     val assocs = bindings map {
-      case (key,value) => "\""+key+"\": ""+show(value)
+      case (key,value) => "\""+key+"\": "+show(value)
     }
     "{"+(assocs mkString ",")+"}"
   case JNum(num) => num.toString
@@ -96,6 +101,9 @@ def show (json: JSON): String = json match {
   case JBool(b) => b.toString
   case JNull => "null"
 }
+
+show(data) 
+
 ```
 
 ## Terminology
