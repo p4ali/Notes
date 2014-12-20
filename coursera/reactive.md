@@ -1,3 +1,31 @@
+## Rective Programming
+Reactive means *readily respoinsive to stimulus*
+* Event-driven
+* scalable (react to load)
+* resilient (react to failure)
+* responsive
+
+### Scalable
+* **scale up**: make use of parallelism in multi-core system
+* **scale down**: make use of multiple server nodes
+* important:
+ * minimize shared mutable state
+ * location transparency, resilience (scale out)
+
+### resilient
+Failure:
+* Software failure
+* hardware failure
+* connection failure
+Need:
+* loose coupling
+* strong encapsulation of state
+* pervasive supervisor hierarchies
+* replication
+
+### Responsive
+To provide rich, real-time interaction with its user even under load and in the presense of failure.
+
 ## JSON in Scala
 ```scala
 // given 
@@ -43,3 +71,6 @@ val data = JObj (Map(
 ))
 
 ```
+
+## Terminology
+* Backpressure - When an IO switch's buffer is full and unable to recieve more data, it still can broadcase false collision detection signals or return data packe to the originator. Such that no additional data packets are transferred until the bottleneck of data has been eliminated or the buffer has been emptied. This is called **backpressure**
