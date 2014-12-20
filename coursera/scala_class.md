@@ -128,6 +128,10 @@ In combination with inheritance, case classes are used to mimic algebraic dataty
 
 If an object performs stateful computations on the inside or exhibits other kinds of complex behaviour, it should be an ordinary class.
 
+* case classes automatically generate equals and hashCode methods
+* **case classes automatically create a companion object with the same name as the class**, which contains apply and unapply methods. The **apply** method enables constructing instances without prepending with new. The **unapply** extractor method enables the pattern matching.
+* Also the compiler optimizes the speed of match-case pattern matching for case classes[
+
 ## Case class *copy* method
 When you create a case class in Scala, a **copy** method is generated for your case class. 
 It lets you make a copy of an object, where a **copy** is different than a clone, because with a copy you can change fields as desired during the copying process. The copy method is important in functional programming, where values (val) are immutable.
