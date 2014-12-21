@@ -139,3 +139,22 @@ for{
  if isPrime(i+j)
 }yield(i,j)
 ```
+The scala comipler tranlate for-expression in terms of `map`,`flatMap` and a lazy variant of `filter`, i.e., `withFilter`.
+```scala
+// given
+for(x<-e1) yield e2
+// the compiler translate to
+e1.map(x=>e2)
+
+// given
+for(x<-e1 if x;s) yield e2
+// the compiler translate to
+for(x<-e1.withFilter(x=>f);s) yield e2
+
+// given 
+for(x<-e1;y<-e2;s) yield e3
+// the compiler translate to, a recursion with the following map until all for is translated
+e1.flatMap(x=> for(y<-e2;s) yield e3)
+```
+
+The 
