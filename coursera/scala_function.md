@@ -29,3 +29,24 @@ object Foo {
 printf(Foo(1)) // 6 - using Foo object in function notation
 ```
 When `f` is a reference to function object and write `f(args)` to apply arguments to the represented function, the compiler silently expands `f(args)` tot he object method call `f.apply(args)`.
+
+## Companion object
+A companion object is an object with the same name as a class or trait and is defined in the same source file as the associated file or trait. A companioin object differs from other objects as it has access rights to the class/trait that other objects do not. In particular it can access methods and fields that are private in the class/trait.
+
+An analog to a companion object in Java is having a class with static methods. In scala you would move the static methods to a Companion object. The object will have `apply` methods wich will return an instance of the object.
+```scala
+class MyString(val jString:String) {
+  private var extraData = ""
+  override def toString = jString+extraData
+}
+object MyString {
+  def apply(base:String, extras:String) = {
+    val s = new MyString(base)
+    s.extraData = extras
+    s
+  }
+  def apply(base:String) = new MyString(base)
+}
+println(MyString("hello"," world"))
+println(MyString("hello"))
+```
