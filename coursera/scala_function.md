@@ -157,4 +157,15 @@ for(x<-e1;y<-e2;s) yield e3
 e1.flatMap(x=> for(y<-e2;s) yield e3)
 ```
 
-The 
+The left-hand side of a generator may also be a pattern
+```scala
+val data:List[JSON]=...
+for{
+ JObj(bindings) <- data
+ JSeq(phones) = bindings("phoneNumbers")
+ JObj(phone) <- phones
+ JSt(digits) = phone("number")
+ if digits startsWith "212"
+ 
+} yield (bindings("firstName"), bindings("lastName"))
+```
