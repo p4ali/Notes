@@ -18,7 +18,7 @@ add(7)(3)
 
 ```
 
-## **apply** method
+## `apply` method
 In mathematics and computer science, **apply** is a funciton that applies functions to arguments. It serves the purpose of closing the gap between Object-oriented and Functional paradigms in Scala. Every function in scala can be represented as an object. Every function also has an OO type: for instance, a function that takes an `Int` paramter and returns an `Int` will have OO type of **Function[Int,Int]**.  Every function (and everything else) in Scala is an object, and every object can be treated as a funciton, provided it has the `apply` method. Such objects can be used in the function notation:
 ```scala
 object Foo {
