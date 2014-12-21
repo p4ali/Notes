@@ -107,3 +107,43 @@ def slice(from: Int, until: Int): Array[T] // where from <= indexOf(x) < until
 val sub=Array("1","2","3","4","5","6").slice(1,4)
 sub == Array("2","3","4")
 ```
+
+## Collection Recap
+
+### Hierarchy
+* Iterable
+ * Seq
+  * IndexedSeq
+   * Vector
+   * ... Array(Java)
+   * ... String(Java)
+  * LinearSeq
+   * List
+ * Set
+ * Map
+
+### Collection Methods
+All collection types share a common set of general methods:
+* map
+* flatmap
+* filter
+* foldLeft
+* foldRight
+
+```scala
+// impl on lists
+abstract class List[+T]{
+  def map[U](f: T=>U): List[U] = this match{
+    case x::xs => f(x) :: xs.map(f)
+    case Nil => Nil
+  }
+
+  def flatmap[U](f: T=>List[U]): List[U] = this match{
+    case x::xs => f(x) ++ xs.flatMap(f)
+    case Nil => Nil
+  }
+
+}
+
+```
+
