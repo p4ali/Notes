@@ -53,3 +53,32 @@ println(MyString("hello"))
 
 ## extractors and `case` class
 When defining a match such as `case Tuple2(one, two)` the methods `Tuple2.unapply` and `Tuple2.unapplySeq` are called to see if that case can match the input. If one of methods return a `Some(...)` object then the case is considered to be a match. These methods are called **Extractor** methods because they essentially decompose the object into several parameters.
+
+## Partial functions
+```scala
+val f: String => String = {case "ping" => "pong" }
+f("ping") // pong
+f("abc") // MatchError
+
+// rewrite in partial function
+val f: PartialFunction[String, String] = {case "ping" => "pong" }
+f.isDefinedAt("ping") // true
+f.isDefinedAt("pong") // false
+
+// In scala, the following partial function trait is defined 
+trait PartialFunction[-A, +R] extends Function[-A,+R] {
+  def apply(x:A): R
+  def isDefinedAt(x:A): Boolean
+}
+```
+If the expedted type is a PartialFunction, the Scala compiler will expand  `{case "ping"=>"pong"}` as follows
+```scala
+new PartialFunction[String, String] {
+ def apply(x:String) = x match {
+  case "ping" => "pong"
+ }
+ def isDefinedAt(x:String)=x match{
+  case "ping" => true
+  case _ => false
+}
+```
