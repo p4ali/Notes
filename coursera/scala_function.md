@@ -168,4 +168,14 @@ for{
  if digits startsWith "212"
  
 } yield (bindings("firstName"), bindings("lastName"))
+
+// the reason above works is because compiler tranlate
+pat <- expr 
+// to
+x <- expr withFilter {
+ case pat => true
+ case _ => fasle
+} map {
+ case pat => x
+}
 ```
