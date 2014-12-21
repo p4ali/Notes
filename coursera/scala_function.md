@@ -52,4 +52,4 @@ println(MyString("hello"))
 ```
 
 ## extractors and `case` class
-When defining a match such as `case Tupe2(one, two)` the methods `Tuple2.unapply` and `Tuple2.unapplySeq` are called to see if that case can match the input. If one of methods return a `Some(...)` object then the case is considered to be a match. These methods are called **Extractor** methods because they essentially decompose the object into several parameters.
+When defining a match such as `case Tuple2(one, two)` the methods `Tuple2.unapply` and `Tuple2.unapplySeq` are called to see if that case can match the input. If one of methods return a `Some(...)` object then the case is considered to be a match. These methods are called **Extractor** methods because they essentially decompose the object into several parameters.
