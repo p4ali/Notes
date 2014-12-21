@@ -82,3 +82,60 @@ new PartialFunction[String, String] {
   case _ => false
 }
 ```
+
+## Collection Recap
+
+### Hierarchy:
+* Itarable
+ * Seq
+  * IndexedSeq
+   * Vector
+   * ...Array(Java)
+   * ...String(Java)
+  * LinearSeq
+   * List
+ * Set
+ * Map
+
+### Core methods
+All collection types share a common set of general methods
+* map
+* flatMap
+* filter
+* foldLeft
+* foldRight
+
+Idealized implmentation on Lists:
+```scala
+abstract class List[+T]{
+ def map[U](f: T=>U): List[U] = this match {
+  case x::xs => f(x)::xs.map(f)
+  case Nil => Nil
+ }
+ def flatMap[U](f: T=>List[U]): List[U] = this match {
+  case x::xs => f(x)++xs.flatMap(f)
+  case Nil => Nil
+ }
+ def filter(p: T=>Boolean): List[T] = this match {
+  case x::xs => if(p(x)) x::xs.filter(p) else xs.filter(p)
+  case Nil => Nil
+ }
+}
+```
+In practice, the implementation and type of these methods different in order to
+* make them apply to arbitrary collections, not just lists
+* make them tail-recursive on lists (otherwise, stack overflow for too large list)
+
+### For-expression
+The `for` expression simplify the comibination of core methods `map`,`flatMap`,`filter`.
+```scala
+// instead of 
+(1 until n) flatMap(i=>
+ (1 until i) filter (j=>isPrime(i+j)) map(j=>(i,j)))
+// using for
+for{
+ i<- 1 until n
+ j<- 1 until i
+ if isPrime(i+j)
+}yield(i,j)
+```
