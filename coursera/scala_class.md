@@ -34,6 +34,15 @@ x.add(y)
 ```
 
 ## **this** - self reference to the object on which the current method is executed
+```scala
+trait Generator[+T] {
+  self => // an alias for "this"
+  def generate: T
+  def map[S](f:T=>S): Generator[S] = new Generator[S]{
+    def generate = f(self.generate) // self =Geneartor.this
+  }
+}
+```
 
 ## **require** - test performed when object is create
 
