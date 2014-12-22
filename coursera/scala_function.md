@@ -54,7 +54,11 @@ println(MyString("hello"))
 ## extractors and `case` class
 When defining a match such as `case Tuple2(one, two)` the methods `Tuple2.unapply` and `Tuple2.unapplySeq` are called to see if that case can match the input. If one of methods return a `Some(...)` object then the case is considered to be a match. These methods are called **Extractor** methods because they essentially decompose the object into several parameters.
 
-## Partial functions
+## Partial functions vs Function
+A **function** works for every argument of the defined type. e.g., `f:Int->String` takes any Int and return a String
+A **Partial function** is only defined for certain values of the defined type. A partial function (Int)=>String might not accept every Int. `isDefinedAt` is a method on `PartialFunction` that can be used to determin if the PartialFunction will accept a given argument.
+
+
 ```scala
 val f: String => String = {case "ping" => "pong" }
 f("ping") // pong
