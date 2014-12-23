@@ -28,3 +28,9 @@
 * chunk server also serve as a compute servers. It bring the computation to data.
 * master node(or name node) store metadata about where files are stored
 * client library for file access
+ 
+## Map-reduce computation model
+* Map - scan input file record-at-a-time, and extract something from each record (keys)
+* Group-by-key - sort and shuffle
+* Reduce - Aggregate, summarize, filter or transform, then write result.
+Outline stays the same, map and reduce change to fit the problems.
