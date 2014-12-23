@@ -58,6 +58,7 @@ When defining a match such as `case Tuple2(one, two)` the methods `Tuple2.unappl
 A **function** works for every argument of the defined type. e.g., `f:Int->String` takes any Int and return a String
 A **Partial function** is only defined for certain values of the defined type. A partial function (Int)=>String might not accept every Int. `isDefinedAt` is a method on `PartialFunction` that can be used to determin if the PartialFunction will accept a given argument.
 
+A case statement is a subclass of function called a PartialFunciton. Collection of multiple case statements are multiple PartialFunctions composed together.
 
 ```scala
 val f: String => String = {case "ping" => "pong" }
