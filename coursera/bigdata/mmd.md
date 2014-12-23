@@ -20,3 +20,11 @@
  * store data redundantly - distributed file system GFS,HDFS
  * move computation close to data - minimum network bottleneck
  * simple programming model
+
+### Distributed File System - ensure persistence and availability
+* Data kept in chunks (16-64Mb) spread across machies
+* Each chunk replicated (2x or 3x) on different machines
+* Try to keep replicas in different racks (in case switch fails)
+* chunk server also serve as a compute servers. It bring the computation to data.
+* master node(or name node) store metadata about where files are stored
+* client library for file access
