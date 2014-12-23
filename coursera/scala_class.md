@@ -1,4 +1,11 @@
 
+## `class` and `object`
+A `class` is a definition, a description. It defines a type in terms of methods and composition of other types.
+
+An `object` is a singleton -- an instance of a class which is guaranteed to be unique. For every object in the code, an anonymous class is created, which inherits from whatever classes you declared object to implement. This class cannot be seen from Scala source code -- though you can get at it through reflection.
+
+There is a relationship between object and class. An object is said to be the **companion-object** of a class if they share the same name. When this happens, each has access to methods of private visibility in the other. These methods are not automatically imported, though. You either have to import them explicitly, or prefix them with the class/object name.
+
 ## `new` to create a instance of class (case class does not need `new`)
 ```scala
 // Data abstraction
