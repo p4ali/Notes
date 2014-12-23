@@ -85,7 +85,7 @@ def describe(x:Any) = x match{
   case _=> "something else"
 }
 ```
-### Vaiable binding
+### Variable binding
 ```scala
 expr match{
   case UnOp("abs",e@Unop("abs",_)) => e // e=Unop("abs",_)
