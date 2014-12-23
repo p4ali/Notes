@@ -11,7 +11,7 @@ You can think of the "object" keyword creating a Singleton object of a class, th
 object A extends B with C
 ```
 
-This will declare an anonymous class which extends B with the trait C and create a single instance of this class named A.
+This will declare an anonymous class which extends B with the trait C and create a single instance of this class **named A**.
 
 ## `new` to create a instance of class (case class does not need `new`)
 ```scala
