@@ -6,6 +6,13 @@ An `object` is a singleton -- an instance of a class which is guaranteed to be u
 
 There is a relationship between object and class. An object is said to be the **companion-object** of a class if they share the same name. When this happens, each has access to methods of private visibility in the other. These methods are not automatically imported, though. You either have to import them explicitly, or prefix them with the class/object name.
 
+You can think of the "object" keyword creating a Singleton object of a class, that is defined implicitly.
+```scala
+object A extends B with C
+```
+
+This will declare an anonymous class which extends B with the trait C and create a single instance of this class named A.
+
 ## `new` to create a instance of class (case class does not need `new`)
 ```scala
 // Data abstraction
