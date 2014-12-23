@@ -34,3 +34,6 @@
 * Group-by-key - sort and shuffle
 * Reduce - Aggregate, summarize, filter or transform, then write result.
 Outline stays the same, map and reduce change to fit the problems.
+
+## Reference
+* [Algorithm (princeton)](http://algs4.cs.princeton.edu/32bst/)
