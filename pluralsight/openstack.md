@@ -25,8 +25,11 @@
 * separate Nova instances per hypervisor
 * nova is management platform for hypervisor
 
+### Networking (neutron)
+* 
+
 
 ## Term
 * **Region** - logical pools of openstack services
 * **Aggregates** - groups of openstack nova endpoints based on cahracteristics
-* **Availibility Zones** - groups of openstack nova endpoints based on location
+* **Availibility Zones** - groups of openstack nova endpoints based on location. This is also physical regions.
