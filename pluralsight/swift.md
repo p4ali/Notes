@@ -56,5 +56,20 @@ var mutable = ["one","two"]
 mutable.append("three") // OK
 let immutable = ["one","two"]
 immutable.append("three") // Error: Immutable value of type "[String]" only has mutating members named 'append'
+```
 
+### Optionals
+Be something or be nothing.
+```swift
+var s1: String
+var s2: String?
+var s3: String!
+
+let fm = NSFileManager.defaultManager()
+let path = "/Users/ali/.gitignore"
+if let gitignore = fm.contentsAtPath(path) {
+  // TODO: parse contents
+}
+
+let gitignore = (path ?? "no gitignore)"
 ```
