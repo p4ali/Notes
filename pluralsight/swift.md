@@ -37,6 +37,7 @@
 * `let immutable = ["one","two"]` define immutable constant
 * `var mutable = ["one","two"]` define mutable variable
 ```swift
+// cannot change immutable property
 class Person {
   var firstName: String
   let lastName: String
@@ -50,10 +51,9 @@ let me = Person(firstName: "Alex", lastName: "Li")
 me.firstName = "chengdong" // ok
 me.lastName = "other" // error: Cannot assign to 'lastName' in 'me'
 
-
+// cannot change immutable
 var mutable = ["one","two"]
-mutable.append("three")
-
+mutable.append("three") // OK
 let immutable = ["one","two"]
 immutable.append("three") // Error: Immutable value of type "[String]" only has mutating members named 'append'
 
