@@ -34,12 +34,9 @@
 * enumerations
 
 ### Mutablity in Swift
-* `let` define immutable constant
-* `var` define mutable variable
+* `let immutable = ["one","two"]` define immutable constant
+* `var mutable = ["one","two"]` define mutable variable
 ```swift
-let immutable = ["one","two","three"]
-var mutable = ["one","two","three"]
-
 class Person {
   var firstName: String
   let lastName: String
@@ -52,4 +49,12 @@ class Person {
 let me = Person(firstName: "Alex", lastName: "Li")
 me.firstName = "chengdong" // ok
 me.lastName = "other" // error: Cannot assign to 'lastName' in 'me'
+
+
+var mutable = ["one","two"]
+mutable.append("three")
+
+let immutable = ["one","two"]
+immutable.append("three") // Error: Immutable value of type "[String]" only has mutating members named 'append'
+
 ```
