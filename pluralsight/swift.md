@@ -14,3 +14,29 @@
 * dynamically-typed
 * message-based
 * on other platform
+
+### Cornerstones of swift's philosophy
+* easy to learn
+* modern
+* productive
+* safe
+
+## Data Types in Swift
+
+### Noun of the language
+* classes
+* protocols
+* extensions
+* structs
+* tuples
+* funtions
+* closures
+* enumerations
+
+### Mutablity in Swift
+`let` define immutable constant
+`var` define mutable variable
+```swift
+let immutable = ["one","two","three"]
+var mutable = ["one","two","three"]
+```
