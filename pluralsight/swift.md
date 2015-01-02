@@ -61,15 +61,22 @@ immutable.append("three") // Error: Immutable value of type "[String]" only has 
 ### Optionals
 Be something or be nothing.
 ```swift
-var s1: String
-var s2: String?
-var s3: String!
+var s1: String // a non-optional string
+var s2: String? // an optional string: can be either a string or nil
+var s3: String! // implicilty unwrapping optional. The bang ! is an force unwrapping operator
 
 let fm = NSFileManager.defaultManager()
 let path = "/Users/ali/.gitignore"
+
+// let a = b also return a, so it can be used to check nil or not
 if let gitignore = fm.contentsAtPath(path) {
   // TODO: parse contents
 }
 
+// Use the nil-coalescing operator to use an optional's value or an alternative
 let gitignore = (path ?? "no gitignore)"
+
+// force unwrapping
+println("name is \(name!)") // if name is nil, will cause fatal error
+println("job is \(job!)")
 ```
