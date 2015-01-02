@@ -59,7 +59,13 @@ immutable.append("three") // Error: Immutable value of type "[String]" only has 
 ```
 
 ### Optionals
-Be something or be nothing.
+* Be something or be nothing.
+* Part of type-safety
+* complier will catch these
+* unwrap to access with `!`
+* use optional binding
+* any type can be optional
+
 ```swift
 var s1: String // a non-optional string
 var s2: String? // an optional string: can be either a string or nil
