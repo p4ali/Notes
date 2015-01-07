@@ -1,5 +1,5 @@
 ## Run Dev on Your machine
-* fetch raymond from pdnet
+1. fetch raymond from pdnet
  * `git clone git@pdnet.perforce.com:frontend`
  * `git submodule update`
  * `cd atlas; git co master; git pull`
