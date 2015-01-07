@@ -21,7 +21,7 @@
  * `gem update --system`
  * `bundle install --system`
 * start atlas vbox
- * `cd atlas; script/valgrant-env dev up`
+ * `cd atlas; script/vagrant-env dev destroy -f; script/valgrant-env dev up`
  * wati about 20 minutes
 * provisioning and start atlas
  * `cap dev dev:link; cap dev sanity[test1]`
@@ -39,7 +39,6 @@
  * `cd raymond; mailcatcher`
 * start raymond
  * `rails s`
-
 
 ## Deploy and test
 ```bash
