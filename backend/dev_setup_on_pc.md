@@ -1,4 +1,6 @@
 ## Run Dev on Your machine
+You must have an account at pdnet, and have the ssh key ready in order to use git to check out code.
+
 1. fetch raymond from pdnet
  * `git clone git@pdnet.perforce.com:frontend`
  * `git submodule update`
