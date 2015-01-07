@@ -297,23 +297,59 @@ c[2].call 17 # false
 c[2].call 7 # true
 ```
 
-## Mixin
-Mixin is just a collection of methods.
+## Modules
+Modules are a way of grouping together mothods, classes, and constants. A module can not have instances, because a module isn't a class.
+
+You can include a module within a class definition, in which case you can use `self` to access instance methods/variables of the class within the code of module.
+
+* call module method by preceding its name with the module name and a period, e.g., `Trig.sin(x)`
+* reference a constant using the module name and two colons, e.g., `Trig::PI`
+
+```ruby
+# in module definition file trig.rb
+module Trig
+  PI=3.1415926535897932
+  def Trig.sin(x)
+  ...
+  end
+end
+
+# in another file demo.rb
+require "trig"
+y=Trig.sin(Trig::PI/4)
+```
+
+## Mixins
+Mixin is just a collection of instance methods/variables, which will be shared by multiple classes. It's a module which will
+be included within the class definition, and all its methods will be part of the class instance methods.
 * less than a class: no instance of it
 * Languages with mixins (e.g., Ruby modules) typically let a class have one superclass but include number of mixins.
 * Semantics: including a mixin makes its method part of the class
  * Extending or overfiding in the order mixins are included in the class definition
  * More powerful that helper methods because mixin methods can access methods (and instance variables) on `self` no defined in the mixin.
+* You use `requre "dbl"` to drag the file in, and use `include` to include module methods part of the class definition.
 
 ```ruby
+# file dbl.rb
 module Doubler
+  attr :precision
+  def precise(pre)
+   @precision = pre
+  end
   def double
    self+self
   end
 end
+# file point.rb
 class Pt
  attr_accessor :x, :y
- include Doubler
+ # In case that Doubler in a different file, say dbl.rb, then you need 
+ # `require "dbl"` before include. include has nothing to do with files.
+ include Doubler 
+ def initialize(pre)
+  precise(pre)
+ end
+ 
  def +other
   ans = Pt.new
   ans.x=self.x+other.x
