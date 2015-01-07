@@ -456,6 +456,17 @@ Double-dispatching is so called Visitor pattern.
   * Definition of `method_missing` in Object raises an error
 * Evluate body of method picked
 
+## `load`, `require` and `include`
+```ruby
+# abc.rb
+module ABCD
+ ...
+end
+```
+* `load abc.rb` include abc.rb every time the method is executed.
+* `require abc` only load given file once
+* `include ABCD` include the named module as mixin
+
 ## Style
 * indentation does not affect semantics
 * newline matter
