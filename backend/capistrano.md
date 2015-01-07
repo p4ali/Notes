@@ -56,3 +56,8 @@ cap dev dev:link
 # run sanity check
 cap dev sanity[test1]
 ```
+
+## CIs
+* Helix integration test (end to end) [https://54.186.9.9/job/raymond-rails/](https://54.186.9.9/job/raymond-rails/)
+* Atlas test [http://jenkins.bnr.perforce.com/view/helix/job/atlas-ci-master/](http://jenkins.bnr.perforce.com/view/helix/job/atlas-ci-master/)
+* Uploader teest [http://jenkins.bnr.perforce.com/view/helix/job/uploader-ci-master/](http://jenkins.bnr.perforce.com/view/helix/job/uploader-ci-master/)
