@@ -11,3 +11,10 @@ gem install hello_p4ali -V --backtrace
 RubyGems is a package manager for the Ruby programming language that provides a standard format 
 for distributing Ruby programs and libraries (in a self-contained format called a "gem"), a tool 
 designed to easily manage the installation of gems, and a server for distributing them.
+
+## `.ruby-version`
+You can always set the ruby version by add `.ruby-version` file in the current folder.
+```
+$ cat .ruby-version
+2.1.2
+```
