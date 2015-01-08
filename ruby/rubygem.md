@@ -1,5 +1,5 @@
 ## Gem
-Gem is source code to share. It has version, name(must be unique when you push) and platform.
+Gem is source code and libraries to share. It has version, name(must be unique when you push) and platform.
 
 To create and publish a simple gem, see [http://guides.rubygems.org/make-your-own-gem/](http://guides.rubygems.org/make-your-own-gem/)
 To see where gem is installed, use following command:
