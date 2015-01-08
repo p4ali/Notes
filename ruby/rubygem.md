@@ -6,6 +6,8 @@ To see where gem is installed, use following command:
 ```bash
 gem install hello_p4ali -V --backtrace
 ```
+### Gem with extension
+Like JNI, Gem can also wrap native library. see [http://guides.rubygems.org/gems-with-extensions/](http://guides.rubygems.org/gems-with-extensions/)
 
 ## RubyGems
 RubyGems is a package manager for the Ruby programming language that provides a standard format 
