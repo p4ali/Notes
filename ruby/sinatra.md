@@ -48,7 +48,7 @@ run Proc.new { |env| ['200', {'Content-Type' => 'text/html'}, ['get rack\'d']] }
 ```
 
 ## Sinatra
-Sinatra is a *domain-specific language* for building websites, web services, and web applications in Ruby. It emphasizes a minimalistic approach to development, offering only what is essential to handle HTTP reequests and deliver responses to clients.
+Sinatra is a *domain-specific language* for building websites, web services, and web applications in Ruby. It emphasizes a minimalistic approach to development, offering only what is essential to handle HTTP reequests and deliver responses to clients. Sinatra rides on Rack.
 * Built for speed
 * Minimalism
 * Low memory usage
@@ -57,3 +57,24 @@ Sinatra applications can also be embedded into other Ruby web applications, pack
 * Sinatra is not a framework.
 * Sinatra does not implement MVC. 
 * Maintained by Heroku
+
+```ruby
+# simple.rb
+require 'rubygems'
+require 'sinatra'
+
+get '/' do
+  "Hello World"
+end
+```
+To run: 
+```bash
+$ ruby dimple.rb
+[2015-01-08 10:40:00] INFO  WEBrick 1.3.1
+[2015-01-08 10:40:00] INFO  ruby 1.9.3 (2014-11-13) [x86_64-darwin13.1.0]
+== Sinatra/1.4.5 has taken the stage on 4567 for development with backup from WEBrick
+[2015-01-08 10:40:00] INFO  WEBrick::HTTPServer#start: pid=74612 port=4567
+^C== Sinatra has ended his set (crowd applauds)
+^C[2015-01-08 10:40:06] INFO  going to shutdown ...
+[2015-01-08 10:40:06] INFO  WEBrick::HTTPServer#start done.
+```
