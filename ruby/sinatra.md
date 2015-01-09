@@ -134,6 +134,10 @@ end
 * the `erb` will call `layout.erb`, pass page (e.g., `dashboard.erb`) as parameter
 * return generated html page as get body
 * `get /status` will return json string as body and not UI.
+
+### Syntax
+see [http://stackoverflow.com/questions/17215993/nesting-layouts-in-sinatra](http://stackoverflow.com/questions/17215993/nesting-layouts-in-sinatra)
 ```
 erb :pageTemplate executes layout.erb, where yield executes pageTemplate
 ```
+
