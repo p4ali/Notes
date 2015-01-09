@@ -78,3 +78,37 @@ $ ruby dimple.rb
 ^C[2015-01-08 10:40:06] INFO  going to shutdown ...
 [2015-01-08 10:40:06] INFO  WEBrick::HTTPServer#start done.
 ```
+
+## General App structure
+```bash
+tree
+.
+├── Gemfile # gems dependency: no version
+├── Gemfile.lock # gems with version
+├── README.md
+├── Rakefile # build and test
+├── config.ru # rackup configuration. 
+├── dashboard.rb # main app
+├── lib
+│   └── helpers.rb # helper
+├── public
+│   ├── favicon.ico # icon show on browser tab
+│   ├── images # images used in app
+│   │   ├── blue.png
+│   │   └── yellow.png
+│   ├── javascripts
+│   │   └── dashboard.js # javascript in each webpage
+│   └── stylesheets
+│       └── main.css # cascade style sheet
+├── spec
+│   ├── dashboard_spec.rb # test
+│   └── spec_helper.rb # test helper
+└── views # all pages
+    ├── dashboard.erb # main page
+    ├── layout.erb # ruby will call this to generate each page
+    └── table.erb # table page
+```
+The ruby will generate all pages as following:
+* `get` method in dashboard.rb call `erb :dashboard, :locals => { :services_prod => @@services_prod, :services_stag => @@services_stag, :services_ext => @@services_ext }`
+* the `erb` will call `layout.erb`, pass page (e.g., `dashboard.erb`) as parameter
+* return generated page as get body
