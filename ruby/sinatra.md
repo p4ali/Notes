@@ -134,3 +134,6 @@ end
 * the `erb` will call `layout.erb`, pass page (e.g., `dashboard.erb`) as parameter
 * return generated html page as get body
 * `get /status` will return json string as body and not UI.
+```
+erb :pageTemplate executes layout.erb, where yield executes pageTemplate
+```
