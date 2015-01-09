@@ -109,6 +109,17 @@ tree
     └── table.erb # table page
 ```
 The ruby will generate all pages as following:
+```ruby
+class Dashboard < Sinatra::Base
+  register Sinatra::AdvancedRoutes
+
+  set :public_folder => "public", :static => true
+
+  get '/' do
+    erb :dashboard, :locals => { :services_prod => @@services_prod, :services_stag => @@services_stag, :services_ext => @@services_ext }
+  end
+end
+```
 * `get` method in dashboard.rb call `erb :dashboard, :locals => { :services_prod => @@services_prod, :services_stag => @@services_stag, :services_ext => @@services_ext }`
 * the `erb` will call `layout.erb`, pass page (e.g., `dashboard.erb`) as parameter
 * return generated page as get body
