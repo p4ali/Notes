@@ -118,8 +118,19 @@ class Dashboard < Sinatra::Base
   get '/' do
     erb :dashboard, :locals => { :services_prod => @@services_prod, :services_stag => @@services_stag, :services_ext => @@services_ext }
   end
+  
+  get '/status' do
+    content_type :json
+    {
+        :status => "100",
+        :service_name => "A fake service",
+        :date_checked => Time.now.inspect,
+        :other_data => "this is fake"
+    }.to_json
+  end
 end
 ```
-* `get` method in dashboard.rb call `erb :dashboard, :locals => { :services_prod => @@services_prod, :services_stag => @@services_stag, :services_ext => @@services_ext }`
+* `get /` method in dashboard.rb call `erb :dashboard, :locals => { :services_prod => @@services_prod, :services_stag => @@services_stag, :services_ext => @@services_ext }`
 * the `erb` will call `layout.erb`, pass page (e.g., `dashboard.erb`) as parameter
-* return generated page as get body
+* return generated html page as get body
+* `get /status` will return json string as body and not UI.
