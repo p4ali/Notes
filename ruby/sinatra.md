@@ -75,7 +75,7 @@ end
 ```
 To run: 
 ```bash
-$ ruby dimple.rb
+$ ruby simple.rb
 [2015-01-08 10:40:00] INFO  WEBrick 1.3.1
 [2015-01-08 10:40:00] INFO  ruby 1.9.3 (2014-11-13) [x86_64-darwin13.1.0]
 == Sinatra/1.4.5 has taken the stage on 4567 for development with backup from WEBrick
@@ -83,6 +83,75 @@ $ ruby dimple.rb
 ^C== Sinatra has ended his set (crowd applauds)
 ^C[2015-01-08 10:40:06] INFO  going to shutdown ...
 [2015-01-08 10:40:06] INFO  WEBrick::HTTPServer#start done.
+```
+To test with `telnet`:
+```bash
+$ telnet localhost 4567
+Trying ::1...
+telnet: connect to address ::1: Connection refused
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+GET / HTTP/1.1    ## This is typed query
+
+HTTP/1.1 200 OK
+Content-Type: text/html;charset=utf-8
+Content-Length: 11
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Connection: keep-alive
+Server: thin
+
+Hello World
+HTTP/1.1 400 Bad Request
+Content-Type: text/plain
+Connection: close
+Server: thin
+
+$ telnet localhost 4567
+Trying ::1...
+telnet: connect to address ::1: Connection refused
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+POST / HTTP/1.1    # this input
+Host: 0.0.0.0      # input
+Content-length: 7  # input
+                   # return line
+foo-bar            # input
+HTTP/1.1 404 Not Found
+Content-Type: text/html;charset=utf-8
+X-Cascade: pass
+Content-Length: 431
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Connection: keep-alive
+Server: thin
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  body { text-align:center;font-family:helvetica,arial;font-size:22px;
+    color:#888;margin:20px}
+  #c {margin:0 auto;width:500px;text-align:left}
+  </style>
+</head>
+<body>
+  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>
+  <img src='http://0.0.0.0/__sinatra__/404.png'>
+  <div id="c">
+    Try this:
+    <pre>post '/' do
+  "Hello World"
+end
+</pre>
+  </div>
+</body>
+</html>
+Connection closed by foreign host.
 ```
 
 ## General App structure
