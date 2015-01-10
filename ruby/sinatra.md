@@ -65,6 +65,10 @@ Sinatra applications can also be embedded into other Ruby web applications, pack
 require 'rubygems'
 require 'sinatra'
 
+# form of "verb 'route' do"
+# By making use of Ruby's flexible nature with regard to brackets and parentheses, 
+# Sintra is able to provide a syntax that reads quire naturally.
+# Routes are matched in top-down order; the first routes matching the incomming request is tha tone that gets used.
 get '/' do
   "Hello World"
 end
