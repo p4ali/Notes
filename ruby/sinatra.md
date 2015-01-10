@@ -49,6 +49,8 @@ run Proc.new { |env| ['200', {'Content-Type' => 'text/html'}, ['get rack\'d']] }
 
 ## Sinatra
 Sinatra is a *domain-specific language* for building websites, web services, and web applications in Ruby. It emphasizes a minimalistic approach to development, offering only what is essential to handle HTTP reequests and deliver responses to clients. Sinatra rides on Rack.
+
+Sinatra is essentially a lightweight layer separating you as a developer from a piece of Ruby middleware called Rack. Rack wraps HTTP requests to help standardize communication between Ruby web application and web servers. Sinatra abstracts Rack, allowing you to focus solely on responding to HTTP requests without worrying about the underlying plumbing.
 * Built for speed
 * Minimalism
 * Low memory usage
