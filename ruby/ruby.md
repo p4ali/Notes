@@ -1,4 +1,5 @@
-## `require`,`load`,`include`,`extend`
+## `require`,`load`,`include`,`extend`, 
+see [http://ionrails.com/2009/09/19/ruby_require-vs-load-vs-include-vs-extend/](http://ionrails.com/2009/09/19/ruby_require-vs-load-vs-include-vs-extend/)
 ### Require
 The require method allows you to load a library and prevents it from being loaded more than once. 
 
@@ -45,3 +46,47 @@ class TestClass
   # ... 
 end
 ```
+
+### Include
+When you Include a module into your class as shown below, it’s as if you took the code defined within the module and inserted it within the class, where you ‘include’ it. 
+
+It allows the ‘mixin’ behavior. It’s used to DRY up your code to avoid duplication, for instance, if there were multiple classes that would need the same code within the module.
+
+The following assumes that the module Log and class TestClass are defined in the same .rb file. If they were in separate files, then `load` or `require` must be used to let the class know about the module you’ve defined.
+```ruby
+module Log 
+  def class_type
+    "This class is of type: #{self.class}"
+  end
+end
+ 
+class TestClass 
+  include Log 
+  # ... 
+end
+ 
+tc = TestClass.new.class_type
+puts tc # “This class is of type: TestClass”
+```
+
+### Extend
+When using the extend method instead of include, you are adding the module’s methods as class methods instead of as instance methods.
+
+Here is an example of how to use the extend method:
+```ruby
+module Log 
+  def class_type
+    "This class is of type: #{self.class}"
+  end
+end
+ 
+class TestClass 
+  extend Log 
+  # ... 
+end
+ 
+tc = TestClass.class_type
+puts tc # “This class is of type: TestClass”
+```
+
+When using extend instead of include within the class, if you try to instantiate TestClass and call method class_type on it, as you did in the Include example above, you’ll get a NoMethodError. So, again, the module’s methods become available as class methods.
