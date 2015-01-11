@@ -73,7 +73,7 @@ get '/' do
   "Hello World"
 end
 ```
-To run: 
+### To run: 
 ```bash
 $ ruby simple.rb
 [2015-01-08 10:40:00] INFO  WEBrick 1.3.1
