@@ -84,6 +84,15 @@ $ ruby simple.rb
 ^C[2015-01-08 10:40:06] INFO  going to shutdown ...
 [2015-01-08 10:40:06] INFO  WEBrick::HTTPServer#start done.
 ```
+You can slso run sinatra with `shotgun`, so that the web service will be auto-reloaded by `shothun` for each change. To do that:
+```bash
+$ gem install --no-rdoc --no-ri shotgun
+$ shotgun simple.rb -p 4567
+== Shotgun/Thin on http://127.0.0.1:4567/
+Thin web server (v1.6.3 codename Protein Powder)
+Maximum connections set to 1024
+Listening on 127.0.0.1:4567, CTRL+C to stop
+```
 To test with `telnet`:
 ```bash
 $ telnet localhost 4567
