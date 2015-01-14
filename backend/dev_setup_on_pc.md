@@ -58,6 +58,15 @@ cap dev dev:link
 cap dev sanity[test1]
 ```
 
+## Update
+```bash
+# figure out where ruby installed
+$ which ruby
+/Users/ali/.rbenv/shims/ruby
+$ rbenv install 2.1.3
+$ bundle install --system --without nothing
+```
+
 ## Continous Integration
 * Helix integration test (end to end, with commandline `cd raymond; ciborg open`) [https://54.186.9.9/job/raymond-rails/](https://54.186.9.9/job/raymond-rails/)
 * Atlas test [http://jenkins.bnr.perforce.com/view/helix/job/atlas-ci-master/](http://jenkins.bnr.perforce.com/view/helix/job/atlas-ci-master/)
