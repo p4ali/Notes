@@ -39,6 +39,8 @@ You must have an account at pdnet, and have the ssh key ready in order to use gi
  * `cd raymond; gem install mailcatcher`
 * start mailcatcher
  * `cd raymond; mailcatcher`
+* reset or update db
+ * `rake db:reset`
 * start raymond
  * `rails s`
 
