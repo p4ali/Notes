@@ -71,5 +71,5 @@ $ bundle install --system --without nothing
 
 ## Continous Integration
 * Helix integration test (end to end, with commandline `cd raymond; ciborg open`) [https://54.186.9.9/job/raymond-rails/](https://54.186.9.9/job/raymond-rails/)
-* Atlas test [http://jenkins.bnr.perforce.com/view/helix/job/atlas-ci-master/](http://jenkins.bnr.perforce.com/view/helix/job/atlas-ci-master/)
+* Atlas test [http://jenkins.bnr.perforce.com/view/helix/job/atlas-ci-master/](http://jenkins.bnr.perforce.com/view/helix/job/atlas-ci-master/) `ssh -i ~/.ssh/id_jenkins_ci.pub perforce@atlas-jenkins-slave2.das.perforce.com` with classical password.
 * Uploader teest [http://jenkins.bnr.perforce.com/view/helix/job/uploader-ci-master/](http://jenkins.bnr.perforce.com/view/helix/job/uploader-ci-master/)
