@@ -1,4 +1,4 @@
-## `require`,`load`,`include`,`extend`, 
+## `require`,`load`,`include`,`extend`
 see [http://ionrails.com/2009/09/19/ruby_require-vs-load-vs-include-vs-extend/](http://ionrails.com/2009/09/19/ruby_require-vs-load-vs-include-vs-extend/)
 ### Require
 The require method allows you to load a library and prevents it from being loaded more than once. 
