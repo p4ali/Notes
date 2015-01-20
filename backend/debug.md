@@ -64,4 +64,5 @@ Heroku
 ```bash
 # attach to a rails terminal and run helix rbs
 heroku run rails c --app helix-prod
+irb(main):001:0> User.find_by_username("ali")
 ```
