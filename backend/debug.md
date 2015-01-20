@@ -58,3 +58,10 @@ PWS
 ```
 https://helix-production.cfapps.io/
 ```
+
+
+Heroku
+```bash
+# attach to a rails terminal and run helix rbs
+heroku run rails c --app helix-prod
+```
