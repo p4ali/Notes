@@ -74,6 +74,18 @@ In case gem has multiple souces, use `:source` to select one:
 ```bash
 gem 'rails-assets-angular', :source => 'https://rails-assets.org/'
 ```
+
+## Trouble shooting
+```bash
+$ rake db:reset
+Your Ruby version is 2.1.3, but your Gemfile specified 2.2.0
+
+# for above case, you first make sure in your Gemfile, you have ruby '2.2.0'
+# and .ruby-version has 2.2.0
+# and ruby -v shows 2.2.0
+# and if you have spring running, 'spring stop'.
+```
+
 ## Continous Integration
 * Helix integration test (end to end, with commandline `cd raymond; ciborg open; ssh -i ~/.ssh/id_jenkins_ci utuntu@54.186.9.9`) [https://54.186.9.9/job/raymond-rails/](https://54.186.9.9/job/raymond-rails/)
 * Atlas test [http://jenkins.bnr.perforce.com/view/helix/job/atlas-ci-master/](http://jenkins.bnr.perforce.com/view/helix/job/atlas-ci-master/) `ssh -i ~/.ssh/id_jenkins_ci.pub perforce@atlas-jenkins-slave2.das.perforce.com` with classical password.
