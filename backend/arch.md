@@ -15,7 +15,7 @@ which in turn post to pusher service:
 	body="{\"key1\":\"value1\",\"key2\":\"value2\",\"name\":\"new8\",\"channels\":[\"dhcp-139-n102.dhcp.perforce.com-7\"],\"data\":\"{\\\"error\\\":{\\\"message\\\":\\\"You are not allowed to create any more projects.\\\"}}\"}"
 }
 
-
+git co master
 git pull
 git co max_projects_count_20150128_WIP
 git rebase master
