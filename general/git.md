@@ -117,6 +117,7 @@ dd2e86 - 946992 - 9143a9 - a6fd86 - 5a6057 [master]
 git checkout master
 git cherry-pick 62ecb3
 ```
+That’s all. 62ecb3 is now applied to the master branch and commited (as a new commit) in master. cherry-pick behaves just like merge. If git can’t apply the changes (e.g. you get merge conflicts), git leaves you to resolve the conflicts manually and make the commit yourself.
 
 ## Push
 
