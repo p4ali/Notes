@@ -85,9 +85,25 @@ The following steps will be executed during rebase:
 * the commits that saved in temporary area are reapplied to the current branch, one
   by one, in order.
 
+```bash
+# full form rebase
+$ git rebase [--onto <newbase>] [<upstream>] [<branch>]
 ```
-git rebase [--onto <newbase>] [<upstream>] [<branch>]
 
+Another way of thinking rebase is:
+```bash
+# full form
+$ git rebase --onto <graft-point> <exclude-from> <include-from>
+# shorter form
+$ git rebase master
+```
+
+The shorter forms use defaults for things you don't specify:
+* if you don't specify `--onto`, `<graft-point>` defaults to `<exclude-from>`
+* if you don't specify an `<include-from>`, `<include-from>` defaults to the current branch
+The commits will be apply:
+```
+git log <exclude-from>..<include-from>
 ```
 
 ## Push
