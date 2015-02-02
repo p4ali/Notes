@@ -127,6 +127,47 @@ That’s all. 62ecb3 is now applied to the master branch and commited (as a new 
 
 In second case, the result is that commits 76cada through 62ecb3 are applied to master.
 
+## Revert previous commit
+
+### Temporarily switch to a different commit
+If you want to temporarily go back and fool around
+```
+git co 0d123456c
+# or
+git co -b 0d123456c
+```
+
+### Hard delete unpublished commits
+```
+# reset current tip to 0d123456c, all local changes will be abandoned
+git rest --hard 0d123456c
+
+# alternatively, if you do want to keep local changes
+git stash
+git reset --hard 0d123456c
+git stach pop
+```
+
+### Undo published commits with new commits
+```
+# This will create 3 separate revert commits, each for a change
+git revert a867b4af 25eee4ca 0766c053
+
+# or using ranges, this will revert the last two commits
+git revert HEAD~2..HEAD
+
+# reverting a merge commit
+git revert -m 1 <merge_commit_sha>
+
+# To get just one, you could use `rease-i` to squash them afterwards
+# Or, do it manually (be sure to do this at top level of the repo)
+# get the index and work tree into the desired state, without changing HEAD:
+git co 0d123456c
+
+# then commit
+git commit
+```
+
 ## Push
 
 ```bash
