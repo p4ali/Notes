@@ -48,9 +48,31 @@ $ git commit -m"Check in my change to project, and also update the reference to 
 $ tig staging/master # see the difference between master and stagging/master
 ```
 
-## Rebase
+## Branch
 
-Rebase will replay local commits between upstreanm and branch to the newbase.
+```bash
+# create a branch
+$ git branch my_branch
+# or
+$ git co -b my_branch
+
+# in either case above, you did not set the upstream, unless you push -u later
+$ git branch --set-upstream my_branch origin/my_branch # associate to remote branch
+$ git push
+
+# or you can 
+$ git co -b my_branch
+# push to remote
+$ git push -u origin my_branch # this need only once
+
+# or
+$ git co -b my_branch orign/my_branch
+# git push
+```
+
+## [Rebase](http://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
+
+Rebase will replay local commits between upstream and branch to the newbase.
 
 The following steps will be executed during rebase:
 * switch to branch if specified
@@ -66,4 +88,11 @@ The following steps will be executed during rebase:
 ```
 git rebase [--onto <newbase>] [<upstream>] [<branch>]
 
+```
+
+## Push
+
+```bash
+$ git --set-upstream <remote-branch> 
+$ git push -u origin local-branch
 ```
