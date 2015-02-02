@@ -113,11 +113,19 @@ For simple merge, you may not need rebase necessary. There is a more convenient 
 dd2e86 - 946992 - 9143a9 - a6fd86 - 5a6057 [master]
            \
             76cada - 62ecb3 - b886a0 [feature]
-            
-git checkout master
-git cherry-pick 62ecb3
+
+# to commit 62ecb3 only to master
+$ git checkout master
+$ git cherry-pick 62ecb3
+
+# to commits 76cada through 62ecb3 to master.
+$ git checkout -b newbranch 62ecb3
+$ git rebase --onto master 76cada^  # 76cada^ means previous commit, i.e., 946992, which is excluded
+
 ```
-That’s all. 62ecb3 is now applied to the master branch and commited (as a new commit) in master. cherry-pick behaves just like merge. If git can’t apply the changes (e.g. you get merge conflicts), git leaves you to resolve the conflicts manually and make the commit yourself.
+That’s all. 62ecb3 is now applied to the master branch and commited (as a new commit) in master (in first case). cherry-pick behaves just like merge. If git can’t apply the changes (e.g. you get merge conflicts), git leaves you to resolve the conflicts manually and make the commit yourself.
+
+In second case, the result is that commits 76cada through 62ecb3 are applied to master.
 
 ## Push
 
