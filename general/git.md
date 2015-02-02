@@ -74,7 +74,7 @@ $ git co -b my_branch orign/my_branch
 
 Rebase will replay local commits between upstream and branch to the newbase.
 
-The following steps will be executed during rebase (assuming you are on *the current branch*):
+The following steps will be executed during rebase (assuming you are on **the current branch**):
 * switch to branch if specified
   `git checkout <branch>`
 * all changes made by commits in the current branch but that are not in the upstream are 
@@ -82,7 +82,7 @@ The following steps will be executed during rebase (assuming you are on *the cur
   `git log <upstream>..HEAD`
 * the current branch is reset to <upstream>, or <newbase> if specified. This is same as:
   `git reset --hard <upstream>`
-* the commits that saved in temporary area are reapplied to *the current branch*, one
+* the commits that saved in temporary area are reapplied to **the current branch**, one
   by one, in order.
 
 ```bash
