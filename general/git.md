@@ -134,6 +134,8 @@ In second case, the result is that commits 76cada through 62ecb3 are applied to 
 add/edit
 git reset --soft HEAD~1  
 git commit
+# or keep original commit message and time stamp
+git commit -c ORIG_HEAD
 ```
 
 ### Temporarily switch to a different commit
