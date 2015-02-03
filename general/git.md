@@ -129,6 +129,13 @@ In second case, the result is that commits 76cada through 62ecb3 are applied to 
 
 ## Revert previous commit
 
+### Reset last commit and re-commit with local changes
+```
+add/edit
+git reset --soft HEAD~1  
+git commit
+```
+
 ### Temporarily switch to a different commit
 If you want to temporarily go back and fool around
 ```
