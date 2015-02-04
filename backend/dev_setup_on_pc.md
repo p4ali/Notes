@@ -88,5 +88,16 @@ Your Ruby version is 2.1.3, but your Gemfile specified 2.2.0
 
 ## Continous Integration
 * Helix integration test (end to end, with commandline `cd raymond; ciborg open; ssh -i ~/.ssh/id_jenkins_ci utuntu@54.186.9.9`) [https://54.186.9.9/job/raymond-rails/](https://54.186.9.9/job/raymond-rails/)
+ * to kill ruby running process using `ps aux|grep [r]uby` followed by `kill`
+ * to kill live connections, using `lsof -i :3245` followed by `kill`
+ * to drop postgress db
+ ```
+ $ sudo su postgres psql
+ $ \?
+ $ \
+SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'ramond_test' AND pid <> pg_backend_pid();
+ $ \q
+ ```
+ * to run build on ci `bin/build_ci.sh`, you can change the default `rspec-rerun:full` to `rspec` followed by test
 * Atlas test [http://jenkins.bnr.perforce.com/view/helix/job/atlas-ci-master/](http://jenkins.bnr.perforce.com/view/helix/job/atlas-ci-master/) `ssh -i ~/.ssh/id_jenkins_ci.pub perforce@atlas-jenkins-slave2.das.perforce.com` with classical password.
 * Uploader teest [http://jenkins.bnr.perforce.com/view/helix/job/uploader-ci-master/](http://jenkins.bnr.perforce.com/view/helix/job/uploader-ci-master/)
