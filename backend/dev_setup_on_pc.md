@@ -92,7 +92,7 @@ Your Ruby version is 2.1.3, but your Gemfile specified 2.2.0
  * to kill live connections, using `lsof -i :3245` followed by `kill`
  * to drop postgress db
  ```
- $ sudo su postgres psql
+ $ sudo su postgres -c psql
  $ \?
  $ \
 SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'ramond_test' AND pid <> pg_backend_pid();
