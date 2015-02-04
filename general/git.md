@@ -68,6 +68,12 @@ $ git push -u origin my_branch # this need only once
 # or
 $ git co -b my_branch orign/my_branch
 # git push
+
+# delete a local branch
+$ git branch -D my_branch
+
+# delete a remove branch
+$ git push origin --delete my_branch
 ```
 
 ## [Rebase](http://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
