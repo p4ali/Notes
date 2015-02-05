@@ -76,6 +76,8 @@ gem 'rails-assets-angular', :source => 'https://rails-assets.org/'
 ```
 
 ## Trouble shooting
+
+### reset db
 ```bash
 $ rake db:reset
 Your Ruby version is 2.1.3, but your Gemfile specified 2.2.0
@@ -84,6 +86,18 @@ Your Ruby version is 2.1.3, but your Gemfile specified 2.2.0
 # and .ruby-version has 2.2.0
 # and ruby -v shows 2.2.0
 # and if you have spring running, 'spring stop'.
+```
+
+### cannot run test because `.vagrant` link is changed
+When you get
+```
+VCloudAir Provider:
+* Configuration 'vdc_edge_gateway' and 'vdc_edge_gateway_ip' must be both specified
+```
+You can 
+```
+# this will relink the `atlas/.vagrant -> /Users/ali/workspace/atlas-config/.vagrant.development` 
+script/vagrant development status
 ```
 
 ## Continous Integration
