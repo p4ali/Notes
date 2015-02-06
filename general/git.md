@@ -94,6 +94,9 @@ The following steps will be executed during rebase (assuming you are on **the cu
 ```bash
 # full form rebase
 $ git rebase [--onto <newbase>] [<upstream>] [<branch>]
+
+# squash last 2 commit into one
+$ git rebase -i HEAD~2 
 ```
 
 Another way of thinking rebase is:
@@ -188,4 +191,23 @@ git commit
 ```bash
 $ git --set-upstream <remote-branch> 
 $ git push -u origin local-branch
+```
+
+## merge from branch and rebase master
+
+```bash
+4624  git show b847499
+ 4625  git jlfa
+ 4626  git reset --head HEAD^
+ 4627  git reset --hard HEAD^
+ 4628  git show dcfc5b5
+ 4629  git merge dcfc5b5
+ 4630  git co WIP_delete_frontend
+ 4631  git rebase master
+ 4632  git diff master..origin/master
+ 4633  git diff origin/master..master
+ 4634  git co master
+ 4635  git br -d WIP_delete_frontend
+ 4636  git push origin :WIP_delete_frontend
+ 4637  git jlga
 ```
