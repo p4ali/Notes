@@ -115,6 +115,19 @@ The commits will be apply:
 git log <exclude-from>..<include-from>
 ```
 
+A simiple flow
+```
+# update master
+git co master
+git pull
+# rebase branch
+git co max_projects_count_20150128_WIP
+git rebase master
+# merge back to master
+git co master
+git merge max_projects_count_20150128_WIP
+```
+
 ### Cherry pick
 For simple merge, you may not need rebase necessary. There is a more convenient way to do that:
 
