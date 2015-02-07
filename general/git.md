@@ -78,7 +78,7 @@ $ git push origin --delete my_branch
 
 ## [Rebase](http://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
 
-Rebase will replay local commits between upstream and branch to the newbase.
+Rebase will replay local commits between upstream and branch to the newbase. For more example, see [`git reset` document](http://git-scm.com/docs/git-reset)
 
 The following steps will be executed during rebase (assuming you are on **the current branch**):
 * switch to branch if specified
