@@ -1,5 +1,5 @@
 |              |Urgent                                  |Not Urgent                                       |
 |-------------:|:---------------------------------------|:------------------------------------------------|
-|Important     |RailsCI, backup                         |Uploader refactor, handle DOS when uploading, upload large changelist     |
+|Important     |RailsCI, backup                         |Atlas+Uploader auth, handle DOS when uploading, refactor to remove mixin     |
 |Not Important |                                        |                                                 |
 
