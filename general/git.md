@@ -224,3 +224,15 @@ $ git push -u origin local-branch
  4636  git push origin :WIP_delete_frontend
  4637  git jlga
 ```
+
+## search log
+```
+git log -g --grep="0052"
+```
+
+## delete files
+```
+git rm .project
+git add -A
+git commit -m "delete .project"
+```
