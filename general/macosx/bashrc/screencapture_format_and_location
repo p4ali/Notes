@@ -1,0 +1,9 @@
+# screencapture Cmd+Shift+4
+# change default screencapture save location to ~/screenshots
+SCREENCAPTURE_PATH=~/screenshots
+mkdir -p $SCREENCAPTURE_PATH
+defaults write com.apple.screencapture location $SCREENCAPTURE_PATH; killall SystemUIServer
+
+# change default screencapture save format to .jpeg instead of png
+defaults write com.apple.screencapture type jpg; killall SystemUIServer
+
