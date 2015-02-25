@@ -115,7 +115,7 @@ Next hop in routing for static routing for network, it should point to the netwo
  * [vcloud API doc](https://developercenter.vmware.com/web/dp/doc/preview?id=115)
  * [sdk](https://developercenter.vmware.com/web/sdk/5.5.0/vcloud-api)
 * debug with [rest-client](https://github.com/wiztools/rest-client)
-* the url for HTTP request is GET [https://p3v10-vcd.vchs.vmware.com/api/versions](https://p3v10-vcd.vchs.vmware.com/api/versions)
+* the url for HTTP request is GET [https://p3v10-vcd.vchs.vmware.com/api/versions](https://p3v10-vcd.vchs.vmware.com/api/versions), trust sll cert
 * to get a session, POST [https://p3v10-vcd.vchs.vmware.com/api/sessions](https://p3v10-vcd.vchs.vmware.com/api/sessions)
  * you need set the header with
  ```
@@ -126,10 +126,79 @@ Next hop in routing for static routing for network, it should point to the netwo
  
 * Then using that loginUrl with the the header
 
+## vCloud networking
+Types:
+* external networks (out of the cloud, or LANs)
+* Network pools
+* Organization vDC networks
+ * external direct
+ * external routed (with edge shield sitting inbetween)
+ * internal isolated
+* vApp networks - only exist when vApp powered on
+  * direct
+  * fenced - method to protect the identity of the network, 3 copies of same vapps with same ip, same name, edge acts like a proxy
+  * routed
+  * isolated
+* vApp -> [org] -> external
+* [vCloud Director networking for dummies](http://it20.info/2010/09/vcloud-director-networking-for-dummies/)
+ 
+
+## Hybrid Cloud
+Two or more distinct cloud infrastructures bound together.
+3 importants tools for hybrid cloud: vCloud connnector, vcenter orchiestra, powerclient cli.
+
+### vCloud connector
+Composed of server and node. Each components(cloud) must be deployed with a node, and server will 
+provide a facade to public.
+
+vSphere client can have multiple plugin, e.g., vCloud connector plugin.
+* Migrate virtual machines(workload) from vSphere center to vCloud.
+* deploy vApp from catalog
+
+Console access
+
+## vCenter Orchestrator
+plugins: e.g., for vcloud director and so on.
 
 
+## Caveat
+* When deploying a vm, in case get static ip from pool, you will not know the ip when 
+  you create the vm, but know after creation and before power on, so you can first
+  create, then find the ip, then update configuration, and then power on.
+* Click the by pass ssl confirmation if you are self-signed.
 
 
+## Term
+* ESX - VMware ESX is VMware’s enterprise server virtualization platform. The platform is 
+    available in two versions -- ESX Server and ESXi Server.
+* ESXi - VMware ESXi is an operating system independent hypervisor based on the VMkernel
+    operating system interfacting with agent that run atop it. VMware describes an ESXi 
+    system as similar to a stateless compute node. State information can be uploaded from 
+    a saved configuration file. 
+* Thin Provisioning - TP is a method of optimizing the efficiency with which the available 
+    space is utilized in storage area networks. This is compared to Fat Provisioning (FT), 
+    where storage space is allocated beyond the current needs, and cause low utilization rate
+    and energy consumption high.
+* Virtualization - with an abstraction layer (hypervisor) on top of physical hardware, and
+    guest os (or vms) on top of supervisor. This way, multiple guest OS can be run simultanously on
+    top of one physical hardware, and also if you snapshot the guest os, it can be easily
+    rerun on another hardware, given the fact that supervisor provide an standard interface (ESX).
+    Server virualization is the most popular form of vitualization.
+* Hypervisor - A piece of software which create the virutalization layer that makes server
+    virtualization possible, and it contains the vm monitor. Two popular: VMware ESXi, Hyper-V (microsoft)
+* Type 1 hypervisor - loaded directly on the hardware. e.g., Hyper-V, ESXi, KVM
+* Type 2 hypervisor - loaded in an OS running on the hardware, e.g., Virtual Box, Fusion, Workstaion, Parallels.
+* Type 1 and Type 2 vm can be exchanged, since they both run on top of hypervisor interface.
+
+* Organization: An Organization is the fundamental vCloud Director grouping that contains users, the vApps that they create, and the resources the vApps use. It is a top-level container in a cloud that contains one or more Organization Virtual Data Centers (Org vDCs) and Catalog entities. It owns all the virtual resources for a cloud instance and can have many Org vDCs.
+* vApp: VMware vApp is a format for packaging and managing applications. A vApp can contain multiple virtual machines.
+* VM: A virtualized personal computer environment in which a guest operating system and associated application software can run. Multiple virtual machines can operate on the same managed host machine concurrently.
+* Catalogs & Catalog-Items: Catalog is used in organizations for storing content. Example: base images. Each item stored in catalog is referred as catalog item.
+* vDC: Virtual Data Center. These are of two kinds provider vDCs (accessible to multiple organizations), and organization vDCs (accessible only by a given organization). In fog we refer to organization vDCs.
+* Networks: You can setup various internal networks and assign various internal ip ranges to them
+
+
+  
 
 
 
