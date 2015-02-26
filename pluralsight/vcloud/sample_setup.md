@@ -7,4 +7,4 @@ To setup a private cloud on VMware Cloud Air. Which has following structure:
     * two VMs, a web server and db server. each has a different public IP.
 
 ## Goal
-A script to build above components from scratch, and also use puppet to provision.
+A script to build above components from scratch, and also use puppet to provision web server and db server.
