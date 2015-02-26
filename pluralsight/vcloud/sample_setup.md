@@ -9,3 +9,12 @@ To goal is to setup a webApp which has two VMs, a web server (11.86.53.56) and d
 
 ## Goal
 A script to build above components from scratch, and also use puppet to provision web server and db server.
+
+## Setup DNS
+Once vm is powered on, and ip translation is configured correctly, the last thing to do is to setup dns, this was done:
+```bash
+# change config
+echo 'dns-nameservers 8.8.8.8 8.8.4.4' >> /etc/network/interfaces
+# restart nic
+ifdown eth0 ; ifup eth0'
+```
