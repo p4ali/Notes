@@ -4,9 +4,13 @@
 ### To pass FACTs to puppet through /etc/environment
 Any environment variable prefixed with `FACTER_` will be availabe in Puppet manifiests. 
 ```
+export FACTER_my_var=hello
+# or
+FACTER_my_var=hello puppet apply --modulepath=/x/y/z/modules path_to_my.pp
+
 echo "FACTER_my_var=hello" >> /etc/environment
 
-Or in case heredoc:
+# Or in case heredoc:
 cat > /etc/environment <<EOF
   FACTER_var1=val1
   FACTER_var2=val2
