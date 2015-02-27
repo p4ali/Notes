@@ -3,7 +3,7 @@
 ## puppet
 ### To pass FACTs to puppet through /etc/environment
 Any environment variable prefixed with `FACTER_` will be availabe in Puppet manifiests. 
-```
+```bash
 export FACTER_my_var=hello
 # or
 FACTER_my_var=hello puppet apply --modulepath=/x/y/z/modules path_to_my.pp
