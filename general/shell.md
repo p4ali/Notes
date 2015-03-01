@@ -13,4 +13,7 @@ echo ${foo#*-}   # echoes 'bar-foobar'  (Removes 'foo-' because that matches '*-
 echo ${foo##*-}  # echoes 'foobar' (Removes 'foo-bar-')
 echo ${foo%-*}   # echoes 'foo-bar'
 echo ${foo%%-*}  # echoes 'foo'
+
+# if you have a folder has file 1.dot 2.dot and you wan to mv them to 1.doc and 2.doc
+for i in $(ls); do mv $i ${i%%[a-z\.]*}.doc; done
 ```
