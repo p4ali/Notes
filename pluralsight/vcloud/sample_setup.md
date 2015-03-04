@@ -84,6 +84,51 @@ connection.wait_task_completion connection.add_vm_to_vapp(vapp_params, vm_params
 vm = connection.get_vm_by_name org, VCHS_ORGANIZATION, VAPP_NAME, VM2_NAME
 ```
 
+### Attach disk to vms
+In order to be scalable, you must have separate disks, which allow to attach to different vms.
+```ruby
+# using vcloud_sdk
+def provision_disk(vdc, name, vm, size_mb)
+  begin
+    disks = vdc.find_disks_by_name name
+    puts "attaching a pre-existing disk......"
+    vm.attach_disk disks[0]
+  rescue
+    puts "creating and attaching disk......"
+    vm.attach_disk(vdc.create_disk name, size_mb, vm)
+  end
+end
+```
+Then format disk:
+```bash
+#!/bin/bash
+
+(echo n; echo p; echo 1; echo 1; echo; echo; echo t; echo 8e; echo w) |  sudo fdisk /dev/sdb
+sudo pvcreate /dev/sdb1
+sudo vgcreate example-data /dev/sdb1
+
+#size must be 3G less than size specified in setup-vcloud-disks
+sudo lvcreate -L 249.5G -n lv0 example-data
+sudo mkfs.ext3 /dev/example-data/lv0
+
+(echo n; echo p; echo 1; echo 1; echo; echo; echo t; echo 8e; echo w) |  sudo fdisk /dev/sdc
+sudo pvcreate /dev/sdc1
+sudo vgcreate example-tmpclients /dev/sdc1
+
+#size must be 3G less than size specified in setup-vcloud-disks
+sudo lvcreate -L 97G -n lv0 example-tmpclients
+sudo mkfs.ext3 /dev/example-tmpclients/lv0
+
+
+sudo sh -c "echo \"/dev/example-data/lv0 /var/lib/liwiz auto defaults 0 0\" >> /etc/fstab"
+sudo mount -a
+sudo mkdir /var/lib/liwiz/tmpclients
+sudo sh -c "echo \"/dev/example-tmpclients/lv0 /var/lib/liwiz/tmpclients auto defaults 0 0\" >> /etc/fstab"
+sudo mount -a
+sudo chown -R user1:group1 /var/lib/liwiz
+lsblk
+```
+
 ### Setup DNS
 Once vm is powered on, and ip translation is configured correctly, the last thing to do is to setup dns, this was done:
 ```bash
