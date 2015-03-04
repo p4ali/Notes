@@ -15,7 +15,7 @@ For ruby vcloud api, you can either use [vchs ruby vloud sdk](https://github.com
 
 ### Create a vapp
 You can create a vapp with or without vms. Notice, the VCHS_USER should be
-```
+```ruby
 VCHS_URL='https://p3v10-vcd.vchs.vmware.com:443'
 VCHS_USER='liwiz@example.com'
 VCHS_PASSWD='password'
