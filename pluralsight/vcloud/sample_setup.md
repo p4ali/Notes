@@ -23,6 +23,9 @@ VCHS_ORGANIZATION='M123456789-1111'
 VDC='M123456789-1111'
 VCHS_VERSION='5.6'
 
+VAPP_NAME='test'
+VM1_NAME='web_server'
+VM2_NAME='db_server'
 VDC_NETWORK='M123456789-1111-default-routed'
 VAPP_NETWORK='vApp-router'
 VAPP_TEMPLATE='ubuntu/trusty64'
@@ -40,12 +43,12 @@ cat_item = connection.get_catalog_item(cat[:items][VAPP_TEMPLATE])
 vapp = cat_item[:items][0][:vms_hash]
 compose = connection.compose_vapp_from_vm(
           org[:vdcs][VDC],
-          vapp_name,
+          VAPP_NAME,
           'vApp created by vApp creator',
           {## vms, could be empty, or more
-             'VM1' => vapp[VAPP_TEMPLATE][:id]
+             VM1_NAME => vapp[VAPP_TEMPLATE][:id]
           },
-          {
+          { # a network routed with vapp gateway
               name: VAPP_NETWORK,
               gateway: '10.1.1.1',
               netmask: '255.255.255.0',
@@ -59,6 +62,26 @@ compose = connection.compose_vapp_from_vm(
           }
       )
  connection.wait_task_completion(compose[:task_id])
+```
+
+### Add more vms
+You can add/remove vms after vapp started.
+```
+vapp_params = {
+    name: VAPP_NAME,
+    id: vdc[:vapps][VAPP_NAME]
+}
+
+cat = connection.get_catalog(org[:catalogs][CATALOG_NAME])
+cat_item = connection.get_catalog_item(cat[:items][VAPP_TEMPLATE])
+vapp_template = cat_item[:items][0][:vms_hash]
+
+vm_params = {
+    vm_name: VM2_NAME,
+    template_id: vapp_template[VM_BASE][:id]
+}
+connection.wait_task_completion connection.add_vm_to_vapp(vapp_params, vm_params, {:name => 'vApp-router', :ip_allocation_mode => "POOL"})
+vm = connection.get_vm_by_name org, VCHS_ORGANIZATION, VAPP_NAME, VM2_NAME
 ```
 
 ### Setup DNS
