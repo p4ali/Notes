@@ -30,6 +30,18 @@ $ netstat -ntlp # mac does not support t, and you must pass -p tcp explicitly
 # tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      831/sshd
 ```
 
+## SSH agent forwarding
+```bash
+# most os start ssh-agent automatically, to check your local ssh-agent is running
+echo $SSH_AUTH_SOCK
+# start it if not
+ssh-agent bash -c 'ssh-add $HOME/.ssh/myprivate_key.pem && git clone me@my.com/sample.git /my/local/git/repo'
+# To verify if it work
+ssh -T me@my.com
+# Also make sure your public key is in server ~/.ssh/authorized_keys
+# And the /etc/sshd_config must NOT have `ForwardAgent no`
+```
+
 ## Refs
 * [www.tldp.org](http://www.tldp.org/guides.html)
   * [Here documents](http://tldp.org/LDP/abs/html/here-docs.html) 
