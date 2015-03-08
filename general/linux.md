@@ -1,4 +1,4 @@
-## Shell patten filtering
+## Shell pattern filtering
 
 These POSIX shells use four different pattern filtering:
 * ${var#pattern} - Removes smallest string from the left side that matches the pattern.
@@ -18,9 +18,18 @@ echo ${foo%%-*}  # echoes 'foo'
 for i in $(ls); do mv $i ${i%%[a-z\.]*}.doc; done
 ```
 
+## netstat
+Print  network  connections, routing tables, interface statistics, masquerade connec‐tions, and multicast memberships.
+
+```bash
+# Show only program(p) who listening(l) tcp(t) protocol and show the numerical address instead of symbolic port, host and user name
+$ netstat -ntlp # mac does not support t, and you must pass -p tcp explicitly
+```
+
 ## Refs
 * [www.tldp.org](http://www.tldp.org/guides.html)
   * [Here documents](http://tldp.org/LDP/abs/html/here-docs.html) 
+  * [Text processing commands](http://tldp.org/LDP/abs/html/textproc.html)
 * [www.unixwiz.net](http://www.unixwiz.net/techtips)
   * [An Illustrated Guide to SSH Agent Forwarding](http://www.unixwiz.net/techtips/ssh-agent-forwarding.html) 
     * [Using ssh-agent forwarding on github](https://developer.github.com/guides/using-ssh-agent-forwarding/)
