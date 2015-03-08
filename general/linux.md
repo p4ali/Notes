@@ -24,6 +24,10 @@ Print  network  connections, routing tables, interface statistics, masquerade co
 ```bash
 # Show only program(p) who listening(l) tcp(t) protocol and show the numerical address instead of symbolic port, host and user name
 $ netstat -ntlp # mac does not support t, and you must pass -p tcp explicitly
+# Active Internet connections (only servers)
+# Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+# tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN      948/mysqld
+# tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      831/sshd
 ```
 
 ## Refs
