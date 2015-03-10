@@ -165,3 +165,5 @@ Now it's time to use capistrano to deploy and start your rails app. This usually
 
 And it usually need you run ssh-agent and using [ssh agent forwarding](https://developer.github.com/guides/using-ssh-agent-forwarding/), in case your git repo need ssh authentication.
 
+You may also need some [basic auth](https://www.digitalocean.com/community/tutorials/how-to-set-up-http-authentication-with-nginx-on-ubuntu-12-10) for your nginx based app.
+
