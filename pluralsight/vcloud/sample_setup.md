@@ -137,3 +137,31 @@ echo 'dns-nameservers 8.8.8.8 8.8.4.4' >> /etc/network/interfaces
 # restart nic
 ifdown eth0 ; ifup eth0'
 ```
+
+## Provision dependencies
+After the vapp and vms are powered on, the next step is to prvovision necessary 3rd party software with puppet. This usually include install database, install and config [nginx](https://www.digitalocean.com/community/tutorials/understanding-nginx-http-proxying-load-balancing-buffering-and-caching) and so on.
+
+```bash
+# These are facts to pass to puppet, so that you can use '$a' to refer to inside .pp file.
+FACTS=" FACTER_a='fact1' \
+        FACTER_b='$FACTb' "
+        
+# copy local puppet files to server
+scp -i ~/.ssh/mycert.pem -r puppet/ root@example.com:~/puppet
+
+ssh -i ~/.ssh/perforce.pem root@$HELIX_IP << EOF
+  $FACTS puppet apply --modulepath=~/puppet/modules/ ~/puppet/modules/mymodule/manifests/dns.pp;
+  puppet module install puppetlabs-apt;
+  puppet module install puppetlabs-concat;
+  puppet module install puppetlabs/postgresql;
+  $FACTS puppet apply -v --modulepath=/etc/puppet/modules:/root/puppet/modules/ ~/puppet/modules/mymodule/manifests/default.pp
+EOF
+```
+
+## Provision your app
+Now it's time to use capistrano to deploy and start your rails app. This usually include:
+* pull source code from your git repo
+* restart start [nginx/puma](http://wagn.org/Puma_and_Nginx_production_stack) after deploy
+
+And it usually need you run ssh-agent and using [ssh agent forwarding](https://developer.github.com/guides/using-ssh-agent-forwarding/), in case your git repo need ssh authentication.
+
