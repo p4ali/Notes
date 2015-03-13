@@ -21,4 +21,11 @@ UPC barcode, social media, cell tower, purchase transactions, twits
 * wide variety of data approaches supported : RDMBS, NoSQL, EDW, Hadoop
 * Task-oriented: providion assets, do work, shutdown
 
+** Elastic MapReduce (EMR)
+** Redshift (fully relational dbm, in memory column-based db)
+** DynamoDB (NoSQL db)
+** Data Pipeline
+** Structured storage service(S3)
+** Jaspersoft AWS(BI)
+
 
