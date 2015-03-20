@@ -42,6 +42,25 @@ ssh -T me@my.com
 # And the /etc/sshd_config must NOT have `ForwardAgent no`
 ```
 
+## `grep`, `sed`,`cut`and `awk`
+Given following text:
+```
+... action0 add
+... rev0 1
+... fileSize0 673
+... action1 add
+... rev1 1
+... fileSize1 664
+... digest1 096821ABA6CB1FDA50618650B7E5F58F
+```
+Using following script you can extract the fileSize and add them up
+```bash
+echo $INPUT | grep '... fileSize' | cut -d' ' -f3 | awk '{ sum+=$1} END {print sum}'
+# or with sed group back-reference
+echo $INPUT | grep '... fileSize' | sed 's/... fileSize[^ ]* \(.*\)/\1/;' | awk '{ sum+=$1} END {print sum}'
+## 1337
+```
+
 ## Refs
 * [www.tldp.org](http://www.tldp.org/guides.html)
   * [Here documents](http://tldp.org/LDP/abs/html/here-docs.html) 
