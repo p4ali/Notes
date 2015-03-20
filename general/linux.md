@@ -57,7 +57,7 @@ Using following script you can extract the fileSize and add them up
 ```bash
 echo $INPUT | grep '... fileSize' | cut -d' ' -f3 | awk '{ sum+=$1} END {print sum}'
 # or with sed group back-reference
-echo $INPUT | grep '... fileSize' | sed 's/... fileSize[^ ]* \(.*\)/\1/;' | awk '{ sum+=$1} END {print sum}'
+echo $INPUT | grep '... fileSize' | sed 's/... fileSize[^ ]* \(.*\)/\1/' | awk '{ sum+=$1} END {print sum}'
 ## 1337
 ```
 
