@@ -21,6 +21,13 @@
 * productive
 * safe
 
+# keywords
+
+|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
+|class  |deinit |enum|extension |func  |import  |init   |let    |private|protocol|public|
+|static |struct |subscript|typealias|var|break|case|continue|default    |do     |else   |
+|fallthrough|for|if     |in     |return |switch |where  |while||||
+
 ## Data Types in Swift
 
 ### Noun of the language
