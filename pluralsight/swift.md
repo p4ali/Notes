@@ -96,5 +96,5 @@ println("job is \(job!)")
 
 ## REPL
 To run REPL:
-* Maverics `xcrun swift`
-* Yosemite `swift`
+* Maverics `$ xcrun swift`
+* Yosemite `$ swift`
