@@ -93,3 +93,8 @@ let gitignore = (path ?? "no gitignore)"
 println("name is \(name!)") // if name is nil, will cause fatal error
 println("job is \(job!)")
 ```
+
+## REPL
+To run REPL:
+* Maverics `xcrun swift`
+* Yosemite `swift`
