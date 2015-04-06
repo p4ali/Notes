@@ -28,6 +28,28 @@ link scope to the produced template in compile time.
 Service are singletons which can be injected to Angular assets.
 ### Controllers
 Controller is linked to view, and monitor the changes of the view part.
+### Rounting
+Angular requires a template and even a controller to its router configuration.
+```javascript
+var routingExample = angular.module('Example.Routing', []);
+routingExample.controller('HomeController', function ($scope) {});
+routingExample.controller('BlogController', function ($scope) {});
+
+routingExample.config(function ($routeProvider) {
+    $routeProvider.
+    when('/home', {
+        templateUrl: 'home.html',
+        controller: 'HomeController'
+    }).
+    when('/blog', {
+        templateUrl: 'blog.html',
+        controller: 'BlogController'
+    }).
+    otherwise({
+        redirectTo: '/home'
+    });
+});
+```
 
 ## Backbone
 Backbone is a light-weight MVC framework. It depends on underscore.js/jquery. Easy to learn.
