@@ -25,3 +25,4 @@ link scope to the produced template in compile time.
 ### Services
 Service are singletons which can be injected to Angular assets.
 ### Controllers
+Controller is linked to view, and monitor the changes of the view part.
