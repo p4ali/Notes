@@ -1,4 +1,6 @@
 ## Angular
+Angular is self-contained. And the most active so far framework.
+
 ### Client-side templates - Template and data shipped to the browser and then are assembled there. Most classic multi-page web 
 appliction create their HTML by assembling and joining it with data on the server, and then shipping the finished pages up to 
 the browser.
@@ -26,3 +28,6 @@ link scope to the produced template in compile time.
 Service are singletons which can be injected to Angular assets.
 ### Controllers
 Controller is linked to view, and monitor the changes of the view part.
+
+## Backbone
+Backbone is a light-weight MVC framework. It depends on underscore.js/jquery. Easy to learn.
