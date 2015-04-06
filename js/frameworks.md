@@ -19,5 +19,9 @@ function MyController($scope, $location){
 }
 ```
 ### Directives
-These directive sych as `ng-controller`, `ng-model` and so on, care HTML extension directives. You can also write you own.
-
+These directive such as `ng-controller`, `ng-model` and so on, care HTML extension directives. You can also write you own.
+Two phases for directive: compile and link. First, compile time will find and attach to DOM element. Second, link time will
+link scope to the produced template in compile time.
+### Services
+Service are singletons which can be injected to Angular assets.
+### Controllers
