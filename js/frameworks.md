@@ -31,3 +31,6 @@ Controller is linked to view, and monitor the changes of the view part.
 
 ## Backbone
 Backbone is a light-weight MVC framework. It depends on underscore.js/jquery. Easy to learn.
+
+## Reference
+* [Comparison of 4 popular js mv framework](http://www.developereconomics.com/feature-comparison-of-4-popular-js-mv-frameworks/)
