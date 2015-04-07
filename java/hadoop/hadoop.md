@@ -1,3 +1,4 @@
+# Chapter 1
 ## Comparison with other
 ### Relational RDBMS
 MapReduce (Hadoop) is very efficient to read/write and process large dataset. Traditional DB use B-Tree is more efficient to 
@@ -14,3 +15,12 @@ MapReduce is **shared-nothing** architecture, so it easy to handle partial failu
 ### Volunteer computing (such as SETI)
 Volunteer computing is CPU-intensive, while MapReduce is running jobs that last minutes to hours on trusted, dedicated hardware
 running in a single data center with very high aggregate bandwith interconnects.
+
+## Hadoop at Yahoo
+### Internet-scale search engine
+* Crawler - download pages
+* Webmap - build graph of known web
+* Indexer - builds a reverse index to the best pages
+* Runtime - answer user's query
+
+# Chapter 2. MapReduce
