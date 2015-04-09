@@ -1,3 +1,16 @@
+# BigData (V3)
+* Volume - too big
+* Velocity - too quick
+* Variety - too variable
+
+## Compoments
+* MapReduce + HBase + HDFS <==> MapReduce + BigTable + GFS
+
+## Map -> Shuffle -> Reduce
+* Map - Split input and deliver to nodes; send tasks to specific nodes based on where the input was delivered.
+* Shuffle - Merge result from mappers and move results to the reducers
+* Reduce - Combine the results into a final output
+
 # Chapter 1
 ## Comparison with other
 ### Relational RDBMS
