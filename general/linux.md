@@ -61,6 +61,44 @@ echo $INPUT | grep '... fileSize' | sed 's/... fileSize[^ ]* \(.*\)/\1/' | awk '
 ## 1337
 ```
 
+### awk example
+`$0` - the whole record (the line)
+`$1` - the first field
+
+The awk default is to perform all commands on each record, but awk also allow following actions:
+`BEGIN {cmds}` - the cmds will run before the first record is read
+`END {cmds}` - the cmds will run after the laste record is processed
+
+If a variable is not defined, it has a default value.
+
+### loop through `ls`
+```
+ls -l|awk '
+BEGIN{print "Custom Directory Listing"}
+{ttl+=$5;
+print $9 "  ^" $5 " ^"$3}
+END{print "Total " ttl " bytes"}'
+```
+The output is:
+
+<pre>
+Vagrantfile  ^1867 ^ali
+Vagrantfile.bak  ^1868 ^ali
+data  ^68 ^ali
+puppet  ^136 ^ali
+script  ^102 ^ali
+Total 4041 bytes
+</pre>
+
+#### Loop every line of the input file, compute max of a field
+```bash
+ echo input.txt | \
+ awk '{ temp = substr($0, 88, 5) + 0;
+           q = substr($0, 93, 1);
+           if (temp !=9999 && q ~ /[01459]/ && temp > max) max = temp }
+         END { print max }'
+```
+
 ## Refs
 * [www.tldp.org](http://www.tldp.org/guides.html)
   * [Here documents](http://tldp.org/LDP/abs/html/here-docs.html) 
