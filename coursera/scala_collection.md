@@ -1,3 +1,26 @@
+## Overview
+* List is indexed values, it's different from Array
+ * List is **immutable**, Array is mutable by set element
+ * List is linked, but Array is flat
+ * use `:::` to concat lists, and `::` to prepend element to list
+* Set is container for different elements
+ * 2 types: mutable or immutable, 
+ * use `++` to concatenate two sets
+ * use `+`, `-` to add or remote an elemen to set (create a new set)
+ * ordered by adding order
+* Map are key values
+ * entry is `("key1" -> "value1")`
+ * use `++` to concatenate two maps
+* Tuple can be a group of different type of objects
+ * unlike array, or set
+ * syntactic sugar: `t=(1,2,3,4)`
+ * use `t._1` to access tutple element
+* Option is a container of zero or one element
+ * two values: `Some[T]` or `None` 
+ * to construct `var a:Option[Int] = Some(2)`
+ * use `getOrElse` to tetrieve with default value
+ * use `isEmpty` to check None or not
+
 ## Iterating
 ```scala
 val names = Array("Dan", "Travis", "Chris")
