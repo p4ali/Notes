@@ -20,6 +20,8 @@
  * to construct `var a:Option[Int] = Some(2)`
  * use `getOrElse` to tetrieve with default value
  * use `isEmpty` to check None or not
+* Iterator is a way to access the elements of a collection one by one
+ ** Use `++` to merge two iterator
 
 ## Iterating
 ```scala
