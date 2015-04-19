@@ -117,6 +117,12 @@ It can also be used to explode an array. The following create a Map from a List:
 ```scala
 Map(List(Pair(1, 2), Pair(3, 4)): _*) // Map(1 -> 2, 3 -> 4)
 ```
+### String interpolation
+Interpolcated strings are preceded with an `s` character, and can contain `$` symbols with arbitruary identifiers.
+```
+val magic=7
+val myMagicNumber=s"My Magic Number is $magic"
+```
 
 ## References
 * [Twitters Scala School](https://twitter.github.io/scala_school/)
