@@ -38,5 +38,14 @@ The difference are precision and planning.
 * narrative is more precise
 * narratives are better prioirtized, and planned
 
+## Good story
+A good BDD narrative use the "INVEST" model:
+* Independent. Reduced dependencies = easier to plan
+* Negotiable. Details added via collaboration
+* Valuable. Provides value to the customer
+* Estimable. Too big or too vague - not estimable
+* Small. Can be done in less thatn a week by the team
+* Testable. Good acceptance criteria defined as scenarios
+
 ## Reference
 [Behavior driven development through collaboration](http://technologyconversations.com/2013/11/14/behavior-driven-development-bdd-value-through-collaboration-part-1-introduction/)
