@@ -14,3 +14,24 @@ tests drive the development (and are not just used as a validation tool).
  * You provide a comprehensive array of tests to prevent future breakages and bugs.
  * The tests also act as specification, and thus documentation, for future needs and changes.
 
+## Behavior Driven Development(BDD)
+BDD is an agile process designed to keep the docus on stakeholder value through the whole proejct. The premise of BDD is that the reuquirement has to be written in a way that everyone understands it - business representative, analyst, developer, tester, manager, etc.
+The key of BDD is to have a unique set of artifacts that are understood and used by everyone. The artifact here is **BDD story**. A BDD story is written by the whole team and used as both requirements and executable test cases. It's a way to perform test-driven developent with a clarity that cannot be accomplished with unit testing. It's a way to describe and test functionaly in (almost) natural language.
+
+### BDD Story Format
+BDD story template have two common elements: **narrative** and **scenario**. The BDD story format looks like this
+```
+Narrative:
+  In order to [benefit]
+  As a [role]
+  I want to [feature]
+  
+Scenario: [description]
+  Given [context of precondition]
+  When [event of action]
+  Then [outcome validation]
+```
+
+
+## Reference
+[Behavior driven development through collaboration](http://technologyconversations.com/2013/11/14/behavior-driven-development-bdd-value-through-collaboration-part-1-introduction/)
