@@ -31,7 +31,12 @@ Scenario: [description]
   When [event of action]
   Then [outcome validation]
 ```
+The story is incomplete until discussions about the narrative and one or more scenarios are written.
 
+### Distinction between traditional requirement and narrative
+The difference are precision and planning.
+* narrative is more precise
+* narratives are better prioirtized, and planned
 
 ## Reference
 [Behavior driven development through collaboration](http://technologyconversations.com/2013/11/14/behavior-driven-development-bdd-value-through-collaboration-part-1-introduction/)
