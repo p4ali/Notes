@@ -99,6 +99,21 @@ def printName(first:String,last:String)={
 }
 printName(first="ALex", last="Li") // eq. printName("Alex","Li")
 ```
+
+### By name parameter
+A by-name parameter is formed by putting ```=>``` between the name and type, i.e., ```name: => Type```
+```
+def runTwice(body: => Unit)={
+  body
+  body
+}
+```
+
+### For comprehensive
+```scala
+val pairs = for (x<-0 until 4; y<-0 until 4) yield (x,y)
+```
+
 ### Syntax sugar: _* for treating Seq as method parameters
 Generally the **:** notation is used for type ascription, forcing compiler to see a value as some particular
 type.
