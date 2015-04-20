@@ -32,11 +32,17 @@ Scenario: [description]
   Then [outcome validation]
 ```
 The story is incomplete until discussions about the narrative and one or more scenarios are written.
+A narrative is a short, simple descritpion of a feature told from the perspective of a person of role that requires the new functionality. The intention is NOT to provider a complete descrition of what is to be developed but provide a basis for commmunication between all interested parties (business, analysists, developers, testers, etc)
+Scenarios descrive the interaction between user roles and the system. Scenarios are the acceptance criteria of the narrative. They represents the definition of done. Once all scenarios have been implemented, the story is considered finished. 
+The initial set of senarios should cover the "happy path". Alternative paths should be added progressively during hte duration of the sprint.
 
 ### Distinction between traditional requirement and narrative
 The difference are precision and planning.
 * narrative is more precise
 * narratives are better prioirtized, and planned
+* reuirement focus on system operations, narratives focus on customer value. 
+* narrative encourage looseness of information in order to foster a higer lovel of collabortion between stakeholders and the team.
+* The actural work being done is accomplished through collaboration revolving around the narrative that becomes more detailed through scenarios as the development progress.
 
 ## Good story
 A good BDD narrative use the "INVEST" model:
