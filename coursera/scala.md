@@ -148,6 +148,22 @@ Interpolcated strings are preceded with an `s` character, and can contain `$` sy
 val magic=7
 val myMagicNumber=s"My Magic Number is $magic"
 ```
+### `apply`
+Scala compiler will converts `f(a)` into `f.apply(a)`, where `f` could be either a method name or class constructor. That's why the following code works:
+```
+var seq=Seq(1,2,3)
+trait Seq[+A] extends .. {
+ ...
+ def apply[A](elems: A*): CC[A] = {
+    if (elems.isEmpty) empty[A]
+    else {
+      val b = newBuilder[A]
+      b ++= elems
+      b.result
+    }
+  }
+ }
+```
 
 ## References
 * [Twitters Scala School](https://twitter.github.io/scala_school/)
