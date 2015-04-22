@@ -116,10 +116,11 @@ val pairs = for (x<-0 until 4; y<-0 until 4) yield (x,y)
 
 ### Iterate Collection by `case`
 ```scala
-def sum(nums : Seq[Int]: Int = nums match {
-  case x::xs => x+sum(xs)
-  case Nil => 0
-}
+  def sum(nums: Iterable[Int]): Int = nums match {
+    case x :: xs => x + sum(xs)
+    case Nil => 0
+  }
+  sum(Seq(1,2,3,4,5))
 ```
 
 
