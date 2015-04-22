@@ -114,6 +114,15 @@ def runTwice(body: => Unit)={
 val pairs = for (x<-0 until 4; y<-0 until 4) yield (x,y)
 ```
 
+### Iterate Collection by `case`
+```scala
+def sum(nums : Seq[Int]: Int = nums match {
+  case x::xs => x+sum(xs)
+  case Nil => 0
+}
+```
+
+
 ### Syntax sugar: _* for treating Seq as method parameters
 Generally the **:** notation is used for type ascription, forcing compiler to see a value as some particular
 type.
