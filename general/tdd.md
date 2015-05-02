@@ -53,5 +53,16 @@ A good BDD narrative use the "INVEST" model:
 * Small. Can be done in less thatn a week by the team
 * Testable. Good acceptance criteria defined as scenarios
 
+
+## Test Types
+From low level to high:
+* Unit testing - test unit function
+* Integration testing - test how object work with other
+* Acceptance testing - test usability from stakeholders point of view
+* Other
+ * Security testing
+ * Performance testing
+ * Load and stress testing
+
 ## Reference
 [Behavior driven development through collaboration](http://technologyconversations.com/2013/11/14/behavior-driven-development-bdd-value-through-collaboration-part-1-introduction/)
