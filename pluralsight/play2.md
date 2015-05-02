@@ -1,0 +1,15 @@
+## Setup
+* Download `activator` 2.3.8
+* Create a new application
+ * with activator: `activator new my-first-app play-scala`
+ * without activator: 
+  * create application directory
+  * create build.sbt
+  * run sbt
+* Run application
+ * with activator console: run `activator` to start console, then `run`, or with triggered run: `~run`
+ * run without activator console: `activatro run`
+* Import into IDE
+ * Eclipse: start activator console, then `eclipse with-source=true`, then import existing proejct into workspace
+ * IntelliJ: `New > Project from existing sources...`
+## 
