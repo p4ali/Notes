@@ -1,3 +1,5 @@
+With Scala/Play, you pretty much have the same experience as working with ruby/rails, and still kepp the advantage of JVM.
+
 ## Setup
 * Download `activator` 2.3.8
 * Create a new application
