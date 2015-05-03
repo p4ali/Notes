@@ -11,5 +11,5 @@
  * run without activator console: `activatro run`
 * Import into IDE
  * Eclipse: start activator console, then `eclipse with-source=true`, then import existing proejct into workspace
- * IntelliJ: `New > Project from existing sources...`
+ * IntelliJ: `New > Project from existing sources...` or `idea`, then open project in the folder
 ## 
