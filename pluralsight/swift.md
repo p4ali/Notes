@@ -21,6 +21,13 @@
 * productive
 * safe
 
+# keywords
+|       |       |       |       |       |       |       |       |       |       |       |
+|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
+|class  |deinit |enum|extension |func  |import  |init   |let    |private|protocol|public|
+|static |struct |subscript|typealias|var|break|case|continue|default    |do     |else   |
+|fallthrough|for|if     |in     |return |switch |where  |while||||
+
 ## Data Types in Swift
 
 ### Noun of the language
@@ -86,3 +93,8 @@ let gitignore = (path ?? "no gitignore)"
 println("name is \(name!)") // if name is nil, will cause fatal error
 println("job is \(job!)")
 ```
+
+## REPL
+To run REPL:
+* Maverics `$ xcrun swift`
+* Yosemite `$ swift`

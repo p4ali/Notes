@@ -99,6 +99,31 @@ def printName(first:String,last:String)={
 }
 printName(first="ALex", last="Li") // eq. printName("Alex","Li")
 ```
+
+### By name parameter
+A by-name parameter is formed by putting ```=>``` between the name and type, i.e., ```name: => Type```
+```
+def runTwice(body: => Unit)={
+  body
+  body
+}
+```
+
+### For comprehensive
+```scala
+val pairs = for (x<-0 until 4; y<-0 until 4) yield (x,y)
+```
+
+### Iterate Collection by `case`
+```scala
+  def sum(nums: Iterable[Int]): Int = nums match {
+    case x :: xs => x + sum(xs)
+    case Nil => 0
+  }
+  sum(Seq(1,2,3,4,5))
+```
+
+
 ### Syntax sugar: _* for treating Seq as method parameters
 Generally the **:** notation is used for type ascription, forcing compiler to see a value as some particular
 type.
@@ -116,6 +141,28 @@ f(list : _*)
 It can also be used to explode an array. The following create a Map from a List:
 ```scala
 Map(List(Pair(1, 2), Pair(3, 4)): _*) // Map(1 -> 2, 3 -> 4)
+```
+### String interpolation
+Interpolcated strings are preceded with an `s` character, and can contain `$` symbols with arbitruary identifiers.
+```
+val magic=7
+val myMagicNumber=s"My Magic Number is $magic"
+```
+### `apply`
+Scala compiler will converts `f(a)` into `f.apply(a)`, where `f` could be either a method name or class constructor. That's why the following code works:
+```
+var seq=Seq(1,2,3)
+trait Seq[+A] extends .. {
+ ...
+ def apply[A](elems: A*): CC[A] = {
+    if (elems.isEmpty) empty[A]
+    else {
+      val b = newBuilder[A]
+      b ++= elems
+      b.result
+    }
+  }
+ }
 ```
 
 ## References
