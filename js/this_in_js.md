@@ -12,3 +12,4 @@ If you understand and follow those four rules, you will always know what **this*
 
 ## Reference
 [Understanding javascript this](http://unschooled.org/2012/03/understanding-javascript-this/)
+[This from mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
