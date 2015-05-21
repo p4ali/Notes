@@ -1,3 +1,9 @@
+# Show branch name as PS:
+This is one of the functions [bash_it](https://github.com/Bash-it/bash-it) provide.
+
+## `~/.gitconfig`
+Pay attention to **[include]** and **[alias]** sections.
+
 # Staging Area
 
 Working directory => staging/index area => git repo (local) => git repo (remote)
