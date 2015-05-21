@@ -231,6 +231,18 @@ $ git push -u origin local-branch
  4637  git jlga
 ```
 
+## `git merge --squash dev_branch`
+This will merge the changes(assuming you are in master) from `dev_branch` to master branch, but whithout commit. You need manually commit it (and also manually resolve the conflicts if has). This allow merge the dev_branch changes into one chunch.
+```bash
+git co dev_branch
+... working on dev_branch and comit, push to origin/dev_branch
+git co master
+git merge --squash dev_branch
+... resolve confilcts if necessary, and git add conflicts
+git commit -m"merge changes from dev_branch"
+git lg # this will show you a linear history
+```
+
 ## search log
 ```
 git log -g --grep="0052"
@@ -242,3 +254,6 @@ git rm .project
 git add -A
 git commit -m "delete .project"
 ```
+
+# Term
+* `upstream/downstream`: There is no absolute upstream/downstream. When you declared **otherRepo** as a remote one, then you are **pulling from upstream - otherRepo**, and you are **downstream for otherRepo**; you are **pushing to upstream - otherRepo**.
