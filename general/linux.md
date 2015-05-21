@@ -63,7 +63,7 @@ echo $INPUT | grep '... fileSize' | sed 's/... fileSize[^ ]* \(.*\)/\1/' | awk '
 
 ### `tr` example
 Translate characters. Squeezing all white space to a single space with `tr -s [:blank:]`
-```
+```bash
 # find GlobalProtect process ids and kill them
 $ ps aux|grep [G]lobalProtect
 > ali             77507   0.0  0.1   770504  21528   ??  S     5:30AM   0:02.50  /Applications/GlobalProtect.app/Contents/MacOS/GlobalProtect
@@ -114,6 +114,15 @@ Total 4041 bytes
            q = substr($0, 93, 1);
            if (temp !=9999 && q ~ /[01459]/ && temp > max) max = temp }
          END { print max }'
+```
+
+## `$(...)` and `${...}`
+`$(...)` allows command substitution, i.e. allows the output of a command to replace the command itself and can be nested.
+`${HOME}` return the value of the variable named HOME.
+`$(...)` run whatever is inside the parentheses in a subshell and return that as the value. for example, $(ls) will get a list of files and subfolders in the current folder, since ls will write files and subfolders to standard out.
+```bash
+# print each file/folder in current folder
+for i in $(ls); do echo $i; done
 ```
 
 ## Refs
