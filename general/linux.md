@@ -42,7 +42,7 @@ ssh -T me@my.com
 # And the /etc/sshd_config must NOT have `ForwardAgent no`
 ```
 
-## `grep`, `sed`,`cut`and `awk`
+## `grep`, `sed`,`cut`, `awk` and `tr`
 Given following text:
 ```
 ... action0 add
@@ -61,7 +61,24 @@ echo $INPUT | grep '... fileSize' | sed 's/... fileSize[^ ]* \(.*\)/\1/' | awk '
 ## 1337
 ```
 
-### awk example
+### `tr` example
+Translate characters. Squeezing all white space to a single space with `tr -s [:blank:]`
+```
+# find GlobalProtect process ids and kill them
+$ ps aux|grep [G]lobalProtect
+> ali             77507   0.0  0.1   770504  21528   ??  S     5:30AM   0:02.50  /Applications/GlobalProtect.app/Contents/MacOS/GlobalProtect
+> root            77506   0.0  0.1  2554188  16300   ??  S     5:30AM   0:03.35 /Applications/GlobalProtect.app/Contents/Resources/PanGPS
+
+# squeeze white spaces
+$ ps aux|grep [G]lobalProtect|tr -s [:blank:]
+> ali 77507 0.0 0.1 770504 21528 ?? S 5:30AM 0:02.50 /Applications/GlobalProtect.app/Contents/MacOS/GlobalProtect
+> root 77506 0.0 0.1 2554188 16300 ?? S 5:30AM 0:03.35 /Applications/GlobalProtect.app/Contents/Resources/PanGPS
+
+# loop through and kill them
+$ for p in $(ps aux|grep [G]lobalProtect|tr -s [:blank:]|cut -d' ' -f2); do  kill -9 $p; done
+```
+
+### `awk` example
 `$0` - the whole record (the line)
 `$1` - the first field
 
