@@ -22,3 +22,4 @@ localhost	FALSE	/	FALSE	0	XSRF-TOKEN	DMr5fxv8XzX0I0o65SIV7u9lfmdqnZmtaj9JnJjmhD4
 localhost	FALSE	/	FALSE	0	__profilin	p%3Dt
 
 $ curl -X POST -b cookie -F "event_name=uploadFile" -F "event_properties={}" -F "authenticity_token=DMr5fxv8XzX0I0o65SIV7u9lfmdqnZmtaj9JnJjmhD4=" http://localhost:3000/events
+```
