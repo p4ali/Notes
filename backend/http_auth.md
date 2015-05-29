@@ -1,5 +1,5 @@
 ```
-$ curl -c cookie http://localhost:3000
+$ curl -c cookie http://localhost:3000 # save cookie as the file to write cookie to, see -b below to read from
 $ cat cookie
 # Netscape HTTP Cookie File
 # http://curl.haxx.se/docs/http-cookies.html
