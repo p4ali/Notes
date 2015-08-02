@@ -125,6 +125,12 @@ Total 4041 bytes
 for i in $(ls); do echo $i; done
 ```
 
+## find with timestamp 
+```bash
+find /srv/files/ -type f -newermt "2015-04-01 00:00:00" ! -newermt "2015-07-31 00:00:00" > /tmp/tmpclients.txt
+cat /tmp/tmpclients.txt | while READ FILE ; do rm -rf "$FILE" ; done
+```
+
 ## Refs
 * [www.tldp.org](http://www.tldp.org/guides.html)
   * [Here documents](http://tldp.org/LDP/abs/html/here-docs.html) 
