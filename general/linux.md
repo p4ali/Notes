@@ -130,6 +130,10 @@ for i in $(ls); do echo $i; done
 find /srv/files/ -type f -newermt "2015-04-01 00:00:00" ! -newermt "2015-07-31 00:00:00" > /tmp/tmpclients.txt
 cat /tmp/tmpclients.txt | while READ FILE ; do rm -rf "$FILE" ; done
 ```
+## `top` and `htop`
+htop is a friendly top, following key are supported:
+* f5: show the process in tree graph
+* f6: show sort panel
 
 ## Refs
 * [www.tldp.org](http://www.tldp.org/guides.html)
