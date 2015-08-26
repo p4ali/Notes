@@ -135,6 +135,11 @@ htop is a friendly top, following key are supported:
 * f5: show the process in tree graph
 * f6: show sort panel
 
+## nagios and bacula, haproxy
+* nagios: for monitoring
+* bacula: for backup
+* haproxy: load balancing
+
 ## Refs
 * [www.tldp.org](http://www.tldp.org/guides.html)
   * [Here documents](http://tldp.org/LDP/abs/html/here-docs.html) 
