@@ -28,10 +28,10 @@ When you first clone a repository, all of your files will be tracked and unmodfi
 
 |                 | Untracked       | Unmodified           |  Modified           | Staged                |
 |-----------------|-----------------|:---------------------|:--------------------|:---------------------:|
-| Untracked       |                 |                      |                     | git add               |
-| Unmodified      |                 |                      |                     |                       |
-| Modified        |                 | git checkout         |                     | git add               |
-| Staged          |                 |                      |                     |                       |
+| **Untracked**   |                 |                      |                     | git add               |
+| **Unmodified**  |                 |                      |                     |                       |
+| **Modified**    |                 | git checkout         |                     | git add               |
+| **Staged**      |                 |                      |                     |                       |
 
 # Submodule
 
