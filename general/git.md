@@ -16,6 +16,23 @@ When push to remote, you make your commits public.
 | git add .       | Add current workdirectory to the Object store (repo) and create a index for that (git reset)  |
 | git reset --    | (the oposite of git add) reset the index entries for all path to their state at tree-ish.
 
+# File Status Lifecycle
+Here we talk about file states in the working directory:
+* Tracked: Files that were in the last snapshot
+* Unmodified: Tracked files which was NOT changed since your last commit
+* Modified: Tracked files which was changed since your last commit
+* Staged: Files which was added to the staging area
+* Untracked: anything else
+When you first clone a repository, all of your files will be tracked and unmodfied. 
+
+
+|                 | Untracked       | Unmodified           |  Modified           | Staged                |
+|-----------------|-----------------|:---------------------|:--------------------|:---------------------:|
+| Untracked       |                 |                      |                     | git add               |
+| Unmodified      |                 |                      |                     |                       |
+| Modified        |                 | git checkout         |                     | git add               |
+| Staged          |                 |                      |                     |                       |
+
 # Submodule
 
 Submodules allow foreign repositories to be embedded (or linked, see gitlink) within a dedicated subdirectory 
