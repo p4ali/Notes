@@ -47,3 +47,30 @@ TWO git repos: a private local one and a public server-side one. This is ideal f
 * `non-bare` repo allows only pull, but NOT push. `git init`
 * To convert from `bare` to `non-bare` repo: `git clone bare_repo non_bare_repo`, then delete `bare` repo.
 * To convert from a `non-bare` repo to a `bare` repo: `git clone --bare -l non_bare_repo new_bare_repo`. 
+
+# Git for CI
+* master is production - promoted from staging, also can add hotfix directly to master, then need merge back to staging
+* staging is the next version 
+* new feature off staging, named like: username/ISSUE-KEY-summary
+ 
+# Git for production release
+Merge can be done automatically in case of from firmer to softer. `git merge --strategy=ours`
+* release branches (firmer)
+ * spin-off bugfix branch(soft) 
+* one central repo master (firm)
+* one branch per feature (soft)
+* one branch per bugfix (soft)
+* Merge continously from firmer to soft, e.g., from release to master
+* Copy from soft to firm with git cherry-pick.
+
+# Hooks
+Hooks are little scripts you can place in the `.git/hooks` directory to trigger action at certain points.
+
+|Local              |Remote            |
+|-------------------|------------------|
+|pre/post-applypatch|pre-receive       |
+|pre/post-commit    |update            |
+|pre-rebase         |post-receive      |
+|post-checkout      |post-update       |
+|post-merge         |                  |
+|pre-push           |                  |
