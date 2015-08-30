@@ -52,6 +52,9 @@ TWO git repos: a private local one and a public server-side one. This is ideal f
 * master is production - promoted from staging, also can add hotfix directly to master, then need merge back to staging
 * staging is the next version 
 * new feature off staging, named like: username/ISSUE-KEY-summary
+* buildoing everything is expensive
+* automatically build `stable` and `master`
+* manually trigger feature branch builds
  
 # Git for production release
 Merge can be done automatically in case of from firmer to softer. `git merge --strategy=ours`
