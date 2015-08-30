@@ -1,5 +1,8 @@
+# svn vs Perforce
+* No locking in svn
+* 
 # A SVN repository 
-From data structure point of view, a SVN repository is an array of revisions, each revision is a tree represent the file structure of the repository.
+From data structure point of view, a SVN repository is an array of revisions, each revision is a tree represent the file structure of the project. Project is the basic unit of work for svn.
 ```
 For a repository structure:
 root
@@ -47,4 +50,12 @@ svn log -r {2006-01-01}:{2016-01-01}
 Using similar technology([Bubble-Up method](http://svn.apache.org/repos/asf/subversion/trunk/notes/subversion-design.html#server.fs.struct.bubble-up)) to the linux *hard link*, a branch is a new copy of original source with hard links, and only update to
 a new file if it's necessary(e.g., the content is changed, or moved).
 
+# [.svn directory](https://pythonconquerstheuniverse.wordpress.com/2011/03/16/learning-subversion-the-mystery-of-svn-2/) - adminstrative directory
+
+The directory contains meta-data and pristine copies of you working files locally.
+* only `svn checkout` will generate .svn directory for each folder under working copy
+* export will create a clean copy without .svn
+* `svn update` will fetch the new version from remote repo to .svn folder, and then attempt to merge changes.
+* A workingCopy directory is a directory that has a hidden subdirectory called `.svn`
+* If you accidentally delete .svn folder, do a fresh check out for that folder to some where else and then copy .svn back to your workingCopy.
 
