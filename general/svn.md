@@ -1,6 +1,8 @@
 # svn vs Perforce
 * No locking in svn
-* 
+* no .svn folder in Perforce
+* svn open source, Perforce is proprietary
+
 # A SVN repository 
 From data structure point of view, a SVN repository is an array of revisions, each revision is a tree represent the file structure of the project. Project is the basic unit of work for svn.
 ```
