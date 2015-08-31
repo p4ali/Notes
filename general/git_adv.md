@@ -1,3 +1,9 @@
+# Git data model
+* blob: file content, identified by a hash
+* tree: List of pointers to blob, or tree, identified by a hash
+* commit: references the (root) tree + metadata, 0 to n parent commits, identified by a (sha-1) hash (author may not equal to commiter). DAG
+* tag: name associated with a commit (+potential metadata).
+
 # Git Workflow
 This original from [atlassian](https://www.atlassian.com/git/tutorials/comparing-workflows/)
 
