@@ -83,3 +83,29 @@ Hooks are little scripts you can place in the `.git/hooks` directory to trigger 
 |post-checkout      |post-update       |
 |post-merge         |                  |
 |pre-push           |                  |
+
+# `git bisect`
+Search bug by dichotomy(binary search). The idea is b-search in between a range of commits, and find the bug commit.
+
+# aggregate multiple repos
+```
+git init repo1 && cd repo1 && git commit -m "Initial 1" --allow-empty && cd ..
+git init repo2 && cd repo2 && git commit -m "Initial 2" --allow-empty
+git remote add other file://$PWD/../repo1
+git fetch other
+git merge other/master -m "let's merge them"
+
+git log --oneline --graph
+*   c2be901 let's merge them
+|\
+| * 1763514 Initial 1
+* 8208b0a Initial 2
+```
+
+# split repo to multiple repos
+`filter-branch` will help
+
+```
+Tell me and I forget, teach me and I may remember, involve me and I learn.
+- Benjamin Franklin
+```
