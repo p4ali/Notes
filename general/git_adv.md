@@ -1,6 +1,7 @@
 # [Repository layout](http://schacon.github.io/git/gitrepository-layout.html)
 
 # Git data model
+Git saves the snapshot, not the difference. Git history is a directed acyclic graph.
 * blob: file content, identified by a hash
 * tree: List of pointers to blob, or tree, identified by a hash
 * commit: references the (root) tree + metadata, 0 to n parent commits, identified by a (sha-1) hash (author may not equal to commiter). DAG
