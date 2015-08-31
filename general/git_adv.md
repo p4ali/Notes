@@ -1,3 +1,5 @@
+# [Repository layout](http://schacon.github.io/git/gitrepository-layout.html)
+
 # Git data model
 * blob: file content, identified by a hash
 * tree: List of pointers to blob, or tree, identified by a hash
