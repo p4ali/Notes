@@ -147,3 +147,4 @@ htop is a friendly top, following key are supported:
 * [www.unixwiz.net](http://www.unixwiz.net/techtips)
   * [An Illustrated Guide to SSH Agent Forwarding](http://www.unixwiz.net/techtips/ssh-agent-forwarding.html) 
     * [Using ssh-agent forwarding on github](https://developer.github.com/guides/using-ssh-agent-forwarding/)
+* [bash keyboard shortcut](http://ss64.com/bash/syntax-keyboard.html)
