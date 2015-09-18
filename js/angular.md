@@ -175,3 +175,8 @@ and describe a desired outcome interms of the model's state. We don't need to ke
 to DOM elements in the JavaScript code and we are not obliged to manipulate the DOM elements
 explicitly. Instead we can simply focus on model mutations and let AngularJS dot he heavy lifting.
 All we need to do is to prvide some his in the form of directives.
+
+
+## Reference
+* [Code organization for large angunar js app](http://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript)
+* [lesson learned](http://joelhooks.com/blog/2013/05/22/lessons-learned-kicking-off-an-angularjs-project/)

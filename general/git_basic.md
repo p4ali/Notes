@@ -1,3 +1,9 @@
+# Show branch name as PS:
+This is one of the functions [bash_it](https://github.com/Bash-it/bash-it) provide.
+
+## `~/.gitconfig`
+Pay attention to **[include]** and **[alias]** sections.
+
 # Staging Area
 
 Working directory => staging/index area => git repo (local) => git repo (remote)
@@ -9,6 +15,23 @@ When push to remote, you make your commits public.
 |-----------------|:--------------------:|
 | git add .       | Add current workdirectory to the Object store (repo) and create a index for that (git reset)  |
 | git reset --    | (the oposite of git add) reset the index entries for all path to their state at tree-ish.
+
+# File Status Lifecycle
+Here we talk about file states in the working directory:
+* Tracked: Files that were in the last snapshot
+* Unmodified: Tracked files which was NOT changed since your last commit
+* Modified: Tracked files which was changed since your last commit
+* Staged: Files which was added to the staging area
+* Untracked: anything else
+When you first clone a repository, all of your files will be tracked and unmodfied. 
+
+
+|                 | Untracked       | Unmodified           |  Modified           | Staged                |
+|:----------------|:----------------|:---------------------|:--------------------|:---------------------:|
+| **Untracked**   |                 |                      |                     | git add               |
+| **Unmodified**  |                 |                      |                     |                       |
+| **Modified**    |                 | git checkout         |                     | git add               |
+| **Staged**      |                 |                      |                     |                       |
 
 # Submodule
 
@@ -225,6 +248,18 @@ $ git push -u origin local-branch
  4637  git jlga
 ```
 
+## `git merge --squash dev_branch`
+This will merge the changes(assuming you are in master) from `dev_branch` to master branch, but whithout commit. You need manually commit it (and also manually resolve the conflicts if has). This allow merge the dev_branch changes into one chunch.
+```bash
+git co dev_branch
+... working on dev_branch and comit, push to origin/dev_branch
+git co master
+git merge --squash dev_branch
+... resolve confilcts if necessary, and git add conflicts
+git commit -m"merge changes from dev_branch"
+git lg # this will show you a linear history
+```
+
 ## search log
 ```
 git log -g --grep="0052"
@@ -236,3 +271,6 @@ git rm .project
 git add -A
 git commit -m "delete .project"
 ```
+
+# Term
+* `upstream/downstream`: There is no absolute upstream/downstream. When you declared **otherRepo** as a remote one, then you are **pulling from upstream - otherRepo**, and you are **downstream for otherRepo**; you are **pushing to upstream - otherRepo**.

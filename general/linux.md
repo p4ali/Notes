@@ -42,7 +42,7 @@ ssh -T me@my.com
 # And the /etc/sshd_config must NOT have `ForwardAgent no`
 ```
 
-## `grep`, `sed`,`cut`and `awk`
+## `grep`, `sed`,`cut`, `awk` and `tr`
 Given following text:
 ```
 ... action0 add
@@ -61,7 +61,24 @@ echo $INPUT | grep '... fileSize' | sed 's/... fileSize[^ ]* \(.*\)/\1/' | awk '
 ## 1337
 ```
 
-### awk example
+### `tr` example
+Translate characters. Squeezing all white space to a single space with `tr -s [:blank:]`
+```bash
+# find GlobalProtect process ids and kill them
+$ ps aux|grep [G]lobalProtect
+> ali             77507   0.0  0.1   770504  21528   ??  S     5:30AM   0:02.50  /Applications/GlobalProtect.app/Contents/MacOS/GlobalProtect
+> root            77506   0.0  0.1  2554188  16300   ??  S     5:30AM   0:03.35 /Applications/GlobalProtect.app/Contents/Resources/PanGPS
+
+# squeeze white spaces
+$ ps aux|grep [G]lobalProtect|tr -s [:blank:]
+> ali 77507 0.0 0.1 770504 21528 ?? S 5:30AM 0:02.50 /Applications/GlobalProtect.app/Contents/MacOS/GlobalProtect
+> root 77506 0.0 0.1 2554188 16300 ?? S 5:30AM 0:03.35 /Applications/GlobalProtect.app/Contents/Resources/PanGPS
+
+# loop through and kill them
+$ for p in $(ps aux|grep [G]lobalProtect|tr -s [:blank:]|cut -d' ' -f2); do  kill -9 $p; done
+```
+
+### `awk` example
 `$0` - the whole record (the line)
 `$1` - the first field
 
@@ -99,6 +116,30 @@ Total 4041 bytes
          END { print max }'
 ```
 
+## `$(...)` and `${...}`
+* `${HOME}` return the value of the variable named HOME.
+* `$(...)` run whatever is inside the parentheses in a subshell and return that as the value. for example, $(ls) will get a list of files and subfolders in the current folder, since ls will write files and subfolders to standard out.
+* `$(...)` allows command substitution, i.e. allows the output of a command to replace the command itself and can be nested.
+```bash
+# print each file/folder in current folder
+for i in $(ls); do echo $i; done
+```
+
+## find with timestamp 
+```bash
+find /srv/files/ -type f -newermt "2015-04-01 00:00:00" ! -newermt "2015-07-31 00:00:00" > /tmp/tmpclients.txt
+cat /tmp/tmpclients.txt | while READ FILE ; do rm -rf "$FILE" ; done
+```
+## `top` and `htop`
+htop is a friendly top, following key are supported:
+* f5: show the process in tree graph
+* f6: show sort panel
+
+## nagios and bacula, haproxy
+* nagios: for monitoring
+* bacula: for backup
+* haproxy: load balancing
+
 ## Refs
 * [www.tldp.org](http://www.tldp.org/guides.html)
   * [Here documents](http://tldp.org/LDP/abs/html/here-docs.html) 
@@ -106,3 +147,4 @@ Total 4041 bytes
 * [www.unixwiz.net](http://www.unixwiz.net/techtips)
   * [An Illustrated Guide to SSH Agent Forwarding](http://www.unixwiz.net/techtips/ssh-agent-forwarding.html) 
     * [Using ssh-agent forwarding on github](https://developer.github.com/guides/using-ssh-agent-forwarding/)
+* [bash keyboard shortcut](http://ss64.com/bash/syntax-keyboard.html)
