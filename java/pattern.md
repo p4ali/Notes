@@ -49,6 +49,14 @@ public class Something {
 }
 ```
 
+## Singleton vs Monostate
+Usually there is a one-to-many relationship between classes and instances. 
+* Singleton pattern is a one-to-one mapping between class and instance.
+* Monostata is one-to-many between class and instance, but since all instances share same variables(e.g., with static variables), they behave same
+ 
+## Null Object
+Always provide a valid object even when they fail(null object) instead of `null`. The null object is a default implementation of the interface. This way we can avoid the null check from caller.
+
 # Behavioral pattern
 
 ## Command and Active Object
@@ -63,3 +71,11 @@ Similar pattern: `FutureTask and Executor`
 They both solve the problem of separating a generic algorithm from a detailed context. The difference is:
 * Template method use inheritance
 * Strategy use delegation
+
+## Facade vs Mediator
+They both impose some kind of policy on another group of objects.
+* Facade impose policy from above. The use of facade is visible and constraining.
+* Mediator impose policy from below. The use of mediator is invisible and enabling.
+* An example of Facade would be DB driver, it provide all functions client can use without go detail in to sql package. It's visible because you have to call it.
+* An example of Mediator would be in the context of a dialog, mediator mediates the UI controls interaction, and decopuling the connection between all controls. It's invisible because you do not need to know it from outside of the dialog.
+
