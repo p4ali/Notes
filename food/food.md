@@ -1,5 +1,6 @@
 # Science
 * [Braising makes a tough cut tender](https://www.exploratorium.edu/cooking/icooks/2-1-03article.html)
+* [Beef cuts and cooking](http://hammersgrassfedbeef.com/grass-fed-beef/beef-cuts-index/)
  
 
 # Recipe
