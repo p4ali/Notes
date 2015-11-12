@@ -274,3 +274,6 @@ git commit -m "delete .project"
 
 # Term
 * `upstream/downstream`: There is no absolute upstream/downstream. When you declared **otherRepo** as a remote one, then you are **pulling from upstream - otherRepo**, and you are **downstream for otherRepo**; you are **pushing to upstream - otherRepo**.
+
+# Reference
+* [Git workflow by GitLab](https://about.gitlab.com/2014/09/29/gitlab-flow/)
