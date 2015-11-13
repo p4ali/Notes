@@ -12,3 +12,12 @@ To clone ali_p4eclipse as a git repo
 git clone perforce@gf.perforce.com:ali_p4eclipse // you must use perforce
 ```
 you will get ali_p4eclipse in your current folder, and ali_p4eclipse/.git is also created
+
+## Alternative
+```
+export GIT_SSL_NO_VERIFY=true
+git clone https://gfprod.perforce.com/ali_hws
+
+ali_hws client:
+//depot/dev/helix-web-services_helix-cloud/source/... //ali_hws/...
+```
