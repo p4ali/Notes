@@ -9,7 +9,7 @@
 To clone ali_p4eclipse as a git repo
 * generate a keypair, and upload the id_rsa.pub to //.git-fusion/users/ali/keys/id_rsa.pub
 ``` 
-git clone perforce@gf.perforce.com:ali_p4eclipse // you must use perforce
+git clone git@gfprod.perforce.com:ali_hws_mac // you must use git as user name
 ```
 you will get ali_p4eclipse in your current folder, and ali_p4eclipse/.git is also created
 
