@@ -6,7 +6,7 @@ Any environment variable prefixed with `FACTER_` will be availabe in Puppet mani
 ```bash
 export FACTER_my_var=hello
 # or
-FACTER_my_var=hello puppet apply --modulepath=/x/y/z/modules path_to_my.pp
+FACTER_my_var=hello puppet apply --modulepath=/etc/puppet/modules:/x/y/z/modules path_to_my.pp --debug
 
 echo "FACTER_my_var=hello" >> /etc/environment
 
