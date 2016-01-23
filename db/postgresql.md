@@ -22,3 +22,15 @@ SQL query must end with **;**.
 SELECT * FROM table_name;
 ```
 
+## config
+
+To make posgresql accessible from other host:
+
+* allow access from any host 
+```bash
+echo "listen_addresses = '*'" >> /etc/postgresql/9.3/main/postgresql.conf
+```
+* allow access without password
+```bash
+echo "host    all     all     192.168.0.1/32  trust" >> /etc/postgresql/9.3/main/pg_hba.conf
+```
