@@ -34,3 +34,15 @@ echo "listen_addresses = '*'" >> /etc/postgresql/9.3/main/postgresql.conf
 ```bash
 echo "host    all     all     192.168.0.1/32  trust" >> /etc/postgresql/9.3/main/pg_hba.conf
 ```
+
+## Run query from commandline
+
+```bash
+psql -Upostgres -draymond ‘select usernam, email, company_name from users’ >> a.out
+```
+
+Which similar to ruby console query
+```
+rvm (default|helix) do bundle exec rails c
+@> puts User.pluck(:username, :email, :company_name).select{|a| a[1] !~ /perforce.com/}.reduce('') {|s,a| s+"\n"+a.join(' ‘)}
+```
