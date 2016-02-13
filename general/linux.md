@@ -135,6 +135,23 @@ htop is a friendly top, following key are supported:
 * f5: show the process in tree graph
 * f6: show sort panel
 
+## loop a variable
+Since [Brace expansion](http://linuxcommand.org/lc3_lts0080.php) occurs before variables are expanded. This does NOT work:
+```
+for i in {0..$total}; do echo $i; done
+```
+
+This works:
+```bash
+# C-style
+total=${total:-10}
+for ((i=0; i<=total; i++)); do echo "$i"; done
+
+# use eval
+for i in `eval echo {0..$total}`; do echo $i; done
+```
+
+
 ## nagios and bacula, haproxy
 * nagios: for monitoring
 * bacula: for backup
