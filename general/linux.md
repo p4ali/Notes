@@ -140,6 +140,13 @@ htop is a friendly top, following key are supported:
 * bacula: for backup
 * haproxy: load balancing
 
+## [JQ](https://stedolan.github.io/jq/manual/)
+On mac, it can be installed `brew install jq`. Good for parsing json on shell.
+```
+$ echo '[{"a":1},{"b":2}]'|jq '.[]' # pretty print json array, '.' represents the input
+$ echo '[{"a":1},{"b":2}]'|jq '.[0]' # pretty print first element of json array
+```
+
 ## Refs
 * [www.tldp.org](http://www.tldp.org/guides.html)
   * [Here documents](http://tldp.org/LDP/abs/html/here-docs.html) 
