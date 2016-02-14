@@ -151,6 +151,17 @@ for ((i=0; i<=total; i++)); do echo "$i"; done
 for i in `eval echo {0..$total}`; do echo $i; done
 ```
 
+## [screen](http://linoxide.com/linux-how-to/screen-remote-ssh/)
+
+`screen` can run a long running process without maintaining an active shell session.
+```bash
+$ screen
+# do long time task
+$ Ctrl+a,d  # save screen and exit
+
+#do something in a new screen
+$ screen -r # reattach to the previous screen (will let you choose if many)
+```
 
 ## nagios and bacula, haproxy
 * nagios: for monitoring
