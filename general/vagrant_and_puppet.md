@@ -1,5 +1,7 @@
 ## Vagrant
 
+* [Create a vagrant box with ubuntu desktop gui and virtual box](http://aruizca.com/steps-to-create-a-vagrant-base-box-with-ubuntu-14-04-desktop-gui-and-virtualbox/)
+
 ## puppet
 ### To pass FACTs to puppet through /etc/environment
 Any environment variable prefixed with `FACTER_` will be availabe in Puppet manifiests. 
