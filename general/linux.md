@@ -116,6 +116,13 @@ Total 4041 bytes
          END { print max }'
 ```
 
+## [printf](http://wiki.bash-hackers.org/commands/builtin/printf)
+
+```bash
+# create file 001-101.txt
+for i in {1..101}; do a=`printf "%03d" $i`; touch $a.txt; done
+```
+
 ## `$(...)` and `${...}`
 * `${HOME}` return the value of the variable named HOME.
 * `$(...)` run whatever is inside the parentheses in a subshell and return that as the value. for example, $(ls) will get a list of files and subfolders in the current folder, since ls will write files and subfolders to standard out.
