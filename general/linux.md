@@ -71,6 +71,12 @@ echo $INPUT | grep '... fileSize' | sed 's/... fileSize[^ ]* \(.*\)/\1/' | awk '
 ```
 
 ### Regex look backward `(?<=fileSize0)\d+`, lookforward `\d+(?= )` and greedy `?`
+
+| mode | positve | negative|
+|------:|:--------|:-------|
+|lookahead| `(?=foo)` | `(?!foo)`|
+|lookbehind| `(?<=foo)` | `(?<!foo)`|
+
 ```
 ... depotFile0 //change_failed/main/a.zip#012... action0 add#012... type0 ubinary#012... rev0 1#012... depotFile1 //change_failed/main/b.zip#012... action1 edit#012... type1 ubinary#012... rev1 1
 ```
