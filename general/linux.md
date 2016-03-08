@@ -81,6 +81,8 @@ echo $INPUT | grep -Po '(?<=depotFile\d )//change_failed.*?(?=#012)'
 # //change_failed/main/b.zip
 ```
 
+Greedy `?` can be replaced by negtive matching, e.g. `<img.*?>` equal to `<img[^>]*>`
+
 ### `tr` example
 Translate characters. Squeezing all white space to a single space with `tr -s [:blank:]`
 ```bash
