@@ -61,6 +61,17 @@ echo $INPUT | grep '... fileSize' | sed 's/... fileSize[^ ]* \(.*\)/\1/' | awk '
 ## 1337
 ```
 
+### Regex look backward `(?<=fileSize0)\d+`, lookforward `\d+(?= )` and greedy `?`
+```
+... depotFile0 //change_failed/main/a.zip#012... action0 add#012... type0 ubinary#012... rev0 1#012... depotFile1 //change_failed/main/b.zip#012... action1 edit#012... type1 ubinary#012... rev1 1
+```
+Using lookback and look forward with non-greedy search
+```bash
+echo $INPUT | grep -Po '(?<=depotFile\d )//change_failed.*?(?=#012)'
+# //change_failed/main/a.zip
+# //change_failed/main/b.zip
+```
+
 ### `tr` example
 Translate characters. Squeezing all white space to a single space with `tr -s [:blank:]`
 ```bash
