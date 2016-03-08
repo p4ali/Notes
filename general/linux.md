@@ -18,6 +18,15 @@ echo ${foo%%-*}  # echoes 'foo'
 for i in $(ls); do mv $i ${i%%[a-z\.]*}.doc; done
 ```
 
+## Create an arry from input
+```bash
+IFS=$'\n'; arr=( $(echo -e "a b\nc\nd e") ); for i in ${arr[@]} ; do echo $i ; done
+# output
+a b
+c
+d e
+```
+
 ## netstat
 Print  network  connections, routing tables, interface statistics, masquerade connec‐tions, and multicast memberships.
 
