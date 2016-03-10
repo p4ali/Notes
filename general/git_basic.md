@@ -233,6 +233,9 @@ $ git push origin master~3:master
 
 ## tilde `~` and caret `^` in [git revisions](https://git-scm.com/docs/gitrevisions/2.5.2)
 
+* `HEAD~n` specicify the *nth* ancestor commit, e.g., `A~2` means the `D`.
+* `HEAD^n` allows you to select the *nth* parent of the commit, e.g., `A^2` means the `C`. `A~1^3` means `F`. `A^^` means `A`'s parent's parent, i.e., `D`.
+
 A commit may have multiple parent. e.g., A has parents B and C. (following is an illustration, by Jon Loeliger.)
 Both commit nodes B and C are parents of commit node A. Parent commits are ordered left-to-right.
 
