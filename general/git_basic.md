@@ -227,6 +227,60 @@ git commit
 ```bash
 $ git --set-upstream <remote-branch> 
 $ git push -u origin local-branch
+# push only 2 oldest of 5 local changes in master to remote master
+$ git push origin master~3:master
+```
+
+## tilde `~` and caret `^` in [git revisions](https://git-scm.com/docs/gitrevisions/2.5.2)
+
+A commit may have multiple parent. e.g., A has parents B and C. (following is an illustration, by Jon Loeliger.)
+Both commit nodes B and C are parents of commit node A. Parent commits are ordered left-to-right.
+
+```
+G   H   I   J
+ \ /     \ /
+  D   E   F
+   \  |  / \
+    \ | /   |
+     \|/    |
+      B     C
+       \   /
+        \ /
+         A
+
+A =      = A^0
+B = A^   = A^1     = A~1
+C = A^2  = A^2
+D = A^^  = A^1^1   = A~2
+E = B^2  = A^^2
+F = B^3  = A^^3
+G = A^^^ = A^1^1^1 = A~3
+H = D^2  = B^^2    = A^^^2  = A~2^2
+I = F^   = B^3^    = A^^3^
+J = F^2  = B^3^2   = A^^3^2
+```
+
+## range with `..` and `...`
+```bash
+A <- B  <- E <- F <- master
+      \ <- C <- D <- dev
+      
+# double dot shows range of commits reachable from one but not other tip
+$ git log master..dev # show D,C
+$ git log dev..master # show F,E
+
+# triple dot shows range of commits reachable by either of two refs, not both
+$ git log --left-right master...dev 
+< F
+< E
+> D
+> C
+
+# mutiple points
+```bash
+# to see all commits reachable from refA and refB, but not refC, use one of following: (^ means negative, i.e., --not)
+$ git log refA refB ^refC
+$ git log refA refB --not refC
 ```
 
 ## merge from branch and rebase master
