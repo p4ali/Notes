@@ -222,6 +222,33 @@ git co 0d123456c
 git commit
 ```
 
+## undo a [rebase](http://stackoverflow.com/questions/17711146/how-to-open-link-in-new-tab-on-html)
+Two ways
+```
+# reset to reflog just before the rebase
+$ git reflog
+a9cdf47 HEAD@{5}: rebase finished: returning to refs/heads/hc-2033
+a9cdf47 HEAD@{6}: rebase: Refactor and add more tests.
+dcd1693 HEAD@{7}: rebase: Add options for running the task in report mode, which will not remove the file, but just report orphan files.
+2c2c448 HEAD@{8}: rebase: Add more debug info, and fix a small bug (use the ending_changelist as starting_changelist on reload.
+c78d2e5 HEAD@{9}: rebase: [hc-2033] Add rake task which migrated from python scripts.
+9896166 HEAD@{10}: rebase: Add a rake task - atlas:clean_failed_change [HC-2033] (WIP)
+d91a7c2 HEAD@{11}: rebase: checkout master
+a9aa270 HEAD@{12}: commit: Refactor and add more tests.
+$ git reset --hard HEAD@{12}
+$ git rebase -i --abort # get rid of “Interactive rebase already started”.
+
+# Actually, rebase|reset|merge saves your starting point to ORIG_HEAD. 
+# So if you only did a rebase, then you can reset to ORIG_HEAD.
+$ git reset --hard ORIG_HEAD
+```
+
+## [ORIG_HEAD](http://stackoverflow.com/questions/964876/head-and-orig-head-in-git)
+ORIG_HEAD is previous state of HEAD, set by commands that have possibly dangerous behavior, to be easy to revert them. It is less useful now that Git has reflog: HEAD@{1} is roughly equivalent to ORIG_HEAD except for multi-commit commands, e.g., rebase|merge|reset (HEAD@{1} is always last value of HEAD, ORIG_HEAD is last value of HEAD before dangerous operation).
+
+* "pull" or "merge" always leaves the original tip of the current branch in ORIG_HEAD.
+* Before any patches are applied, ORIG_HEAD is set to the tip of the current branch.
+
 ## Push
 
 ```bash
