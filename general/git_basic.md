@@ -203,7 +203,7 @@ git stach pop
 ```
 
 ### Undo published commits with new commits
-```
+```bash
 # This will create 3 separate revert commits, each for a change
 git revert a867b4af 25eee4ca 0766c053
 
@@ -224,7 +224,7 @@ git commit
 
 ## undo a [rebase](http://stackoverflow.com/questions/17711146/how-to-open-link-in-new-tab-on-html)
 Two ways
-```
+```bash
 # reset to reflog just before the rebase
 $ git reflog
 a9cdf47 HEAD@{5}: rebase finished: returning to refs/heads/hc-2033
