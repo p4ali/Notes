@@ -148,8 +148,8 @@ Interpolcated strings are preceded with an `s` character, and can contain `$` sy
 val magic=7
 val myMagicNumber=s"My Magic Number is $magic"
 ```
-### `apply`
-Scala compiler will converts `f(a)` into `f.apply(a)`, where `f` could be either a method name or class constructor. That's why the following code works:
+### `apply` - [default method](https://www.safaribooksonline.com/library/view/learning-scala/9781449368814/ch08.html#apply_method_section)
+Scala compiler will converts `f(a)` into `f.apply(a)`, where `f` could be either a method name or class constructor. That's why the following code works (think apply as `method_missing` in ruby):
 ```
 var seq=Seq(1,2,3)
 trait Seq[+A] extends .. {
