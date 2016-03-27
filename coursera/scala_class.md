@@ -2,16 +2,49 @@
 ## `class` and `object`
 A `class` is a definition, a description. It defines a type in terms of methods and composition of other types.
 
-An `object` is a singleton -- an instance of a class which is guaranteed to be unique. For every object in the code, an anonymous class is created, which inherits from whatever classes you declared object to implement. This class cannot be seen from Scala source code -- though you can get at it through reflection.
-
-There is a relationship between object and class. An object is said to be the **companion-object** of a class if they share the same name. When this happens, each has access to methods of private visibility in the other. These methods are not automatically imported, though. You either have to import them explicitly, or prefix them with the class/object name.
-
-You can think of the "object" keyword creating a Singleton object of a class, that is defined implicitly.
+An `object` is a singleton -- an instance of a class which is guaranteed to be unique. For every object in the code, an anonymous class is created, which inherits from whatever classes you declared object to implement. This class cannot be seen from Scala source code -- though you can get at it through reflection. 
 ```scala
 object A extends B with C
 ```
-
 This will declare an anonymous class which extends B with the trait C and create a single instance of this class **named A**.
+
+On the other hand, Most singleton objects do not standalone, but instead are associated with a class of the same name. When
+this happens, hte singleton object is called the *companion object* of the class, and the class is called the *companion class*
+of the object.
+
+### Companion object
+An object is said to be the **companion-object** of a class/trait if they share the same name in the same source file. 
+A companion object difffers from other objects as it has access rights to the class/trait that other objects do not.
+In particilar it can acess methods and fields that are private in the class/trait.
+
+An analog to a companion object in Java is having a class with static methods. In scala, you would move the static methods
+to a companion object. You can use companion object to define factory methods for class.
+
+```scala
+	class MyString(str: String) {
+	  private var extraData = ""
+	  override def toString = str+extraData
+	}
+	object MyString {
+	  def apply(base:String, extras:String) = {
+	    val s = new MyString(base)
+	    s.extraData = extras
+	    s
+	  }
+	  def apply(base:String) = new MyString(base)
+	}
+	
+	println(MyString("hello"," world"))
+	println(MyString("hello"))
+
+```
+
+## [style guide](http://docs.scala-lang.org/style/files.html)
+Basically, similar to Java .java file, Scala .scala file should be named as same as the logical Unit with CamelCase.
+e.g., *Sets.scala*. And should be located in the package folder similar to Java.
+
+A little exception for multi-unit file, which contain serveral logical units, which should be named CamelCase with
+a lower-case first letter, e.g., *optionCollections.scala*.
 
 ## `new` to create a instance of class (case class does not need `new`)
 ```scala
