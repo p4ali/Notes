@@ -1,5 +1,7 @@
 ## [calling scala from java](http://lampwww.epfl.ch/~michelou/scala/using-scala-from-java.html)
 
+## Everything is an object
+
 ## `class` and `object`
 A `class` is a definition, a description. It defines a type in terms of methods and composition of other types.
 
@@ -22,22 +24,26 @@ An analog to a companion object in Java is having a class with static methods. I
 to a companion object. You can use companion object to define factory methods for class.
 
 ```scala
-	class MyString(str: String) {
-	  private var extraData = ""
-	  override def toString = str+extraData
-	}
-	object MyString {
-	  def apply(base:String, extras:String) = {
-	    val s = new MyString(base)
-	    s.extraData = extras
-	    s
-	  }
-	  def apply(base:String) = new MyString(base)
-	}
-	
-	println(MyString("hello"," world"))
-	println(MyString("hello"))
-
+  // file Companion.scala
+  1 class Companion{
+  2   def hello() {println("Hello class")} // [1]
+  3 }
+  4
+  5 object Companion{
+  6   def hallo() {println("Hallo object")} // [2]
+  7   def hello() {println("Hello object")} // [3]
+  8 }
+  9
+  
+  // file TestCompanion.java
+  1 public class TestCompanion{
+  2   public static void main(String[] args){
+  3     new Companion().hello(); // [1]
+  4     Companion.hallo(); // [2]
+  5     Companion$.MODULE$.hello(); // [3] hidden static
+  6   }
+  7 }  
+  
 ```
 
 ## [style guide](http://docs.scala-lang.org/style/files.html)
@@ -79,6 +85,23 @@ x.demon
 val y = new Rational(2,3)
 
 x.add(y)
+```
+
+## methods without arguments
+
+```scala
+// file methodsNoArgs.scala
+  1 class Complex(real: Double, imaginary: Double){
+  2   def re=real
+  3   def im=imaginary
+  4 }
+  5
+  6 object Main {
+  7   def main(args: Array[String]){
+  8     val c = new Complex(1.2,3.4)
+  9     println("imaginary part: "+c.im)
+ 10   }
+ 11 }
 ```
 
 ## **this** - self reference to the object on which the current method is executed
