@@ -168,8 +168,8 @@ trait Seq[+A] extends .. {
 ### [sealed and final](http://underscore.io/blog/posts/2015/06/02/everything-about-sealed.html)
 `sealed` basically tells compiler to perform exhaustiveness checking for pattern matches within the file in which it defined.
 
-A `sealed` trait can only be extended in the defining file. A `final` class cannot be extended anywhere(however, a final class
-does NOT get exhaustiveness checking).
+A `sealed` trait/class can only be extended in the defining file. 
+A `final` class cannot be extended anywhere(however, a final class does NOT get exhaustiveness checking).
 
 ## References
 * [Twitters Scala School](https://twitter.github.io/scala_school/)
