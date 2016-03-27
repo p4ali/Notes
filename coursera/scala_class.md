@@ -1,3 +1,4 @@
+## [calling scala from java](http://lampwww.epfl.ch/~michelou/scala/using-scala-from-java.html)
 
 ## `class` and `object`
 A `class` is a definition, a description. It defines a type in terms of methods and composition of other types.
