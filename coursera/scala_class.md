@@ -53,6 +53,17 @@ e.g., *Sets.scala*. And should be located in the package folder similar to Java.
 A little exception for multi-unit file, which contain serveral logical units, which should be named CamelCase with
 a lower-case first letter, e.g., *optionCollections.scala*.
 
+## Automatically generate getter for constructor's parameters
+Use **val** keyword in constructor to make paramter publicly accessible:
+```scala
+class Foo(val bar:String) {}
+
+object Main{
+  def main(args: Array[String]){
+    println(new Foo("hello").bar)
+  }
+}
+```
 ## `new` to create a instance of class (case class does not need `new`)
 ```scala
 // Data abstraction
