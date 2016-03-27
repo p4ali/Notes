@@ -202,3 +202,5 @@ object IntegerReference {
 * [Scala Tour](http://www.scala-lang.org/old/node/104)
 * [This week in scala blogs](http://www.cakesolutions.net/teamblogs)
 * [Typesafe blog and newsletter](https://typesafe.com/company/news)
+* [Language spec](http://www.scala-lang.org/old/sites/default/files/linuxsoft_archives/docu/files/ScalaReference.pdf)
+* [Scala 20 pages overview](http://www.scala-lang.org/old/sites/default/files/linuxsoft_archives/docu/files/ScalaOverview.pdf)
