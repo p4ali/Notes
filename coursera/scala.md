@@ -109,9 +109,16 @@ def runTwice(body: => Unit)={
 }
 ```
 
+### `_` as default value
+```scala
+class Reference[T]{
+ private var contents: T=_ // default value is 0 for numeric type, false for boolean type, () for Unit and null for other
+}
+```
+
 ### For comprehensive
 ```scala
-val pairs = for (x<-0 until 4; y<-0 until 4) yield (x,y)
+val pairs = for (x<-0 until 4; y<-0 until 4) yield (x,y) # seq[(Int, Int)]
 ```
 
 ### Iterate Collection by `case`
@@ -170,6 +177,25 @@ trait Seq[+A] extends .. {
 
 A `sealed` trait/[class](http://naildrivin5.com/scalatour/wiki_pages/SealedClasses/) can only be extended in the defining file. 
 A `final` class cannot be extended anywhere(however, a final class does NOT get exhaustiveness checking).
+
+## Genericity
+```scala
+// file Reference.scala
+class Reference[T] {
+ private var contents: T = _
+ def set(value: T) { contents = value }
+ def get: T = contents
+}
+
+// file IntegerReference.scala
+object IntegerReference {
+ def main(args: Array[String]) {
+  val cell = new Reference[Int]
+  cell.set(13)
+  println("Reference contains the half of " + (cell.get * 2))
+ }
+}
+```
 
 ## References
 * [Twitters Scala School](https://twitter.github.io/scala_school/)
