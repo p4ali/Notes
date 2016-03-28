@@ -197,11 +197,18 @@ object IntegerReference {
 ```
 
 ## [Partial function](http://blog.bruchez.name/2011/10/scala-partial-functions-without-phd.html)
+scala's collection's [collect](http://ochafik.com/blog/?p=393) use Partial function.
 ```scala
 val fraction = new PartialFunction[Int, Int] {
   def apply(d: Int) = 42 / d
   def isDefinedAt(d: Int) = d != 0
 }
+
+// collect
+val pf: PartialFunction[A, B] = ...
+someCollection.collect(pf)
+//Is roughly equivalent to :
+someCollection.filter(pf.isDefinedAt _).map(pf)
 ```
 
 ## References
