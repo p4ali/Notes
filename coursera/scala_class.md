@@ -15,6 +15,24 @@ On the other hand, Most singleton objects do not standalone, but instead are ass
 this happens, hte singleton object is called the *companion object* of the class, and the class is called the *companion class*
 of the object.
 
+### Constructor
+In Scala the primary constructor is the class’ body and it’s parameter list comes right after the class name.
+```scala
+class Greeter(message: String) {
+    println("A greeter is being instantiated")
+    
+    def SayHi() = println(message)
+}
+
+val greeter = new Greeter("Hello world!")
+greeter.SayHi()
+
+// output:
+// A greeter is being instantiated 
+// Hello world!
+```
+
+
 ### Companion object
 An object is said to be the **companion-object** of a class/trait if they share the same name in the same source file. 
 A companion object difffers from other objects as it has access rights to the class/trait that other objects do not.
