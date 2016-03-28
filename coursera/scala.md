@@ -130,7 +130,6 @@ val pairs = for (x<-0 until 4; y<-0 until 4) yield (x,y) # seq[(Int, Int)]
   sum(Seq(1,2,3,4,5))
 ```
 
-
 ### Syntax sugar: _* for treating Seq as method parameters
 Generally the **:** notation is used for type ascription, forcing compiler to see a value as some particular
 type.
@@ -194,6 +193,14 @@ object IntegerReference {
   cell.set(13)
   println("Reference contains the half of " + (cell.get * 2))
  }
+}
+```
+
+## [Partial function](http://blog.bruchez.name/2011/10/scala-partial-functions-without-phd.html)
+```scala
+val fraction = new PartialFunction[Int, Int] {
+  def apply(d: Int) = 42 / d
+  def isDefinedAt(d: Int) = d != 0
 }
 ```
 
