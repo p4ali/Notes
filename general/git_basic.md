@@ -97,6 +97,13 @@ $ git branch -D my_branch
 
 # delete a remove branch
 $ git push origin --delete my_branch
+
+# delete a remote branch
+$ git push origin :my_branch
+
+# List remote branch on origin
+git for-each-ref --sort=-committerdate refs/remotes/origin/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(objectname:short) - %(color:red)%(authorname)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'
+
 ```
 
 ## [Rebase](http://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
