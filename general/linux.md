@@ -160,6 +160,33 @@ for i in {1..101}; do a=`printf "%03d" $i`; touch $a.txt; done
 for i in $(ls); do echo $i; done
 ```
 
+## `{}`, `()`,`(())` `[]`, `[[]]` [expansion](http://stackoverflow.com/questions/2188199/how-to-use-double-or-single-bracket-parentheses-curly-braces)
+* `{}`: brace expansions create a lists of strings which are typically iterated over in loops. 
+```bash
+# create two subfolders.
+$ mkdir -p /srv/{foo, bar}
+
+# truncate a variable
+$ var="abcde"; echo ${var%d*} #abc
+
+# substibute 
+$ var="abcde"; echo ${var/de/12}; #abc12
+
+# default value
+$ default="hello"; unset var; echo ${var:-$default} #hello
+
+# list 
+$ for num in {000..2}; do echo "$num"; done # 000, 001, 002
+
+# list with steps
+$ echo {D..T..4} # DHLPT
+
+```
+* `[]`: also named as `test`, they are bash builtins. It is available on POSIX shells. It also used for array indices
+* `[[]]``: also named as `new test`, which works only in bash/zsh and korn shell. It is more powerful. It is use for testing string snad files.
+* `()`: create an array with command. `dir=(*); echo "${dir[0]}" #first array element of dir `
+* `(())`: is used for ArithmethicExpression operation. ` i=0; while (( i<10 )); do ((i=i+1)); echo $i; done`
+
 ## find with timestamp 
 ```bash
 find /srv/files/ -type f -newermt "2015-04-01 00:00:00" ! -newermt "2015-07-31 00:00:00" > /tmp/tmpclients.txt
