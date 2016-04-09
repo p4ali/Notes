@@ -154,7 +154,7 @@ for i in {1..101}; do a=`printf "%03d" $i`; touch $a.txt; done
 ## `$(...)` and `${...}`
 * `${HOME}` return the value of the variable named HOME.
 * `$(...)` run whatever is inside the parentheses in a subshell and return that as the value. for example, $(ls) will get a list of files and subfolders in the current folder, since ls will write files and subfolders to standard out.
-* `$(...)` allows command substitution, i.e. allows the output of a command to replace the command itself and can be nested.
+* `${...}` allows command substitution, i.e. allows the output of a command to replace the command itself and can be nested.
 ```bash
 # print each file/folder in current folder
 for i in $(ls); do echo $i; done
