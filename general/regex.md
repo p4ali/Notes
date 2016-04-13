@@ -1,7 +1,7 @@
 ## `(?<=xyz).*`
 [positive lookbehind](http://www.regular-expressions.info/lookaround.html), which match anything following `xyz` (exclusive `xyz`). This is useful.
 ```bash
-$ echo "Email:  ali@perforce.com" | grep -Po "(?<=Email:\t).*"
+$ echo "Email: ali@perforce.com" | grep -Po "(?<=Email: ).*"
 # return ali@perforce.com
 ```
 
