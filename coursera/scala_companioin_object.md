@@ -24,4 +24,4 @@ object MyString{
 println(MyString("Hello","World"))
 println(MyString("Hello"))
 ```
-Note that compiler will [expand](http://stackoverflow.com/questions/9737352/what-is-the-apply-function-in-scala) the `f(args)` to the `f.apply(args)`, since every object can be treated as a function, just like every function can be treated as an object.
+Note that compiler will [expand](http://stackoverflow.com/questions/9737352/what-is-the-apply-function-in-scala) the `f(args)` to the `f.apply(args)`, since every object can be treated as a function(provided it has `apply` method), just like every function can be treated as an object.
