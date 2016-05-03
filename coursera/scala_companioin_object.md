@@ -24,4 +24,4 @@ object MyString{
 println(MyString("Hello","World"))
 println(MyString("Hello"))
 ```
-Note that compiler will expand the `f(args)` to the `f.apply(args)`.
+Note that compiler will [expand](http://stackoverflow.com/questions/9737352/what-is-the-apply-function-in-scala) the `f(args)` to the `f.apply(args)`.
