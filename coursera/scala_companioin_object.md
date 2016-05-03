@@ -24,3 +24,4 @@ object MyString{
 println(MyString("Hello","World"))
 println(MyString("Hello"))
 ```
+Note that compiler will expand the `f(args)` to the `f.apply(args)`.
