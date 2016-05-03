@@ -40,6 +40,7 @@ Let q(x) be a property provable about objects x of type T. Then q(y) should be p
 [Introduction to Monads in Scala](http://www.slideshare.net/stasimus/introduction-to-monads-in-scala-1)
 ## Some idioms
 ### Implicit Parameters
+Used for implicitly conversion (can be used as type such as class conversion or parameter conversion)
 ```scala
 def msort[T](xs: List[T])(implicit ord: Ordering) = ...
   def merge(xs: List[T], ys:List[T]) = 
