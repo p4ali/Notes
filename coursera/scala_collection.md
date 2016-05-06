@@ -9,7 +9,11 @@
  * use `+`, `-` to add or remote an elemen to set (create a new set)
  * ordered by adding order
 * Map are key values
+ * 2 types: mutable or immutable(default)
  * entry is `("key1" -> "value1")`
+ * use `+` to add new entry: `val d=c+("AR"->"banana")`, or `c+=("AR"->"banana")`
+ * use `-` to remove two elements: `val e = d -"AR" - "CA"` 
+ * you can `NOT` assign an element in the map: `x("AL")="foo"` will NOT work
  * use `++` to concatenate two maps
 * Tuple can be a group of different type of objects
  * unlike array, or set
@@ -22,6 +26,22 @@
  * use `isEmpty` to check None or not
 * Iterator is a way to access the elements of a collection one by one
  ** Use `++` to merge two iterator
+
+## [Multable collections](http://docs.scala-lang.org/overviews/collections/concrete-mutable-collection-classes.html)
+* ArrayBuffer[T]
+* ListBuffer[T]
+* StringBuilder
+* LinkedList[T]
+* DoubleLinkedList[T]
+* Mutable List[T]
+* Queue[T]
+* ArraySeq[T]
+* Mutable Stack[T]
+* ArrayStack
+* HashMap
+* WeakHasMap
+* ConcurrentMap
+* Mutable BitSet
 
 ## Iterating
 ```scala
