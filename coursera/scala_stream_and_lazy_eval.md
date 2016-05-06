@@ -39,7 +39,7 @@ Avoid filter which require the whole seq and then remove the undesired elements.
 elements from begining.
 ```scala
 // define all natural numbers
-def from(n:Int):Stream[Int]= n#:::from(n+1)
-val nats=from(0
-)
+// a #:: b means the stream which is element a put in front of the stream b
+def from(n:Int):Stream[Int]= n #:: from(n+1)
+val nats=from(0)
 ```
