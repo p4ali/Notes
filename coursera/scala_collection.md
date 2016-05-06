@@ -1,4 +1,5 @@
 ## Overview
+* Array is mutable, `for(x<-0 to arr.length-1) { arr(x)=x}`
 * List is indexed values, it's different from Array
  * List is **immutable**, Array is mutable by set element
  * List is linked, but Array is flat
@@ -26,6 +27,18 @@
  * use `isEmpty` to check None or not
 * Iterator is a way to access the elements of a collection one by one
  ** Use `++` to merge two iterator
+
+## [Imutabel collections](http://docs.scala-lang.org/overviews/collections/concrete-immutable-collection-classes)
+* Lists
+* Streams
+* Vectors same to list but allow random access elements `vec(3) // return the 4th element of the vector`
+* Immutable stack
+* Immutable queue
+* Ranges
+* Hash Tries
+* Red-black Trees
+* Immutabel BitSets
+* List Maps
 
 ## [Multable collections](http://docs.scala-lang.org/overviews/collections/concrete-mutable-collection-classes.html)
 * ArrayBuffer[T]
