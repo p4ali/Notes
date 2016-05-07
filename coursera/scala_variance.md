@@ -57,5 +57,6 @@ The annotaion `+T` declares type `T` to be used only in covariant positions. Sim
 be used on in contravariant positions. For convariant type parameters we get a convariant subtype relationship
 regarding ths type parameter. For example, `Stack[T]` is a subtype of `Stack[S]` if T is a subtype of S.
 
-Remember, the vairance for type and method is different, so to make the `push` method in above example work, we
-have to use supertype `>:`.
+Remember, Function subtyping contravariant in arguments and convariant in results. So we have to use supertype `>:`
+to make the class Stack coveriant.
+
