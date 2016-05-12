@@ -1,3 +1,70 @@
+## Function vs Method
+Function is not method. A method can be converted to a function by eta expansion. Function is an object which has `apply` method.
+Object can become a function as far as it has `apply` method.
+
+The type of Function and Method are different. The below showing the difference. e.g., function is `String => String = <function1>`,
+yet method is `(str: String)String`.
+
+```scala
+// function definition. All following should work, and they are different forms of definition
+val f1: String=>String = (str: String)=>str+str // String => String = <function1>
+val f2 = (str: String)=>str+str 
+val f3: String=>String= _*2 // Note, you can not _ + _ , since the Nth _ means Nth arguments. But this function has only 1 argument.
+val f4: Function1[String,String] = _*2
+val f5: String => String = new Function1[String,String]{
+  def apply(str: String): String = {
+    str+str
+  }
+}
+
+// method definition
+def f(str: String)=str+str // (str: String)String
+
+// convert method to function by eta expansion ` _`. Yes WHITESPACE followed by underscore.
+val g = f _ // eta expansion to conver method to function
+
+// function has apply method
+f("1") // 11
+f.apply("1") //11
+```
+
+## FunctionN
+It turns out, that every Function you’ll ever define in Scala, will become an instance of an Implementation which will feature a certain Function Trait. There is a whole bunch of that Function Traits, ranging from `Function1` up to `Function22`. 
+
+A Function with n arguments will end up with FunctionN. 
+```scala
+trait Function3[-T1, -T2, -T3, +R] extends AnyRef {
+    ...
+    def apply( v1 :T1, v2 :T2, v3 :T3 ) : R
+    ...
+}
+```
+
+And `String=>String` is just a syntax sugar of `Function1[String,String]`, so the following are same:
+```scala
+// f1 and f2 are both valid, but f1 != f2, although they have same bahaivor
+val f1: String=>String = _*2
+val f2: Function1[String,String] = _*2
+```
+
+## Tupling a function
+Tupling a function is simply adapting `FunctionN[A1, A2, ..., AN, R]` to a `Function1[(A1, A2, ..., AN), R]`, where `An` is input
+type, and `R` is return type.
+
+`Function.tupled` will convert the input parameters into tuple instead of list.
+
+```scala
+// f and g equally bahaves
+val f: ((Int,Int))=>Int = { case (a,b) => a+b } // f: ((Int,Int))=>Int
+f(1,2) //3
+
+val g: (Int,Int)=>Int = +_+ // f: (Int, Int)=>Int = <function2>
+val h = g.tupled // or Function.tupled(g), h: ((Int,Int)=>Int = <function1> , YES, it's function1
+h(1,2) // 3
+
+val k:((Int,Int))=>Int = Function.tupled(_+_) // k: ((Int,Int)=>Int = <function1>
+```
+
 ## Curring
 
 > In computer science, currying, invented by Moses Schönfinkel and Gottlob Frege, is the technique of transforming a function that takes multiple arguments into a function that takes a single argument (the other arguments having been specified by the curry).
