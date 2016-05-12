@@ -45,6 +45,14 @@ case class ListNode[+T](h:T, t:ListNode[T]) {
 }
 ```
 
+## Structural type bound
+You can define the bound type on the fly with `{...}`. The following defines a structrual bound on A - A can be
+an instance of any class as long as it has a *close* method on it. `{...}` also called **structural typing**.
+```scala
+def using[A <: {def close(): Unit}, B](param: A)(f: A => B): B =  try {f(param)} finally {param.close()}
+using(new BufferReader(otherReader)) { reader=> reader.readLine() } // return line
+```
+
 ## Variances
 Variance annotaions can be added to type parameters of generic classes.
 ```scala
