@@ -29,5 +29,5 @@ var count=1
 
 val multiplier = (i:Int) => { count+=1; i*count}
 multiplier(2) // 4
-multiplier(2) // 6
+multiplier(2) // 6 BAD BAD BAD, same input return diff result
 ```
