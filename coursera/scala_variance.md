@@ -1,6 +1,6 @@
 ## Abstract Types
 In scala, classes are parameterized with values (the constructor parameters) and with types(if class are generic).
-So it is not only possible to have values as object members; types alonw with values are members of objects too.
+So it is not only possible to have values as object members; types along with values are members of objects too.
 Furthermore, both forms of memebers can be concreate and abstract. The following example defines both a deferred
 value definition and an **abstract type** definition as members of class Buffer:
 
