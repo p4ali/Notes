@@ -213,6 +213,8 @@ for ((i=0; i<=total; i++)); do echo "$i"; done
 for i in `eval echo {0..$total}`; do echo $i; done
 ```
 
+## [redirection](http://wiki.bash-hackers.org/syntax/redirection#here_strings)
+
 ## [screen](http://linoxide.com/linux-how-to/screen-remote-ssh/)
 
 `screen` can run a long running process without maintaining an active shell session.
@@ -248,3 +250,4 @@ curl 'https://api.github.com/repos/stedolan/jq/commits?per_page=5' | jq '.[] | {
   * [An Illustrated Guide to SSH Agent Forwarding](http://www.unixwiz.net/techtips/ssh-agent-forwarding.html) 
     * [Using ssh-agent forwarding on github](https://developer.github.com/guides/using-ssh-agent-forwarding/)
 * [bash keyboard shortcut](http://ss64.com/bash/syntax-keyboard.html)
+* [bash hacker wiki](http://wiki.bash-hackers.org/)
