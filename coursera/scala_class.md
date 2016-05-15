@@ -177,6 +177,7 @@ Traits resemble interfaces in Java, in addition, they can contain fields and con
 On the other hand, traits cannot have (value) parameters, only classes can.
 
 ## Orgnization - package
+The syntax similiar to Ruby moudule syntax
 ```scala
 import week3.Rational // named imports - import only Rational
 import week3._ // wildcard imports - import everything from package week3
@@ -185,6 +186,39 @@ improt week3.{Rational, Hello} // import both Rational and Hello
 // All members of package scala, java.lang, and scala.Predef are automatically imported
 
 // www.scala-lang.org/api/current
+```
+
+### Block strucrure Package
+```scala
+// src/main/scala/progscala2/typelessdomore/package-example2.scala
+package com {
+    package example {
+        package pkg1 {
+            class Class11 {
+                def m = "m11"
+            }
+            class Class12 {
+                def m = "m12"
+            }
+        }
+        package pkg2 {
+            class Class21 {
+                def m = "m21"
+                def makeClass11 = {
+                    new pkg1.Class11
+                }
+                def makeClass12 = {
+                    new pkg1.Class12
+                }
+            }
+        }
+        package pkg3.pkg31.pkg311 {
+            class Class311 {
+                def m = "m21"
+            }
+        }
+    }
+}
 ```
 
 ## Class hierarchy
