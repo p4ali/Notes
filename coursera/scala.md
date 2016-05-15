@@ -173,7 +173,12 @@ trait Seq[+A] extends .. {
 ```
 
 ### [sealed and final](http://underscore.io/blog/posts/2015/06/02/everything-about-sealed.html)
-`sealed` basically tells compiler to perform exhaustiveness checking for pattern matches within the file in which it defined.
+The `sealed` keyword tells the compiler that all subclasses must be declared in the same source file.  This prevent user to add more
+subclass later, for example, `Option` defines the Some and None in the same file:
+```scala
+sealed abstract class Option[+A] ... { ... }
+```
+For case mathing, the `sealed` basically tells compiler to perform exhaustiveness checking for pattern matches within the ONLY file in which it defined(Nothing else).
 
 A `sealed` trait/[class](http://naildrivin5.com/scalatour/wiki_pages/SealedClasses/) can only be extended in the defining file. 
 A `final` class cannot be extended anywhere(however, a final class does NOT get exhaustiveness checking).
