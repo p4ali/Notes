@@ -155,6 +155,14 @@ new PartialFunction[String, String] {
 }
 ```
 
+A PartialFunction is a Function, so whenever a Function is required, you can switch with PartialFunction, for example:
+```scala
+val m:Map[Int,int]=Map(1->2,2->3,3-4)
+// the following 2 return same result, note the 2nd with curly {}, not parenthesis ()
+m.filter(e=>e._2>2)
+m.filter{case (k,v) => v>2}
+```
+
 ## Collection Recap
 
 ### Hierarchy:
