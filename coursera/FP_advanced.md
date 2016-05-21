@@ -15,7 +15,7 @@ and [category thoery(范畴论), morphism(态射), objects(物件)](http://zh.wi
 ### Monad(单子)
 an abstract datay type in functional programming. It use to present computation not the data. It contains 2 opration **bind** (```>=``` in Haskell) and **return**, and a type constructor **M**. See also [Monads for functional programming](http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf)
 
-### [abstract algebra](http://w3.math.sinica.edu.tw/math_media/d362/36204.pdf)
+### [abstract algebra](http://w3.math.sinica.edu.tw/math_media/d362/36204.pdf) and [Group](http://math.ntnu.edu.tw/~li/algebra-html/node4.html)
 abstract algebra 主要研究對象是代數結構,比如群(Groups)、環(Rings)、體(Fields)、模(Modules)、 向量空間(Vector Spaces)和代數(Algebras.
 
 集合S上的二元運算*的種種性質:
@@ -27,3 +27,6 @@ abstract algebra 主要研究對象是代數結構,比如群(Groups)、環(Rings
   a∗e = e*a = a, ∀a ∈ S
 * 若集合S擁有運算∗的一個單位元素e;則我們說元素u ∈ S在集合S中具有反元素(inverse),如果存在v ∈ S使得
   u*v = v*u = e
+* 若 a, b ∈ S 則 a*b ∈ S. 這個性質就是所謂的封閉性 closed.
+
+加法運算(+)在複數集C上具有封閉性(封)、結合性(結)並擁有單位元素0+0i(單)且每一元素a+bi都有反元素(−a) + (−b)i(反),這就是所謂的群(group)的代數結構。一般而言,集合S上的一個二元運算∗;若滿足上述的封、結、 單、 反四個性質,我們就說S在運算∗之下形成一個群或說(S,∗)是一個群。 如果運算∗是可交換的;那麼理所當然,我們就說(S,∗)是一個交換群(commutative group)。通常又稱為阿貝爾群(abelian group) ,為的是要紀念數學家阿貝爾8。複數集(C,+)在加法運算之下當然是一個阿貝爾群
