@@ -15,3 +15,15 @@ and [category thoery(范畴论), morphism(态射), objects(物件)](http://zh.wi
 ### Monad(单子)
 an abstract datay type in functional programming. It use to present computation not the data. It contains 2 opration **bind** (```>=``` in Haskell) and **return**, and a type constructor **M**. See also [Monads for functional programming](http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf)
 
+### [abstract algebra](http://w3.math.sinica.edu.tw/math_media/d362/36204.pdf)
+abstract algebra 主要研究對象是代數結構,比如群(Groups)、環(Rings)、體(Fields)、模(Modules)、 向量空間(Vector Spaces)和代數(Algebras.
+
+集合S上的二元運算*的種種性質:
+* 運算∗是可結合的(associative);若
+  (a∗b)∗c = a∗(b∗c), ∀a, b, c ∈ S
+* 運算∗是可交換的(commutative);若
+  a∗b = b∗a, ∀a, b ∈ S
+* 元素e ∈ S稱之為運算∗的一個單位元素(identity element);若
+  a∗e = e*a = a, ∀a ∈ S
+* 若集合S擁有運算∗的一個單位元素e;則我們說元素u ∈ S在集合S中具有反元素(inverse),如果存在v ∈ S使得
+  u*v = v*u = e
