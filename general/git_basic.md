@@ -104,6 +104,9 @@ $ git push origin :my_branch
 # List remote branch on origin
 git for-each-ref --sort=-committerdate refs/remotes/origin/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(objectname:short) - %(color:red)%(authorname)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'
 
+# list branch creator
+git for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)' | sort -k5n -k2M -k3n -k4n
+
 ```
 
 ## [Rebase](http://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
