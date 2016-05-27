@@ -18,6 +18,6 @@ Most modern company however took a approach which is similar:
 
 A list with DnD:
 - [x] item1
-- [] item2
-- [] item3
+- [ ] item2
+- [ ] item3
 
