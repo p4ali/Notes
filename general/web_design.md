@@ -17,7 +17,7 @@ Most modern company however took a approach which is similar:
 * Iterate
 
 A list with DnD:
-- [] item1
+- [x] item1
 - [] item2
 - [] item3
 
