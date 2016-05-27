@@ -15,3 +15,9 @@ Most modern company however took a approach which is similar:
 * UX/dev IPM ([Integrated Project Management](http://www.amazon.com/Integrated-Project-Management-Bruce-Barkley/dp/0071466266)) to gether developers opinion, vote points
 * Dev implementation
 * Iterate
+
+A list with DnD:
+- [] item1
+- [] item2
+- [] item3
+
