@@ -4,6 +4,20 @@ This is one of the functions [bash_it](https://github.com/Bash-it/bash-it) provi
 ## `~/.gitconfig`
 Pay attention to **[include]** and **[alias]** sections.
 
+## alternatively, you can put this on your .bashrc file
+
+```
+# Git branch in prompt.
+
+parse_git_branch() {
+
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+
+}
+
+export PS1="\u@\h \w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+```
+
 # Staging Area
 
 Working directory => staging/index area => git repo (local) => git repo (remote)
