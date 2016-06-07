@@ -266,6 +266,10 @@ ORIG_HEAD is previous state of HEAD, set by commands that have possibly dangerou
 * "pull" or "merge" always leaves the original tip of the current branch in ORIG_HEAD.
 * Before any patches are applied, ORIG_HEAD is set to the tip of the current branch.
 
+```bash
+$ git commit -c ORIG_HEAD # commit with the previous head comment 
+```
+
 ## Push
 
 ```bash
