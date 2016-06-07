@@ -48,7 +48,7 @@ submodule from within the main project
 
 ```
 $ git submodule add git@mygithost:project.git lib/p4java # create .gitmodules and add a submodule entry
-$ git submodule update --init # populate the submodule recurisively
+$ git submodule update --init # populate the submodule
 $ git submodule rm lib/p4java # remove submodule
 ```
 
@@ -63,6 +63,13 @@ $ cd ../..
 $ git status
 $ git add . # do this iff you want to change the submodule reference of the parent project
 $ git commit -m"Check in my change to project, and also update the reference to the most recent p4java"
+```
+
+### Recursively update submodule
+
+```
+$ git submodule update --init --recursive # pupulate submodules recursively
+$ git submodule foreach --recursive git checkout master # run git checkout for each submodules
 ```
 
 ## Tig
