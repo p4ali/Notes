@@ -253,6 +253,13 @@ git co 0d123456c
 git commit
 ```
 
+### Unmodify multiple files
+```bash
+git checkout -- . # discard changes in working directory
+git checkout -- app/views/posts/index.html.erb # discard only one file
+git checkout -- * # discard files in current dir
+```
+
 ## undo a [rebase](http://stackoverflow.com/questions/17711146/how-to-open-link-in-new-tab-on-html)
 Two ways
 ```bash
