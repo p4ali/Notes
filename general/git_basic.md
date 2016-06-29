@@ -28,7 +28,9 @@ When push to remote, you make your commits public.
 | Command         |      desccription    |
 |-----------------|:--------------------:|
 | git add .       | Add current workdirectory to the Object store (repo) and create a index for that (git reset)  |
-| git reset --    | (the oposite of git add) reset the index entries for all path to their state at tree-ish.
+| git reset --    | (the oposite of git add) reset the index entries for all path to their state at tree-ish.|
+|git clean -df && git checkout -- . |`git clean` removes all untracked files and `git checkout` clears all unstaged changes.|
+|git checkout-index -a -f| checks out all files from the index, overwriting working tree files.|
 
 # File Status Lifecycle
 Here we talk about file states in the working directory:
