@@ -113,6 +113,24 @@ docker commit bb27ef795c30 cloudspace/p4d # commits the diff between the image t
 
 ```
 
+## Bash into container
+
+Two different way: one is open a new term to teh container, another is share the same term with previous.
+
+```bash
+$ eval $(docker-machine env)
+$ docker ps 
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                           NAMES
+7b6071563893        rest/spark          "/code/run.sh"           2 minutes ago       Up 2 minutes        0.0.0.0:32776->4567/tcp         evil_goldberg
+38615322e5c0        nginx               "nginx -g 'daemon off"   25 hours ago        Up 25 hours         443/tcp, 0.0.0.0:8000->80/tcp   modest_banach
+
+# open a seperate term and login to the same container
+$ docker exec -i -t evil_goldberg /bin/bash
+
+# or login to the same term of the container (different from above)
+$ docker attach evil_goldberg
+```
+
 # A Usecase
 ## User create a project
 ```
