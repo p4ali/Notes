@@ -102,16 +102,14 @@ docker search p4d ## returns following
 # create a container from p4d master image
 docker run -i -t cloudspace/p4d /bin/bash
 
-# making changes to images, say install apache to containter
+# list containers
 docker ps -a
 
   CONTAINER ID        IMAGE                   COMMAND                CREATED             STATUS                  PORTS               NAMES
   bb27ef795c30        cloudspace/p4d:latest   "/usr/local/bin/run.   2 days ago          Exited (0) 2 days ago                       atlas-sanity.atlas.dev   
 
+# making changes to images, say install apache to containter
 docker commit bb27ef795c30 cloudspace/p4d # commits the diff between the image the container was created from and the current state of the container.
-
-
-
 
 ```
 
@@ -139,3 +137,4 @@ mv ~/VirtualBox\ VMs/boot2docker-vm/boot2docker-vm.vbox ~/VirtualBox\ VMs/boot2d
 # Reference
 * [Docker installation](http://docs.docker.com/installation/mac/)
 * [Docker Command Line](http://docs.docker.com/reference/commandline/cli/)
+* [How to use Docker on Macosx](https://www.viget.com/articles/how-to-use-docker-on-os-x-the-missing-guide)
