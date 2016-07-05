@@ -1,4 +1,4 @@
-# Docker
+# [Docker](https://docs.docker.com/engine/understanding-docker/#what-is-docker-s-architecture)
 > "Docker is a tool that can package an application and its dependencies in a virtual container that can run on any Linux server. This helps enable flexibility and portability on where the application can run, whether on premise [sic], public cloud, private cloud, bare metal, etc"
 
 > Docker is an open-source engine which automates the deployment of applicaitons as highly portable, self-sufficient containers which are independent of hardware, language, framework, jpackaging ssytem and hosting provider.
@@ -39,23 +39,13 @@ To generate this message, Docker took the following steps:
 
 # Overview
 
-* A **broker** is running, each request to the **broker** is delegate to a **p4d** running within **docker** container.
-
-* The setup is scripted as **vagrant** and **puppet** script to orchestrate a VM, the VM then start running a docker/p4d.
-* 
-```bash
-## running as daemon
-p4broker -c /etc/perforce/p4broker.conf -d
-/usr/bin/docker -d
-
-## only when access specific project, and gone after a while
-docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 49153 -container-ip 172.17.0.2 -container-port 1666
-
-## dns to map url to docker
-/usr/sbin/dnsmasq -x /var/run/dnsmasq/dnsmasq.pid -u dnsmasq -r /var/run/dnsmasq/resolv.conf -7 /etc/dnsmasq.d,.dp
-
-## mysqld root user root
-/usr/sbin/mysqld
+[](https://docs.docker.com/engine/article-img/architecture.svg)
+[Docker Architecture](https://docs.docker.com/engine/understanding-docker/#what-is-docker-s-architecture) includes:
+* Docker **client**: by which user interact with containers through docker Daemon.
+* Docker **host**: where docker **Daemon** runs and manages one or more **container**s.
+* Docker **registry**: similar to maven repository, which stores registered images, official or not
+* Docker **container** runs on top of readonly layered images, with writable file system. More than one containers can share images.
+* Docker must run on top of linux kernel.
 ```
 
 # Basic Docker command
