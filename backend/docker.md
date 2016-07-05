@@ -104,6 +104,9 @@ docker ps -a
 # making changes to images, say install apache to containter
 docker commit bb27ef795c30 cloudspace/p4d # commits the diff between the image the container was created from and the current state of the container.
 
+# docker port to see which port are binded to
+docker port insane_murdock 4567
+
 ```
 
 ## Bash into container
