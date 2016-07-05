@@ -40,6 +40,9 @@ To generate this message, Docker took the following steps:
 # Overview
 
 ![Docker architecuture from docker website](https://docs.docker.com/engine/article-img/architecture.svg)
+
+(From: https://docs.docker.com/engine/article-img/architecture.svg) 
+
 [Docker Architecture](https://docs.docker.com/engine/understanding-docker/#what-is-docker-s-architecture) includes:
 * Docker **client**: by which user interact with containers through docker Daemon.
 * Docker **host**: where docker **Daemon** runs and manages one or more **container**s.
@@ -122,26 +125,8 @@ $ docker attach evil_goldberg
 ```
 
 # A Usecase
-## User create a project
-```
-curl -s --data-urlencode name=atlas-sanity.atlas.dev --data-urlencode username=ali@perforce.com 
-     --data-urlencode password=password http://192.168.33.10/api/v1/depot
-     {"depot_id":1,"name":"atlas-sanity.atlas.dev"}
-```
+* [Create a reusable volume](http://www.davidwong.com.au/blog/tag/gradle/)
 
-## Step 1 User issue a connection
-The following parameters will send to broker:
-
-```
-clientPort: mahattan_12def234.dev:1666
-workspace: y_client_herbie_fully_loaded_1
-user: herbie_fully_loaded_1
-cwd: /Users/x/workspace/y
-command: dirs
-Arg0: //mahattan_12def234/main/*
-```
-
-mv ~/VirtualBox\ VMs/boot2docker-vm/boot2docker-vm.vbox ~/VirtualBox\ VMs/boot2docker-vm/boot2docker-vm.vbox.bak
 # Reference
 * [Docker installation](http://docs.docker.com/installation/mac/)
 * [Docker Command Line](http://docs.docker.com/reference/commandline/cli/)
