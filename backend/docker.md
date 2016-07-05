@@ -44,7 +44,7 @@ To generate this message, Docker took the following steps:
 * Docker **client**: by which user interact with containers through docker Daemon.
 * Docker **host**: where docker **Daemon** runs and manages one or more **container**s.
 * Docker **registry**: similar to maven repository, which stores registered images, official or not
-* Docker **container** runs on top of readonly layered images, with writable file system. More than one containers can share images.
+* Docker **container** runs on top of readonly layered images, with topmost writable file system. More than one containers can share images. At runtime, you can also mount volume from other images.
 * Docker must run on top of linux kernel.
 ```
 
