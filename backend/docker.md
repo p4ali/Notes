@@ -39,7 +39,7 @@ To generate this message, Docker took the following steps:
 
 # Overview
 
-![Docker architecuture](https://docs.docker.com/engine/article-img/architecture.svg)
+![Docker architecuture from docker website](https://docs.docker.com/engine/article-img/architecture.svg)
 [Docker Architecture](https://docs.docker.com/engine/understanding-docker/#what-is-docker-s-architecture) includes:
 * Docker **client**: by which user interact with containers through docker Daemon.
 * Docker **host**: where docker **Daemon** runs and manages one or more **container**s.
