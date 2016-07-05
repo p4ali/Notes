@@ -49,7 +49,36 @@ To generate this message, Docker took the following steps:
 * Docker **registry**: similar to maven repository, which stores registered images, official or not
 * Docker **container** runs on top of readonly layered images, with topmost writable file system. More than one containers can share images. At runtime, you can also mount volume from other images.
 * Docker must run on top of linux kernel.
+
+## [Dockerfile](https://docs.docker.com/engine/reference/builder/)
+
+**Dockerfile** contains instructions and commands for building images from the base image. Instructions include actions like:
+
+* Run a command
+* Add a file or directory
+* Create an environment variable
+* What process to run when launching a container from this image
+
+The format of Dockerfile:
 ```
+# Comment
+INSTRUCTION arguments
+```
+Where the INSTRUCTION:
+
+|instruction|description|
+|:-----------|:------------|
+|FROM image:tag|set the base image for subsequent instructions. FROM must be the first non-comment instruction in the Dockerfile. FROM can appear multiple times within a single Dockerfile in order to create multiple images. |
+|MAINTAINER name|maintainer of the image|
+|RUN ["executable", "param1", "param2"]|run a command and commit the result|
+|CMD ["executable","param1","param2"]|CMD sets default command and/or parameters, which can be overwritten from command line when docker container runs.|
+|LABEL key=value|add metadata into the image|
+|EXPOSE port|informs Docker that the container listens on the specified network ports(of the Docker Host) at runtime.|
+|EVN key=value|set environment variable. This value will be in the environment of all “descendant” Dockerfile commands and can be replaced inline in many as well.|
+|ADD src dest|copy new files, directories or remote file url to the dest. **dest** can be an absolute path, or relative path to WORKDIR|
+|COPY src dest|copy new files from src to dest|
+|ENTRYPOINT ["executable", "param1", "param2"]|allows you to configure a container that will run as an executable|
+|VOLUME|creates a mount point with the specified name and marks it as holding externally mounted volumes from native host or other containers.|
 
 # Basic Docker command
 
