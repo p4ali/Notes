@@ -136,6 +136,9 @@ docker commit bb27ef795c30 cloudspace/p4d # commits the diff between the image t
 # docker port to see which port are binded to
 docker port insane_murdock 4567
 
+# docker history to list the image creation
+docker history --no-trunc=true java:8
+
 ```
 
 ## Bash into container
@@ -154,6 +157,12 @@ $ docker exec -i -t evil_goldberg /bin/bash
 
 # or login to the same term of the container (different from above)
 $ docker attach evil_goldberg
+```
+
+# [Reverse engineering an image](https://abdelrahmanhosny.com/2015/07/11/how-to-merge-two-docker-images/)
+
+```
+docker history --no-trunc=true java:8
 ```
 
 # A Usecase
