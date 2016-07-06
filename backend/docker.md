@@ -80,6 +80,25 @@ Where the INSTRUCTION:
 |ENTRYPOINT ["executable", "param1", "param2"]|allows you to configure a container that will run as an executable|
 |VOLUME|creates a mount point with the specified name and marks it as holding externally mounted volumes from native host or other containers.|
 
+## How does a container work?
+A container consists of an operating system, user-added files, and meta-data. Each container is built from an image. That image tells Docker what the container holds, what process to run when the container is launched, and a variety of other configuration data. The Docker image is read-only. When Docker runs a container from an image, it adds a read-write layer on top of the image (using a union file system) in which user application can then run.
+
+When running following command:
+
+```bash
+$ docker run -i -t ubuntu /bin/bash
+```
+
+In order, Docker Engine does the following:
+
+* Pulls the ubuntu image: Docker Engine checks for the presence of the ubuntu image. If the image already exists, then Docker Engine uses it for the new container. If it doesn’t exist locally on the host, then Docker Engine pulls it from Docker Hub.
+* Creates a new container: Once Docker Engine has the image, it uses it to create a container.
+* Allocates a filesystem and mounts a read-write layer: The container is created in the file system and a read-write layer is added to the image.
+* Allocates a network / bridge interface: Creates a network interface that allows the Docker container to talk to the local host.
+* Sets up an IP address: Finds and attaches an available IP address from a pool.
+* Executes a process that you specify: Runs your application, and;
+* Captures and provides application output: Connects and logs standard input, outputs and errors for you to see how your application is running.
+
 # Basic Docker command
 
 ## Start docker 
