@@ -167,6 +167,12 @@ docker stop $(docker ps -aq)
 docker rm $(docker ps -aq)
 ```
 
+## display docker full command
+
+```bash
+docker ps -a --no-trunc # will display the full command along with the other details of the running containers.
+```
+
 ## Bash into container
 
 Two different way: one is open a new term to teh container, another is share the same term with previous.
