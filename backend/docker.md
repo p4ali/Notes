@@ -160,6 +160,13 @@ docker history --no-trunc=true java:8
 
 ```
 
+## Stop and remove containers
+
+```bash
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+```
+
 ## Bash into container
 
 Two different way: one is open a new term to teh container, another is share the same term with previous.
