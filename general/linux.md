@@ -39,6 +39,26 @@ $ netstat -ntlp # mac does not support t, and you must pass -p tcp explicitly
 # tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      831/sshd
 ```
 
+## netcap
+
+read write data across network with TCP and UDP.
+
+```bash
+function wait_for_postgres
+{
+       # sleep wait for 100 seconds
+       for I in {1..300..3} ; do
+               netcat -z postgres 5432
+               if [ $? -eq 0 ] ; then
+                       return 0
+               fi
+               echo "waiting for postgres"
+               sleep 1
+       done
+       return 1
+}
+```
+
 ## SSH agent forwarding
 ```bash
 # most os start ssh-agent automatically, to check your local ssh-agent is running
