@@ -39,7 +39,7 @@ $ netstat -ntlp # mac does not support t, and you must pass -p tcp explicitly
 # tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      831/sshd
 ```
 
-## netcap
+## [netcat](http://www.computerhope.com/unix/nc.htm)
 
 read write data across network with TCP and UDP.
 
