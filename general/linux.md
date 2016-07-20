@@ -90,6 +90,16 @@ echo $INPUT | grep '... fileSize' | sed 's/... fileSize[^ ]* \(.*\)/\1/' | awk '
 ## 1337
 ```
 
+make sure the default docker config contains dns setting
+
+```bash
+# add the virutalbox host as a DNS resolver
+grep -q -F 'DOCKER_OPTS="--dns 192.168.33.100"' /etc/default/docker
+if [ ! $? -eq 0 ]; then
+	echo 'DOCKER_OPTS="--dns 192.168.33.100"' >> /etc/default/docker
+fi
+```
+
 ### Regex look backward `(?<=fileSize0)\d+`, lookforward `\d+(?= )` and greedy `?`
 
 | mode | positve | negative|
