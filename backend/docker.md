@@ -217,10 +217,17 @@ EXPOSE 5900
 CMD    ["x11vnc", "-forever", "-usepw", "-create"]
 ```
 
+# [RUN vs CMD vs ENTRYPOINT](http://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/)
+* RUN executes command(s) in a new layer and creates a new image. E.g., it is often used for installing software packages.
+* CMD sets default command and/or parameters, which can be overwritten from command line when docker container runs.
+* ENTRYPOINT configures a container that will run as an executable.
+
 # Usecase
 * [Create a reusable volume](http://www.davidwong.com.au/blog/tag/gradle/)
+* [Docker features](https://docs.docker.com/compose/overview/#features)
 
 # Reference
 * [Docker installation](http://docs.docker.com/installation/mac/)
 * [Docker Command Line](http://docs.docker.com/reference/commandline/cli/)
 * [How to use Docker on Macosx](https://www.viget.com/articles/how-to-use-docker-on-os-x-the-missing-guide)
+* [Docker storage](http://www.computerweekly.com/feature/Docker-storage-101-How-storage-works-in-Docker)
