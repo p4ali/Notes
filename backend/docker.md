@@ -78,7 +78,7 @@ Where the INSTRUCTION:
 |CMD ["executable","param1","param2"]|CMD sets default command and/or parameters, which can be overwritten from command line when docker container runs.|
 |LABEL key=value|add metadata into the image|
 |EXPOSE port|informs Docker that the container listens on the specified network ports(of the Docker Host) at runtime.|
-|EVN key=value|set environment variable. This value will be in the environment of all “descendant” Dockerfile commands and can be replaced inline in many as well.|
+|ENV key=value|set environment variable. This value will be in the environment of all “descendant” Dockerfile commands and can be replaced inline in many as well.|
 |ADD src dest|copy new files, directories or remote file url to the dest. **dest** can be an absolute path, or relative path to WORKDIR|
 |COPY src dest|copy new files from src to dest|
 |ENTRYPOINT ["executable", "param1", "param2"]|allows you to configure a container that will run as an executable|
