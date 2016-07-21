@@ -1,7 +1,11 @@
 # [Docker](https://docs.docker.com/engine/understanding-docker/#what-is-docker-s-architecture)
+> The Docker platform enables multiple applications to run concurrently on a single copy of an OS, either deployed directly onto a physical server or as a virtual machine (VM).
+
+> This is achieved by providing the capability to execute multiple copies of "user space", which is the place where applications run on a Linux or Unix platform (system or privileged code runs in the kernel).
+
 > "Docker is a tool that can package an application and its dependencies in a virtual container that can run on any Linux server. This helps enable flexibility and portability on where the application can run, whether on premise [sic], public cloud, private cloud, bare metal, etc"
 
-> Docker is an open-source engine which automates the deployment of applicaitons as highly portable, self-sufficient containers which are independent of hardware, language, framework, jpackaging ssytem and hosting provider.
+> Docker is an open-source engine which automates the deployment of applicaitons as highly portable, self-sufficient containers which are independent of hardware, language, framework, packaging sytem and hosting provider.
 
 > Containers are like extremely lightweight VMs - they allow code to run in isolation from other containers but safely share the machine's resources, all without the overhead of a hypervisor.
 
@@ -184,12 +188,16 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 7b6071563893        rest/spark          "/code/run.sh"           2 minutes ago       Up 2 minutes        0.0.0.0:32776->4567/tcp         evil_goldberg
 38615322e5c0        nginx               "nginx -g 'daemon off"   25 hours ago        Up 25 hours         443/tcp, 0.0.0.0:8000->80/tcp   modest_banach
 
-# open a seperate term and login to the same container
+# open a seperate term and login to the same container(Use EXEC not RUN)
 $ docker exec -i -t evil_goldberg /bin/bash
 
 # or login to the same term of the container (different from above)
 $ docker attach evil_goldberg
 ```
+
+## Run vs Exec
+* `run`  - run a command in a new container
+* `exec` - run a command in a running container
 
 # [Reverse engineering an image](https://abdelrahmanhosny.com/2015/07/11/how-to-merge-two-docker-images/)
 
