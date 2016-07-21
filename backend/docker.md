@@ -169,6 +169,7 @@ docker history --no-trunc=true java:8
 ```bash
 docker stop $(docker ps -aq)
 docker rm $(docker ps -aq)
+docker rm -v $(docker ps -a -q -f status=exited)
 ```
 
 ## display docker full command
@@ -239,3 +240,4 @@ CMD    ["x11vnc", "-forever", "-usepw", "-create"]
 * [Docker Command Line](http://docs.docker.com/reference/commandline/cli/)
 * [How to use Docker on Macosx](https://www.viget.com/articles/how-to-use-docker-on-os-x-the-missing-guide)
 * [Docker storage](http://www.computerweekly.com/feature/Docker-storage-101-How-storage-works-in-Docker)
+* [Clean up after yourself](http://blog.yohanliyanage.com/2015/05/docker-clean-up-after-yourself/)
