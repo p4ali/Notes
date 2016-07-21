@@ -169,7 +169,8 @@ docker history --no-trunc=true java:8
 ```bash
 docker stop $(docker ps -aq)
 docker rm $(docker ps -aq)
-docker rm -v $(docker ps -a -q -f status=exited)
+docker rm -v $(docker ps -a -q -f status=exited) # remove exited docker, also remove the volume associated with the container(`-v`)
+docker rmi $(docker images -f "dangling=true" -q) # remove dangling image
 ```
 
 ## display docker full command
