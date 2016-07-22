@@ -243,6 +243,10 @@ for ((i=0; i<=total; i++)); do echo "$i"; done
 for i in `eval echo {0..$total}`; do echo $i; done
 ```
 
+## `xargs -r`
+
+also `--no-run-if-empty`, do not run command if standard input contains only blanks. e.g., `(docker ps -a -q -f status=exited) | xargs -r docker rm -v`.
+
 ## [redirection](http://wiki.bash-hackers.org/syntax/redirection#here_strings)
 
 ## [screen](http://linoxide.com/linux-how-to/screen-remote-ssh/)
