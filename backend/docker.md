@@ -174,6 +174,15 @@ docker rm $(docker ps -aq)
 docker rmi $(docker images -f "dangling=true" -q) # remove dangling image
 ```
 
+## [list docker container ip](http://stackoverflow.com/questions/17157721/getting-a-docker-containers-ip-address-from-the-host)
+
+```bash
+# docker
+docker inspect -f '{{.Name}} - {{.NetworkSettings.IPAddress }}' $(docker ps -aq)
+# docker-compose
+docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
+```
+
 ## display docker full command
 
 ```bash
