@@ -80,6 +80,7 @@ Where the INSTRUCTION:
 |EXPOSE port|informs Docker that the container listens on the specified network ports(of the Docker Host) at runtime.|
 |ENV key=value|set environment variable. This value will be in the environment of all “descendant” Dockerfile commands and can be replaced inline in many as well.|
 |ADD src dest|copy new files, directories or remote file url to the dest. **dest** can be an absolute path, or relative path to WORKDIR|
+|USER name|switch user for the following commands. You can switch mutiple users, e.g., from regular to root, then back|
 |COPY src dest|copy new files from src to dest|
 |ENTRYPOINT ["executable", "param1", "param2"]|allows you to configure a container that will run as an executable|
 |VOLUME|creates a mount point with the specified name and marks it as holding externally mounted volumes from native host or other containers.|
@@ -216,6 +217,13 @@ docker port insane_murdock 4567
 # docker history to list the image creation
 docker history --no-trunc=true java:8
 
+```
+
+## Retrieve files from container
+
+Even when docker stopped, you can use `docker cp` to get files out of container:
+```bash
+$ docker cp jenkins-master:/var/log/jenkins/jenkins.log jenkins.log
 ```
 
 ## Stop and remove containers
