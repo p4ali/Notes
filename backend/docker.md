@@ -84,6 +84,26 @@ Where the INSTRUCTION:
 |ENTRYPOINT ["executable", "param1", "param2"]|allows you to configure a container that will run as an executable|
 |VOLUME|creates a mount point with the specified name and marks it as holding externally mounted volumes from native host or other containers.|
 
+### An example Dockerfile
+```
+# Firefox over VNC
+#
+# VERSION               0.3
+
+FROM ubuntu
+
+# Install vnc, xvfb in order to create a 'fake' display and firefox
+RUN apt-get update && apt-get install -y x11vnc xvfb firefox
+RUN mkdir ~/.vnc
+# Setup a password
+RUN x11vnc -storepasswd 1234 ~/.vnc/passwd
+# Autostart firefox (might not be the best way, but it does the trick)
+RUN bash -c 'echo "firefox" >> /.bashrc'
+
+EXPOSE 5900
+CMD    ["x11vnc", "-forever", "-usepw", "-create"]
+```
+
 ## How does a container work?
 A container consists of an operating system, user-added files, and meta-data. Each container is built from an image. That image tells Docker what the container holds, what process to run when the container is launched, and a variety of other configuration data. The Docker image is read-only. When Docker runs a container from an image, it adds a read-write layer on top of the image (using a union file system) in which user application can then run.
 
@@ -223,7 +243,7 @@ docker history --no-trunc=true java:8
 * ENTRYPOINT configures a container that will run as an executable. In other word, an entrypoint is basically a script 
              that gets executed before any other command that you might pass to your container.
 
-# `docker` vs `docker-compose`
+## `docker` vs `docker-compose`
 
 * `docker-compose` will use docker-compose.yml to config a multi-container app, and all commands are based on the config. Each
        container further can have its own Dockerfile.
@@ -255,26 +275,6 @@ The solution to the 2nd problem is to run the command as a user who has same UID
 * The overlay network
 
 ## Docker has an [embedded DNS server](https://docs.docker.com/engine/userguide/networking/configure-dns/) (`127.0.0.11` in container's `/etc/resolve.conf`)
-
-# An example Dockerfile
-```
-# Firefox over VNC
-#
-# VERSION               0.3
-
-FROM ubuntu
-
-# Install vnc, xvfb in order to create a 'fake' display and firefox
-RUN apt-get update && apt-get install -y x11vnc xvfb firefox
-RUN mkdir ~/.vnc
-# Setup a password
-RUN x11vnc -storepasswd 1234 ~/.vnc/passwd
-# Autostart firefox (might not be the best way, but it does the trick)
-RUN bash -c 'echo "firefox" >> /.bashrc'
-
-EXPOSE 5900
-CMD    ["x11vnc", "-forever", "-usepw", "-create"]
-```
 
 # Usecase
 * [Create a reusable volume](http://www.davidwong.com.au/blog/tag/gradle/)
