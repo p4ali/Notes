@@ -171,12 +171,23 @@ docker start myproject >/dev/null 2>&1
 ```
 
 ## Run command
+
+### `docker` group
+
+You need to add your current user [suppose you're logged in as ubuntu] to docker group as follow
+```
+sudo usermod -aG docker ubuntu
+```
+then logout & login again into the system or restart the system. test by docker version `docker info`.
+
+### sample
+
 Start a docker container named **myproject** and run the cloundspace/p4d quitely.
 ```bash
 # --name : assign a name to the container 
-# -v: Bind mount a volume, e.g., map from host /var/lib/perforce/myproject to container /srv
+# -v: Bind mount a volume, e.g., map from host /var/lib/myproject to container /srv
 # -p: bind a container's port 1666 to the host port
-docker run -d --dns 172.17.42.1 -v /var/lib/perforce/myproject:/srv -p 1666 --name myproject cloudspace/p4d:1.5.0 -qr /srv/p4d -p 1666 >/dev/null 2>&1
+docker run -d --dns 172.17.42.1 -v /var/lib/myproject:/srv -p 1666 --name myproject cloudspace/p4d:1.5.0 -qr /srv/p4d -p 1666 >/dev/null 2>&1
 ```
 In a more traditional Linux boot the root filesystem is mounted read-only and then switched to read-write
 after boot and integrity check. In the docker world, however, the root filesystem stays in read-only mode
