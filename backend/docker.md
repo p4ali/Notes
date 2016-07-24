@@ -229,11 +229,19 @@ $ docker cp jenkins-master:/var/log/jenkins/jenkins.log jenkins.log
 ## Stop and remove containers
 
 ```bash
-docker stop $(docker ps -aq)
-docker rm $(docker ps -aq)
+$ docker stop $(docker ps -aq)
+$ docker rm $(docker ps -aq)
 # docker rm -v $(docker ps -a -q -f status=exited) # remove exited docker, also remove the volume associated with the container(`-v`)
-(docker ps -a -q -f status=exited) | xargs -r docker rm -v # this will avoid error when no containers. Above line not.
-docker rmi $(docker images -f "dangling=true" -q) # remove dangling image
+$ (docker ps -a -q -f status=exited) | xargs -r docker rm -v # this will avoid error when no containers. Above line not.
+$ docker rmi $(docker images -f "dangling=true" -q) # remove dangling image
+```
+
+## remove `<none>` images
+
+```bash
+$ (docker images | grep "^<none>" | awk '{print $3}') | xargs -r docker rmi
+# or 
+$ docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
 ```
 
 ## [list docker container ip](http://stackoverflow.com/questions/17157721/getting-a-docker-containers-ip-address-from-the-host)
