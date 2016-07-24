@@ -290,3 +290,6 @@ The solution to the 2nd problem is to run the command as a user who has same UID
 * [Docker storage](http://www.computerweekly.com/feature/Docker-storage-101-How-storage-works-in-Docker)
 * [Clean up after yourself](http://blog.yohanliyanage.com/2015/05/docker-clean-up-after-yourself/)
 * [Handling permissions with docker volume](https://denibertovic.com/posts/handling-permissions-with-docker-volumes/)
+* [An On-Premise Collaborative Development Environmen](http://hypoalex.github.io/2016/an-on-premise-collaborative-development-environment/)
+* [Containe as Service - triton](https://www.joyent.com/triton?gclid=CKzRspqWis4CFQcvaQodEo8Ndw)
+* [Samsung buy joyent](http://readwrite.com/2016/06/22/samsung-buys-sf-based-joyent-push-deeper-cloud-pl4/?platform=hootsuite)
