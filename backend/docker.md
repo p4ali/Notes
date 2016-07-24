@@ -129,6 +129,34 @@ Docker run on top of linux because docker daemon uses linux-specific kernel feat
 * On linux, you physical machine is both localhost and docker host
 * On OSX, you must use `docker-machine create` to create and attach to a virtual machine. That vm is docker host.
 
+```bash
+# The docker toolbox https://www.docker.com/toolbox basically include everything
+$ docker-machine create # will create a vm configuration in `~/.docker/machine/machines/default` folder.
+$ docker-machine ls|start|stop|etc
+
+# get env commands for your new vm
+$ docker-machine env default
+
+# connect your shell to default machine
+$ eval "$(docker-machine env default)
+$ docker run hello-world
+
+$ docker run -d -P --name web nginx # run ngix as a daemon container named web, and publish exposed port 
+$ docker port web # note, 0.0.0.0 here means the dockerhost ip, i.e., the vm's ip, not your osx localhost.
+443/tcp -> 0.0.0.0:49156
+80/tcp -> 0.0.0.0:49157
+$ docker-machine ip default # 192.168.33.10
+# now you can http://192.168.33.10:49157
+
+# stop and remove container
+$ docker stop web
+$ docker rm web
+
+# to remove a vm
+docker-machine rm <machine_name> # e.g., docker-machine rm default
+
+```
+
 # Basic Docker command
 
 ## Start docker 
