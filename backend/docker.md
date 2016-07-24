@@ -326,6 +326,7 @@ The solution to the 2nd problem is to run the command as a user who has same UID
 * [Docker features](https://docs.docker.com/compose/overview/#features)
 
 # Reference
+* [A very nice tutorial](https://github.com/maxfields2000/dockerjenkins_tutorial)
 * [Docker installation](http://docs.docker.com/installation/mac/)
 * [Docker Command Line](http://docs.docker.com/reference/commandline/cli/)
 * [How to use Docker on Macosx](https://www.viget.com/articles/how-to-use-docker-on-os-x-the-missing-guide)
