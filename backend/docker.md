@@ -245,12 +245,12 @@ docker history --no-trunc=true java:8
 
 ## `docker` vs `docker-compose`
 
-* `docker-compose` will use docker-compose.yml to config a multi-container app, and all commands are based on the config. Each
+* `docker-compose` will use [Compose file](https://docs.docker.com/compose/compose-file) (default to `docker-compose.yml`) to config a multi-container app, and all commands are based on the config. Each
        container further can have its own Dockerfile.
 * `docker` is for single container app based on Dockerfile.
 * most `docker` commands have counter commands in `docker-compose`. But few does not have such as `rmi`, `images`, `network` and so on.
 
-## Volume
+## Volume and [share](https://denibertovic.com/posts/handling-permissions-with-docker-volumes/)
 
 Docker use [UnionFS](https://en.wikipedia.org/wiki/UnionFS). But it also provide away to bypass it - by using volume. 
 
