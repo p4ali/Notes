@@ -236,9 +236,13 @@ $ (docker ps -a -q -f status=exited) | xargs -r docker rm -v # this will avoid e
 $ docker rmi $(docker images -f "dangling=true" -q) # remove dangling image
 ```
 
-## remove `<none>` images
+## remove unused images
 
 ```bash
+# remove dangling images
+$ docker images -q -f dangling=true | xargs --no-run-if-empty docker rmi
+
+# remove <none> images
 $ (docker images | grep "^<none>" | awk '{print $3}') | xargs -r docker rmi
 # or 
 $ docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
