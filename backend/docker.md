@@ -256,7 +256,10 @@ Docker use [UnionFS](https://en.wikipedia.org/wiki/UnionFS). But it also provide
 
 A data volume is specially-designed directory within one or more containers that bypasses the Union File System.
 
-You can map local path to container with `localpath:containerpath`.
+You can map local path to container with `localpath:containerpath`. Where the `localpath` [could be](https://docs.docker.com/compose/compose-file/#volumes-volume-driver):
+* absolute path, e.g., `/opt/data:/var/lib/mysql`
+* user relative path, e.g., `~/configs:/etc/configs/:ro` # readonly
+* compose file relative path, e.g., `./cache:/tmp/cache`
 
 The 2 problems existed here:
 * If you write to the volume you won't be able to access the files that container has written because 
