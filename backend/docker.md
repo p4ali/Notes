@@ -217,6 +217,45 @@ $ docker attach evil_goldberg
 docker history --no-trunc=true java:8
 ```
 
+## [RUN vs CMD vs ENTRYPOINT](http://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/)
+* RUN executes command(s) in a new layer and creates a new image. E.g., it is often used for installing software packages.
+* CMD sets default command and/or parameters, which can be overwritten from command line when docker container runs.
+* ENTRYPOINT configures a container that will run as an executable. In other word, an entrypoint is basically a script 
+             that gets executed before any other command that you might pass to your container.
+
+# `docker` vs `docker-compose`
+
+* `docker-compose` will use docker-compose.yml to config a multi-container app, and all commands are based on the config. Each
+       container further can have its own Dockerfile.
+* `docker` is for single container app based on Dockerfile.
+* most `docker` commands have counter commands in `docker-compose`. But few does not have such as `rmi`, `images`, `network` and so on.
+
+## Volume
+
+Docker use [UnionFS](https://en.wikipedia.org/wiki/UnionFS). But it also provide away to bypass it - by using volume. 
+
+A data volume is specially-designed directory within one or more containers that bypasses the Union File System.
+
+You can map local path to container with `localpath:containerpath`.
+
+The 2 problems existed here:
+* If you write to the volume you won't be able to access the files that container has written because 
+  the process in the container usually runs as root. - so you should't rn the process inside container as root.
+* Even you don't run the process inside your containers as root, but even if you run as some hard-coded user it 
+  still won't match the user on your laptop/jenkins/staging. (if you are lucky, then UID:GID match, you are able to r/w)
+  You can use linux command `id` to check that.
+
+The solution to the 2nd problem is to run the command as a user who has same UID:GID as the owner of mounted volume.
+
+## [Docker network](https://docs.docker.com/engine/userguide/networking/dockernetworks/)
+
+* `docker network ls` to list all network
+* The default `bridge` network `172.17.0.1/16`
+* The user-defined network
+* The overlay network
+
+## Docker has an [embedded DNS server](https://docs.docker.com/engine/userguide/networking/configure-dns/) (`127.0.0.11` in container's `/etc/resolve.conf`)
+
 # An example Dockerfile
 ```
 # Firefox over VNC
@@ -236,45 +275,6 @@ RUN bash -c 'echo "firefox" >> /.bashrc'
 EXPOSE 5900
 CMD    ["x11vnc", "-forever", "-usepw", "-create"]
 ```
-
-# [RUN vs CMD vs ENTRYPOINT](http://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/)
-* RUN executes command(s) in a new layer and creates a new image. E.g., it is often used for installing software packages.
-* CMD sets default command and/or parameters, which can be overwritten from command line when docker container runs.
-* ENTRYPOINT configures a container that will run as an executable. In other word, an entrypoint is basically a script 
-             that gets executed before any other command that you might pass to your container.
-
-# `docker` vs `docker-compose`
-
-* `docker-compose` will use docker-compose.yml to config a multi-container app, and all commands are based on the config. Each
-       container further can have its own Dockerfile.
-* `docker` is for single container app based on Dockerfile.
-* most `docker` commands have counter commands in `docker-compose`. But few does not have such as `rmi`, `images`, `network` and so on.
-
-# Volume
-
-Docker use [UnionFS](https://en.wikipedia.org/wiki/UnionFS). But it also provide away to bypass it - by using volume. 
-
-A data volume is specially-designed directory within one or more containers that bypasses the Union File System.
-
-You can map local path to container with `localpath:containerpath`.
-
-The 2 problems existed here:
-* If you write to the volume you won't be able to access the files that container has written because 
-  the process in the container usually runs as root. - so you should't rn the process inside container as root.
-* Even you don't run the process inside your containers as root, but even if you run as some hard-coded user it 
-  still won't match the user on your laptop/jenkins/staging. (if you are lucky, then UID:GID match, you are able to r/w)
-  You can use linux command `id` to check that.
-
-The solution to the 2nd problem is to run the command as a user who has same UID:GID as the owner of mounted volume.
-
-# [Docker network](https://docs.docker.com/engine/userguide/networking/dockernetworks/)
-
-* `docker network ls` to list all network
-* The default `bridge` network `172.17.0.1/16`
-* The user-defined network
-* The overlay network
-
-## Docker has an [embedded DNS server](https://docs.docker.com/engine/userguide/networking/configure-dns/) (`127.0.0.11` in container's `/etc/resolve.conf`)
 
 # Usecase
 * [Create a reusable volume](http://www.davidwong.com.au/blog/tag/gradle/)
