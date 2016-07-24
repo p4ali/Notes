@@ -243,6 +243,19 @@ for ((i=0; i<=total; i++)); do echo "$i"; done
 for i in `eval echo {0..$total}`; do echo $i; done
 ```
 
+## add user and group
+
+```bash
+## query uid:gid
+$ id
+
+## create docker group and add user to that group
+$ sudo groupadd docker
+$ sudo usermod -aG docker me # add me to docker group
+$ sudo gpasswd -a me docker # alternative command to add me to docker group
+$ sudo service docker restart # restart docker service
+```
+
 ## `xargs -r`
 
 also `--no-run-if-empty`, do not run command if standard input contains only blanks. e.g., `(docker ps -a -q -f status=exited) | xargs -r docker rm -v`.
