@@ -123,6 +123,12 @@ In order, Docker Engine does the following:
 * Executes a process that you specify: Runs your application, and;
 * Captures and provides application output: Connects and logs standard input, outputs and errors for you to see how your application is running.
 
+## [Docker VM](https://docs.docker.com/v1.8/installation/mac/#running-a-docker-container) (docker-machine)
+Docker run on top of linux because docker daemon uses linux-specific kernel features.
+
+* On linux, you physical machine is both localhost and docker host
+* On OSX, you must use `docker-machine create` to create and attach to a virtual machine. That vm is docker host.
+
 # Basic Docker command
 
 ## Start docker 
