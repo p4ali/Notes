@@ -294,3 +294,4 @@ The solution to the 2nd problem is to run the command as a user who has same UID
 * [Containe as Service - triton](https://www.joyent.com/triton?gclid=CKzRspqWis4CFQcvaQodEo8Ndw)
 * [Samsung buy joyent](http://readwrite.com/2016/06/22/samsung-buys-sf-based-joyent-push-deeper-cloud-pl4/?platform=hootsuite)
 * [Joyen blog](https://www.joyent.com/blog/spin-up-a-docker-dev-test-environment-in-60-minutes-or-less)
+* [triton open source at github](https://github.com/joyent/triton), following link for architecture and introduction.
