@@ -240,7 +240,8 @@ CMD    ["x11vnc", "-forever", "-usepw", "-create"]
 # [RUN vs CMD vs ENTRYPOINT](http://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/)
 * RUN executes command(s) in a new layer and creates a new image. E.g., it is often used for installing software packages.
 * CMD sets default command and/or parameters, which can be overwritten from command line when docker container runs.
-* ENTRYPOINT configures a container that will run as an executable.
+* ENTRYPOINT configures a container that will run as an executable. In other word, an entrypoint is basically a script 
+             that gets executed before any other command that you might pass to your container.
 
 # `docker` vs `docker-compose`
 
@@ -248,6 +249,23 @@ CMD    ["x11vnc", "-forever", "-usepw", "-create"]
        container further can have its own Dockerfile.
 * `docker` is for single container app based on Dockerfile.
 * most `docker` commands have counter commands in `docker-compose`. But few does not have such as `rmi`, `images`, `network` and so on.
+
+# Volume
+
+Docker use [UnionFS](https://en.wikipedia.org/wiki/UnionFS). But it also provide away to bypass it - by using volume. 
+
+A data volume is specially-designed directory within one or more containers that bypasses the Union File System.
+
+You can map local path to container with `localpath:containerpath`.
+
+The 2 problems existed here:
+* If you write to the volume you won't be able to access the files that container has written because 
+  the process in the container usually runs as root. - so you should't rn the process inside container as root.
+* Even you don't run the process inside your containers as root, but even if you run as some hard-coded user it 
+  still won't match the user on your laptop/jenkins/staging. (if you are lucky, then UID:GID match, you are able to r/w)
+  You can use linux command `id` to check that.
+
+The solution to the 2nd problem is to run the command as a user who has same UID:GID as the owner of mounted volume.
 
 # [Docker network](https://docs.docker.com/engine/userguide/networking/dockernetworks/)
 
@@ -268,3 +286,4 @@ CMD    ["x11vnc", "-forever", "-usepw", "-create"]
 * [How to use Docker on Macosx](https://www.viget.com/articles/how-to-use-docker-on-os-x-the-missing-guide)
 * [Docker storage](http://www.computerweekly.com/feature/Docker-storage-101-How-storage-works-in-Docker)
 * [Clean up after yourself](http://blog.yohanliyanage.com/2015/05/docker-clean-up-after-yourself/)
+* [Handling permissions with docker volume](https://denibertovic.com/posts/handling-permissions-with-docker-volumes/)
