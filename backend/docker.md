@@ -242,6 +242,22 @@ CMD    ["x11vnc", "-forever", "-usepw", "-create"]
 * CMD sets default command and/or parameters, which can be overwritten from command line when docker container runs.
 * ENTRYPOINT configures a container that will run as an executable.
 
+# `docker` vs `docker-compose`
+
+* `docker-compose` will use docker-compose.yml to config a multi-container app, and all commands are based on the config. Each
+       container further can have its own Dockerfile.
+* `docker` is for single container app based on Dockerfile.
+* most `docker` commands have counter commands in `docker-compose`. But few does not have such as `rmi`, `images`, `network` and so on.
+
+# [Docker network](https://docs.docker.com/engine/userguide/networking/dockernetworks/)
+
+* `docker network ls` to list all network
+* The default `bridge` network `172.17.0.1/16`
+* The user-defined network
+* The overlay network
+
+## Docker has an [embedded DNS server](https://docs.docker.com/engine/userguide/networking/configure-dns/) (`127.0.0.11` in container's `/etc/resolve.conf`)
+
 # Usecase
 * [Create a reusable volume](http://www.davidwong.com.au/blog/tag/gradle/)
 * [Docker features](https://docs.docker.com/compose/overview/#features)
