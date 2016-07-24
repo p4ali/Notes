@@ -10,3 +10,13 @@ The related commands in `inetutils-traceroute dnsutils` packages.(`apt-cache sea
 * dig: `dig @localhost www.penglai.com.cn` # @ set the dns to dig.
 * `/etc/resolv.conf`: name server list
 
+## [ZFS](https://www.freebsd.org/doc/handbook/zfs.html)
+
+ZFS has three major design goals:
+
+* Data integrity: All data includes a checksum of the data.
+* Pooled storage: physical storage devices are added to a pool, and storage space is allocated from that shared pool.which can be
+                  increased by adding new storage devices to the pool.
+* Performance: multiple caching mechanisms provide increased performance.
+
+
