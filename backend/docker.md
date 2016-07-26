@@ -342,6 +342,9 @@ The solution to the 2nd problem is to run the command as a user who has same UID
 * The user-defined network
 * The overlay network
 
+To delete the `docker0`, follow [this](http://khornberg.github.io/articles/change-docker-ip/)
+
+
 ## Docker has an [embedded DNS server](https://docs.docker.com/engine/userguide/networking/configure-dns/) (`127.0.0.11` in container's `/etc/resolve.conf`)
 
 # Usecase
