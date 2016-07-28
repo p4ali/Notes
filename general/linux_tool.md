@@ -20,6 +20,6 @@ ZFS has three major design goals:
 * Performance: multiple caching mechanisms provide increased performance.
 
 ## [SSH checker](https://www.sslshopper.com/ssl-checker.html#hostname=helix.perforce.com) 
-
+* [How cert are self-signed](http://www.clintharris.net/2009/self-signed-certificates/)
 
 
