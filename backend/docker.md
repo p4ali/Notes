@@ -344,7 +344,7 @@ The solution to the 2nd problem is to run the command as a user who has same UID
 * The user-defined network
 * The overlay network
 
-To delete the `docker0`, follow [this](http://khornberg.github.io/articles/change-docker-ip/)
+[To delete the `docker0`, follow this](http://khornberg.github.io/articles/change-docker-ip/)
 
 
 ## Docker has an [embedded DNS server](https://docs.docker.com/engine/userguide/networking/configure-dns/) (`127.0.0.11` in container's `/etc/resolve.conf`)
@@ -366,3 +366,4 @@ To delete the `docker0`, follow [this](http://khornberg.github.io/articles/chang
 * [Samsung buy joyent](http://readwrite.com/2016/06/22/samsung-buys-sf-based-joyent-push-deeper-cloud-pl4/?platform=hootsuite)
 * [Joyen blog](https://www.joyent.com/blog/spin-up-a-docker-dev-test-environment-in-60-minutes-or-less)
 * [triton open source at github](https://github.com/joyent/triton), following link for architecture and introduction.
+* [Changing Docker's IP Address](http://khornberg.github.io/articles/change-docker-ip/)
