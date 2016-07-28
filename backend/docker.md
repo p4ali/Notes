@@ -259,13 +259,15 @@ $ (docker images | grep "^<none>" | awk '{print $3}') | xargs -r docker rmi
 $ docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
 ```
 
-## [list docker container ip](http://stackoverflow.com/questions/17157721/getting-a-docker-containers-ip-address-from-the-host)
+## [list docker container ip](http://stackoverflow.com/questions/17157721/getting-a-docker-containers-ip-address-from-the-host) and exit code
 
 ```bash
-# docker
+# docker ip
 docker inspect -f '{{.Name}} - {{.NetworkSettings.IPAddress }}' $(docker ps -aq)
-# docker-compose
 docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
+
+# docker ExitCode
+docker inspect --format="{{.State.ExitCode}}" container_name
 ```
 
 ## display docker full command
