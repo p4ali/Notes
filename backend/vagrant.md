@@ -173,3 +173,9 @@ curl http://uploader.atlas.dev/test/thread_status
 curl http://uploader.atlas.dev/test/upload_form
 curl http://192.168.33.12/test/callback
 ```
+
+## `/etc/exports`
+
+Sometime, if you have shared a folder (e.g., nfs) between vm and host, and later you renamed the shared folder, vagrant will complain.
+
+In case this happen, check and remote the old mapping from `/etc/exports`
