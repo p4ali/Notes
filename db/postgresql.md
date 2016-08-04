@@ -12,6 +12,8 @@ psql -Upostgres -draymond_development -h192.168.33.10 -p5432
 \dt # list table
 \q # quit
 \? # help command
+\dp # inspect the privilege
+\i # run sql file
 ```
 
 ## SQL
@@ -46,3 +48,6 @@ Which similar to ruby console query
 rvm (default|helix) do bundle exec rails c
 @> puts User.pluck(:username, :email, :company_name).select{|a| a[1] !~ /perforce.com/}.reduce('') {|s,a| s+"\n"+a.join(' ‘)}
 ```
+
+## Reference
+* [ZetCode has a great postgresql JDBC tutorial](http://zetcode.com/db/postgresqljavatutorial/)
