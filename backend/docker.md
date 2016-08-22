@@ -309,6 +309,7 @@ docker history --no-trunc=true java:8
 * CMD sets default command and/or parameters, which can be overwritten from command line when docker container runs.
 * ENTRYPOINT configures a container that will run as an executable. In other word, an entrypoint is basically a script 
              that gets executed before any other command that you might pass to your container.
+* When combined ENTRYPOINT and CMD, CMD will pass parameter to ENTRYPOINT [See here](https://www.ctl.io/developers/blog/post/dockerfile-entrypoint-vs-cmd/)
 
 ## `docker` vs `docker-compose`
 
