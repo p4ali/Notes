@@ -400,6 +400,11 @@ git add -A
 git commit -m "delete .project"
 ```
 
+## Set `difftool`
+```
+git config --global diff.tool kdiff3 
+```
+
 # Term
 * `upstream/downstream`: There is no absolute upstream/downstream. When you declared **otherRepo** as a remote one, then you are **pulling from upstream - otherRepo**, and you are **downstream for otherRepo**; you are **pushing to upstream - otherRepo**.
 
