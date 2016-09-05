@@ -20,6 +20,12 @@ cat > /etc/environment <<EOF
 EOF
 ```
 
+## vagrant
+```
+vagrant init bento/ubuntu-16.04; vagrant up --provider virtualbox
+vagrant init centos/7; vagrant up --provider virtualbox
+```
+
 ## Reference
 * [http://www.erikaheidi.com/blog/a-beginners-guide-to-vagrant-and-puppet-part-3-facts-conditional](http://www.erikaheidi.com/blog/a-beginners-guide-to-vagrant-and-puppet-part-3-facts-conditional)
 * [https://docs.puppetlabs.com/references/3.5.latest/type.html](https://docs.puppetlabs.com/references/3.5.latest/type.html)
