@@ -24,12 +24,6 @@ dig -t NS cloudything.net @ns2.dnsimple.com
 
 ## Vagrant - remote host (or p4broker host)
 At production deployment, there will be one or more VMs running Raymond web service, and there will be one VM
-
-## [Access host port from guest](http://superuser.com/questions/144453/virtualbox-guest-os-accessing-local-server-on-host-os)
-The trick is to use special ip `10.0.2.2`, plus the port opened on the host. You can test the port available or not by `telnet`, e.g,
-```
-guest$ telnet 10.0.2.2 8080 
-```
 running Perforce service. On the Perforce service VM (named pvm):
 * there will be one p4broker running
 * the p4broker's config file will be updated each time a new depot is created by adding following entry
@@ -185,3 +179,9 @@ curl http://192.168.33.12/test/callback
 Sometime, if you have shared a folder (e.g., nfs) between vm and host, and later you renamed the shared folder, vagrant will complain.
 
 In case this happen, check and remote the old mapping from `/etc/exports`
+
+## [Access host port from guest](http://superuser.com/questions/144453/virtualbox-guest-os-accessing-local-server-on-host-os)
+The trick is to use special ip `10.0.2.2`, plus the port opened on the host. You can test the port available or not by `telnet`, e.g,
+```
+guest$ telnet 10.0.2.2 8080 
+```
