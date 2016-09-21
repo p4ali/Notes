@@ -79,6 +79,12 @@ ssh -T me@my.com
 # And the /etc/sshd_config must NOT have `ForwardAgent no`
 ```
 
+## SSH Tunnelling
+```
+ssh -L80:workserver.com:80 user@workdesktop.com
+```
+This command creates an SSH connection to your workdesktop.com computer, but at the same time opens port 80 on your local machine. If you point your web browser at http://localhost, the connection will actually be forwarded through your SSH connection to your desktop, and sent onto the workserver.com server, port 80. This is very useful for accessing intranet-only sites from home, without connecting to a VPN first.
+
 ## `grep`, `sed`,`cut`, `awk` and `tr`
 Given following text:
 ```
