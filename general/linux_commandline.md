@@ -10,3 +10,9 @@
 * `ctrl+y`: paste from buffer( which filled by prevous delete commands)
 * `ctrl+t`: swap char with previous one
 * `alt+t`: swap word with previous one
+
+
+
+## Reference
+
+* [Bash shortcuts for maximum productivity](http://www.skorks.com/2009/09/bash-shortcuts-for-maximum-productivity/)
