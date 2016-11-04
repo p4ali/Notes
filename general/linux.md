@@ -313,3 +313,4 @@ curl 'https://api.github.com/repos/stedolan/jq/commits?per_page=5' | jq '.[] | {
 * [bash keyboard shortcut](http://ss64.com/bash/syntax-keyboard.html)
 * [bash hacker wiki](http://wiki.bash-hackers.org/)
 * [ten thing about linux commandline](https://linuxacademy.com/blog/linux/ten-things-i-wish-i-knew-earlier-about-the-linux-command-line-2/)
+* [bash pitfalls](http://mywiki.wooledge.org/BashPitfalls)
