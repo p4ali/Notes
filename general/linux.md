@@ -276,17 +276,29 @@ also `--no-run-if-empty`, do not run command if standard input contains only bla
 
 ## [redirection](http://wiki.bash-hackers.org/syntax/redirection#here_strings)
 
-## [screen](http://linoxide.com/linux-how-to/screen-remote-ssh/)
+## [screen](http://linoxide.com/linux-how-to/screen-remote-ssh/) and [tmux](https://tmux.github.io/)
+Both should be running on server which is machine you want to mutiplex.
 
 `screen` can run a long running process without maintaining an active shell session.
 ```bash
 $ screen
 # do long time task
-$ Ctrl+a,d  # save screen and exit
+$ Ctrl+a,d  # detach screen
+$ Ctrl+a,c  # new screen
+$ Ctrl+a,dquote # list screens
 
 #do something in a new screen
 $ screen -r # reattach to the previous screen (will let you choose if many)
 ```
+
+[tmux](http://www.dayid.org/comp/tm.html) is to replace `screen`
+```bash
+$ tmux
+$ Ctrl+b,d # detach session
+$ Ctrl+b,c # new session
+$ tmux ls # list tmux sessions
+```
+
 
 ## nagios and bacula, haproxy
 * nagios: for monitoring
