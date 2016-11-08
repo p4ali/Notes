@@ -297,6 +297,7 @@ $ tmux
 $ Ctrl+b,d # detach session
 $ Ctrl+b,c # new session
 $ tmux ls # list tmux sessions
+$ tmux attach
 ```
 
 
