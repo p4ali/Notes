@@ -12,6 +12,11 @@
 * `alt+t`: swap word with previous one
 
 
+## vi/vim graphical cheet sheet
+* `w`: move right one word
+* `b`: move left one word
+
+![Cheat sheet](./images/vim_cheatsheet.gif)
 
 ## Reference
 
