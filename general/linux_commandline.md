@@ -10,7 +10,8 @@
 * `ctrl+y`: paste from buffer( which filled by prevous delete commands)
 * `ctrl+t`: swap char with previous one
 * `alt+t`: swap word with previous one
-
+* `meta+f`: forward a word (note, on macosx, you need change Terminal to user alt as meta key)
+* `meta+b`: backward a word
 
 ## vi/vim graphical cheet sheet
 * `w`: move right one word
