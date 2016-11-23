@@ -390,6 +390,9 @@ git lg # this will show you a linear history
 
 ## search log
 ```
+# search patches(commits) that introduced a change that add/removed line containaing regex
+# -p print the patch file
+git log -Gregex -p 
 git log -g --grep="0052"
 ```
 
@@ -402,9 +405,21 @@ git commit -m "delete .project"
 
 ## Set `difftool`
 ```
-git config --global diff.tool kdiff3 
+## the first 2 commands set the difftoo and mergetool, you need also update ~/.gitconfig of cmd path
+git config --global diff.tool tkdiff
+git config --global merge.tool tkdiff
+
+## this will disable the annoying prompt
+git config --global --add difftool.prompt false
 ```
 
+## double dash for escaping path `--`
+(from `git log help`) Paths may need to be prefixed with `--` to separate them from options or the revision range, when confusion arises.
+```
+# suppose you have a file named master
+git checkout master # will checkout branch master
+git checkout -- master # will checkout the file named master
+```
 # Term
 * `upstream/downstream`: There is no absolute upstream/downstream. When you declared **otherRepo** as a remote one, then you are **pulling from upstream - otherRepo**, and you are **downstream for otherRepo**; you are **pushing to upstream - otherRepo**.
 
