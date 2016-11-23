@@ -420,6 +420,21 @@ git config --global --add difftool.prompt false
 git checkout master # will checkout branch master
 git checkout -- master # will checkout the file named master
 ```
+
+## find commits delete files/lines and revert
+The `--full-history` is very important, since [git may simplify the history during merge](https://stackoverflow.com/questions/6839398/find-when-a-file-was-deleted-in-git/34755406#34755406?newreg=5e9d8a8d262b4bf287e9997a4eefada6).
+```
+# if you know file path before it was deleted
+git log --full-history -- file_path
+
+# or 
+git rev-list --full-history -n 1 HEAD -- file_path
+git checkout deleting_commit^ -- file_path
+
+#or in one command, assume $file == file_path
+git checkout $(git rev-list -n 1 HEAD -- "$file")^ -- "$file"
+```
+
 # Term
 * `upstream/downstream`: There is no absolute upstream/downstream. When you declared **otherRepo** as a remote one, then you are **pulling from upstream - otherRepo**, and you are **downstream for otherRepo**; you are **pushing to upstream - otherRepo**.
 
