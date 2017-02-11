@@ -64,7 +64,8 @@ submodule from within the main project
 
 ```
 $ git submodule add git@mygithost:project.git lib/p4java # create .gitmodules and add a submodule entry
-$ git submodule update --init # populate the submodule
+$ git clone --recurse-submodules ssh://git@pbitbucket.com:7999/~ali/parent_project.git # many commands support recurse-submoduels option. It will clone submodules.
+$ git submodule update --init # populate the submodule, incase you did not use the recurse-submodules to clone
 $ git submodule rm lib/p4java # remove submodule
 ```
 
