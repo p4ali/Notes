@@ -72,9 +72,13 @@ $ git submodule rm lib/p4java # remove submodule
 ### Do not forget to update submodule before you check in.
 
 ```
+$ git ls-tree parent_commit # this will show the sha of submodule in the parent_commit
+$ git diff # this will show if there is any changes in the submodule, or submodule sha changes (e.g., you switch branch in submodule)
 $ git submodule update --init # this will get the submodule commit by parent project.
 $ cd lib/p4java
-$ git pull # this will pull the most recent submodule
+$ git co master # this will switch to master branch, which may cause changes in parent project
+$ vi source_file
+$ git commit # this will change the submodule
 $ cd ../..
 ## Develop my code, and testing
 $ git status
