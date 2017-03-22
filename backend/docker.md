@@ -1,3 +1,5 @@
+# To work behind a proxy, see [here](http://stackoverflow.com/questions/19872591/how-to-use-vagrant-in-a-proxy-environment)
+
 # [Docker](https://docs.docker.com/engine/understanding-docker/#what-is-docker-s-architecture)
 > The Docker platform enables multiple applications to run concurrently on a single copy of an OS, either deployed directly onto a physical server or as a virtual machine (VM).
 
