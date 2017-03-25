@@ -1,4 +1,9 @@
-# To work behind a proxy, see [here](http://stackoverflow.com/questions/19872591/how-to-use-vagrant-in-a-proxy-environment)
+# If you run docker on mac, please make sure you have set the proxy in docker preference>proxies
+
+# If you run docker on liux/windows vm by vagrant
+
+* make sure vagrant work behind a proxy, see [run vagrant behind proxy](http://stackoverflow.com/questions/19872591/how-to-use-vagrant-in-a-proxy-environment)
+* make sure docker work behind proxy, see [Run docker hehind proxy](https://crondev.com/running-docker-behind-proxy/)
 
 # [Docker](https://docs.docker.com/engine/understanding-docker/#what-is-docker-s-architecture)
 > The Docker platform enables multiple applications to run concurrently on a single copy of an OS, either deployed directly onto a physical server or as a virtual machine (VM).
