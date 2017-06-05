@@ -266,6 +266,25 @@ $ (docker images | grep "^<none>" | awk '{print $3}') | xargs -r docker rmi
 $ docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
 ```
 
+## create a new docker image from the updated container
+```bash
+# download jenkins docker image
+$ docker search jenkins
+$ docker pull jenkins
+# run docker (jenkins in this case), and name it ali_jenkins, from original image jenkins
+$ docker run --name ali_jenkins -d -p 49001:8080 -v /opt/jenkins/docker/jenkins:/var/jenkins_home -t jenkins
+# ... setup the admin password. etc.
+# login to docker container with root and update packages
+$ docker exec -u root -it ali_jenkins /bin/bash
+$ apt-update && apt-get install -y maven
+$ docker cp settings.xml ali_jenkins:/var/jenkins_home/.m2
+# logout, and then save the container as a new image
+$ docker commit ali_jenkins  ali_jenkins
+# now ready to go
+$ docker container stop ali_jenkins
+$ docker run --name jenkins -d -p 49001:8080 -v /opt/jenkins/docker/jenkins:/var/jenkins_home -t ali_jenkins
+```
+
 ## [list docker container ip](http://stackoverflow.com/questions/17157721/getting-a-docker-containers-ip-address-from-the-host) and exit code
 
 ```bash
