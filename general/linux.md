@@ -114,6 +114,25 @@ if [ ! $? -eq 0 ]; then
 fi
 ```
 
+### [`sed`](https://www.gnu.org/software/sed/manual/html_node/Addresses.html) to replace nested xml
+
+`sed` can select lines by address range, an address range can be specified by specifying two addresses separated by a comma (,). An address range matches lines starting from where the first address matches, and continues until the second address matches (inclusively). The address can be regexp.
+
+Given 
+```xml
+	<parent>
+	   <groupId>x</groupId>
+	   <version>0.0.7-SNAPSHOT</version>
+	</parent>
+```
+You can use `sed` to replace the nested <version> tag as following:
+
+```
+newVersion=1.0.0
+sed -i -e "/<parent>/,/<\/parent>/ s|<version>[0-9a-zA-Z.-]\{1,\}</version>|<version>$newVersion</version>|g" pom.xml
+```
+
+
 ### Regex look backward `(?<=fileSize0)\d+`, lookforward `\d+(?= )` and greedy `?`
 
 | mode | positve | negative|
