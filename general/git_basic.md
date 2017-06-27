@@ -123,11 +123,12 @@ $ git co -b my_branch orign/my_branch
 # delete a local branch
 $ git branch -D my_branch
 
-# delete a remove branch
+# delete a remote branch
 $ git push origin --delete my_branch
 
-# delete a remote branch
+# delete a remote branch 
 $ git push origin :my_branch
+Remeber `git push [remotename] [localbranch]:[remotebranch]`. If you leave off the [localbranch] portion, then you’re basically saying, “Take nothing on my side and make it be [remotebranch].”
 
 # List remote branch on origin
 git for-each-ref --sort=-committerdate refs/remotes/origin/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(objectname:short) - %(color:red)%(authorname)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'
