@@ -337,6 +337,35 @@ docker history --no-trunc=true java:8
              that gets executed before any other command that you might pass to your container.
 * When combined ENTRYPOINT and CMD, CMD will pass parameter to ENTRYPOINT [See here](https://www.ctl.io/developers/blog/post/dockerfile-entrypoint-vs-cmd/)
 
+## [A script to auto delete container on start]
+
+```
+2017-06-27 18:35:50,030 localhost-startStop-2 DEBUG createLogger(additivity="false", level="INFO", name="com.prudential.metrics.ace", includeLocation="null", ={ace-performance-log}, ={}, Configuration(jar:file:/usr/local/tomcat/webapps/planning/WEB-INF/lib/ACEPortalSessionFilterAndLog-1.0.0-SNAPSHOT.jar!/log4j2.xml), Filter=null)
+#!/usr/bin/env bash
+
+if [ "$#" -ne 1 ]; then
+  echo "Usage: $0 pub|sec" >&2
+  exit 1
+fi
+
+mod=${1:-pub}
+
+# remove existing container and image if exist
+docker container rm planning_$mod
+docker rmi planning_$mod
+
+cd ..
+
+#mods=( "pub" "sec" )
+#for mod in "${mods[@]}"
+#do
+  docker build  -t planning_$mod -f docker/Dockerfile.$mod .
+  docker run --name planning_$mod -it -e "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n" -p 8080:8080 -p 5005:5005 planning_$mod
+#done
+
+cd docker
+```
+
 ## `docker` vs `docker-compose`
 
 * `docker-compose` will use [Compose file](https://docs.docker.com/compose/compose-file) (default to `docker-compose.yml`) to config a multi-container app, and all commands are based on the config. Each
