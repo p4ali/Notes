@@ -126,6 +126,9 @@ $ git branch -D my_branch
 # delete a remote branch
 $ git push origin --delete my_branch
 
+# You may need prune(remove) any remote-tracking references that no longer exist on the remote, incase you got "remote refs do not exist" error
+$ git fetch --prune origin
+
 # delete a remote branch 
 $ git push origin :my_branch
 Remeber `git push [remotename] [localbranch]:[remotebranch]`. If you leave off the [localbranch] portion, then you’re basically saying, “Take nothing on my side and make it be [remotebranch].”
