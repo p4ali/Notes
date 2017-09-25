@@ -262,6 +262,13 @@ git co 0d123456c
 
 # then commit
 git commit
+
+# revert a previoud commit and not commit
+git revert -n <commit>
+# fix conflict
+git revert --continue
+git add .
+git commit
 ```
 
 ### Unmodify multiple files
