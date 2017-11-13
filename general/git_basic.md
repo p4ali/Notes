@@ -225,6 +225,19 @@ git commit
 git commit -c ORIG_HEAD
 ```
 
+### Soft reset (move HEAD only; neither staging nor working dir is changed)
+
+```git reset --soft 073791e7dd71b90daa853b2c5acc2c925f02dbc6```
+
+### Default: Mixed reset (move HEAD and change staging to match repo; does not affect working dir)
+
+``` git reset --mixed 073791e7dd71b90daa853b2c5acc2c925f02dbc6 ```
+
+### Hard reset (move HEAD and change staging dir and working dir to match repo)
+
+```git reset --hard 073791e7dd71b90daa853b2c5acc2c925f02dbc6```
+
+
 ### Temporarily switch to a different commit
 If you want to temporarily go back and fool around
 ```
@@ -456,3 +469,4 @@ git checkout $(git rev-list -n 1 HEAD -- "$file")^ -- "$file"
 
 # Reference
 * [Git workflow by GitLab](https://about.gitlab.com/2014/09/29/gitlab-flow/)
+* [Another git ref](https://gist.github.com/hofmannsven/6814451)
