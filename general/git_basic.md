@@ -363,13 +363,13 @@ I = F^   = B^3^    = A^^3^
 J = F^2  = B^3^2   = A^^3^2
 ```
 
-## range with `..` and `...`
+## [range with `..` and `...`](https://stackoverflow.com/questions/462974/what-are-the-differences-between-double-dot-and-triple-dot-in-git-com)
 ```bash
 A <- B  <- E <- F <- master
       \ <- C <- D <- dev
       
 # double dot shows range of commits reachable from one but not other tip
-$ git log master..dev # show D,C
+$ git log master..dev # commits reachable by dev, i.e., D,C, equal to git log ^master dev
 $ git log dev..master # show F,E
 
 # triple dot shows range of commits reachable by either of two refs, not both
