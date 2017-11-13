@@ -880,7 +880,7 @@ list(chain(x,y)) # ['a,'b',1,2]
 * `self` - the first argument to all instance methods. Similar to `this` in Java.
 * `__init__()` - instance mehtod for initializing new objects. It is NOT a constructor, but an initializer.
 * `_name` - convention: instance variable or method of implementation detail (not intended for public, also you can inspect) starts with `_`
-* everything is public, including instance variable. Quite oppsite to Ruby.
+* **everything is public, including instance variable. Quite oppsite to Ruby.**
 * Law of demeter: Least knowledge, only talk to your friends. Never call methods from recieved object from other calls. Don't do `getB().getC().call()`, rather `getC().call()`
 * Even within an object, method calls must be preceded with `self`
 
