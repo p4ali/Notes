@@ -442,7 +442,10 @@ git config --global merge.tool tkdiff
 git config --global --add difftool.prompt false
 ```
 
-## double dash for escaping path `--`
+## [double dash for escaping path `--`](https://unix.stackexchange.com/questions/11376/what-does-double-dash-mean-also-known-as-bare-double-dash)
+
+Double dash is used in shell to signify the end of parameter list (or command options). e.g, if you want grep a `-v` string, which normally a command option, you can do this: `grep -- -v file`
+
 (from `git log help`) Paths may need to be prefixed with `--` to separate them from options or the revision range, when confusion arises.
 ```
 # suppose you have a file named master
