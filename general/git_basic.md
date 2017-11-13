@@ -1,4 +1,20 @@
-# Show branch name as PS:
+## Git data model
+
+* Git commits forms a `directed acyclical graph`, i.e. DAG
+* Each commit doesn't know about any children, ONLY its parents
+* Each commit may have none(initial commit), one(a normal commit) or more(a merge) parents
+
+There are four types of objects in git:
+* Blobs - binanry objects stored in the object store, they can contain other git objects(trees, commits, tags) and the content of files
+* Trees - simple structure that represent a single directory layer 
+* Commits - points to a single tree and potentially one or more parent commits
+* Refs - tags that point to tha prticular commit, or to other refs ( the latter a called symbolic refs)
+
+Git objects are immutable, however the history is mutable (what `rebase` is for).
+
+Git save objects in file system under **.git** directory.
+
+## Show branch name as PS:
 This is one of the functions [bash_it](https://github.com/Bash-it/bash-it) provide.
 
 ## `~/.gitconfig`
