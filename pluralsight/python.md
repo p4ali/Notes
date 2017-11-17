@@ -1076,6 +1076,22 @@ quit
 * run `activate` script before using a virtual environment
 * `(envname)` will become prompt after you activate a virutal environment
 
+```bash
+pip install virtualenv
+virtualenv <env_name>
+virtualenv --python=puthon2.7 proj # created virtualenv in current_dir/proj
+source ./proj/bin/activate  # Prompt (proj) bla $
+deactivate  # deactivate the virtual env
+```
+
+### Pyinstaller to create exe file
+Pinstaller build executable file cross-platform, i.e., windows, mac, linux
+
+```bash
+pip install pyinstaller
+
+```
+
 ### Install 3rd party package
 * disutils - using setup.py `python setup.py install`
 * easy_install - search central repo and install it
