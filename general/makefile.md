@@ -41,3 +41,17 @@ foo:
 ```
 
 ## How `make` process a Makefile
+
+## [`$@` and `$<`](https://stackoverflow.com/questions/3220277/what-do-the-makefile-symbols-and-mean)
+`$@` is the name of the file being generated(or the target name), and `$<` the first prerequisite (usually the source file). You can find a list of all these special variables in the [GNU Make manual](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables).
+
+For example, consider the following declaration:
+
+```bash
+all: library.cpp main.cpp
+```
+In this case:
+
+* $@ evaluates to all
+* $< evaluates to library.cpp
+* $^ evaluates to library.cpp main.cpp (the name of all prerequisite)
