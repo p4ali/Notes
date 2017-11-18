@@ -250,6 +250,15 @@ $ echo {D..T..4} # DHLPT
 * `()`: create an array with command. `dir=(*); echo "${dir[0]}" #first array element of dir `
 * `(())`: is used for ArithmethicExpression operation. ` i=0; while (( i<10 )); do ((i=i+1)); echo $i; done`
 
+## [Shell Parameter Expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
+**${parameter:offset:length}**
+```bash
+$ set -- 1234567890abcdefgh # set arg1 to 12..gh
+$ echo ${1:7} # 7890abcdefgh
+$ echo ${1:7:2} # 78
+$ echo ${1:7:-2} # 7890abcdef
+```
+
 ## find with timestamp 
 ```bash
 find /srv/files/ -type f -newermt "2015-04-01 00:00:00" ! -newermt "2015-07-31 00:00:00" > /tmp/tmpclients.txt
