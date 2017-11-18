@@ -1,10 +1,13 @@
 ## rspec
 ### Mockup constructor
-`allow(Pusher::Client).to receive(:new).with(app_id: ENV['PUSHER_APP_ID'], key: ENV['PUSHER_KEY'], secret: ENV['PUSHER_SECRET']).and_return(pusher_client)`
+```javascript
+allow(Pusher::Client).to receive(:new).with(app_id: ENV['PUSHER_APP_ID'], key: ENV['PUSHER_KEY'], secret: ENV['PUSHER_SECRET']).and_return(pusher_client)
+```
 Above will affect all Pusher::Client's constructor. It may not be ordered
 
 ## js
-`spyOn(pusher, 'subscribe').and.callThrough();
+```javascript
+spyOn(pusher, 'subscribe').and.callThrough();
  spyOn(pusher, 'subscribe').and.callFake(function (channel) {
                     if (channel === 'private-project-10') {
                         return fakeChannel;
@@ -12,7 +15,8 @@ Above will affect all Pusher::Client's constructor. It may not be ordered
                 });
  spyOn(currentProject, 'refreshFolders');
  fakeChannel.trigger();
- expect(currentProject.refreshFolders).toHaveBeenCalledWith('hello');`
+ expect(currentProject.refreshFolders).toHaveBeenCalledWith('hello');
+ ```
 Above are executed in order
 
 ## Multiple Type TDD
