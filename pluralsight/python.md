@@ -1072,7 +1072,7 @@ quit
     * `pipenv install requests`
     * `pipenv run python myscript.py`
 
-## `pipenv` bring the best practice of `pip`, `Pipfile`, and `virtualenv` together
+`pipenv` bring the best practice of `pip`, `Pipfile`, and `virtualenv` together
 
 ## `virtualenv`
 `virtualenv` creates a folder which contains all the necessary executables and the packages that a Python project would need.
@@ -1178,6 +1178,19 @@ python
 import nose
 ```
 * pip
+
+## [Respository structure and Python](https://www.kennethreitz.org/essays/repository-structure-and-python) on [github](https://github.com/kennethreitz/samplemod)
+* docs/
+* sample/
+* tests/
+* .gitignore
+* LICENSE
+* MANIFEST.in
+* Makefile
+* README.rst
+* requirement.txt
+* setup.py
+
 
 ## Reference
 * [Dive into Python](http://www.diveintopython.net/toc/index.html)
