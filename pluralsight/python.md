@@ -1059,8 +1059,71 @@ print varname
 quit
 ```
 
-## python virtual environment
-`pyvenv dirname`
+## Install python and toolkit
+* [install homebrew](http://brew.sh/#install)
+* `brew install python3`
+* `brew install pip3` - this may be installed already in previous step
+* `python3`
+* [install pipenv & virtual environments](https://docs.pipenv.org/)
+    * `pip install --user pipenv`
+    * `python -m site --user-base` - then add this to PATH
+* [install packages for your project](https://media.readthedocs.org/pdf/python-guide/latest/python-guide.pdf)
+    * `cd myproject`
+    * `pipenv install requests`
+    * `pipenv run python myscript.py`
+
+## `pipenv` bring the best practice of `pip`, `Pipfile`, and `virtualenv` together
+
+## `virtualenv`
+`virtualenv` creates a folder which contains all the necessary executables and the packages that a Python project would need.
+
+`virtualenv` can be in place of `pipenv`. i.e., they can replace each other.
+
+```bash
+pip install virtualenv
+virtualenv --version
+cd my_project_folder
+virtualenv my_project  # create folder my_project which contains the python exe and a copy of pip library which you can use to install packages. Omitting the venv name will place files in the current directory instead
+virualenv -p /usr/bin/python2.7 my_project # use python 2.7, alternatively, export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+source my_project/bin/activate # for now, any package will be installed to my_project, isolated from global python installation
+pip install requests
+deactivate # exist the virtualenv, deactive is a shell function from activate.
+rm -rf my_project # delete the virtualevn
+virtualenv --no-site-packages # will not include the packages that are installed globally
+pip freeze > requirements.txt  # freeze the current state of env packages
+pip install -r requirements.txt # install the packages with specific version from requiremnets.txt
+```
+
+`python3.6 -m venv`
+
+or 
+`pipenv --venv`
+
+NOT
+`pyvenv dirname` -- This has been **deprecated**
+
+## virtualenvewrapper
+virtualenvwrapper provides a set of commands which makes working virtualenv much pleasant. It also places all your virutal environments in one place.
+
+```bash
+pip install virtualenvwrapper
+export WORKON_HOME=~/Envs
+source /usr/local/bin/virtualenvwrapper.sh
+
+## usage
+mkvirtualenv my_project # created ~/Envs/my_project
+workon my_project
+
+mkproject myproject # this is combination of above two
+
+deactivate # deactivate
+rmvirtualenv venv # delete my_project
+
+lsvirutalenv
+cdvirtualenv
+cdsitepackages
+lssitepackages
+```
 
 ## packaging
 * `disutils` module
