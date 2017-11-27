@@ -483,6 +483,14 @@ git checkout deleting_commit^ -- file_path
 git checkout $(git rev-list -n 1 HEAD -- "$file")^ -- "$file"
 ```
 
+## Force LF line ending
+
+The git attributes can define the line ending on check out:
+
+* `git config --global core.attributesfile attribute_file_path`
+* The attribute_file may contain one line `* text eol=lf`
+* You may need also add [EditorConfig](http://editorconfig.org/#download) to your project to enforce that. [Here is an example](https://github.com/g0t4/consul-getting-started)
+
 # Term
 * `upstream/downstream`: There is no absolute upstream/downstream. When you declared **otherRepo** as a remote one, then you are **pulling from upstream - otherRepo**, and you are **downstream for otherRepo**; you are **pushing to upstream - otherRepo**.
 
