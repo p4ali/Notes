@@ -1,6 +1,6 @@
 ## [Future](http://docs.scala-lang.org/overviews/core/futures.html)
 Futures are defined as a type of read-only placehoder object created for a result which does not yet exist. Future is excuted
-thread pool. (See `ExecutionContex`, it is backed by a work-stealing thread pool, or [ForkJoinPool](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html)).
+thread pool. (See `ExecutionContext`, it is backed by a work-stealing thread pool, or [ForkJoinPool](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html)).
 
 You can create future with `Future` method. You can register callback to a future `f` by `f onComplete` :
 ```scala
