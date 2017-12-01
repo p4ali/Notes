@@ -12,7 +12,20 @@ structures of a given signature, and produces a struacture (of the same signatur
 Applicative, and Monad(单子, or 一价原子)](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html) 
 and [category thoery(范畴论), morphism(态射), objects(物件)](http://zh.wikipedia.org/wiki/%E8%8C%83%E7%95%B4%E8%AE%BA)
 
+### Monoid
+Getting warmer. What is a monoid?
+Monoid can be defined as a:
+
+* single set S 
+* with an associative binary operation ○
+* and an identity element e
+* following two laws:
+    * (a ○ b) ○ c = a ○ (b ○ c)
+    * a ○ e = e ○ a = a
+ 
 ### Monad(单子)
+Functor that maps a category back to that same category is called an **endofunctor**. A monad is just a monoid in the category of endofunctors.
+
 an abstract datay type in functional programming. It use to present computation not the data. It contains 2 opration **bind** (```>=``` in Haskell) and **return**, and a type constructor **M**. See also [Monads for functional programming](http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf)
 
 ### [abstract algebra](http://w3.math.sinica.edu.tw/math_media/d362/36204.pdf) and [Group](http://math.ntnu.edu.tw/~li/algebra-html/node4.html)
