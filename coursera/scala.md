@@ -36,8 +36,9 @@ Let q(x) be a property provable about objects x of type T. Then q(y) should be p
 * Referential transparency
 
 ## Monad
-[Monad is Elephant](http://james-iry.blogspot.com/2007/09/monads-are-elephants-part-1.html)
-[Introduction to Monads in Scala](http://www.slideshare.net/stasimus/introduction-to-monads-in-scala-1)
+* [Monad is Elephant](http://james-iry.blogspot.com/2007/09/monads-are-elephants-part-1.html)
+* [Introduction to Monads in Scala](http://www.slideshare.net/stasimus/introduction-to-monads-in-scala-1)
+
 ## Some idioms
 ### Implicit Parameters
 Used for implicitly conversion (can be used as type such as class conversion or parameter conversion)
