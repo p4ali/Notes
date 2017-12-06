@@ -112,3 +112,26 @@ git log --oneline --graph
 Tell me and I forget, teach me and I may remember, involve me and I learn.
 - Benjamin Franklin
 ```
+
+# [Git line ending, and text normalization](https://help.github.com/articles/dealing-with-line-endings/)
+
+Git will convert line ending on checkout(including clone) based on the core.autocrlf and .gitattributes `text` setting(latter can override former).
+
+If you work on mac:
+```
+$ git config --global core.autocrlf input
+```
+
+And set ~/.gitattributes as default attribute. Git will 
+
+```
+echo "* text=auto" >>~.gitattributes . # the best default
+git config --global core.attributesfile ~/.gitattributes # set
+rm .git/index     # Remove the index to force git to
+git reset         # re-scan the working directory
+git status        # Show files that will be normalized
+git add -u
+git add .gitattributes
+git commit -m "Introduce end-of-line normalization"
+git check-attr text `git ls-files`   # check all file attributes
+```
