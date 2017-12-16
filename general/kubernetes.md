@@ -1,4 +1,4 @@
-## [install kubenetes completion](Fixing Bash autocompletion on MacOS for kubectl)
+## [install kubenetes completion](https://medium.com/merapar/fixing-bash-autocompletion-on-macos-for-kubectl-and-kops-e87f019652e8)
 
 ```bash
 brew install bash-completion@2 # for bash 4.1
