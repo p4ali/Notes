@@ -22,3 +22,4 @@
 ## Reference
 
 * [Bash shortcuts for maximum productivity](http://www.skorks.com/2009/09/bash-shortcuts-for-maximum-productivity/)
+* [Better bash 4 & Completions on OSX]https://troymccall.com/better-bash-4--completions-on-osx/
