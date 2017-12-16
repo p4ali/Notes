@@ -209,6 +209,19 @@ git co master
 git merge max_projects_count_20150128_WIP
 ```
 
+### Force push to remote
+Usually we should not do this when work on shared branch. However, in case you work on your on your own branch,
+especially when you work on a feature branch, you many often found you need fix some of your mistake,
+
+```
+git co -b mybranch
+# work, comit,work comit
+git push -u origin mybranch
+# work, work, push, push, mistake, push, ah o
+git rebase -i master
+git push origin mybranch -f .  # now remote mybranch will have good history
+```
+
 ### Cherry pick
 For simple merge, you may not need rebase necessary. There is a more convenient way to do that:
 
