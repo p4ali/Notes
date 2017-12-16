@@ -266,7 +266,6 @@ git commit -c ORIG_HEAD
 
 ```git reset --hard 073791e7dd71b90daa853b2c5acc2c925f02dbc6```
 
-
 ### Temporarily switch to a different commit
 If you want to temporarily go back and fool around
 ```
@@ -278,12 +277,27 @@ git co -b 0d123456c
 ### Hard delete unpublished commits
 ```
 # reset current tip to 0d123456c, all local changes will be abandoned
-git rest --hard 0d123456c
+git reset --hard 0d123456c
 
 # alternatively, if you do want to keep local changes
 git stash
 git reset --hard 0d123456c
 git stach pop
+```
+
+### Hard delete published commits
+```
+git reset --hard HEAD~3  # reset current branch to 3 commits ago
+git push origin master --delete # do a very very bad bad thing
+git push origin master # regular push
+```
+
+Alternatively, do a revert instead:
+
+```
+git revert -n HEAD~3..HEAD # prepare a new commit reverting last 3 commits
+git commit -m "sorry - revert last 3 commits because I was not careful"
+git push origin master # regular push
 ```
 
 ### Undo published commits with new commits
