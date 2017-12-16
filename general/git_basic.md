@@ -209,6 +209,9 @@ git co master
 git merge max_projects_count_20150128_WIP
 ```
 
+**Note**: 
+Do NOT use rebase when you work with a [pull-request flow](https://help.github.com/categories/collaborating-with-issues-and-pull-requests/).
+
 ### Force push to remote
 Usually we should not do this when work on shared branch. However, in case you work on your on your own branch,
 especially when you work on a feature branch, you many often found you need fix some of your mistake,
