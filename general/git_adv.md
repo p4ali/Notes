@@ -51,6 +51,25 @@ TWO git repos: a private local one and a public server-side one. This is ideal f
 * developer clone a local of new repo, and commits, push to the remote new repo
 * Project manager can pull from new repo, and merge changes to official repo
 
+## [Sync a fork](https://help.github.com/articles/syncing-a-fork/)
+
+```
+git remote add upstream https://github.com/cdli/hello.git
+git remote -v
+origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
+upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
+
+## sync
+git fetch upstream/master
+git checkout master
+git merge upstream/master
+git push origin master
+```
+
+* `git fetch 
+
 # [`bare` vs `non-bare` repos](http://bitflop.com/tutorials/git-bare-vs-non-bare-repositories.html)
 * `bare` repo allows pull and push. `git --bare init`
 * `non-bare` repo allows only pull, but NOT push. `git init`
