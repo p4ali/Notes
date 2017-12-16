@@ -1,3 +1,7 @@
+## Shell version
+
+`echo $BASH_VERSION`: 4.4.12(1)-release
+
 ## Shell pattern filtering
 
 These POSIX shells use four different pattern filtering:
@@ -167,6 +171,7 @@ $ ps aux|grep [G]lobalProtect|tr -s [:blank:]
 
 # loop through and kill them
 $ for p in $(ps aux|grep [G]lobalProtect|tr -s [:blank:]|cut -d' ' -f2); do  kill -9 $p; done
+$ APISERVER=$(kubectl config view |grep https|cut -f 2- -d':'|tr -d ' ')
 ```
 
 ### `awk` example
