@@ -132,4 +132,48 @@ Two default namespaces:
 
 ### Resource Quotas
 
-With resource quotas, we can divide the cluster resouces withing Namespaces,
+With [resource quotas](https://kubernetes.io/docs/tasks/administer-cluster/cpu-default-namespace/), we can divide the cluster resouces withing Namespaces.
+
+## Services - connection users to pods
+
+* use label selector to group pods into logical groups, and assign a name to the logical group, referred to as a service name
+
+```yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: frontend-svc
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+```
+
+Above define a service (named `frontend-svc`) based on the label `app=frontend`. The service can have a virtual ip and listen to port 80, which forward to all pod:5000.
+
+## Kube-proxy
+
+Each worker nodes run a daemon called kube-proxy, which watches the API server on the master node, for the addition adn removal of services and endpoints.
+
+For each new service, on each node, kube-proxy configures the iptables rules to capture the traffic for it's ClusterIP and foward to on of the endpoints(pods). When service is removed, kube-proxy removes the IPtables rule on all nodes as well.
+
+## Service discovery
+
+Kubernetes supports two method of discovering a Service:
+* Environment variables - kubelet add environment variables in the pod for all active service ONLY when pod starts.
+* DNS - kubernetes add-on will create a DNS record for each service. Services with the same namespace can reach to each other.
+
+## Service Type
+
+* ClusterIP - CluseterIP is the default ServiceType. A service gets its Virtual IP address using ClusterIP. VIP is only accesible within the cluster
+* NodePort - In addition to creating a ClusterIP, a port from the range 30000-32767 is mapped to the respective service. e.g., if NodePort is 33333, and ClusterIP is 1.2.3.4, any connect to any worker node on port 33333 will be redirected to the assigned ClusterIP 1.2.3.4
+* LoadBalancer - NodePort and ClusterIP are automatically created, and external load balancer will route to them. The service is exposed externally using the underlying Cloud provider's load balancer feature. (available on AWS and gcp)
+* ExternalIP - Service is mapped to an externalIP address if it can route to one or more of the worker nodes.
+* ExternalName
+
+
+
+
