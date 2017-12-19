@@ -344,10 +344,12 @@ On mac, it can be installed `brew install jq`. Good for parsing json on shell.
 ```
 $ echo '[{"a":1},{"b":2}]'|jq '.[]' # pretty print json array, '.' represents the input
 $ echo '[{"a":1},{"b":2}]'|jq '.[0]' # pretty print first element of json array
+$ echo '{"x": [{"a":1},{"b":2}]}'|jq '.x[]|select(.a==1)|.a' # select a value from array of object
 
 ## extract certain attributes from an array with xpath like syntax
 curl 'https://api.github.com/repos/stedolan/jq/commits?per_page=5' | jq '.[] | {message: .commit.message, name: .commit.committer.name}'
 ```
+
 
 ## Refs
 * [www.tldp.org](http://www.tldp.org/guides.html)
