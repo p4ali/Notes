@@ -22,4 +22,11 @@ ZFS has three major design goals:
 ## [SSH checker](https://www.sslshopper.com/ssl-checker.html#hostname=helix.perforce.com) 
 * [How cert are self-signed](http://www.clintharris.net/2009/self-signed-certificates/)
 
+## [Apache Bench for load testing](https://www.petefreitag.com/item/689.cfm)
+
+100 tests, max 10 concurrently running.
+```bash
+ab -n 100 -c 10 http://www.yahoo.com/
+```
+
 
