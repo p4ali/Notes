@@ -525,5 +525,6 @@ The git attributes can define the line ending on check out:
 * `upstream/downstream`: There is no absolute upstream/downstream. When you declared **otherRepo** as a remote one, then you are **pulling from upstream - otherRepo**, and you are **downstream for otherRepo**; you are **pushing to upstream - otherRepo**.
 
 # Reference
+* [Trunk based development flow](https://trunkbaseddevelopment.com/)
 * [Git workflow by GitLab](https://about.gitlab.com/2014/09/29/gitlab-flow/)
 * [Another git ref](https://gist.github.com/hofmannsven/6814451)
