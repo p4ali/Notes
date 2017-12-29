@@ -289,6 +289,7 @@ for ((i=0; i<=total; i++)); do echo "$i"; done
 # use eval
 for i in `eval echo {0..$total}`; do echo $i; done
 ```
+## [difference between test `[` and `[[`](http://mywiki.wooledge.org/BashFAQ/031)
 
 ## add user and group
 
