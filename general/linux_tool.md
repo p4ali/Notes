@@ -29,4 +29,18 @@ ZFS has three major design goals:
 ab -n 100 -c 10 http://www.yahoo.com/
 ```
 
+## [iptables and ufw](https://www.cyberciti.biz/faq/linux-iptables-drop/)
 
+```bash
+# to block or unblock
+sudo iptables -I OUTPUT -d hacker.com  -j DROP
+sudo iptables -I INPUT -d hacker.com  -j ACCEPT
+
+# drop subnet and log to syslog
+sudo /sbin/iptables -i eth1 -A INPUT -s 10.0.0.0/8 -j LOG --log-prefix "IP DROP SPOOF A:"
+
+# to list blocked ip
+sudo /sbin/iptables -L -v
+```
+
+UFW](http://notepad2.blogspot.com/2012/02/linux-block-outgoing-traffic-to.html)
