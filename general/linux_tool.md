@@ -43,4 +43,4 @@ sudo /sbin/iptables -i eth1 -A INPUT -s 10.0.0.0/8 -j LOG --log-prefix "IP DROP 
 sudo /sbin/iptables -L -v
 ```
 
-UFW](http://notepad2.blogspot.com/2012/02/linux-block-outgoing-traffic-to.html)
+[UFW](http://notepad2.blogspot.com/2012/02/linux-block-outgoing-traffic-to.html)
