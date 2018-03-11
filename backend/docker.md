@@ -245,6 +245,54 @@ Even when docker stopped, you can use `docker cp` to get files out of container:
 ```bash
 $ docker cp jenkins-master:/var/log/jenkins/jenkins.log jenkins.log
 ```
+# Docker - How to cleanup (unused) resources
+
+Once in a while, you may need to cleanup resources (containers, volumes, images, networks) ...
+    
+## delete volumes
+
+```bash
+    // see: https://github.com/chadoe/docker-cleanup-volumes
+    
+    $ docker volume rm $(docker volume ls -qf dangling=true)
+    $ docker volume ls -qf dangling=true | xargs -r docker volume rm
+```
+
+## delete networks
+
+```bash
+    $ docker network ls  
+    $ docker network ls | grep "bridge"   
+    $ docker network rm $(docker network ls | grep "bridge" | awk '/ / { print $1 }')
+```    
+
+## remove docker images
+
+```bash    
+    // see: http://stackoverflow.com/questions/32723111/how-to-remove-old-and-unused-docker-images
+    
+    $ docker images
+    $ docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+    
+    $ docker images | grep "none"
+    $ docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')
+```
+
+## remove docker containers
+
+```bash
+    // see: http://stackoverflow.com/questions/32723111/how-to-remove-old-and-unused-docker-images
+    
+    $ docker ps
+    $ docker ps -a
+    $ docker rm $(docker ps -qa --no-trunc --filter "status=exited")
+```    
+
+## Resize disk space for docker vm
+
+```bash    
+    $ docker-machine create --driver virtualbox --virtualbox-disk-size "40000" default
+```
 
 ## Stop and remove containers
 
@@ -417,7 +465,7 @@ The solution to the 2nd problem is to run the command as a user who has same UID
 * [Docker Command Line](http://docs.docker.com/reference/commandline/cli/)
 * [How to use Docker on Macosx](https://www.viget.com/articles/how-to-use-docker-on-os-x-the-missing-guide)
 * [Docker storage](http://www.computerweekly.com/feature/Docker-storage-101-How-storage-works-in-Docker)
-* [Clean up after yourself](http://blog.yohanliyanage.com/2015/05/docker-clean-up-after-yourself/)
+* [Clean up after yourself](https://gist.github.com/bastman/5b57ddb3c11942094f8d0a97d461b430)
 * [Handling permissions with docker volume](https://denibertovic.com/posts/handling-permissions-with-docker-volumes/)
 * [An On-Premise Collaborative Development Environmen](http://hypoalex.github.io/2016/an-on-premise-collaborative-development-environment/)
 * [Containe as Service - triton](https://www.joyent.com/triton?gclid=CKzRspqWis4CFQcvaQodEo8Ndw)
@@ -425,3 +473,4 @@ The solution to the 2nd problem is to run the command as a user who has same UID
 * [Joyen blog](https://www.joyent.com/blog/spin-up-a-docker-dev-test-environment-in-60-minutes-or-less)
 * [triton open source at github](https://github.com/joyent/triton), following link for architecture and introduction.
 * [Changing Docker's IP Address](http://khornberg.github.io/articles/change-docker-ip/)
+
