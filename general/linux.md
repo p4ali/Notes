@@ -248,7 +248,11 @@ $ for num in {000..2}; do echo "$num"; done # 000, 001, 002
 
 # list with steps
 $ echo {D..T..4} # DHLPT
-
+```
+* `{}`: brace also run the block of commands [in the current shell](https://unix.stackexchange.com/questions/366572/how-to-run-a-command-block-in-the-main-shell/366574)
+```
+## $$ is the current pid
+{ echo "hello $$"; sleep 5 ; echo "hello again $$" ; }
 ```
 * `[]`: also named as `test`, they are bash builtins. It is available on POSIX shells. It also used for array indices
 * `[[]]``: also named as `new test`, which works only in bash/zsh and korn shell. It is more powerful. It is use for testing string snad files.
