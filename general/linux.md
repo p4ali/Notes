@@ -303,6 +303,29 @@ for i in `eval echo {0..$total}`; do echo $i; done
 ```
 ## [difference between test `[` and `[[`](http://mywiki.wooledge.org/BashFAQ/031)
 
+## [Here Doc]{http://tldp.org/LDP/abs/html/here-docs.html}
+
+[write a here doc to a file with cat](https://stackoverflow.com/questions/2953081/how-can-i-write-a-heredoc-to-a-file-in-bash-script)
+```bash
+# write to your file
+cat << EOF > /tmp/yourfilehere
+These contents will be written to the file.
+        This line is indented.
+EOF
+
+# write to stdout and pipe for kubectl command
+cat <<EOF | kubectl create -f -
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+type: Opaque
+data:
+  password: $(echo -n "s33msi4" | base64)
+  username: $(echo -n "jane" | base64)
+EOF
+```
+
 ## add user and group
 
 ```bash
