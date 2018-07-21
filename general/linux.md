@@ -30,6 +30,14 @@ Example use: lets say you want to grep a file for the string -v - normally -v wi
 grep -- -v file
 ```
 
+## single dash ` - ` for [redirection from/to stdin or stdout](http://tldp.org/LDP/abs/html/special-chars.html#DASHREF2)
+
+```
+# move entire directory to another directory
+# 1st ' - ' represent the file of x.tar but piped redirect the file to stdout, 2nd ' - ' represent the x.tar, but from stdin
+(cd /source/directory && tar cf - . ) | (cd /dest/directory && tar xpvf -)
+```
+
 ## Create an arry from input
 ```bash
 IFS=$'\n'; arr=( $(echo -e "a b\nc\nd e") ); for i in ${arr[@]} ; do echo $i ; done
