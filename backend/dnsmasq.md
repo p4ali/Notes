@@ -20,4 +20,4 @@ The file under `/etc/resolver/` is the domain name, which must match the one in 
 iface ens3 inet dhcp
     dns-nameservers 127.0.0.1
 ```
-* `ping xyz.example`, you should get bytes back
+* `ping xyz.example`, you should get bytes back. Otherwise, you may need manually update the `/etc/resolv.conf` and add `nameserver 127.0.0.1`
