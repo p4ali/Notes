@@ -1,2 +1,4 @@
+* https://github.com/KeKe-Li[Keke's Go lang web]
+* https://medium.com/@fsufitch/go-environment-setup-minus-the-insanity-b872f34351c8[Go Environment Setup]
 * https://pocketgophers.com/[`go instal` vs `go build`]
 * https://medium.com/rungo/working-in-go-workspace-3b0576e0534a[go workspace]
