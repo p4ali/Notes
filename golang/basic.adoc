@@ -1,2 +1,2 @@
-https://pocketgophers.com/[`go instal` vs `go build`]
-https://medium.com/rungo/working-in-go-workspace-3b0576e0534a[go workspace]
+* https://pocketgophers.com/[`go instal` vs `go build`]
+* https://medium.com/rungo/working-in-go-workspace-3b0576e0534a[go workspace]
