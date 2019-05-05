@@ -28,4 +28,4 @@ product(4,4) # 16
 product(4,4,initial=2) # 32
 ```
 
-**Note**: `*` syntax capture all positional args into a tuple which numbers varialble points to, `initial` arg above must be spcified as keyword arg.
+*Note*: `*` syntax capture all positional args into a tuple which numbers varialble points to, `initial` arg above must be spcified as keyword arg.
