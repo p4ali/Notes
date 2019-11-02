@@ -52,3 +52,8 @@ abstract algebra 主要研究對象是代數結構,比如群(Groups)、環(Rings
 * 若 a, b ∈ S 則 a*b ∈ S. 這個性質就是所謂的封閉性 closed.
 
 加法運算(+)在複數集C上具有封閉性(封)、結合性(結)並擁有單位元素0+0i(單)且每一元素a+bi都有反元素(−a) + (−b)i(反),這就是所謂的群(group)的代數結構。一般而言,集合S上的一個二元運算∗;若滿足上述的封、結、 單、 反四個性質,我們就說S在運算∗之下形成一個群或說(S,∗)是一個群。 如果運算∗是可交換的;那麼理所當然,我們就說(S,∗)是一個交換群(commutative group)。通常又稱為阿貝爾群(abelian group) ,為的是要紀念數學家阿貝爾8。複數集(C,+)在加法運算之下當然是一個阿貝爾群
+
+### Reference
+* [Mondad in picture - chinese](http://jiyinyiyong.github.io/monads-in-pictures/)
+* [Monad in picture - english](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)
+* [Monda for functional programming](http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf)
