@@ -24,7 +24,7 @@ Monoid can be defined as a:
     * a ○ e = e ○ a = a
  
 ### Monad(单子)
-Functor that maps a category back to that same category is called an **endofunctor**. A monad is just a monoid in the category of endofunctors.
+Functor that maps a category back to that same category is called an [**endofunctor**](https://www.quora.com/What-is-an-endofunctor). A monad is just a monoid in the category of endofunctors.
 
 an abstract datay type in functional programming. It use to present computation not the data. It contains 2 opration **bind** (```>=``` in Haskell) and **return**, and a type constructor **M**. See also [Monads for functional programming](http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf)
 
