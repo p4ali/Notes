@@ -57,3 +57,4 @@ abstract algebra 主要研究對象是代數結構,比如群(Groups)、環(Rings
 * [Mondad in picture - chinese](http://jiyinyiyong.github.io/monads-in-pictures/)
 * [Monad in picture - english](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)
 * [Monda for functional programming](http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf)
+* [What's a functor in js](https://medium.com/@dtinth/what-is-a-functor-dcf510b098b6)
