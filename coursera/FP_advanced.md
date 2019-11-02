@@ -6,6 +6,11 @@ Representation:
 * morphisms: If `f` is a morphism with source object C and target object B, we write `f: C->B`
 * composition of these morphisms: If `g: A->B` and `f: B->C` are two morphisms, they can be composed, resulting in a morphism `f ○ g: A->C`.
 
+According the [text book from opencourse textbook](https://ocw.mit.edu/courses/mathematics/18-s097-applied-category-theory-january-iap-2019/lecture-videos-and-readings/18-s097iap19textbook.pdf):
+> A category C consists of four pieces of data—objects, morphisms, identities, and a
+composition rule—satisfying two properties: unitality and associativity.
+
+
 ### functor
 A functor is a mapping between categories. It sends objects to objects and morphisms to morphisms, all while preserving identities and composition. So given categories C and D, a functor `F: C->D`:
 * Maps any object A in C to `F(A)`, in D.
