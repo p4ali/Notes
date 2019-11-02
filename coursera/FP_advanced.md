@@ -19,7 +19,7 @@ Monoid can be defined as a:
 * single set S 
 * with an associative binary operation ○
 * and an identity element e
-* following two laws:
+* following two laws (where ○ means `compose`):
     * (a ○ b) ○ c = a ○ (b ○ c)
     * a ○ e = e ○ a = a
  
