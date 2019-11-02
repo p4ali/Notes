@@ -4,7 +4,7 @@ A functor is a container of type a that, when subjected to a function that maps 
 Unlike the abstracted-function-pointer use in C++, here the functor is not the function; rather, it's something that behaves 
 consistently when subjected to a function.
 
-According to this Haskell wiki: en.wikibooks.org/wiki/Haskell/Category_theory , it's like this: 
+According to this [Haskell wiki](https://en.wikibooks.org/wiki/Haskell/Category_theory), it's like this: 
 > A category is a collection of objects and morphisms (functions), where the morphisms are from objects in a category to other objects in that category. A functor is a function which maps objects and morphisms from one category to objects and morphisms in another
 
 A functor is a function from structures to structures; that is, a functor accepts one or more arguments, which are usually 
