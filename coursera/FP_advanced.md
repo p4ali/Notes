@@ -12,7 +12,7 @@ composition rule—satisfying two properties: unitality and associativity.
 
 
 ### functor
-A functor is a mapping between categories. It sends objects to objects and morphisms to morphisms, all while preserving identities and composition. So given categories C and D, a functor `F: C->D`:
+A functor is a mapping between categories. It sends objects to objects and morphisms to morphisms, all while preserving identities and composition. So given categories C and D, a functor `F: C->D` (C also called `domain` and D also called `codomain`):
 * Maps any object A in C to `F(A)`, in D.
 * Maps morphisms `f:A->B in C to `F(f):F(A)->F(B)` in D.
 
