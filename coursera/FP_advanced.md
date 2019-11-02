@@ -7,7 +7,7 @@ Representation:
 * composition of these morphisms: If `g: A->B` and `f: B->C` are two morphisms, they can be composed, resulting in a morphism `f ○ g: A->C`.
 
 According the [text book from opencourse textbook](https://ocw.mit.edu/courses/mathematics/18-s097-applied-category-theory-january-iap-2019/lecture-videos-and-readings/18-s097iap19textbook.pdf):
-> A category C consists of four pieces of data—objects, morphisms, identities, and a
+> A category C consists of four pieces of data—objects, homomorphisms(e.g., (f:c->d), where c,d in same cagtegory), identities, and a
 composition rule—satisfying two properties: unitality and associativity.
 
 
