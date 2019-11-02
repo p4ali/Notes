@@ -1,15 +1,15 @@
-### functor
-A functor is a container of type a that, when subjected to a function that maps from `a->b`, yields a container of type b.
-
-Unlike the abstracted-function-pointer use in C++, here the functor is not the function; rather, it's something that behaves 
-consistently when subjected to a function.
-
+### Category
 According to this [Haskell wiki](https://en.wikibooks.org/wiki/Haskell/Category_theory), it's like this: 
 > A category is a collection of objects and morphisms (functions, or arrow), where the morphisms are from objects in a category to other objects in that category. A functor is a function which maps objects and morphisms from one category to objects and morphisms in another
 
 Representation:
 * morphisms: If `f` is a morphism with source object C and target object B, we write `f: C->B`
 * composition of these morphisms: If `g: A->B` and `f: B->C` are two morphisms, they can be composed, resulting in a morphism `f ○ g: A->C`.
+
+### functor
+A functor is essentially a transformation between categories, so given categories C and D, a functor `F: C->D`:
+* Maps any object A in C to `F(A)`, in D.
+* Maps morphisms `f:A->B in C to `F(f):F(A)->F(B)` in D.
 
 A functor is a function from structures to structures; that is, a functor accepts one or more arguments, which are usually 
 structures of a given signature, and produces a struacture (of the same signature) as its result. see also [Functor(函子), 
