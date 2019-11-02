@@ -7,7 +7,7 @@ Representation:
 * composition of these morphisms: If `g: A->B` and `f: B->C` are two morphisms, they can be composed, resulting in a morphism `f ○ g: A->C`.
 
 ### functor
-A functor is essentially a transformation between categories, so given categories C and D, a functor `F: C->D`:
+A functor is a mapping between categories. It sends objects to objects and morphisms to morphisms, all while preserving identities and composition. So given categories C and D, a functor `F: C->D`:
 * Maps any object A in C to `F(A)`, in D.
 * Maps morphisms `f:A->B in C to `F(f):F(A)->F(B)` in D.
 
@@ -58,3 +58,4 @@ abstract algebra 主要研究對象是代數結構,比如群(Groups)、環(Rings
 * [Monad in picture - english](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)
 * [Monda for functional programming](http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf)
 * [What's a functor in js](https://medium.com/@dtinth/what-is-a-functor-dcf510b098b6)
+* [Applied theory open course in MIT](https://ocw.mit.edu/courses/mathematics/18-s097-applied-category-theory-january-iap-2019/)
