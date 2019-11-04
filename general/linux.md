@@ -143,6 +143,7 @@ You can use `sed` to replace the nested <version> tag as following:
 newVersion=1.0.0
 sed -i -e "/<parent>/,/<\/parent>/ s|<version>[0-9a-zA-Z.-]\{1,\}</version>|<version>$newVersion</version>|g" pom.xml
 ```
+See also [Replace strings in files with sed, the bash command](https://clubmate.fi/replace-strings-in-files-with-the-sed-bash-command/), particularly, inline replace are different on Linux and Macosx.
 
 
 ### Regex look backward `(?<=fileSize0)\d+`, lookforward `\d+(?= )` and greedy `?`
