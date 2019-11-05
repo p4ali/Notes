@@ -41,6 +41,7 @@ Monad in scala:
 * [Monad is Elephant](http://james-iry.blogspot.com/2007/09/monads-are-elephants-part-1.html)
 * [Introduction to Monads in Scala](http://www.slideshare.net/stasimus/introduction-to-monads-in-scala-1)
 
+[How to make List monad](https://rosettacode.org/wiki/Monads/List_monad)
 
 ### [abstract algebra](http://w3.math.sinica.edu.tw/math_media/d362/36204.pdf) and [Group](http://math.ntnu.edu.tw/~li/algebra-html/node4.html)
 abstract algebra 主要研究對象是代數結構,比如群(Groups)、環(Rings)、體(Fields)、模(Modules)、 向量空間(Vector Spaces)和代數(Algebras.
