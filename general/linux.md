@@ -402,3 +402,6 @@ curl 'https://api.github.com/repos/stedolan/jq/commits?per_page=5' | jq '.[] | {
 * [bash hacker wiki](http://wiki.bash-hackers.org/)
 * [ten thing about linux commandline](https://linuxacademy.com/blog/linux/ten-things-i-wish-i-knew-earlier-about-the-linux-command-line-2/)
 * [bash pitfalls](http://mywiki.wooledge.org/BashPitfalls)
+* [double bracket is a bashism which single bracket is a command](https://scriptingosx.com/2018/02/single-brackets-vs-double-brackets/)
+* [double parenthes is a construct for csh](http://tldp.org/LDP/abs/html/dblparens.html)
+* [bash brace expansion](https://www.linuxjournal.com/content/bash-brace-expansion)
