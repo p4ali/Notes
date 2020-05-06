@@ -528,3 +528,4 @@ The git attributes can define the line ending on check out:
 * [Trunk based development flow](https://trunkbaseddevelopment.com/)
 * [Git workflow by GitLab](https://about.gitlab.com/2014/09/29/gitlab-flow/)
 * [Another git ref](https://gist.github.com/hofmannsven/6814451)
+* [Check out PR from github](https://github.com/genome/docs/wiki/How-do-I-%60git-checkout%60-a-pull-request%3F)
