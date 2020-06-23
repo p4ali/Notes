@@ -7,3 +7,5 @@
 * [redirection](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_07), [Redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html)
 * [Quotes](https://mywiki.wooledge.org/Quotes), [quote removal](https://www.gnu.org/software/bash/manual/html_node/Quote-Removal.html)
 
+
+## [Grammar rules](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_10_02)
