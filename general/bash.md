@@ -4,5 +4,6 @@
   * ` x=abcDefg;  echo ${x^^@(a|b)}`
 * [command substitution $(ls)](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html)
 * [arithmetic expansion $((++x + --z))](https://www.gnu.org/software/bash/manual/html_node/Arithmetic-Expansion.html)
-* [redirection](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_07)
+* [redirection](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_07), [Redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html)
+* [Quotes](https://mywiki.wooledge.org/Quotes), [quote removal](https://www.gnu.org/software/bash/manual/html_node/Quote-Removal.html)
 
