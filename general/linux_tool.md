@@ -48,6 +48,7 @@ sudo /sbin/iptables -L -v
 <details>
   <summary>Print connection status with `/proc/net/tcp`</summary>
   <p>
+
 ```bash
 #!/usr/bin/bash
 #*******************************************************************************
