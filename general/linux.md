@@ -394,6 +394,8 @@ cat x.json |jq '.[] | select(.clusterRegion|contains("cloud")) |del(.addons)'
 
 ## count total cloud clusters - x.json is an array of map
 cat x.json |jq '. |map(select(.clusterRegion|contains("cloud")))|length'
+## or
+$ cat x.json |jq '. - map(select(.clusterRegion|contains("cloud"))) | del(.[].addons) |length'
 ```
 
 
