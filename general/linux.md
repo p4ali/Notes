@@ -388,6 +388,9 @@ $ echo '{ "a": "1", "b":"2"}' |jq  '{(.a) : (.b)}'
 
 ## extract certain attributes from an array with xpath like syntax
 curl 'https://api.github.com/repos/stedolan/jq/commits?per_page=5' | jq '.[] | {message: .commit.message, name: .commit.committer.name}'
+
+## filter array based on attribute, and delete some attribute
+cat x.json |jq '.[] | select(.clusterRegion|contains("cloud")) |del(.addons)'
 ```
 
 
