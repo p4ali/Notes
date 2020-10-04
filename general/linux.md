@@ -391,6 +391,9 @@ curl 'https://api.github.com/repos/stedolan/jq/commits?per_page=5' | jq '.[] | {
 
 ## filter array based on attribute, and delete some attribute
 cat x.json |jq '.[] | select(.clusterRegion|contains("cloud")) |del(.addons)'
+
+## count total cloud clusters - x.json is an array of map
+cat x.json |jq '. |map(select(.clusterRegion|contains("cloud")))|length'
 ```
 
 
