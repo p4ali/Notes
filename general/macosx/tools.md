@@ -1,3 +1,10 @@
+## Common command
+
+### How to open apps from unidentified developers on Mac in macOS Catalina
+```
+sudo spctl --master-disable
+```
+
 ## Open broadcaster software
 http://sourceforge.net/projects/obsproject/
 ## Shiftit
